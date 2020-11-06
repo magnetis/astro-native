@@ -8,7 +8,8 @@
     "typeRoots": ["typings", "node_modules/@types"],
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "jsx": "react-native",
     "forceConsistentCasingInFileNames": true,
-    
-  }
+  },
+  "exclude": ["setupJest.ts"]
 }
