@@ -14,13 +14,6 @@
     "skipLibCheck": true,
     "jsx": "react-native",
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "./",
-    "paths": {
-      "@components/*": ["src/components/*"],
-      "@tokens/*": ["src/tokens/*"],
-      "@typings/*": ["typings/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@root/*": ["./*"]
-    }
-  }
+  },
+  "exclude": ["setupJest.ts"]
 }

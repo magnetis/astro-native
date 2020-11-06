@@ -11,17 +11,9 @@
     "access": "public"
   },
   "scripts": {
-    "install:ios": "yarn && npx pod-install ios",
-    "install:android": "yarn",
     "clean": "rm -rf ./dist",
     "test": "jest .",
-    "lint": "eslint ./src --ext .ts,.tsx",
-    "prepublishOnly": "yarn clean && tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist",
-    "version": "auto-changelog -p && git add CHANGELOG.md package.json && git commit -m \"bump: v${npm_package_version}\"",
-    "storybook": "start-storybook -p 7007",
-    "start": "yarn react-native start",
-    "build:ios": "react-native run-ios",
-    "build:android": "react-native run-android"
+    "prepublishOnly": "yarn clean && tsc"
   },
   "repository": {
     "type": "git",
@@ -46,13 +38,8 @@
     "@storybook/react-native-server": "^5.3.23",
     "@testing-library/jest-native": "^3.4.3",
     "@testing-library/react-native": "^7.1.0",
-    "@types/jest": "^25.2.3",
-    "@types/node": "^14.14.7",
     "@types/react": "^16.9.56",
     "@types/react-native": "^0.63.33",
-    "@types/react-test-renderer": "^16.9.3",
-    "@types/storybook__react": "^5.2.1",
-    "@types/styled-components": "^5.1.4",
     "@typescript-eslint/eslint-plugin": "^4.6.1",
     "@typescript-eslint/parser": "^4.6.1",
     "auto-changelog": "^2.2.1",
@@ -72,8 +59,7 @@
     "prettier": "2.1.2",
     "react": "^16.13.1",
     "react-native": "^0.63.3",
-    "react-test-renderer": "^17.0.1",
-    "tscpaths": "^0.0.9",
+    "ts-jest": "^26.4.3",
     "typescript": "^4.0.5"
   },
   "peerDependencies": {
