@@ -1,0 +1,30 @@
+---
+root: true
+
+extends:
+  - prettier
+  - prettier/flowtype
+  - prettier/react
+
+plugins:
+  - prettier
+
+
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+    modules: true
+  project: ./tsconfig.json
+
+env:
+  node: true
+  jest: true
+
+globals:
+  __DEV__: true
+
+rules:
+  no-undef: error
+  no-unused-vars: error
+  "@typescript-eslint/no-unused-vars": 0
+  prettier/prettier: error
