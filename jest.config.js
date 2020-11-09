@@ -1,15 +1,19 @@
 module.exports = {
-  setupFilesAfterEnv: ['<rootDir>setupJest.ts', '@testing-library/jest-native/extend-expect'],
+  setupFilesAfterEnv: ['<rootDir>setupJest.ts'],
   preset: 'react-native',
   testEnvironment: 'jsdom',
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  testMatch: ['<rootDir>/src/**/*.{spec,test}.{ts,tsx}'],
-  collectCoverageFrom: [
-    'src/components/**/*.{ts,tsx}',
-    '!src/components/Icons/Dashboard/**/*.{ts,tsx}',
-    '!src/components/Icons/Support/**/*.{ts,tsx}',
-  ],
-  coverageReporters: ['lcov', 'text', 'text-summary'],
+  moduleFileExtensions: ['js', 'ts', 'tsx'],
+  testMatch: ['<rootDir>/src/**/?(*.)+(spec|test).ts?(x)'],
+  testPathIgnorePatterns: ['/node_modules/'],
+  transform: {
+    '^.+\\.tsx?$': 'ts-jest',
+  },
+  transformIgnorePatterns: ['node_modules/(?!react-native-svg|react-native)/'],
+  globals: {
+    'ts-jest': {
+      babelConfig: true,
+    },
+  },
   coverageThreshold: {
     global: {
       branches: 95,
