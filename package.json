@@ -13,7 +13,9 @@
   "scripts": {
     "clean": "rm -rf ./dist",
     "test": "jest .",
-    "prepublishOnly": "yarn clean && tsc"
+    "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
+    "prepublishOnly": "yarn clean && tsc",
+    "ci": "yarn lint && yarn test && tsc --noEmit"
   },
   "repository": {
     "type": "git",
