@@ -15,7 +15,7 @@
     "test": "jest .",
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
     "prepublishOnly": "yarn clean && tsc",
-    "ci": "yarn lint && yarn test && tsc --noEmit"
+    "ci": "yarn lint && yarn test --passWithNoTests && tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -53,7 +53,6 @@
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "husky": "^4",
     "jest": "^26.6.3",
     "lint-staged": ">=10",
     "metro-react-native-babel-preset": "^0.59.0",
