@@ -8,9 +8,11 @@
   ],
   "main": "dist/index.js",
   "scripts": {
+    "install:ios": "yarn && npx pod-install ios",
+    "install:android": "yarn",
     "clean": "rm -rf ./dist",
     "test": "jest .",
-    "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
+    "lint": "eslint ./src --ext .ts,.tsx",
     "prepublishOnly": "yarn clean && tsc",
     "ci": "yarn lint && yarn test --passWithNoTests && tsc --noEmit"
   },
@@ -29,16 +31,21 @@
   ],
   "license": "Apache-2.0",
   "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
     "@testing-library/jest-native": "^3.4.3",
     "@testing-library/react-native": "^7.1.0",
+    "@types/jest": "^25.2.3",
     "@types/react": "^16.9.56",
     "@types/react-native": "^0.63.33",
     "@typescript-eslint/eslint-plugin": "^4.6.1",
     "@typescript-eslint/parser": "^4.6.1",
+    "babel-jest": "^25.1.0",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
     "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.59.0",
     "prettier": "2.1.2",
     "react": "^16.13.1",
     "react-native": "^0.63.3",
@@ -51,5 +58,12 @@
   },
   "dependencies": {
     "@magnetis/astro-galaxy-tokens": "^1.2.3"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx"
+    ]
   }
 }
