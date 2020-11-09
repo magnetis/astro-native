@@ -14,11 +14,14 @@
     "test": "jest .",
     "lint": "eslint ./src --ext .ts,.tsx",
     "prepublishOnly": "yarn clean && tsc",
-    "ci": "yarn lint && yarn test --passWithNoTests && tsc --noEmit"
+    "ci": "yarn lint && yarn test --passWithNoTests && tsc --noEmit",
+    "storybook": "start-storybook -p 7007",
+    "dev:ios": "concurrently \"yarn react-native run-ios\" \"yarn react-native start\" \"yarn storybook\"",
+    "dev:android": "concurrently \"yarn react-native run-android\" \"yarn react-native start\" \"yarn storybook\""
   },
   "repository": {
     "type": "git",
-    "url": "none"
+    "url": "https://github.com/magnetis/astro-native"
   },
   "keywords": [
     "astro",
@@ -33,14 +36,25 @@
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/runtime": "^7.8.4",
+    "@storybook/addon-actions": "^5.3",
+    "@storybook/addon-knobs": "^5.3",
+    "@storybook/addon-links": "^5.3",
+    "@storybook/addon-ondevice-actions": "^5.3.23",
+    "@storybook/addon-ondevice-knobs": "^5.3.23",
+    "@storybook/react-native": "^5.3.23",
+    "@storybook/react-native-server": "^5.3.23",
     "@testing-library/jest-native": "^3.4.3",
     "@testing-library/react-native": "^7.1.0",
     "@types/jest": "^25.2.3",
+    "@types/node": "^14.14.7",
     "@types/react": "^16.9.56",
     "@types/react-native": "^0.63.33",
+    "@types/storybook__react": "^5.2.1",
     "@typescript-eslint/eslint-plugin": "^4.6.1",
     "@typescript-eslint/parser": "^4.6.1",
     "babel-jest": "^25.1.0",
+    "babel-loader": "^8.1.0",
+    "concurrently": "^5.3.0",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
