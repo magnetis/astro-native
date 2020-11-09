@@ -1,16 +1,14 @@
 module.exports = {
-  setupFilesAfterEnv: ['<rootDir>setup-tests.ts'],
+  setupFilesAfterEnv: ['<rootDir>setupJest.ts'],
   preset: 'react-native',
   testEnvironment: 'jsdom',
-  moduleFileExtensions: ['ts', 'tsx'],
+  moduleFileExtensions: ['js', 'ts', 'tsx'],
   testMatch: ['<rootDir>/src/**/?(*.)+(spec|test).ts?(x)'],
   testPathIgnorePatterns: ['/node_modules/'],
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
   },
-  transformIgnorePatterns: [
-    'node_modules/(?!react-native-svg|react-native)/',
-  ],
+  transformIgnorePatterns: ['node_modules/(?!react-native-svg|react-native)/'],
   globals: {
     'ts-jest': {
       babelConfig: true,
