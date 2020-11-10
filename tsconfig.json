@@ -4,12 +4,19 @@
     "module": "commonjs",
     "declaration": true,
     "strict": true,
+    "isolatedModules": true,
     "outDir": "dist",
     "typeRoots": ["typings", "node_modules/@types"],
     "esModuleInterop": true,
     "skipLibCheck": true,
     "jsx": "react-native",
     "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@tokens/*": ["src/tokens/*"],
+      "@typings/*": ["typings/*"]
+    }
   },
-  "exclude": ["setupJest.ts"]
+  "exclude": ["setupJest.ts", "src/stories", "dist"]
 }
