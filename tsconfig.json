@@ -6,7 +6,6 @@
     "lib": ["ES2019"],
     "declaration": true,
     "strict": true,
-    "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
     "outDir": "dist",
     "typeRoots": ["typings", "node_modules/@types"],
@@ -14,6 +13,12 @@
     "skipLibCheck": true,
     "jsx": "react-native",
     "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@tokens/*": ["src/tokens/*"],
+      "@typings/*": ["typings/*"]
+    }
   },
-  "exclude": ["setupJest.ts"]
+  "exclude": ["setupJest.ts", "src/stories", "dist"]
 }
