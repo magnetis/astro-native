@@ -5,19 +5,17 @@ parser: '@typescript-eslint/parser'
 
 extends:
   - prettier
-  - prettier/flowtype
+  - prettier/@typescript-eslint
   - prettier/react
 
 plugins:
   - prettier
   - '@typescript-eslint'
 
-
 parserOptions:
   ecmaFeatures:
     jsx: true
     modules: true
-  project: ./tsconfig.json
 
 env:
   node: true
