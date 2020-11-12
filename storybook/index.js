@@ -21,6 +21,9 @@ const StorybookUIRoot = getStorybookUI({
   asyncStorage: null,
   port: 7007,
   host: 'localhost',
+  onDeviceUI: false,
+  disableWebsockets: true,
+  tabOpen: 2,
 });
 
 AppRegistry.registerComponent('%APP_NAME%', () => StorybookUIRoot);
