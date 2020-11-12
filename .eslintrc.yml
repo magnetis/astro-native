@@ -12,7 +12,6 @@ plugins:
   - prettier
   - '@typescript-eslint'
 
-
 parserOptions:
   ecmaFeatures:
     jsx: true
