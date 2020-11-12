@@ -1,4 +1,4 @@
-import type { StyleProp, TextProps, TextStyle } from 'react-native';
+import type { TextProps } from 'react-native';
 import React, { ReactNode } from 'react';
 import { Text } from 'react-native';
 
@@ -11,8 +11,7 @@ interface BaseTextProps extends TextProps {
 }
 
 function BaseText({ color, align, fontFamily, fontSize, children, ...props }: BaseTextProps) {
-  const style: StyleProp<TextStyle> = {
-    ...(props.style as object),
+  const style = {
     color,
     textAlign: align,
     fontFamily: fontFamily,
