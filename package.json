@@ -21,8 +21,9 @@
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "ci": "yarn lint && yarn test && tsc --noEmit",
     "storybook": "start-storybook -p 7007",
-    "dev:ios": "concurrently \"yarn react-native run-ios\" \"yarn react-native start\" \"yarn storybook\"",
-    "dev:android": "concurrently \"yarn react-native run-android\" \"yarn react-native start\" \"yarn storybook\""
+    "start": "yarn react-native start",
+    "build:ios": "react-native run-ios",
+    "build:android": "react-native run-android"
   },
   "repository": {
     "type": "git",
@@ -80,6 +81,7 @@
   },
   "dependencies": {
     "@magnetis/astro-galaxy-tokens": "^1.2.3",
+    "react-native-svg": "^12.1.0",
     "styled-components": "^5.2.1"
   }
 }
