@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
+import { PrimaryTextMedium } from '@components/Text';
 import { ButtonColor, ButtonSize } from '@components/Buttons/types';
 
 const colorOptions: ButtonColor[] = ['uranus', 'venus', 'mars', 'earth'];
@@ -33,3 +34,8 @@ buttonsStories.add('OutlineButton', () => (
   />
 ));
 
+buttonsStories.add('Link', () => (
+  <Link onPress={() => console.log('Pressed')} size={select('size', sizeOptions, 'medium')}>
+    <PrimaryTextMedium>this is a Link</PrimaryTextMedium>
+  </Link>
+));
