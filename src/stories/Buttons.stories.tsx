@@ -9,6 +9,7 @@ import {
   Link,
   OutlineIconButton,
   IconLabelButton,
+  IconButton,
 } from '@components/Buttons';
 import { PrimaryTextMedium } from '@components/Text';
 import { ButtonColor, ButtonSize } from '@components/Buttons/types';
@@ -45,6 +46,17 @@ buttonsStories.add('IconLabelButton', () => (
     icon={select('icon', iconOptions, iconOptions[0])}
     size={select('size', sizeOptions, 'medium')}
     iconPosition={select('iconPosition', iconPositionOptions, 'left')}
+  />
+));
+
+buttonsStories.add('IconButton', () => (
+  <IconButton
+    onPress={() => console.log('Pressed')}
+    isDisabled={boolean('isDisabled', false)}
+    isLoading={boolean('isLoading', false)}
+    color={select('color', colorOptions, 'uranus')}
+    icon={select('icon', iconOptions, iconOptions[0])}
+    size={select('size', sizeOptions, 'medium')}
   />
 ));
 
