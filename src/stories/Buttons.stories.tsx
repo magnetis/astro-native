@@ -2,7 +2,14 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
-import { OutlineButton, OutlineIconLabelButton, PrimaryButton, Link, OutlineIconButton } from '@components/Buttons';
+import {
+  OutlineButton,
+  OutlineIconLabelButton,
+  PrimaryButton,
+  Link,
+  OutlineIconButton,
+  IconLabelButton,
+} from '@components/Buttons';
 import { PrimaryTextMedium } from '@components/Text';
 import { ButtonColor, ButtonSize } from '@components/Buttons/types';
 import * as icons from '@components/Icons';
@@ -24,6 +31,20 @@ buttonsStories.add('PrimaryButton', () => (
     fill={boolean('fill', false)}
     color={select('color', colorOptions, 'uranus')}
     size={select('size', sizeOptions, 'medium')}
+  />
+));
+
+buttonsStories.add('IconLabelButton', () => (
+  <IconLabelButton
+    text={text('text', 'Button')}
+    onPress={() => console.log('Pressed')}
+    isDisabled={boolean('isDisabled', false)}
+    isLoading={boolean('isLoading', false)}
+    fill={boolean('fill', false)}
+    color={select('color', colorOptions, 'uranus')}
+    icon={select('icon', iconOptions, iconOptions[0])}
+    size={select('size', sizeOptions, 'medium')}
+    iconPosition={select('iconPosition', iconPositionOptions, 'left')}
   />
 ));
 
