@@ -6,8 +6,10 @@ import { withKnobs } from '@storybook/addon-knobs';
 
 import '@storybook/addon-ondevice-knobs/register';
 
+import StoryDecorator from './StoryDecorator';
 // enables knobs for all stories
 addDecorator(withKnobs);
+addDecorator(StoryDecorator);
 
 // import stories
 configure(() => {
@@ -21,8 +23,8 @@ const StorybookUIRoot = getStorybookUI({
   port: 7007,
   host: 'localhost',
   onDeviceUI: false,
-  disableWebsockets: true,
-  tabOpen: 2,
+  shouldPersistSelection: false,
+  tabOpen: 1,
 });
 
 AppRegistry.registerComponent('%APP_NAME%', () => StorybookUIRoot);
