@@ -56,7 +56,11 @@ export function getButtonHeight(size: ButtonSize): number {
   }
 }
 
-export function getBorderRadius(size: ButtonSize): number {
+export function getBorderRadius(size: ButtonSize, noHorizontalPadding: boolean): number {
+  if (noHorizontalPadding) {
+    return getFontSize(size) * 2;
+  }
+
   switch (size) {
     case 'very-small':
       return 25;

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
-import { OutlineButton, OutlineIconLabelButton, PrimaryButton, Link } from '@components/Buttons';
+import { OutlineButton, OutlineIconLabelButton, PrimaryButton, Link, OutlineIconButton } from '@components/Buttons';
 import { PrimaryTextMedium } from '@components/Text';
 import { ButtonColor, ButtonSize } from '@components/Buttons/types';
 import * as icons from '@components/Icons';
@@ -50,6 +50,17 @@ buttonsStories.add('OutlineIconLabelButton', () => (
     icon={select('icon', iconOptions, iconOptions[0])}
     size={select('size', sizeOptions, 'medium')}
     iconPosition={select('iconPosition', iconPositionOptions, 'left')}
+  />
+));
+
+buttonsStories.add('OutlineIconButton', () => (
+  <OutlineIconButton
+    onPress={() => console.log('Pressed')}
+    isDisabled={boolean('isDisabled', false)}
+    isLoading={boolean('isLoading', false)}
+    color={select('color', colorOptions, 'uranus')}
+    icon={select('icon', iconOptions, iconOptions[0])}
+    size={select('size', sizeOptions, 'medium')}
   />
 ));
 

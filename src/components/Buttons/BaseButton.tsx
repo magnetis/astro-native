@@ -50,7 +50,7 @@ function BaseButton({
   const computedStyles: any = {
     ...getButtonPadding(size, noHorizontalPadding),
     backgroundColor: props.backgroundColor,
-    borderRadius: getBorderRadius(size),
+    borderRadius: getBorderRadius(size, noHorizontalPadding),
     borderColor: props.borderColor,
     height: getButtonHeight(size),
     borderWidth: 2,
@@ -60,6 +60,10 @@ function BaseButton({
     computedStyles.width = '100%';
   } else {
     computedStyles.alignSelf = 'center';
+  }
+
+  if (noHorizontalPadding) {
+    computedStyles.width = getButtonHeight(size);
   }
 
   const pressableProps = {

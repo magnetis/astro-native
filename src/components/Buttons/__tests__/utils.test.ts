@@ -46,10 +46,15 @@ describe('Button/utils', () => {
   });
 
   it('getBorderRadius', () => {
-    expect(getBorderRadius('very-small')).toBe(25);
-    expect(getBorderRadius('small')).toBe(16);
-    expect(getBorderRadius('medium')).toBe(31);
-    expect(getBorderRadius('large')).toBe(24);
+    expect(getBorderRadius('very-small', false)).toBe(25);
+    expect(getBorderRadius('small', false)).toBe(16);
+    expect(getBorderRadius('medium', false)).toBe(31);
+    expect(getBorderRadius('large', false)).toBe(24);
+
+    expect(getBorderRadius('very-small', true)).toBe(24);
+    expect(getBorderRadius('small', true)).toBe(28);
+    expect(getBorderRadius('medium', true)).toBe(32);
+    expect(getBorderRadius('large', true)).toBe(48);
   });
 
   it('getLineHeight', () => {

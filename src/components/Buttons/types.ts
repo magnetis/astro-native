@@ -22,3 +22,7 @@ export interface IconLabelButtonProps extends ButtonProps {
   icon: string;
   iconPosition?: 'left' | 'right';
 }
+
+export interface IconButtonProps extends Omit<ButtonProps, 'text' | 'fill'> {
+  icon: string;
+}
