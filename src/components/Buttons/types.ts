@@ -18,7 +18,7 @@ export interface ButtonProps extends PressableProps {
   fill?: boolean;
 }
 
-export interface IconButtonProps extends ButtonProps {
+export interface IconLabelButtonProps extends ButtonProps {
   icon: string;
-  iconPosition: 'left' | 'right';
+  iconPosition?: 'left' | 'right';
 }
