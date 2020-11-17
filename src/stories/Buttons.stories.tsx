@@ -21,3 +21,15 @@ buttonsStories.add('PrimaryButton', () => (
   />
 ));
 
+buttonsStories.add('OutlineButton', () => (
+  <OutlineButton
+    text={text('text', 'Button')}
+    onPress={() => console.log('Pressed')}
+    isDisabled={boolean('isDisabled', false)}
+    isLoading={boolean('isLoading', false)}
+    fill={boolean('fill', false)}
+    color={select('color', colorOptions, 'uranus')}
+    size={select('size', sizeOptions, 'medium')}
+  />
+));
+
