@@ -10,6 +10,7 @@ import {
   OutlineIconButton,
   IconLabelButton,
   IconButton,
+  GhostIconButton,
 } from '@components/Buttons';
 import { PrimaryTextMedium } from '@components/Text';
 import { ButtonColor, ButtonSize } from '@components/Buttons/types';
@@ -51,6 +52,17 @@ buttonsStories.add('IconLabelButton', () => (
 
 buttonsStories.add('IconButton', () => (
   <IconButton
+    onPress={() => console.log('Pressed')}
+    isDisabled={boolean('isDisabled', false)}
+    isLoading={boolean('isLoading', false)}
+    color={select('color', colorOptions, 'uranus')}
+    icon={select('icon', iconOptions, iconOptions[0])}
+    size={select('size', sizeOptions, 'medium')}
+  />
+));
+
+buttonsStories.add('GhostIconButton', () => (
+  <GhostIconButton
     onPress={() => console.log('Pressed')}
     isDisabled={boolean('isDisabled', false)}
     isLoading={boolean('isLoading', false)}

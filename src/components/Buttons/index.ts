@@ -4,6 +4,7 @@ import type { LinkProps } from './Link';
 export { default as PrimaryButton } from './PrimaryButton';
 export { default as IconLabelButton } from './IconLabelButton';
 export { default as IconButton } from './IconButton';
+export { default as GhostIconButton } from './GhostIconButton';
 export { default as OutlineButton } from './OutlineButton';
 export { default as OutlineIconLabelButton } from './OutlineIconLabelButton';
 export { default as OutlineIconButton } from './OutlineIconButton';
