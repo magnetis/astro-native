@@ -11,6 +11,7 @@ import {
   OutlineIconButton,
   OutlineIconLabelButton,
   GhostIconButton,
+  GhostIconLabelButton,
   Link,
   IconLinkButton,
 } from '@components/Buttons';
@@ -71,6 +72,20 @@ buttonsStories.add('GhostIconButton', () => (
     color={select('color', colorOptions, 'uranus')}
     icon={select('icon', iconOptions, iconOptions[0])}
     size={select('size', sizeOptions, 'medium')}
+  />
+));
+
+buttonsStories.add('GhostIconLabelButton', () => (
+  <GhostIconLabelButton
+    text={text('text', 'Button')}
+    onPress={() => console.log('Pressed')}
+    isDisabled={boolean('isDisabled', false)}
+    isLoading={boolean('isLoading', false)}
+    fill={boolean('fill', false)}
+    color={select('color', colorOptions, 'uranus')}
+    icon={select('icon', iconOptions, iconOptions[0])}
+    size={select('size', sizeOptions, 'medium')}
+    iconPosition={select('iconPosition', iconPositionOptions, 'left')}
   />
 ));
 
