@@ -1,16 +1,18 @@
 import React from 'react';
+import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
 import {
-  OutlineButton,
-  OutlineIconLabelButton,
   PrimaryButton,
-  Link,
-  OutlineIconButton,
-  IconLabelButton,
   IconButton,
+  IconLabelButton,
+  OutlineButton,
+  OutlineIconButton,
+  OutlineIconLabelButton,
   GhostIconButton,
+  Link,
+  IconLinkButton,
 } from '@components/Buttons';
 import { PrimaryTextMedium } from '@components/Text';
 import { ButtonColor, ButtonSize } from '@components/Buttons/types';
@@ -111,6 +113,20 @@ buttonsStories.add('OutlineIconButton', () => (
 
 buttonsStories.add('Link', () => (
   <Link onPress={() => console.log('Pressed')} size={select('size', sizeOptions, 'medium')}>
-    <PrimaryTextMedium>this is a Link</PrimaryTextMedium>
+    <PrimaryTextMedium>Button</PrimaryTextMedium>
   </Link>
+));
+
+buttonsStories.add('IconLinkButton', () => (
+  <View style={{ backgroundColor: 'black', justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+    <IconLinkButton
+      icon={select('icon', iconOptions, iconOptions[0])}
+      onPress={() => console.log('Pressed')}
+      iconPosition={select('iconPosition', iconPositionOptions, 'left')}
+      size={select('size', sizeOptions, 'medium')}
+      text={text('text', 'Button')}
+      bold={boolean('bold', false)}
+      isDisabled={boolean('isDisabled', false)}
+    />
+  </View>
 ));
