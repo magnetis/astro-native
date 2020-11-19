@@ -11,7 +11,7 @@ const props = {
   testID: 'GhostIconButton',
 };
 
-describe(' Icon Button', () => {
+describe('Ghost Icon Button', () => {
   it('renders correctly with default props', () => {
     const { getByTestId } = render(<GhostIconButton {...props} icon="Alert" />);
     const button = getByTestId('GhostIconButton');

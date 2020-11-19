@@ -8,7 +8,7 @@ import BaseButton from './BaseButton';
 import { getIcon } from '@components/Icons/utils';
 import BaseText from './BaseText';
 
-const GhostIconButton: React.FC<IconLabelButtonProps> = ({
+const GhostIconLabelButton: React.FC<IconLabelButtonProps> = ({
   ref,
   text,
   onPress,
@@ -64,4 +64,4 @@ const GhostIconButton: React.FC<IconLabelButtonProps> = ({
   );
 };
 
-export default GhostIconButton;
+export default GhostIconLabelButton;

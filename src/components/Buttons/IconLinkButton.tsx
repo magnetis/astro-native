@@ -7,7 +7,7 @@ import { getIcon } from '@components/Icons/utils';
 import { getFontSize } from './utils';
 import { ButtonSize } from './types';
 
-interface IconLinkProps extends PressableProps {
+interface IconLinkButtonProps extends PressableProps {
   text: string;
   bold?: boolean;
   onPress: () => void;
@@ -17,7 +17,7 @@ interface IconLinkProps extends PressableProps {
   isDisabled?: boolean;
 }
 
-function IconLink({
+function IconLinkButton({
   text,
   onPress,
   size = 'medium',
@@ -25,7 +25,7 @@ function IconLink({
   iconPosition = 'left',
   bold = false,
   ...props
-}: IconLinkProps) {
+}: IconLinkButtonProps) {
   const iconSize = getFontSize(size) * 1.5;
   const Icon = getIcon(props.icon);
 
@@ -53,7 +53,7 @@ function IconLink({
               flexDirection: iconPosition === 'left' ? 'row' : 'row-reverse',
             }}
           >
-            <View testID="IconLink.Icon" style={iconWrapperStyle}>
+            <View testID="IconLinkButton.Icon" style={iconWrapperStyle}>
               <Icon width={iconSize} height={iconSize} color={color} />
             </View>
             <TextComponent color={color} bold={bold}>
@@ -66,5 +66,5 @@ function IconLink({
   );
 }
 
-export default IconLink;
-export type { IconLinkProps };
+export default IconLinkButton;
+export type { IconLinkButtonProps };

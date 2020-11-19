@@ -1,6 +1,6 @@
 import type { ButtonProps, IconLabelButtonProps, IconButtonProps } from './types';
 import type { LinkProps } from './Link';
-import type { IconLinkProps } from './IconLinkButton';
+import type { IconLinkButtonProps } from './IconLinkButton';
 
 export { default as PrimaryButton } from './PrimaryButton';
 export { default as IconButton } from './IconButton';
@@ -16,4 +16,4 @@ export { default as OutlineIconButton } from './OutlineIconButton';
 export { default as Link } from './Link';
 export { default as IconLinkButton } from './IconLinkButton';
 
-export type { ButtonProps, LinkProps, IconLabelButtonProps, IconButtonProps, IconLinkProps };
+export type { ButtonProps, LinkProps, IconLabelButtonProps, IconButtonProps, IconLinkButtonProps };
