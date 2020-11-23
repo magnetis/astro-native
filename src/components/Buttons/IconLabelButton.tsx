@@ -1,32 +1,29 @@
 import React from 'react';
-import { View } from 'react-native';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 
 import { getButtonMainColor, getButtonSecondaryColor, getIconSize } from './utils';
 import type { IconLabelButtonProps } from './types';
-import BaseButtonText from './BaseButtonText';
 import BaseButton from './BaseButton';
-import { getIcon } from './utils';
+import BaseText from './BaseText';
+import { View } from 'react-native';
+import { getIcon } from '@components/Icons/utils';
 
-/**
- * Buttons with icons help identify the action or context within the interface.
- * This component consists of a **PrimaryButton** with an icon and some text.
- */
 const IconLabelButton: React.FC<IconLabelButtonProps> = ({
+  ref,
   text,
   onPress,
   accessibilityLabel = '',
-  loading = false,
+  isLoading = false,
   color = 'uranus',
-  disabled = false,
+  isDisabled = false,
   size = 'medium',
   fill = false,
   testID,
   iconPosition = 'left',
   ...props
 }) => {
-  const backgroundColor = disabled ? colors.moon300 : getButtonMainColor(color);
-  const textColor = disabled ? colors.space100 : getButtonSecondaryColor(color);
+  const backgroundColor = isDisabled ? colors.moon300 : getButtonMainColor(color);
+  const textColor = isDisabled ? colors.space100 : getButtonSecondaryColor(color);
   const iconSize = getIconSize(size);
   const Icon = getIcon(props.icon);
   const baseProps = {
@@ -34,14 +31,14 @@ const IconLabelButton: React.FC<IconLabelButtonProps> = ({
     borderColor: backgroundColor,
     accessibilityLabel,
     backgroundColor,
-    disabled,
+    isDisabled,
     textColor,
-    loading,
+    isLoading,
     onPress,
     testID,
     size,
     fill,
-    hasIcon: true,
+    ref,
   };
 
   const iconWrapperStyle = {
@@ -60,9 +57,9 @@ const IconLabelButton: React.FC<IconLabelButtonProps> = ({
         <View testID="IconLabelButton.Icon" style={iconWrapperStyle}>
           <Icon {...iconSize} color={textColor} />
         </View>
-        <BaseButtonText size={size} color={textColor}>
+        <BaseText size={size} color={textColor}>
           {text}
-        </BaseButtonText>
+        </BaseText>
       </View>
     </BaseButton>
   );

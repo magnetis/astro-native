@@ -2,37 +2,26 @@ import React from 'react';
 import { Pressable, PressableProps, View } from 'react-native';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 
+import { SecondaryTextLarge, SecondaryTextMedium, SecondaryTextSmall, SecondaryTextVerySmall } from '@components/Text';
+import { getIcon } from '@components/Icons/utils';
+import { getFontSize } from './utils';
 import { ButtonSize } from './types';
-import { getIcon } from './utils';
-import { getFontSize } from '@tokens/utils';
-import { IconID } from '@components/Icons/types';
-import { getSecondaryTextFromSize } from '@components/Text/utils';
 
 interface IconLinkButtonProps extends PressableProps {
-  /** Text to be shown inside the button */
   text: string;
-  /** renders text as bold when true. Defaults to `false`. */
   bold?: boolean;
-  /** IconLinkButton press callback */
   onPress: () => void;
-  /** Name of valid Astro's icon in PascalCase */
-  icon: IconID;
-  /** Whether icon will be positioned on left or right of text. Defaults to `"left"` */
+  icon: string;
   iconPosition?: 'left' | 'right';
-  /** Specifies button size. Defaults to `"medium"` */
   size?: ButtonSize;
-  /** Supress any user interaction with component. Defaults to `false`. */
-  disabled?: boolean;
+  isDisabled?: boolean;
 }
 
-/**
- * Icon link buttons can be used for menu items and simple interactions or commands.
- */
 function IconLinkButton({
   text,
   onPress,
   size = 'medium',
-  disabled = false,
+  isDisabled = false,
   iconPosition = 'left',
   bold = false,
   ...props
@@ -45,12 +34,17 @@ function IconLinkButton({
     marginRight: iconPosition === 'right' ? 0 : 9,
   };
 
-  const TextComponent = getSecondaryTextFromSize(size);
+  const TextComponent = {
+    'very-small': SecondaryTextVerySmall,
+    small: SecondaryTextSmall,
+    medium: SecondaryTextMedium,
+    large: SecondaryTextLarge,
+  }[size];
 
   return (
-    <Pressable hitSlop={10} disabled={disabled} onPress={onPress} {...props}>
+    <Pressable hitSlop={10} disabled={isDisabled} onPress={onPress} {...props}>
       {({ pressed }) => {
-        const color = disabled ? colors.moon300 : pressed ? colors.uranus700 : colors.space100;
+        const color = isDisabled ? colors.moon300 : pressed ? colors.uranus700 : colors.space100;
 
         return (
           <View

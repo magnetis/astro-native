@@ -37,18 +37,19 @@ describe('BaseButton', () => {
       expect.objectContaining({
         backgroundColor: colors.uranus500,
         borderColor: colors.uranus500,
-        borderRadius: 24,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 46,
+        paddingHorizontal: 38,
+        height: 48,
         alignSelf: 'center',
       })
     );
   });
 
-  it('has no interaction when disabled is true', () => {
+  it('has no interaction when isDisabled is true', () => {
     const { getByTestId } = render(
-      <BaseButton {...props} disabled>
+      <BaseButton {...props} isDisabled>
         <ButtonText />
       </BaseButton>
     );
@@ -58,9 +59,9 @@ describe('BaseButton', () => {
     expect(onPress).toHaveBeenCalledTimes(0);
   });
 
-  it('renders correctly when loading is true', () => {
+  it('renders correctly when isLoading is true', () => {
     const { getByTestId } = render(
-      <BaseButton {...props} loading>
+      <BaseButton {...props} isLoading>
         <ButtonText />
       </BaseButton>
     );
@@ -69,10 +70,11 @@ describe('BaseButton', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 46,
+        paddingHorizontal: 38,
         backgroundColor: colors.uranus500,
         borderColor: colors.uranus500,
       })

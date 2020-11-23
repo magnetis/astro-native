@@ -5,22 +5,20 @@ import { colors } from '@magnetis/astro-galaxy-tokens';
 import { getButtonMainColor, getIconSize } from './utils';
 import type { IconButtonProps } from './types';
 import BaseButton from './BaseButton';
-import { getIcon } from './utils';
+import { getIcon } from '@components/Icons/utils';
 
-/**
- * Outline icon buttons can be used for simple microinteractions and commands.
- */
 const OutlineIconButton: React.FC<IconButtonProps> = ({
+  ref,
   onPress,
   accessibilityLabel = '',
-  loading = false,
+  isLoading = false,
   color = 'uranus',
-  disabled = false,
+  isDisabled = false,
   size = 'medium',
   testID,
   ...props
 }) => {
-  const mainColor = disabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
+  const mainColor = isDisabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
   const iconSize = getIconSize(size);
   const Icon = getIcon(props.icon);
   const baseProps = {
@@ -29,13 +27,13 @@ const OutlineIconButton: React.FC<IconButtonProps> = ({
     borderColor: mainColor,
     textColor: mainColor,
     accessibilityLabel,
-    disabled,
-    loading,
+    isDisabled,
+    isLoading,
     onPress,
     testID,
     size,
     fill: false,
-    hasIcon: true,
+    ref,
   };
 
   return (

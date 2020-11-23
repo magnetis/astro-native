@@ -4,27 +4,25 @@ import { colors } from '@magnetis/astro-galaxy-tokens';
 
 import { getButtonMainColor, getIconSize } from './utils';
 import type { IconLabelButtonProps } from './types';
-import BaseButtonText from './BaseButtonText';
 import BaseButton from './BaseButton';
-import { getIcon } from './utils';
+import { getIcon } from '@components/Icons/utils';
+import BaseText from './BaseText';
 
-/**
- * Ghost iconlabel buttons are also used in microinteractions and smaller commands. Usage works the same as regular **IconLabelButton**.
- */
 const GhostIconLabelButton: React.FC<IconLabelButtonProps> = ({
+  ref,
   text,
   onPress,
   accessibilityLabel = '',
-  loading = false,
+  isLoading = false,
   color = 'uranus',
-  disabled = false,
+  isDisabled = false,
   size = 'medium',
   testID,
   iconPosition = 'left',
   ...props
 }) => {
   const backgroundColor = 'transparent';
-  const textColor = disabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
+  const textColor = isDisabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
   const iconSize = getIconSize(size);
   const Icon = getIcon(props.icon);
   const baseProps = {
@@ -32,14 +30,14 @@ const GhostIconLabelButton: React.FC<IconLabelButtonProps> = ({
     borderColor: backgroundColor,
     accessibilityLabel,
     backgroundColor,
-    disabled,
+    isDisabled,
     textColor,
-    loading,
+    isLoading,
     onPress,
     testID,
     size,
     fill: false,
-    hasIcon: true,
+    ref,
   };
 
   const iconWrapperStyle = {
@@ -58,9 +56,9 @@ const GhostIconLabelButton: React.FC<IconLabelButtonProps> = ({
         <View testID="GhostIconLabelButton.Icon" style={iconWrapperStyle}>
           <Icon {...iconSize} color={textColor} />
         </View>
-        <BaseButtonText size={size} color={textColor}>
+        <BaseText size={size} color={textColor}>
           {text}
-        </BaseButtonText>
+        </BaseText>
       </View>
     </BaseButton>
   );
