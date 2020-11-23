@@ -26,3 +26,8 @@ export type { ButtonProps } from '@components/Buttons';
 // Icons
 export * from '@components/Icons';
 export type { IconProps } from '@components/Icons';
+
+// Controls & Toggles
+export * from '@components/ControlsToggles';
+export type { ToggleProps } from '@components/ControlsToggles';
+
