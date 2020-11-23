@@ -21,3 +21,11 @@ controlsTogglesStories.add('Toggle', () => (
   <Toggle isDisabled={boolean('isDisabled', false)} onValueChange={onValueChange} />
 ));
 
+controlsTogglesStories.add('Radio', () => (
+  <Radio
+    label="Option #1"
+    isDisabled={boolean('isDisabled', false)}
+    onSelect={() => console.log('selected')}
+    isSelected={boolean('isSelected', false)}
+  />
+));
