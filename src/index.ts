@@ -22,3 +22,7 @@ export type { PrimaryTextProps, SecondaryTextProps } from '@components/Text';
 // Buttons
 export * from '@components/Buttons';
 export type { ButtonProps } from '@components/Buttons';
+
+// Icons
+export * from '@components/Icons';
+export type { IconProps } from '@components/Icons';
