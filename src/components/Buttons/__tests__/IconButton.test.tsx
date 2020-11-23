@@ -19,10 +19,11 @@ describe('Icon Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 40,
+        height: 48,
+        borderRadius: 32,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 8,
+        paddingHorizontal: 0,
         backgroundColor: colors.uranus500,
         borderColor: colors.uranus500,
       })
@@ -36,10 +37,11 @@ describe('Icon Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 40,
+        height: 48,
+        borderRadius: 32,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 8,
+        paddingHorizontal: 0,
         backgroundColor: colors.mars500,
         borderColor: colors.mars500,
       })
@@ -53,10 +55,11 @@ describe('Icon Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 40,
+        height: 48,
+        borderRadius: 32,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 8,
+        paddingHorizontal: 0,
         backgroundColor: colors.venus400,
         borderColor: colors.venus400,
       })
@@ -70,10 +73,11 @@ describe('Icon Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 40,
+        height: 48,
+        borderRadius: 32,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 8,
+        paddingHorizontal: 0,
         backgroundColor: colors.uranus500,
         borderColor: colors.uranus500,
       })
@@ -87,27 +91,29 @@ describe('Icon Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 40,
+        height: 48,
+        borderRadius: 32,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 8,
+        paddingHorizontal: 0,
         backgroundColor: colors.earth400,
         borderColor: colors.earth400,
       })
     );
   });
 
-  it('renders correctly when loading is true', () => {
-    const { getByTestId, rerender } = render(<IconButton loading {...props} icon="Alert" />);
+  it('renders correctly when isLoading is true', () => {
+    const { getByTestId, rerender } = render(<IconButton isLoading {...props} icon="Alert" />);
     const button = getByTestId('IconButton');
     const buttonStyle = Object.assign({}, ...button.props.style);
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 40,
+        height: 48,
+        borderRadius: 32,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 8,
+        paddingHorizontal: 0,
         backgroundColor: colors.uranus500,
         borderColor: colors.uranus500,
       })
@@ -115,30 +121,31 @@ describe('Icon Button', () => {
 
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.space100);
 
-    // loading and Earth color
-    rerender(<IconButton color="earth" loading {...props} icon="Alert" />);
+    // isLoading and Earth color
+    rerender(<IconButton color="earth" isLoading {...props} icon="Alert" />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.moon900);
 
-    // loading and Venus color
-    rerender(<IconButton color="venus" loading {...props} icon="Alert" />);
+    // isLoading and Venus color
+    rerender(<IconButton color="venus" isLoading {...props} icon="Alert" />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.space100);
 
-    // loading and Mars color
-    rerender(<IconButton color="mars" loading {...props} icon="Alert" />);
+    // isLoading and Mars color
+    rerender(<IconButton color="mars" isLoading {...props} icon="Alert" />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.space100);
   });
 
-  it('renders correctly when disabled is true', () => {
-    const { getByTestId } = render(<IconButton disabled {...props} icon="Alert" />);
+  it('renders correctly when isDisabled is true', () => {
+    const { getByTestId } = render(<IconButton isDisabled {...props} icon="Alert" />);
     const button = getByTestId('IconButton');
     const buttonStyle = Object.assign({}, ...button.props.style);
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 40,
+        height: 48,
+        borderRadius: 32,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 8,
+        paddingHorizontal: 0,
         backgroundColor: colors.moon300,
         borderColor: colors.moon300,
       })
