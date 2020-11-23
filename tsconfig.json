@@ -19,18 +19,7 @@
       "@components/*": ["src/components/*"],
       "@tokens/*": ["src/tokens/*"],
       "@typings/*": ["typings/*"],
-      "@root/*": ["./*"],
+      "@root/*": ["./*"]
     }
-  },
-  "exclude": [
-    "setupJest.ts",
-    "dist",
-    "node_modules",
-    "babel.config.js",
-    "metro.config.js",
-    "jest.config.js",
-    "**/*.test.ts",
-    "**/*.test.tsx",
-    "src/stories"
-  ]
+  }
 }
