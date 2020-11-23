@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import { boolean } from '@storybook/addon-knobs';
 
-import { Toggle, Radio, Checkbox } from '@components/ControlsToggles';
+import { Toggle, Radio, Checkbox, RadioGroup } from '@components/ControlsToggles';
 
 const controlsTogglesStories = storiesOf('Controls & Toggles', module);
 
@@ -23,6 +23,21 @@ controlsTogglesStories.add('Radio', () => (
     isDisabled={boolean('isDisabled', false)}
     onSelect={() => console.log('selected')}
     isSelected={boolean('isSelected', false)}
+  />
+));
+
+const mockOptions = [
+  { label: 'Pizza', value: 'pizza' },
+  { label: 'Hamburguer', value: 'hamburguer' },
+  { label: 'Salad', value: 'salad', isDisabled: true },
+];
+
+controlsTogglesStories.add('RadioGroup', () => (
+  <RadioGroup
+    options={mockOptions}
+    onOptionChange={(option) => console.log(option)}
+    defaultOption="pizza"
+    inline={boolean('inline', false)}
   />
 ));
 
