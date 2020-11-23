@@ -21,10 +21,11 @@ describe('Outline Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 23,
+        paddingHorizontal: 38,
         backgroundColor: 'transparent',
         borderColor: colors.uranus500,
       })
@@ -32,13 +33,9 @@ describe('Outline Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.uranus500,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.uranus500,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -62,10 +59,11 @@ describe('Outline Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 23,
+        paddingHorizontal: 38,
         backgroundColor: 'transparent',
         borderColor: colors.mars500,
       })
@@ -73,13 +71,9 @@ describe('Outline Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.mars500,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.mars500,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -96,10 +90,11 @@ describe('Outline Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 23,
+        paddingHorizontal: 38,
         backgroundColor: 'transparent',
         borderColor: colors.venus400,
       })
@@ -107,13 +102,9 @@ describe('Outline Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.venus400,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.venus400,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -130,10 +121,11 @@ describe('Outline Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 23,
+        paddingHorizontal: 38,
         backgroundColor: 'transparent',
         borderColor: colors.uranus500,
       })
@@ -141,13 +133,9 @@ describe('Outline Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.uranus500,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.uranus500,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -164,10 +152,11 @@ describe('Outline Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 23,
+        paddingHorizontal: 38,
         backgroundColor: 'transparent',
         borderColor: colors.earth600,
       })
@@ -175,32 +164,29 @@ describe('Outline Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.earth600,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.earth600,
         fontSize: 16,
         lineHeight: 24,
       })
     );
   });
 
-  it('renders correctly when loading is true', () => {
+  it('renders correctly when isLoading is true', () => {
     const { getByTestId, rerender } = render(
-      <OutlineIconLabelButton text="MyButton" loading {...props} icon="Alert" />
+      <OutlineIconLabelButton text="MyButton" isLoading {...props} icon="Alert" />
     );
     const button = getByTestId('OutlineIconLabelButton');
     const buttonStyle = Object.assign({}, ...button.props.style);
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 23,
+        paddingHorizontal: 38,
         backgroundColor: 'transparent',
         borderColor: colors.uranus500,
       })
@@ -208,22 +194,22 @@ describe('Outline Icon Label Button', () => {
 
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.uranus500);
 
-    // loading and Earth color
-    rerender(<OutlineIconLabelButton text="MyButton" color="earth" loading {...props} icon="Alert" />);
+    // isLoading and Earth color
+    rerender(<OutlineIconLabelButton text="MyButton" color="earth" isLoading {...props} icon="Alert" />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.earth600);
 
-    // loading and Venus color
-    rerender(<OutlineIconLabelButton text="MyButton" color="venus" loading {...props} icon="Alert" />);
+    // isLoading and Venus color
+    rerender(<OutlineIconLabelButton text="MyButton" color="venus" isLoading {...props} icon="Alert" />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.venus400);
 
-    // loading and Mars color
-    rerender(<OutlineIconLabelButton text="MyButton" color="mars" loading {...props} icon="Alert" />);
+    // isLoading and Mars color
+    rerender(<OutlineIconLabelButton text="MyButton" color="mars" isLoading {...props} icon="Alert" />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.mars500);
   });
 
-  it('renders correctly when disabled is true', () => {
+  it('renders correctly when isDisabled is true', () => {
     const { getByTestId, getByText } = render(
-      <OutlineIconLabelButton text="MyButton" disabled {...props} icon="Alert" />
+      <OutlineIconLabelButton text="MyButton" isDisabled {...props} icon="Alert" />
     );
     const button = getByTestId('OutlineIconLabelButton');
     const buttonStyle = Object.assign({}, ...button.props.style);
@@ -231,10 +217,11 @@ describe('Outline Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 23,
+        paddingHorizontal: 38,
         backgroundColor: 'transparent',
         borderColor: colors.moon300,
       })
@@ -242,13 +229,9 @@ describe('Outline Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.moon300,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.moon300,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -257,7 +240,7 @@ describe('Outline Icon Label Button', () => {
 
   it('renders correctly when iconPosition is right', () => {
     const { getByTestId, getByText } = render(
-      <OutlineIconLabelButton text="MyButton" disabled {...props} icon="Alert" iconPosition="right" />
+      <OutlineIconLabelButton text="MyButton" isDisabled {...props} icon="Alert" iconPosition="right" />
     );
     const button = getByTestId('OutlineIconLabelButton');
     const buttonStyle = Object.assign({}, ...button.props.style);
@@ -266,10 +249,11 @@ describe('Outline Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 23,
+        paddingHorizontal: 38,
         backgroundColor: 'transparent',
         borderColor: colors.moon300,
       })
@@ -277,13 +261,9 @@ describe('Outline Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.moon300,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.moon300,
         fontSize: 16,
         lineHeight: 24,
       })

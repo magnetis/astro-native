@@ -12,11 +12,9 @@ import {
   SecondaryTextMedium,
   SecondaryTextLarge,
 } from '../components/Text';
-import StoryDecorator from './StoryDecorator';
+import StoryDecorator from '../../storybook/StoryDecorator';
 
 storiesOf('Primary Text', module)
-  .addDecorator(StoryDecorator)
-  .addDecorator(withKnobs)
   .add('Large', () => (
     <PrimaryTextLarge bold={boolean('bold', false)} semiBold={boolean('semiBold', false)}>
       The quick brown fox jumps over the lazy dog
