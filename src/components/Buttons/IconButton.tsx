@@ -5,23 +5,21 @@ import { colors } from '@magnetis/astro-galaxy-tokens';
 import { getButtonMainColor, getButtonSecondaryColor, getIconSize } from './utils';
 import type { IconButtonProps } from './types';
 import BaseButton from './BaseButton';
-import { getIcon } from './utils';
+import { getIcon } from '@components/Icons/utils';
 
-/**
- * Icon buttons can be used for simple microinteractions and commands.
- */
 const IconButton: React.FC<IconButtonProps> = ({
+  ref,
   onPress,
   accessibilityLabel = '',
-  loading = false,
+  isLoading = false,
   color = 'uranus',
-  disabled = false,
+  isDisabled = false,
   size = 'medium',
   testID,
   ...props
 }) => {
-  const backgroundColor = disabled ? colors.moon300 : getButtonMainColor(color);
-  const textColor = disabled ? colors.space100 : getButtonSecondaryColor(color);
+  const backgroundColor = isDisabled ? colors.moon300 : getButtonMainColor(color);
+  const textColor = isDisabled ? colors.space100 : getButtonSecondaryColor(color);
   const iconSize = getIconSize(size);
   const Icon = getIcon(props.icon);
   const baseProps = {
@@ -29,14 +27,14 @@ const IconButton: React.FC<IconButtonProps> = ({
     borderColor: backgroundColor,
     accessibilityLabel,
     backgroundColor,
-    disabled,
+    isDisabled,
     textColor,
-    loading,
+    isLoading,
     onPress,
     testID,
     size,
     fill: false,
-    hasIcon: true,
+    ref,
   };
 
   return (

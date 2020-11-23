@@ -2,49 +2,45 @@ import React from 'react';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 
 import { getButtonMainColor, getButtonSecondaryColor } from './utils';
-import BaseButtonText from './BaseButtonText';
 import type { ButtonProps } from './types';
 import BaseButton from './BaseButton';
+import BaseText from './BaseText';
 
-/**
- * Primary buttons have a colored background.
- *
- *  Use these for the main action in a section or screen. You should display only one primary button at a time.
- *
- */
 const PrimaryButton: React.FC<ButtonProps> = ({
+  ref,
   text,
   onPress,
   accessibilityLabel = '',
-  loading = false,
+  isLoading = false,
   color = 'uranus',
-  disabled = false,
+  isDisabled = false,
   size = 'medium',
   fill = false,
   testID,
   ...props
 }) => {
-  const backgroundColor = disabled ? colors.moon300 : getButtonMainColor(color);
-  const textColor = disabled ? colors.space100 : getButtonSecondaryColor(color);
+  const backgroundColor = isDisabled ? colors.moon300 : getButtonMainColor(color);
+  const textColor = isDisabled ? colors.space100 : getButtonSecondaryColor(color);
   const baseProps = {
     activityIndicatorColor: textColor,
     borderColor: backgroundColor,
     accessibilityLabel,
     backgroundColor,
-    disabled,
+    isDisabled,
     textColor,
-    loading,
+    isLoading,
     onPress,
     testID,
     size,
     fill,
+    ref,
   };
 
   return (
     <BaseButton {...props} {...baseProps}>
-      <BaseButtonText size={size} color={textColor}>
+      <BaseText size={size} color={textColor}>
         {text}
-      </BaseButtonText>
+      </BaseText>
     </BaseButton>
   );
 };

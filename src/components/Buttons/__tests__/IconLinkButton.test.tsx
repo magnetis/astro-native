@@ -33,8 +33,8 @@ describe('Outline Icon Label Button', () => {
     );
   });
 
-  it('renders correctly when disabled is true', () => {
-    const { getByText } = render(<IconLinkButton disabled text="MyButton" {...props} icon="Alert" />);
+  it('renders correctly when isDisabled is true', () => {
+    const { getByText } = render(<IconLinkButton isDisabled text="MyButton" {...props} icon="Alert" />);
     const text = getByText('MyButton');
 
     expect(text.props.style).toEqual(

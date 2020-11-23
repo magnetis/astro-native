@@ -1,28 +1,29 @@
 import React, { ReactElement } from 'react';
 import { View, StyleSheet, ActivityIndicator, Pressable, PressableProps } from 'react-native';
 
-import { getBorderRadius, getButtonPadding } from './utils';
+import { getBorderRadius, getButtonPadding, getButtonHeight } from './utils';
 import { ButtonSize } from './types';
 
 interface BaseButtonProps extends PressableProps {
   children: ReactElement;
   testID?: string;
   accessibilityLabel?: string;
-  loading?: boolean;
-  disabled?: boolean;
+  isLoading?: boolean;
+  isDisabled?: boolean;
   activityIndicatorColor: string;
   onPress: () => void;
+  ref?: React.Ref<any>;
   backgroundColor: string;
   textColor: string;
   borderColor: string;
   size?: ButtonSize;
   noHorizontalPadding?: boolean;
   fill?: boolean;
-  hasIcon?: boolean;
 }
 
 const styles = StyleSheet.create({
   button: {
+    height: 44,
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
@@ -37,21 +38,21 @@ const styles = StyleSheet.create({
 });
 
 function BaseButton({
-  loading = false,
-  disabled = false,
+  isLoading = false,
+  isDisabled = false,
   activityIndicatorColor,
   children,
   size = 'medium',
   noHorizontalPadding = false,
   fill = false,
-  hasIcon = false,
   ...props
 }: BaseButtonProps) {
   const computedStyles: any = {
-    ...getButtonPadding(size, { noHorizontalPadding, hasIcon }),
+    ...getButtonPadding(size, noHorizontalPadding),
     backgroundColor: props.backgroundColor,
-    borderRadius: getBorderRadius(size, { noHorizontalPadding, hasIcon }),
+    borderRadius: getBorderRadius(size, noHorizontalPadding),
     borderColor: props.borderColor,
+    height: getButtonHeight(size),
     borderWidth: 2,
   };
 
@@ -61,9 +62,13 @@ function BaseButton({
     computedStyles.alignSelf = 'center';
   }
 
+  if (noHorizontalPadding) {
+    computedStyles.width = getButtonHeight(size);
+  }
+
   const pressableProps = {
     onPress: props.onPress,
-    disabled: disabled,
+    disabled: isDisabled,
     style: [styles.button, computedStyles],
     testID: props.testID,
   };
@@ -71,8 +76,8 @@ function BaseButton({
   return (
     <Pressable accessibilityRole="button" {...props} {...pressableProps}>
       <View style={{ alignItems: 'center', justifyContent: 'center', flex: fill ? 1 : 0 }}>
-        <View style={{ opacity: loading ? 0 : 1 }}>{children}</View>
-        {loading && (
+        <View style={{ opacity: isLoading ? 0 : 1 }}>{children}</View>
+        {isLoading && (
           <View style={{ position: 'absolute', width: '100%' }}>
             <ActivityIndicator
               testID="BaseButton.ActivityIndicator"
@@ -89,3 +94,4 @@ function BaseButton({
 }
 
 export default BaseButton;
+export type { BaseButtonProps };

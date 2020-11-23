@@ -20,10 +20,11 @@ describe('Primary Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 46,
+        paddingHorizontal: 38,
         backgroundColor: colors.uranus500,
         borderColor: colors.uranus500,
       })
@@ -31,13 +32,9 @@ describe('Primary Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.space100,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.space100,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -52,10 +49,11 @@ describe('Primary Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 46,
+        paddingHorizontal: 38,
         backgroundColor: colors.mars500,
         borderColor: colors.mars500,
       })
@@ -63,13 +61,9 @@ describe('Primary Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.space100,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.space100,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -84,10 +78,11 @@ describe('Primary Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 46,
+        paddingHorizontal: 38,
         backgroundColor: colors.venus400,
         borderColor: colors.venus400,
       })
@@ -95,13 +90,9 @@ describe('Primary Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.space100,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.space100,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -116,10 +107,11 @@ describe('Primary Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 46,
+        paddingHorizontal: 38,
         backgroundColor: colors.uranus500,
         borderColor: colors.uranus500,
       })
@@ -127,13 +119,9 @@ describe('Primary Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.space100,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.space100,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -148,10 +136,11 @@ describe('Primary Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 46,
+        paddingHorizontal: 38,
         backgroundColor: colors.earth400,
         borderColor: colors.earth400,
       })
@@ -159,30 +148,27 @@ describe('Primary Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.moon900,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.moon900,
         fontSize: 16,
         lineHeight: 24,
       })
     );
   });
 
-  it('renders correctly when loading is true', () => {
-    const { getByTestId, rerender } = render(<PrimaryButton text="MyButton" loading {...props} />);
+  it('renders correctly when isLoading is true', () => {
+    const { getByTestId, rerender } = render(<PrimaryButton text="MyButton" isLoading {...props} />);
     const button = getByTestId('PrimaryButton');
     const buttonStyle = Object.assign({}, ...button.props.style);
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 46,
+        paddingHorizontal: 38,
         backgroundColor: colors.uranus500,
         borderColor: colors.uranus500,
       })
@@ -190,31 +176,32 @@ describe('Primary Button', () => {
 
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.space100);
 
-    // loading and Earth color
-    rerender(<PrimaryButton text="MyButton" color="earth" loading {...props} />);
+    // isLoading and Earth color
+    rerender(<PrimaryButton text="MyButton" color="earth" isLoading {...props} />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.moon900);
 
-    // loading and Venus color
-    rerender(<PrimaryButton text="MyButton" color="venus" loading {...props} />);
+    // isLoading and Venus color
+    rerender(<PrimaryButton text="MyButton" color="venus" isLoading {...props} />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.space100);
 
-    // loading and Mars color
-    rerender(<PrimaryButton text="MyButton" color="mars" loading {...props} />);
+    // isLoading and Mars color
+    rerender(<PrimaryButton text="MyButton" color="mars" isLoading {...props} />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.space100);
   });
 
-  it('renders correctly when disabled is true', () => {
-    const { getByTestId, getByText } = render(<PrimaryButton text="MyButton" disabled {...props} />);
+  it('renders correctly when isDisabled is true', () => {
+    const { getByTestId, getByText } = render(<PrimaryButton text="MyButton" isDisabled {...props} />);
     const button = getByTestId('PrimaryButton');
     const buttonStyle = Object.assign({}, ...button.props.style);
     const text = getByText('MyButton');
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 46,
+        paddingHorizontal: 38,
         backgroundColor: colors.moon300,
         borderColor: colors.moon300,
       })
@@ -222,13 +209,9 @@ describe('Primary Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.space100,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.space100,
         fontSize: 16,
         lineHeight: 24,
       })
