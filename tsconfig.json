@@ -18,7 +18,8 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@tokens/*": ["src/tokens/*"],
-      "@typings/*": ["typings/*"]
+      "@typings/*": ["typings/*"],
+      "@root/*": ["./*"],
     }
   },
   "exclude": [
