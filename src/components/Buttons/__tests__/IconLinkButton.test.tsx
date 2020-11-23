@@ -15,7 +15,7 @@ describe('Outline Icon Label Button', () => {
   it('renders correctly with default props', () => {
     const { getByText, getByTestId } = render(<IconLinkButton text="MyButton" {...props} icon="Alert" />);
     const text = getByText('MyButton');
-    const icon = getByTestId('IconLink.Icon');
+    const icon = getByTestId('IconLinkButton.Icon');
 
     expect(text.props.style).toEqual(
       expect.objectContaining({
@@ -51,7 +51,7 @@ describe('Outline Icon Label Button', () => {
       <IconLinkButton iconPosition="right" text="MyButton" {...props} icon="Alert" />
     );
     const text = getByText('MyButton');
-    const icon = getByTestId('IconLink.Icon');
+    const icon = getByTestId('IconLinkButton.Icon');
 
     expect(text.props.style).toEqual(
       expect.objectContaining({
