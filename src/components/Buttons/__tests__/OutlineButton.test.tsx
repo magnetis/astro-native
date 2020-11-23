@@ -32,13 +32,9 @@ describe('Outline Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.uranus500,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.uranus500,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -65,13 +61,9 @@ describe('Outline Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.mars500,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.mars500,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -98,13 +90,9 @@ describe('Outline Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.venus400,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.venus400,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -131,13 +119,9 @@ describe('Outline Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.uranus500,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.uranus500,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -164,13 +148,9 @@ describe('Outline Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.earth600,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.earth600,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -229,13 +209,9 @@ describe('Outline Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.moon300,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.moon300,
         fontSize: 16,
         lineHeight: 24,
       })

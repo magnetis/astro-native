@@ -4,9 +4,9 @@ import { colors } from '@magnetis/astro-galaxy-tokens';
 
 import { getButtonMainColor, getIconSize } from './utils';
 import type { IconLabelButtonProps } from './types';
-import BaseButtonText from './BaseButtonText';
 import BaseButton from './BaseButton';
-import { getIcon } from './utils';
+import { getIcon } from '@components/Icons/utils';
+import BaseText from './BaseText';
 
 const GhostIconLabelButton: React.FC<IconLabelButtonProps> = ({
   ref,
@@ -56,9 +56,9 @@ const GhostIconLabelButton: React.FC<IconLabelButtonProps> = ({
         <View testID="GhostIconLabelButton.Icon" style={iconWrapperStyle}>
           <Icon {...iconSize} color={textColor} />
         </View>
-        <BaseButtonText size={size} color={textColor}>
+        <BaseText size={size} color={textColor}>
           {text}
-        </BaseButtonText>
+        </BaseText>
       </View>
     </BaseButton>
   );

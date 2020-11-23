@@ -33,13 +33,9 @@ describe('Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.space100,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.space100,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -73,13 +69,9 @@ describe('Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.space100,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.space100,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -108,13 +100,9 @@ describe('Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.space100,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.space100,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -143,13 +131,9 @@ describe('Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.space100,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.space100,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -178,13 +162,9 @@ describe('Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.moon900,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.moon900,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -243,13 +223,9 @@ describe('Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.space100,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.space100,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -279,13 +255,9 @@ describe('Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.space100,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.space100,
         fontSize: 16,
         lineHeight: 24,
       })

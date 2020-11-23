@@ -1,19 +1,19 @@
-import { ReactElement } from 'react';
-import { Colors, colors } from '@magnetis/astro-galaxy-tokens';
-
+import { colors } from '@magnetis/astro-galaxy-tokens';
 import { ButtonColor, ButtonSize } from './types';
-import * as icons from '@components/Icons';
-import { getFontSize } from '@tokens/utils';
-import {
-  PrimaryTextLarge,
-  PrimaryTextMedium,
-  PrimaryTextSmall,
-  PrimaryTextVerySmall,
-  SecondaryTextLarge,
-  SecondaryTextMedium,
-  SecondaryTextSmall,
-  SecondaryTextVerySmall,
-} from '@components/Text';
+
+export function getFontSize(size: ButtonSize): number {
+  switch (size) {
+    case 'very-small':
+      return 12;
+    case 'small':
+      return 14;
+    case 'large':
+      return 24;
+    case 'medium':
+    default:
+      return 16;
+  }
+}
 
 export function getButtonPadding(size: ButtonSize, noHorizontalPadding?: boolean) {
   let paddingHorizontal = 38;
@@ -81,7 +81,7 @@ export function getLineHeight(size: ButtonSize): number {
 export function getButtonMainColor(
   color: ButtonColor,
   { outline }: { outline?: boolean } = { outline: false }
-): Colors[keyof Colors] {
+): string {
   switch (color) {
     case 'earth':
       return outline ? colors.earth600 : colors.earth400;
@@ -94,34 +94,11 @@ export function getButtonMainColor(
   }
 }
 
-export function getButtonSecondaryColor(color: ButtonColor): Colors[keyof Colors] {
+export function getButtonSecondaryColor(color: ButtonColor): string {
   switch (color) {
     case 'earth':
       return colors.moon900;
     default:
       return colors.space100;
   }
-}
-
-export function getIcon(_iconName: string) {
-  const iconName = `${_iconName}Icon`;
-
-  if (Object.keys(icons).includes(iconName)) {
-    return (icons as { [key: string]: Function })[iconName];
-  }
-
-  return () => null;
-}
-
-export function isValidTextComponent(component: ReactElement) {
-  return (
-    component.type === PrimaryTextVerySmall ||
-    component.type === PrimaryTextSmall ||
-    component.type === PrimaryTextMedium ||
-    component.type === PrimaryTextLarge ||
-    component.type === SecondaryTextVerySmall ||
-    component.type === SecondaryTextSmall ||
-    component.type === SecondaryTextMedium ||
-    component.type === SecondaryTextLarge
-  );
 }

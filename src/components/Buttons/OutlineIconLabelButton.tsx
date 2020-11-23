@@ -4,9 +4,9 @@ import { colors } from '@magnetis/astro-galaxy-tokens';
 
 import { getButtonMainColor, getIconSize } from './utils';
 import type { IconLabelButtonProps } from './types';
-import BaseButtonText from './BaseButtonText';
 import BaseButton from './BaseButton';
-import { getIcon } from './utils';
+import BaseText from './BaseText';
+import { getIcon } from '@components/Icons/utils';
 
 const OutlineIconLabelButton: React.FC<IconLabelButtonProps> = ({
   ref,
@@ -56,9 +56,9 @@ const OutlineIconLabelButton: React.FC<IconLabelButtonProps> = ({
         <View testID="OutlineIconLabelButton.Icon" style={iconWrapperStyle}>
           <Icon {...iconSize} color={mainColor} />
         </View>
-        <BaseButtonText size={size} color={mainColor}>
+        <BaseText size={size} color={mainColor}>
           {text}
-        </BaseButtonText>
+        </BaseText>
       </View>
     </BaseButton>
   );
