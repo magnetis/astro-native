@@ -49,7 +49,7 @@ buttonsStories.add('IconLabelButton', () => (
     color={select('color', colorOptions, 'uranus')}
     icon={select('icon', iconOptions, iconOptions[0])}
     size={select('size', sizeOptions, 'medium')}
-    iconPosition={select('iconPosition', iconPositionOptions, 'left')}
+    iconPosition={select('iconPosition', iconPositionOptions, 'left') as 'left' | 'right'}
   />
 ));
 
@@ -85,7 +85,7 @@ buttonsStories.add('GhostIconLabelButton', () => (
     color={select('color', colorOptions, 'uranus')}
     icon={select('icon', iconOptions, iconOptions[0])}
     size={select('size', sizeOptions, 'medium')}
-    iconPosition={select('iconPosition', iconPositionOptions, 'left')}
+    iconPosition={select('iconPosition', iconPositionOptions, 'left') as 'left' | 'right'}
   />
 ));
 
@@ -111,7 +111,7 @@ buttonsStories.add('OutlineIconLabelButton', () => (
     color={select('color', colorOptions, 'uranus')}
     icon={select('icon', iconOptions, iconOptions[0])}
     size={select('size', sizeOptions, 'medium')}
-    iconPosition={select('iconPosition', iconPositionOptions, 'left')}
+    iconPosition={select('iconPosition', iconPositionOptions, 'left') as 'left' | 'right'}
   />
 ));
 
@@ -127,7 +127,7 @@ buttonsStories.add('OutlineIconButton', () => (
 ));
 
 buttonsStories.add('Link', () => (
-  <Link onPress={() => console.log('Pressed')} size={select('size', sizeOptions, 'medium')}>
+  <Link onPress={() => console.log('Pressed')}>
     <PrimaryTextMedium>Button</PrimaryTextMedium>
   </Link>
 ));
@@ -137,7 +137,7 @@ buttonsStories.add('IconLinkButton', () => (
     <IconLinkButton
       icon={select('icon', iconOptions, iconOptions[0])}
       onPress={() => console.log('Pressed')}
-      iconPosition={select('iconPosition', iconPositionOptions, 'left')}
+      iconPosition={select('iconPosition', iconPositionOptions, 'left') as 'left' | 'right'}
       size={select('size', sizeOptions, 'medium')}
       text={text('text', 'Button')}
       bold={boolean('bold', false)}

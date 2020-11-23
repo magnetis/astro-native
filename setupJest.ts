@@ -1,5 +1,4 @@
 import '@testing-library/jest-native/extend-expect';
-import MockDate from 'mockdate';
 
 jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
 /**
@@ -13,7 +12,7 @@ jest.mock('react-native/Libraries/LogBox/Data/LogBoxData', () => {
     withSubscription: () => {},
     isLogBoxErrorMessage: () => true,
     ExceptionsManager: {
-      handleException: (e: any, _flag: boolean) => {
+      handleException: (e: any) => {
         console.error(e);
       },
     },
@@ -30,4 +29,5 @@ global.requestAnimationFrame = (cb) => {
   //
   // Setting the timeout simulates a frame every 1/100th of a second
   setTimeout(cb, FRAME_TIME);
+  return 0;
 };

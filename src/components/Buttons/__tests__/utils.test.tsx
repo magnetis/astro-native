@@ -74,13 +74,11 @@ describe('Button/utils', () => {
     expect(getButtonMainColor('uranus')).toEqual(colors.uranus500);
     expect(getButtonMainColor('mars')).toEqual(colors.mars500);
     expect(getButtonMainColor('earth')).toEqual(colors.earth400);
-    expect(getButtonMainColor(null)).toEqual(colors.uranus500);
 
     expect(getButtonMainColor('venus', { outline: true })).toEqual(colors.venus400);
     expect(getButtonMainColor('uranus', { outline: true })).toEqual(colors.uranus500);
     expect(getButtonMainColor('mars', { outline: true })).toEqual(colors.mars500);
     expect(getButtonMainColor('earth', { outline: true })).toEqual(colors.earth600);
-    expect(getButtonMainColor(null, { outline: true })).toEqual(colors.uranus500);
   });
 
   it('getButtonSecondaryColor', () => {
@@ -88,7 +86,6 @@ describe('Button/utils', () => {
     expect(getButtonSecondaryColor('uranus')).toEqual(colors.space100);
     expect(getButtonSecondaryColor('mars')).toEqual(colors.space100);
     expect(getButtonSecondaryColor('earth')).toEqual(colors.moon900);
-    expect(getButtonSecondaryColor(null)).toEqual(colors.space100);
   });
 
   describe('getIcon', () => {
