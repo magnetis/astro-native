@@ -3,9 +3,9 @@ import { Pressable, PressableProps, View } from 'react-native';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 
 import { SecondaryTextLarge, SecondaryTextMedium, SecondaryTextSmall, SecondaryTextVerySmall } from '@components/Text';
-import { getIcon } from '@components/Icons/utils';
 import { getFontSize } from './utils';
 import { ButtonSize } from './types';
+import { getIcon } from './utils';
 
 interface IconLinkButtonProps extends PressableProps {
   text: string;

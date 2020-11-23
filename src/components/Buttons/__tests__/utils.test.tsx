@@ -1,4 +1,8 @@
+import React from 'react';
 import { colors } from '@magnetis/astro-galaxy-tokens';
+import { render } from '@testing-library/react-native';
+
+import { AlertIcon } from '@components/Icons';
 
 import {
   getButtonHeight,
@@ -9,6 +13,7 @@ import {
   getLineHeight,
   getButtonMainColor,
   getButtonSecondaryColor,
+  getIcon,
 } from '../utils';
 
 describe('Button/utils', () => {
@@ -84,5 +89,22 @@ describe('Button/utils', () => {
     expect(getButtonSecondaryColor('mars')).toEqual(colors.space100);
     expect(getButtonSecondaryColor('earth')).toEqual(colors.moon900);
     expect(getButtonSecondaryColor(null)).toEqual(colors.space100);
+  });
+
+  describe('getIcon', () => {
+    it('when iconName is valid, returns Icon', () => {
+      const Icon = getIcon('Alert');
+      const { getByTestId: getIconByTestId } = render(<Icon testID="Icon" />);
+      const { getByTestId } = render(<AlertIcon testID="Alert" />);
+
+      expect(getIconByTestId('Icon').props.id).toEqual(getByTestId('Alert').props.id);
+    });
+
+    it('when iconName is not valid, returns null', () => {
+      const Icon = getIcon('NotValidIconName');
+      const { queryByTestId } = render(<Icon testID="NotValidIconName" />);
+
+      expect(queryByTestId('Icon')).toBeNull();
+    });
   });
 });
