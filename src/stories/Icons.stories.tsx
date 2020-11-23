@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import { select, number } from '@storybook/addon-knobs';
 
@@ -19,7 +20,11 @@ const colorOptions = Object.keys(colors).reduce((acc, key) => {
   return acc;
 }, {});
 
-const iconsStories = storiesOf('Icons', module);
+const iconsStories = storiesOf('Icons', module).addDecorator((Story: any) => (
+  <View style={{ alignSelf: 'center', alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+    <Story />
+  </View>
+));
 
 Object.keys(icons).forEach((key) => {
   const Icon = icons[key];
