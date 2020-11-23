@@ -15,5 +15,10 @@ export type { Gradient, GradientMap, GradientID } from '@tokens/gradients';
  * Components
  */
 
+// Text
 export * from '@components/Text';
 export type { PrimaryTextProps, SecondaryTextProps } from '@components/Text';
+
+// Buttons
+export * from '@components/Buttons';
+export type { ButtonProps } from '@components/Buttons';

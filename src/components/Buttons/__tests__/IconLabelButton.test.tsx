@@ -21,10 +21,11 @@ describe('Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 23,
+        paddingHorizontal: 38,
         backgroundColor: colors.uranus500,
         borderColor: colors.uranus500,
       })
@@ -32,13 +33,9 @@ describe('Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.space100,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.space100,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -60,10 +57,11 @@ describe('Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 23,
+        paddingHorizontal: 38,
         backgroundColor: colors.mars500,
         borderColor: colors.mars500,
       })
@@ -71,13 +69,9 @@ describe('Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.space100,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.space100,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -94,10 +88,11 @@ describe('Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 23,
+        paddingHorizontal: 38,
         backgroundColor: colors.venus400,
         borderColor: colors.venus400,
       })
@@ -105,13 +100,9 @@ describe('Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.space100,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.space100,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -128,10 +119,11 @@ describe('Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 23,
+        paddingHorizontal: 38,
         backgroundColor: colors.uranus500,
         borderColor: colors.uranus500,
       })
@@ -139,13 +131,9 @@ describe('Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.space100,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.space100,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -162,10 +150,11 @@ describe('Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 23,
+        paddingHorizontal: 38,
         backgroundColor: colors.earth400,
         borderColor: colors.earth400,
       })
@@ -173,30 +162,27 @@ describe('Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.moon900,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.moon900,
         fontSize: 16,
         lineHeight: 24,
       })
     );
   });
 
-  it('renders correctly when loading is true', () => {
-    const { getByTestId, rerender } = render(<IconLabelButton text="MyButton" loading {...props} icon="Alert" />);
+  it('renders correctly when isLoading is true', () => {
+    const { getByTestId, rerender } = render(<IconLabelButton text="MyButton" isLoading {...props} icon="Alert" />);
     const button = getByTestId('IconLabelButton');
     const buttonStyle = Object.assign({}, ...button.props.style);
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 23,
+        paddingHorizontal: 38,
         backgroundColor: colors.uranus500,
         borderColor: colors.uranus500,
       })
@@ -204,31 +190,32 @@ describe('Icon Label Button', () => {
 
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.space100);
 
-    // loading and Earth color
-    rerender(<IconLabelButton text="MyButton" color="earth" loading {...props} icon="Alert" />);
+    // isLoading and Earth color
+    rerender(<IconLabelButton text="MyButton" color="earth" isLoading {...props} icon="Alert" />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.moon900);
 
-    // loading and Venus color
-    rerender(<IconLabelButton text="MyButton" color="venus" loading {...props} icon="Alert" />);
+    // isLoading and Venus color
+    rerender(<IconLabelButton text="MyButton" color="venus" isLoading {...props} icon="Alert" />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.space100);
 
-    // loading and Mars color
-    rerender(<IconLabelButton text="MyButton" color="mars" loading {...props} icon="Alert" />);
+    // isLoading and Mars color
+    rerender(<IconLabelButton text="MyButton" color="mars" isLoading {...props} icon="Alert" />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.space100);
   });
 
-  it('renders correctly when disabled is true', () => {
-    const { getByTestId, getByText } = render(<IconLabelButton text="MyButton" disabled {...props} icon="Alert" />);
+  it('renders correctly when isDisabled is true', () => {
+    const { getByTestId, getByText } = render(<IconLabelButton text="MyButton" isDisabled {...props} icon="Alert" />);
     const button = getByTestId('IconLabelButton');
     const buttonStyle = Object.assign({}, ...button.props.style);
     const text = getByText('MyButton');
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 23,
+        paddingHorizontal: 38,
         backgroundColor: colors.moon300,
         borderColor: colors.moon300,
       })
@@ -236,13 +223,9 @@ describe('Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.space100,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.space100,
         fontSize: 16,
         lineHeight: 24,
       })
@@ -251,7 +234,7 @@ describe('Icon Label Button', () => {
 
   it('renders correctly when iconPosition is right', () => {
     const { getByTestId, getByText } = render(
-      <IconLabelButton text="MyButton" disabled {...props} icon="Alert" iconPosition="right" />
+      <IconLabelButton text="MyButton" isDisabled {...props} icon="Alert" iconPosition="right" />
     );
     const button = getByTestId('IconLabelButton');
     const buttonStyle = Object.assign({}, ...button.props.style);
@@ -260,10 +243,11 @@ describe('Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        borderRadius: 24,
+        height: 48,
+        borderRadius: 31,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 23,
+        paddingHorizontal: 38,
         backgroundColor: colors.moon300,
         borderColor: colors.moon300,
       })
@@ -271,13 +255,9 @@ describe('Icon Label Button', () => {
 
     expect(text.props.style[0]).toEqual(
       expect.objectContaining({
+        color: colors.space100,
         fontFamily: 'Poppins-SemiBold',
         alignItems: 'center',
-      })
-    );
-    expect(text.props.style[1]).toEqual(
-      expect.objectContaining({
-        color: colors.space100,
         fontSize: 16,
         lineHeight: 24,
       })

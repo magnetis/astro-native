@@ -4,28 +4,25 @@ import { colors } from '@magnetis/astro-galaxy-tokens';
 
 import { getButtonMainColor, getIconSize } from './utils';
 import type { IconLabelButtonProps } from './types';
-import BaseButtonText from './BaseButtonText';
 import BaseButton from './BaseButton';
-import { getIcon } from './utils';
+import BaseText from './BaseText';
+import { getIcon } from '@components/Icons/utils';
 
-/**
- * Outline iconlabel buttons are commonly used in microinteractions and secondary commands. Usage works the same as regular **IconLabelButton**.
- * This component consists of a **OutlineButton** with an icon and some text.
- */
 const OutlineIconLabelButton: React.FC<IconLabelButtonProps> = ({
+  ref,
   text,
   onPress,
   accessibilityLabel = '',
-  loading = false,
+  isLoading = false,
   color = 'uranus',
-  disabled = false,
+  isDisabled = false,
   size = 'medium',
   fill = false,
   testID,
   iconPosition = 'left',
   ...props
 }) => {
-  const mainColor = disabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
+  const mainColor = isDisabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
   const iconSize = getIconSize(size);
   const Icon = getIcon(props.icon);
   const baseProps = {
@@ -34,13 +31,13 @@ const OutlineIconLabelButton: React.FC<IconLabelButtonProps> = ({
     borderColor: mainColor,
     textColor: mainColor,
     accessibilityLabel,
-    disabled,
-    loading,
+    isDisabled,
+    isLoading,
     onPress,
     testID,
     size,
     fill,
-    hasIcon: true,
+    ref,
   };
 
   const iconWrapperStyle = {
@@ -59,9 +56,9 @@ const OutlineIconLabelButton: React.FC<IconLabelButtonProps> = ({
         <View testID="OutlineIconLabelButton.Icon" style={iconWrapperStyle}>
           <Icon {...iconSize} color={mainColor} />
         </View>
-        <BaseButtonText size={size} color={mainColor}>
+        <BaseText size={size} color={mainColor}>
           {text}
-        </BaseButtonText>
+        </BaseText>
       </View>
     </BaseButton>
   );
