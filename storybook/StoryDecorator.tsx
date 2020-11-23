@@ -3,7 +3,7 @@ import { View } from 'react-native';
 
 export default function StoryDecorator(Story: any) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 16 }}>
+    <View style={{ flex: 1, justifyContent: 'center', padding: 8 }}>
       <Story />
     </View>
   );

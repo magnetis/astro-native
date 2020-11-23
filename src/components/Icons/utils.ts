@@ -1,5 +1,6 @@
 import { GradientID } from '@tokens/gradients';
-import React, { ReactNode } from 'react';
+
+import * as icons from '@components/Icons';
 
 interface getFillParams {
   gradient?: GradientID;
@@ -7,18 +8,19 @@ interface getFillParams {
   id: string;
 }
 
-export function cloneChildrenWithProps(children: ReactNode, props: Record<string, any>): ReactNode {
-  return React.Children.map(children, (child) => {
-    if (React.isValidElement(child)) {
-      return React.cloneElement(child, props);
-    }
-    return child;
-  });
-}
-
 export function getFill({ gradient, color, id }: getFillParams) {
   if (gradient) {
     return `url(#${id})`;
   }
   return color;
+}
+
+export function getIcon(_iconName: string) {
+  const iconName = `${_iconName}Icon`;
+
+  if (Object.keys(icons).includes(iconName)) {
+    return (icons as { [key: string]: Function })[iconName];
+  }
+
+  return () => null;
 }
