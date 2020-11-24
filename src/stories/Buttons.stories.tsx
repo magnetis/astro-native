@@ -16,12 +16,12 @@ import {
   IconLinkButton,
 } from '@components/Buttons';
 import { PrimaryTextMedium } from '@components/Text';
-import type { ButtonColor, ButtonSize } from '@components/Buttons';
+import type { ButtonColor } from '@components/Buttons';
 import * as icons from '@components/Icons';
 import type { IconID } from '@components/Icons';
+import { sizeOptions } from './options';
 
 const colorOptions: ButtonColor[] = ['uranus', 'venus', 'mars', 'earth'];
-const sizeOptions: ButtonSize[] = ['very-small', 'small', 'medium', 'large'];
 
 const iconPositionOptions = ['left', 'right'];
 const iconOptions = Object.keys(icons).map((key) => key.replace('Icon', ''));

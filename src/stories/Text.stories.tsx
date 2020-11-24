@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 
 import {
   PrimaryTextVerySmall,
@@ -13,25 +13,43 @@ import {
   SecondaryTextLarge,
 } from '../components/Text';
 import StoryDecorator from '../../storybook/StoryDecorator';
+import { colorOptions } from './options';
+import { colors } from '@magnetis/astro-galaxy-tokens';
 
 storiesOf('Primary Text', module)
   .add('Large', () => (
-    <PrimaryTextLarge bold={boolean('bold', false)} semiBold={boolean('semiBold', false)}>
+    <PrimaryTextLarge
+      color={select('color', colorOptions, colors.moon900)}
+      bold={boolean('bold', false)}
+      semiBold={boolean('semiBold', false)}
+    >
       The quick brown fox jumps over the lazy dog
     </PrimaryTextLarge>
   ))
   .add('Medium', () => (
-    <PrimaryTextMedium bold={boolean('bold', false)} semiBold={boolean('semiBold', false)}>
+    <PrimaryTextMedium
+      color={select('color', colorOptions, colors.moon900)}
+      bold={boolean('bold', false)}
+      semiBold={boolean('semiBold', false)}
+    >
       The quick brown fox jumps over the lazy dog
     </PrimaryTextMedium>
   ))
   .add('Small', () => (
-    <PrimaryTextSmall bold={boolean('bold', false)} semiBold={boolean('semiBold', false)}>
+    <PrimaryTextSmall
+      color={select('color', colorOptions, colors.moon900)}
+      bold={boolean('bold', false)}
+      semiBold={boolean('semiBold', false)}
+    >
       The quick brown fox jumps over the lazy dog
     </PrimaryTextSmall>
   ))
   .add('Very Small', () => (
-    <PrimaryTextVerySmall bold={boolean('bold', false)} semiBold={boolean('semiBold', false)}>
+    <PrimaryTextVerySmall
+      color={select('color', colorOptions, colors.moon900)}
+      bold={boolean('bold', false)}
+      semiBold={boolean('semiBold', false)}
+    >
       The quick brown fox jumps over the lazy dog
     </PrimaryTextVerySmall>
   ));
@@ -40,16 +58,22 @@ storiesOf('Secondary Text', module)
   .addDecorator(StoryDecorator)
   .addDecorator(withKnobs)
   .add('Large', () => (
-    <SecondaryTextLarge bold={boolean('bold', false)}>The quick brown fox jumps over the lazy dog</SecondaryTextLarge>
+    <SecondaryTextLarge color={select('color', colorOptions, colors.moon900)} bold={boolean('bold', false)}>
+      The quick brown fox jumps over the lazy dog
+    </SecondaryTextLarge>
   ))
   .add('Medium', () => (
-    <SecondaryTextMedium bold={boolean('bold', false)}>The quick brown fox jumps over the lazy dog</SecondaryTextMedium>
+    <SecondaryTextMedium color={select('color', colorOptions, colors.moon900)} bold={boolean('bold', false)}>
+      The quick brown fox jumps over the lazy dog
+    </SecondaryTextMedium>
   ))
   .add('Small', () => (
-    <SecondaryTextSmall bold={boolean('bold', false)}>The quick brown fox jumps over the lazy dog</SecondaryTextSmall>
+    <SecondaryTextSmall color={select('color', colorOptions, colors.moon900)} bold={boolean('bold', false)}>
+      The quick brown fox jumps over the lazy dog
+    </SecondaryTextSmall>
   ))
   .add('Very Small', () => (
-    <SecondaryTextVerySmall bold={boolean('bold', false)}>
+    <SecondaryTextVerySmall color={select('color', colorOptions, colors.moon900)} bold={boolean('bold', false)}>
       The quick brown fox jumps over the lazy dog
     </SecondaryTextVerySmall>
   ));
