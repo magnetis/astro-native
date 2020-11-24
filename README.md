@@ -4,6 +4,8 @@
 
 [![Build Status](https://travis-ci.org/magnetis/astro-native.svg?branch=main)](https://travis-ci.org/magnetis/astro-native)
 
+[![codecov](https://codecov.io/gh/magnetis/astro-native/branch/main/graph/badge.svg?token=LVMG3RI9ZF)](https://codecov.io/gh/magnetis/astro-native)
+
 ## Table of contents
 
 - [Introduction](#introduction)
