@@ -7,9 +7,7 @@ module.exports = {
   testPathIgnorePatterns: ['/node_modules/'],
   transformIgnorePatterns: ['node_modules/(?!react-native-svg|react-native)/'],
   collectCoverageFrom: [
-    'src/**/*.{ts,tsx}',
-    '!src/index.ts',
-    '!src/**/*.stories.{ts,tsx}',
+    'src/components/**/*.{ts,tsx}',
     '!src/components/Icons/Dashboard/**/*.{ts,tsx}',
     '!src/components/Icons/Support/**/*.{ts,tsx}',
   ],
