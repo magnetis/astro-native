@@ -29,4 +29,12 @@ export type { IconProps } from '@components/Icons';
 
 // Controls & Toggles
 export * from '@components/ControlsToggles';
-export type { ToggleProps, RadioProps, CheckboxProps, RadioGroupProps, SliderProps } from '@components/ControlsToggles';
+export type {
+  ToggleProps,
+  RadioProps,
+  CheckboxProps,
+  RadioGroupProps,
+  SliderProps,
+  TabsProps,
+  TabItem,
+} from '@components/ControlsToggles';
