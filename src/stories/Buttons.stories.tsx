@@ -16,8 +16,9 @@ import {
   IconLinkButton,
 } from '@components/Buttons';
 import { PrimaryTextMedium } from '@components/Text';
-import { ButtonColor, ButtonSize } from '@components/Buttons/types';
+import type { ButtonColor, ButtonSize } from '@components/Buttons';
 import * as icons from '@components/Icons';
+import type { IconID } from '@components/Icons';
 
 const colorOptions: ButtonColor[] = ['uranus', 'venus', 'mars', 'earth'];
 const sizeOptions: ButtonSize[] = ['very-small', 'small', 'medium', 'large'];
@@ -47,7 +48,7 @@ buttonsStories.add('IconLabelButton', () => (
     isLoading={boolean('isLoading', false)}
     fill={boolean('fill', false)}
     color={select('color', colorOptions, 'uranus')}
-    icon={select('icon', iconOptions, iconOptions[0])}
+    icon={select('icon', iconOptions, iconOptions[0]) as IconID}
     size={select('size', sizeOptions, 'medium')}
     iconPosition={select('iconPosition', iconPositionOptions, 'left') as 'left' | 'right'}
   />
@@ -59,7 +60,7 @@ buttonsStories.add('IconButton', () => (
     isDisabled={boolean('isDisabled', false)}
     isLoading={boolean('isLoading', false)}
     color={select('color', colorOptions, 'uranus')}
-    icon={select('icon', iconOptions, iconOptions[0])}
+    icon={select('icon', iconOptions, iconOptions[0]) as IconID}
     size={select('size', sizeOptions, 'medium')}
   />
 ));
@@ -70,7 +71,7 @@ buttonsStories.add('GhostIconButton', () => (
     isDisabled={boolean('isDisabled', false)}
     isLoading={boolean('isLoading', false)}
     color={select('color', colorOptions, 'uranus')}
-    icon={select('icon', iconOptions, iconOptions[0])}
+    icon={select('icon', iconOptions, iconOptions[0]) as IconID}
     size={select('size', sizeOptions, 'medium')}
   />
 ));
@@ -83,7 +84,7 @@ buttonsStories.add('GhostIconLabelButton', () => (
     isLoading={boolean('isLoading', false)}
     fill={boolean('fill', false)}
     color={select('color', colorOptions, 'uranus')}
-    icon={select('icon', iconOptions, iconOptions[0])}
+    icon={select('icon', iconOptions, iconOptions[0]) as IconID}
     size={select('size', sizeOptions, 'medium')}
     iconPosition={select('iconPosition', iconPositionOptions, 'left') as 'left' | 'right'}
   />
@@ -109,7 +110,7 @@ buttonsStories.add('OutlineIconLabelButton', () => (
     isLoading={boolean('isLoading', false)}
     fill={boolean('fill', false)}
     color={select('color', colorOptions, 'uranus')}
-    icon={select('icon', iconOptions, iconOptions[0])}
+    icon={select('icon', iconOptions, iconOptions[0]) as IconID}
     size={select('size', sizeOptions, 'medium')}
     iconPosition={select('iconPosition', iconPositionOptions, 'left') as 'left' | 'right'}
   />
@@ -121,7 +122,7 @@ buttonsStories.add('OutlineIconButton', () => (
     isDisabled={boolean('isDisabled', false)}
     isLoading={boolean('isLoading', false)}
     color={select('color', colorOptions, 'uranus')}
-    icon={select('icon', iconOptions, iconOptions[0])}
+    icon={select('icon', iconOptions, iconOptions[0]) as IconID}
     size={select('size', sizeOptions, 'medium')}
   />
 ));
@@ -135,7 +136,7 @@ buttonsStories.add('Link', () => (
 buttonsStories.add('IconLinkButton', () => (
   <View style={{ backgroundColor: 'black', justifyContent: 'center', alignItems: 'center', flex: 1 }}>
     <IconLinkButton
-      icon={select('icon', iconOptions, iconOptions[0])}
+      icon={select('icon', iconOptions, iconOptions[0]) as IconID}
       onPress={() => console.log('Pressed')}
       iconPosition={select('iconPosition', iconPositionOptions, 'left') as 'left' | 'right'}
       size={select('size', sizeOptions, 'medium')}

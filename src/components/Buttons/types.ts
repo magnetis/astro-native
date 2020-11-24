@@ -1,3 +1,4 @@
+import { IconID } from '@components/Icons/types';
 import React from 'react';
 import { PressableProps } from 'react-native';
 
@@ -19,10 +20,10 @@ export interface ButtonProps extends PressableProps {
 }
 
 export interface IconLabelButtonProps extends ButtonProps {
-  icon: string;
+  icon: IconID;
   iconPosition?: 'left' | 'right';
 }
 
 export interface IconButtonProps extends Omit<ButtonProps, 'text' | 'fill'> {
-  icon: string;
+  icon: IconID;
 }

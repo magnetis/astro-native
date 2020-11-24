@@ -6,12 +6,13 @@ import { SecondaryTextLarge, SecondaryTextMedium, SecondaryTextSmall, SecondaryT
 import { getFontSize } from './utils';
 import { ButtonSize } from './types';
 import { getIcon } from './utils';
+import { IconID } from '@components/Icons/types';
 
 interface IconLinkButtonProps extends PressableProps {
   text: string;
   bold?: boolean;
   onPress: () => void;
-  icon: string;
+  icon: IconID;
   iconPosition?: 'left' | 'right';
   size?: ButtonSize;
   isDisabled?: boolean;
