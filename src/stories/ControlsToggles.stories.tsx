@@ -1,9 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, number, text } from '@storybook/addon-knobs';
 
-import { Toggle, Radio, Checkbox, RadioGroup } from '@components/ControlsToggles';
+import { Toggle, Radio, Checkbox, RadioGroup, Slider } from '@components/ControlsToggles';
 
 const controlsTogglesStories = storiesOf('Controls & Toggles', module);
 
@@ -48,5 +48,17 @@ controlsTogglesStories.add('Checkbox', () => (
     isDisabled={boolean('isDisabled', false)}
     startChecked={boolean('startChecked', false)}
     onPress={(checked, indeterminate) => console.log({ checked, indeterminate })}
+  />
+));
+
+controlsTogglesStories.add('Slider', () => (
+  <Slider
+    label={text('label', 'Deadline')}
+    unit={{ plural: 'days', singular: 'day' }}
+    minimumValue={number('minimumValue', 1)}
+    maximumValue={number('maximumValue', 70)}
+    fullFill={boolean('fullFill', false)}
+    isDisabled={boolean('isDisabled', false)}
+    onValueChange={(newValue) => console.log('slider to ', newValue)}
   />
 ));
