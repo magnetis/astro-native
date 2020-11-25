@@ -1,7 +1,10 @@
 import React from 'react';
 import { PressableProps } from 'react-native';
 
-export type ButtonSize = 'very-small' | 'small' | 'medium' | 'large';
+import { IconID } from '@components/Icons/types';
+import { Size } from '@tokens/sizes';
+
+export type ButtonSize = Size;
 
 export type ButtonColor = 'uranus' | 'earth' | 'venus' | 'mars';
 
@@ -19,10 +22,10 @@ export interface ButtonProps extends PressableProps {
 }
 
 export interface IconLabelButtonProps extends ButtonProps {
-  icon: string;
+  icon: IconID;
   iconPosition?: 'left' | 'right';
 }
 
 export interface IconButtonProps extends Omit<ButtonProps, 'text' | 'fill'> {
-  icon: string;
+  icon: IconID;
 }

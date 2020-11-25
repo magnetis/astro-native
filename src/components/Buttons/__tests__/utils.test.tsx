@@ -5,7 +5,9 @@ import { render } from '@testing-library/react-native';
 import { AlertIcon } from '@components/Icons';
 
 import {
+  getButtonHeight,
   getButtonPadding,
+  getFontSize,
   getIconSize,
   getBorderRadius,
   getLineHeight,
@@ -15,33 +17,23 @@ import {
 } from '../utils';
 
 describe('Button/utils', () => {
+  it('getFontSize', () => {
+    expect(getFontSize('very-small')).toBe(12);
+    expect(getFontSize('small')).toBe(14);
+    expect(getFontSize('medium')).toBe(16);
+    expect(getFontSize('large')).toBe(24);
+  });
+
   it('getButtonPadding', () => {
-    let options = {
-      noHorizontalPadding: false,
-      hasIcon: false,
-    };
-    expect(getButtonPadding('very-small', options)).toEqual({ paddingVertical: 4, paddingHorizontal: 20 });
-    expect(getButtonPadding('small', options)).toEqual({ paddingVertical: 8, paddingHorizontal: 26 });
-    expect(getButtonPadding('medium', options)).toEqual({ paddingVertical: 8, paddingHorizontal: 46 });
-    expect(getButtonPadding('large', options)).toEqual({ paddingVertical: 8, paddingHorizontal: 64 });
+    expect(getButtonPadding('very-small')).toEqual({ paddingVertical: 5, paddingHorizontal: 20 });
+    expect(getButtonPadding('small')).toEqual({ paddingVertical: 5, paddingHorizontal: 28 });
+    expect(getButtonPadding('medium')).toEqual({ paddingVertical: 8, paddingHorizontal: 38 });
+    expect(getButtonPadding('large')).toEqual({ paddingVertical: 5, paddingHorizontal: 28 });
 
-    options = {
-      noHorizontalPadding: true,
-      hasIcon: false,
-    };
-    expect(getButtonPadding('very-small', options)).toEqual({ paddingVertical: 4, paddingHorizontal: 4 });
-    expect(getButtonPadding('small', options)).toEqual({ paddingVertical: 8, paddingHorizontal: 8 });
-    expect(getButtonPadding('medium', options)).toEqual({ paddingVertical: 8, paddingHorizontal: 8 });
-    expect(getButtonPadding('large', options)).toEqual({ paddingVertical: 8, paddingHorizontal: 8 });
-
-    options = {
-      noHorizontalPadding: false,
-      hasIcon: true,
-    };
-    expect(getButtonPadding('very-small', options)).toEqual({ paddingVertical: 4, paddingHorizontal: 10 });
-    expect(getButtonPadding('small', options)).toEqual({ paddingVertical: 8, paddingHorizontal: 13 });
-    expect(getButtonPadding('medium', options)).toEqual({ paddingVertical: 8, paddingHorizontal: 23 });
-    expect(getButtonPadding('large', options)).toEqual({ paddingVertical: 8, paddingHorizontal: 32 });
+    expect(getButtonPadding('very-small', true)).toEqual({ paddingVertical: 5, paddingHorizontal: 0 });
+    expect(getButtonPadding('small', true)).toEqual({ paddingVertical: 5, paddingHorizontal: 0 });
+    expect(getButtonPadding('medium', true)).toEqual({ paddingVertical: 8, paddingHorizontal: 0 });
+    expect(getButtonPadding('large', true)).toEqual({ paddingVertical: 5, paddingHorizontal: 0 });
   });
 
   it('getIconSize', () => {
@@ -51,33 +43,23 @@ describe('Button/utils', () => {
     expect(getIconSize('large')).toEqual({ width: 48, height: 48 });
   });
 
+  it('getButtonHeight', () => {
+    expect(getButtonHeight('very-small')).toBe(30);
+    expect(getButtonHeight('small')).toBe(42);
+    expect(getButtonHeight('medium')).toBe(48);
+    expect(getButtonHeight('large')).toBe(72);
+  });
+
   it('getBorderRadius', () => {
-    let options = {
-      noHorizontalPadding: false,
-      hasIcon: false,
-    };
-    expect(getBorderRadius('very-small', options)).toBe(16);
-    expect(getBorderRadius('small', options)).toBe(22);
-    expect(getBorderRadius('medium', options)).toBe(24);
-    expect(getBorderRadius('large', options)).toBe(32);
+    expect(getBorderRadius('very-small', false)).toBe(25);
+    expect(getBorderRadius('small', false)).toBe(16);
+    expect(getBorderRadius('medium', false)).toBe(31);
+    expect(getBorderRadius('large', false)).toBe(24);
 
-    options = {
-      noHorizontalPadding: true,
-      hasIcon: false,
-    };
-    expect(getBorderRadius('very-small', options)).toBe(28);
-    expect(getBorderRadius('small', options)).toBe(36);
-    expect(getBorderRadius('medium', options)).toBe(40);
-    expect(getBorderRadius('large', options)).toBe(56);
-
-    options = {
-      noHorizontalPadding: false,
-      hasIcon: true,
-    };
-    expect(getBorderRadius('very-small', options)).toBe(16);
-    expect(getBorderRadius('small', options)).toBe(22);
-    expect(getBorderRadius('medium', options)).toBe(24);
-    expect(getBorderRadius('large', options)).toBe(32);
+    expect(getBorderRadius('very-small', true)).toBe(24);
+    expect(getBorderRadius('small', true)).toBe(28);
+    expect(getBorderRadius('medium', true)).toBe(32);
+    expect(getBorderRadius('large', true)).toBe(48);
   });
 
   it('getLineHeight', () => {

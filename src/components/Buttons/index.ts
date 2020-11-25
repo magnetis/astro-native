@@ -12,6 +12,6 @@ export { default as OutlineIconButton } from './OutlineIconButton';
 export { default as Link } from './Link';
 export { default as IconLinkButton } from './IconLinkButton';
 
-export type { ButtonProps, IconLabelButtonProps, IconButtonProps } from './types';
+export type { ButtonProps, IconLabelButtonProps, IconButtonProps, ButtonColor, ButtonSize } from './types';
 export type { IconLinkButtonProps } from './IconLinkButton';
 export type { LinkProps } from './Link';

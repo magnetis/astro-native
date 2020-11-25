@@ -5,7 +5,7 @@ import { colors } from '@magnetis/astro-galaxy-tokens';
 import { getButtonMainColor, getButtonSecondaryColor, getIconSize } from './utils';
 import type { IconButtonProps } from './types';
 import BaseButton from './BaseButton';
-import { getIcon } from '@components/Icons/utils';
+import { getIcon } from './utils';
 
 const IconButton: React.FC<IconButtonProps> = ({
   ref,

@@ -7,7 +7,7 @@ const onOptionChange = jest.fn();
 const options = [
   { label: 'Pizza', value: 'pizza' },
   { label: 'Hamburguer', value: 'hamburguer' },
-  { label: 'Salad', value: 'salad', disabled: true },
+  { label: 'Salad', value: 'salad', isDisabled: true },
 ];
 
 afterEach(() => {
