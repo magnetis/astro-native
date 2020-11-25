@@ -1,18 +1,18 @@
 import React from 'react';
-import { getFontSize, getLineHeight } from './utils';
 import { StyleSheet, Text, TextProps } from 'react-native';
 import type { Colors } from '@magnetis/astro-galaxy-tokens';
 
-import { poppinsSemiBold } from '@tokens/fonts';
+import { getFontSize, getLineHeight } from './utils';
 import { ButtonSize } from './types';
+import { poppinsSemiBold } from '@tokens/fonts';
 
-interface BaseTextProps extends TextProps {
+interface BaseButtonTextProps extends TextProps {
   size?: ButtonSize;
   color: Colors[keyof Colors];
   children: string;
 }
 
-function BaseText({ size = 'medium', color, children }: BaseTextProps) {
+function BaseButtonText({ size = 'medium', color, children }: BaseButtonTextProps) {
   const textStyles = {
     fontSize: getFontSize(size),
     lineHeight: getLineHeight(size),
@@ -28,5 +28,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BaseText;
-export type { BaseTextProps };
+export default BaseButtonText;
+export type { BaseButtonTextProps };
