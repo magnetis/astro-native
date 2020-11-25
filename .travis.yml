@@ -1,6 +1,8 @@
 language: node_js
 node_js:
-  - '12'
+  - '14'
 install:
   - yarn install
 script: yarn ci
+after_success:
+  - test $TRAVIS_BRANCH = "main" && test $TRAVIS_PULL_REQUEST = "false" && yarn codecov -t $CODECOV_TOKEN

@@ -1,4 +1,8 @@
+import React from 'react';
 import { colors } from '@magnetis/astro-galaxy-tokens';
+import { render } from '@testing-library/react-native';
+
+import { AlertIcon } from '@components/Icons';
 
 import {
   getButtonHeight,
@@ -9,6 +13,7 @@ import {
   getLineHeight,
   getButtonMainColor,
   getButtonSecondaryColor,
+  getIcon,
 } from '../utils';
 
 describe('Button/utils', () => {
@@ -69,13 +74,11 @@ describe('Button/utils', () => {
     expect(getButtonMainColor('uranus')).toEqual(colors.uranus500);
     expect(getButtonMainColor('mars')).toEqual(colors.mars500);
     expect(getButtonMainColor('earth')).toEqual(colors.earth400);
-    expect(getButtonMainColor(null)).toEqual(colors.uranus500);
 
     expect(getButtonMainColor('venus', { outline: true })).toEqual(colors.venus400);
     expect(getButtonMainColor('uranus', { outline: true })).toEqual(colors.uranus500);
     expect(getButtonMainColor('mars', { outline: true })).toEqual(colors.mars500);
     expect(getButtonMainColor('earth', { outline: true })).toEqual(colors.earth600);
-    expect(getButtonMainColor(null, { outline: true })).toEqual(colors.uranus500);
   });
 
   it('getButtonSecondaryColor', () => {
@@ -83,6 +86,22 @@ describe('Button/utils', () => {
     expect(getButtonSecondaryColor('uranus')).toEqual(colors.space100);
     expect(getButtonSecondaryColor('mars')).toEqual(colors.space100);
     expect(getButtonSecondaryColor('earth')).toEqual(colors.moon900);
-    expect(getButtonSecondaryColor(null)).toEqual(colors.space100);
+  });
+
+  describe('getIcon', () => {
+    it('when iconName is valid, returns Icon', () => {
+      const Icon = getIcon('Alert');
+      const { getByTestId: getIconByTestId } = render(<Icon testID="Icon" />);
+      const { getByTestId } = render(<AlertIcon testID="Alert" />);
+
+      expect(getIconByTestId('Icon').props.id).toEqual(getByTestId('Alert').props.id);
+    });
+
+    it('when iconName is not valid, returns null', () => {
+      const Icon = getIcon('NotValidIconName');
+      const { queryByTestId } = render(<Icon testID="NotValidIconName" />);
+
+      expect(queryByTestId('Icon')).toBeNull();
+    });
   });
 });
