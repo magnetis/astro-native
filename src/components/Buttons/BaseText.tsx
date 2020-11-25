@@ -1,27 +1,32 @@
-import styled from 'styled-components/native';
+import React from 'react';
 import { getFontSize, getLineHeight } from './utils';
-import { TextProps } from 'react-native';
+import { StyleSheet, Text, TextProps } from 'react-native';
+import type { Colors } from '@magnetis/astro-galaxy-tokens';
 
 import { poppinsSemiBold } from '@tokens/fonts';
 import { ButtonSize } from './types';
 
 interface BaseTextProps extends TextProps {
   size?: ButtonSize;
-  isDisabled?: boolean;
-  color: string;
+  color: Colors[keyof Colors];
+  children: string;
 }
 
-const BaseText = styled.Text<BaseTextProps>`
-  font-size: ${({ size }) => getFontSize(size as ButtonSize)}px;
-  line-height: ${({ size }) => getLineHeight(size as ButtonSize)}px;
-  ${({ color }) => color && `color: ${color};`};
-  font-family: ${poppinsSemiBold};
-  align-items: center;
-`;
+function BaseText({ size = 'medium', color, children }: BaseTextProps) {
+  const textStyles = {
+    fontSize: getFontSize(size),
+    lineHeight: getLineHeight(size),
+    color,
+  };
+  return <Text style={[styles.text, textStyles]}>{children}</Text>;
+}
 
-BaseText.defaultProps = {
-  size: 'medium',
-};
+const styles = StyleSheet.create({
+  text: {
+    fontFamily: poppinsSemiBold,
+    alignItems: 'center',
+  },
+});
 
 export default BaseText;
 export type { BaseTextProps };
