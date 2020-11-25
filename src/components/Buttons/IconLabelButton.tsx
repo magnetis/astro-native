@@ -1,11 +1,11 @@
 import React from 'react';
+import { View } from 'react-native';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 
 import { getButtonMainColor, getButtonSecondaryColor, getIconSize } from './utils';
 import type { IconLabelButtonProps } from './types';
+import BaseButtonText from './BaseButtonText';
 import BaseButton from './BaseButton';
-import BaseText from './BaseText';
-import { View } from 'react-native';
 import { getIcon } from '@components/Icons/utils';
 
 const IconLabelButton: React.FC<IconLabelButtonProps> = ({
@@ -57,9 +57,9 @@ const IconLabelButton: React.FC<IconLabelButtonProps> = ({
         <View testID="IconLabelButton.Icon" style={iconWrapperStyle}>
           <Icon {...iconSize} color={textColor} />
         </View>
-        <BaseText size={size} color={textColor}>
+        <BaseButtonText size={size} color={textColor}>
           {text}
-        </BaseText>
+        </BaseButtonText>
       </View>
     </BaseButton>
   );
