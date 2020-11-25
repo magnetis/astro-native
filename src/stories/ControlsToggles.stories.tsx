@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { Colors, colors } from '@magnetis/astro-galaxy-tokens';
 import { boolean, number, text, select } from '@storybook/addon-knobs';
 
 import sizes from '@tokens/sizes';
@@ -87,16 +87,16 @@ controlsTogglesStories.add('Tabs', () => (
   <View style={{ width: '100%', flex: 1, backgroundColor: colors.space900, justifyContent: 'center' }}>
     <View style={{ width: '100%' }}>
       <Tabs
-        onChange={(value) => console.log('Tab selected ->', value)}
+        onChange={(value: string) => console.log('Tab selected ->', value)}
         items={items}
         disabled={boolean('disabled', false)}
         defaultSelected="item-2"
         borderColor={select('borderColor', colorOptionsWithTransparent, 'transparent')}
         backgroundColor={select('backgroundColor', colorOptionsWithTransparent, 'transparent')}
-        textColor={select('textColor', colorOptionsWithTransparent, colors.space100)}
+        textColor={select('textColor', colorOptionsWithTransparent, colors.space100) as Colors[keyof Colors]}
         disabledColor={select('disabledColor', colorOptions, colors.space100)}
         activeItemColor={select('activeItemColor', colorOptionsWithTransparent, colors.space100)}
-        activeTextColor={select('activeTextColor', colorOptionsWithTransparent, colors.moon900)}
+        activeTextColor={select('activeTextColor', colorOptionsWithTransparent, colors.moon900) as Colors[keyof Colors]}
         size={select('size', sizeOptions, sizes.Medium)}
       />
     </View>
