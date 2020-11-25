@@ -6,7 +6,7 @@ import { getButtonMainColor, getIconSize } from './utils';
 import type { IconLabelButtonProps } from './types';
 import BaseButtonText from './BaseButtonText';
 import BaseButton from './BaseButton';
-import { getIcon } from '@components/Icons/utils';
+import { getIcon } from './utils';
 
 const OutlineIconLabelButton: React.FC<IconLabelButtonProps> = ({
   ref,
