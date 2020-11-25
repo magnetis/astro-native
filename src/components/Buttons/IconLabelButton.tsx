@@ -6,7 +6,7 @@ import { getButtonMainColor, getButtonSecondaryColor, getIconSize } from './util
 import type { IconLabelButtonProps } from './types';
 import BaseButtonText from './BaseButtonText';
 import BaseButton from './BaseButton';
-import { getIcon } from '@components/Icons/utils';
+import { getIcon } from './utils';
 
 const IconLabelButton: React.FC<IconLabelButtonProps> = ({
   ref,
