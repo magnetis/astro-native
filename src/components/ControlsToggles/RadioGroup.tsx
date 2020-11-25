@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { View } from 'react-native';
 
 import Radio from './Radio';
@@ -20,7 +20,7 @@ function RadioGroup({
   defaultOption,
   testID = 'RadioGroup',
 }: RadioGroupProps) {
-  const filteredUniqueOptions = React.useMemo(() => getUniqueOptions(options), [options]);
+  const filteredUniqueOptions = useMemo(() => getUniqueOptions(options), [options]);
   const [selected, setSelected] = useState(defaultOption);
 
   function handleSelect(option: RadioGroupOption) {
