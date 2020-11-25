@@ -79,7 +79,6 @@
   },
   "dependencies": {
     "@magnetis/astro-galaxy-tokens": "^1.2.3",
-    "react-native-svg": "^12.1.0",
-    "styled-components": "^5.2.1"
+    "react-native-svg": "^12.1.0"
   }
 }
