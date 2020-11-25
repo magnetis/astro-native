@@ -98,10 +98,10 @@ describe('Slider', () => {
     );
   });
 
-  it('renders correctly when disabled is true', () => {
+  it('renders correctly when isDisabled is true', () => {
     const { getByTestId, getByText } = render(
       <Slider
-        disabled
+        isDisabled
         fullFill
         onValueChange={onValueChange}
         label="Deadline"

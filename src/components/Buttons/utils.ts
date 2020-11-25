@@ -1,6 +1,19 @@
 import { Colors, colors } from '@magnetis/astro-galaxy-tokens';
 import { ButtonColor, ButtonSize } from './types';
 
+import * as icons from '@components/Icons';
+import { ReactElement } from 'react';
+import {
+  PrimaryTextLarge,
+  PrimaryTextMedium,
+  PrimaryTextSmall,
+  PrimaryTextVerySmall,
+  SecondaryTextLarge,
+  SecondaryTextMedium,
+  SecondaryTextSmall,
+  SecondaryTextVerySmall,
+} from '@components/Text';
+
 export function getFontSize(size: ButtonSize): number {
   switch (size) {
     case 'very-small':
@@ -101,4 +114,27 @@ export function getButtonSecondaryColor(color: ButtonColor): Colors[keyof Colors
     default:
       return colors.space100;
   }
+}
+
+export function getIcon(_iconName: string) {
+  const iconName = `${_iconName}Icon`;
+
+  if (Object.keys(icons).includes(iconName)) {
+    return (icons as { [key: string]: Function })[iconName];
+  }
+
+  return () => null;
+}
+
+export function isValidTextComponent(component: ReactElement) {
+  return (
+    component.type === PrimaryTextVerySmall ||
+    component.type === PrimaryTextSmall ||
+    component.type === PrimaryTextMedium ||
+    component.type === PrimaryTextLarge ||
+    component.type === SecondaryTextVerySmall ||
+    component.type === SecondaryTextSmall ||
+    component.type === SecondaryTextMedium ||
+    component.type === SecondaryTextLarge
+  );
 }

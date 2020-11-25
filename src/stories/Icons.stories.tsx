@@ -4,21 +4,8 @@ import { storiesOf } from '@storybook/react-native';
 import { select, number } from '@storybook/addon-knobs';
 
 import * as icons from '@components/Icons';
-import gradients from '@tokens/gradients';
 import { colors } from '@magnetis/astro-galaxy-tokens';
-
-const gradientOptions = Object.keys(gradients).reduce(
-  (acc, key) => {
-    acc[key] = key;
-    return acc;
-  },
-  { '': null }
-);
-
-const colorOptions = Object.keys(colors).reduce((acc, key) => {
-  acc[key] = colors[key];
-  return acc;
-}, {});
+import { colorOptions, gradientOptions } from './options';
 
 const iconsStories = storiesOf('Icons', module).addDecorator((Story: any) => (
   <View style={{ alignSelf: 'center', alignItems: 'center', justifyContent: 'center', flex: 1 }}>
@@ -27,6 +14,7 @@ const iconsStories = storiesOf('Icons', module).addDecorator((Story: any) => (
 ));
 
 Object.keys(icons).forEach((key) => {
+  // @ts-ignore
   const Icon = icons[key];
   iconsStories.add(key.replace('Icon', ''), () => (
     <Icon
