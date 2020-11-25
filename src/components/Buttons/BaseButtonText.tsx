@@ -2,10 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, TextProps } from 'react-native';
 import type { Colors } from '@magnetis/astro-galaxy-tokens';
 
-import { getLineHeight } from './utils';
+import { getFontSize, getLineHeight } from './utils';
 import { ButtonSize } from './types';
 import { poppinsSemiBold } from '@tokens/fonts';
-import { getFontSize } from '@tokens/utils';
 
 interface BaseButtonTextProps extends TextProps {
   size?: ButtonSize;

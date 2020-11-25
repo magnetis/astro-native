@@ -1,4 +1,4 @@
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { Colors, colors } from '@magnetis/astro-galaxy-tokens';
 import { ButtonColor, ButtonSize } from './types';
 
 export function getFontSize(size: ButtonSize): number {
@@ -81,7 +81,7 @@ export function getLineHeight(size: ButtonSize): number {
 export function getButtonMainColor(
   color: ButtonColor,
   { outline }: { outline?: boolean } = { outline: false }
-): string {
+): Colors[keyof Colors] {
   switch (color) {
     case 'earth':
       return outline ? colors.earth600 : colors.earth400;
@@ -94,7 +94,7 @@ export function getButtonMainColor(
   }
 }
 
-export function getButtonSecondaryColor(color: ButtonColor): string {
+export function getButtonSecondaryColor(color: ButtonColor): Colors[keyof Colors] {
   switch (color) {
     case 'earth':
       return colors.moon900;

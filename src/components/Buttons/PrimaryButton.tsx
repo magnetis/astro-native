@@ -2,9 +2,9 @@ import React from 'react';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 
 import { getButtonMainColor, getButtonSecondaryColor } from './utils';
+import BaseButtonText from './BaseButtonText';
 import type { ButtonProps } from './types';
 import BaseButton from './BaseButton';
-import BaseText from './BaseText';
 
 const PrimaryButton: React.FC<ButtonProps> = ({
   ref,
@@ -38,9 +38,9 @@ const PrimaryButton: React.FC<ButtonProps> = ({
 
   return (
     <BaseButton {...props} {...baseProps}>
-      <BaseText size={size} color={textColor}>
+      <BaseButtonText size={size} color={textColor}>
         {text}
-      </BaseText>
+      </BaseButtonText>
     </BaseButton>
   );
 };
