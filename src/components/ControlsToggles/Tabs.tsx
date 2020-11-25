@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Colors } from '@magnetis/astro-galaxy-tokens';
 
 import { IconID } from '@components/Icons/types';
@@ -6,55 +6,32 @@ import type { Size } from '@tokens/sizes';
 import sizes from '@tokens/sizes';
 import { Pressable, ScrollView, StyleSheet } from 'react-native';
 import { getSecondaryTextFromSize } from '@components/Text/utils';
-import { getIcon } from '@components/Buttons/utils';
-import { getFontSize } from '@tokens/utils';
-import useDidMount from '@hooks/useDidMount';
+import { getFontSize, getIcon } from '@components/Buttons/utils';
 
 interface TabItem {
-  /** Text to be shown inside tab */
   label: string;
-  /** Value that will be returned when tab is selected */
   value: string;
-  /** When provided, shows Icon aside tab text. */
   icon?: IconID;
-  /** Disables any user interaction with component. Defaults to `false`. */
   disabled?: boolean;
-  /** Items' backgroundColor color when active */
   activeColor?: Colors[keyof Colors];
-  /** Items' text color when active */
   activeTextColor?: Colors[keyof Colors];
 }
 
 interface TabsProps {
-  /** List of tab items */
   items: TabItem[];
-  /** Items' text color when not active */
   textColor: Colors[keyof Colors];
-  /** Items' text color when disabled */
   disabledColor: Colors[keyof Colors];
-  /** Items' text color when active */
   activeTextColor: Colors[keyof Colors];
-  /** Items' backgroundColor color when active */
   activeItemColor: Colors[keyof Colors] | 'transparent';
-  /** Items' backgroundColor color when not active */
   backgroundColor: Colors[keyof Colors] | 'transparent';
-  /** Used to locate this component in end-to-end tests. Defaults to `"Tabs"`. */
   testID?: string;
-  /** Disables any user interaction with component. Defaults to `false`. */
   disabled?: boolean;
-  /** Define which size tab will have. Defaults to `"medium"`. */
   size?: Size;
-  /** Tab border color */
   borderColor?: Colors[keyof Colors] | 'transparent';
-  /** Callback called when a tab is selected */
   onChange: (value: string) => void;
-  /** When provided, defines which tab will be selected at first */
   defaultSelected?: string;
 }
 
-/**
- * Tabs are used when the user can quickly navigate and switch between views and states of the same context.
- */
 function Tabs({
   disabled = false,
   activeItemColor,
@@ -69,7 +46,7 @@ function Tabs({
   size = sizes.Medium,
   testID = 'Tabs',
 }: TabsProps) {
-  const didMount = useDidMount();
+  const didMountRef = useRef(false);
   const TextComponent = getSecondaryTextFromSize(size);
   const [selectedItem, setSelectedItem] = useState(defaultSelected || items[0].value);
 
@@ -92,8 +69,10 @@ function Tabs({
   }
 
   useEffect(() => {
-    if (didMount) {
+    if (didMountRef.current) {
       onChange(selectedItem);
+    } else {
+      didMountRef.current = true;
     }
   }, [selectedItem]);
 

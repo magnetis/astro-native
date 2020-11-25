@@ -8,14 +8,14 @@ describe('ControlsToggles/Utils', () => {
         { label: 'pizza', value: 'pizza' },
         { label: 'Hamburguer', value: 'hamburguer' },
         { label: 'Hambúrguer', value: 'hamburguer' },
-        { label: 'Salad', value: 'salad', disabled: true },
-        { label: 'Salad', value: 'salad', disabled: false },
+        { label: 'Salad', value: 'salad', isDisabled: true },
+        { label: 'Salad', value: 'salad', isDisabled: false },
       ];
 
       expect(getUniqueOptions(options)).toEqual([
         { label: 'Pizza', value: 'pizza' },
         { label: 'Hamburguer', value: 'hamburguer' },
-        { label: 'Salad', value: 'salad', disabled: true },
+        { label: 'Salad', value: 'salad', isDisabled: true },
       ]);
     });
   });
