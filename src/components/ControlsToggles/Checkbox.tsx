@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 
 import { SecondaryTextMedium } from '@components/Text';
-import useDidMount from '@hooks/useDidMount';
 
 interface CheckboxProps {
   label: string;
@@ -56,7 +55,7 @@ function Checkbox({
   onPress,
   label,
 }: CheckboxProps) {
-  const didMount = useDidMount();
+  const didMountRef = useRef(false);
   const [isChecked, setIsChecked] = useState(startChecked);
   const borderColor = isDisabled ? colors.moon200 : isChecked ? colors.uranus500 : colors.moon500;
   const backgroundColor = isChecked && !isDisabled ? colors.uranus500 : colors.space100;
@@ -66,8 +65,10 @@ function Checkbox({
   }
 
   useEffect(() => {
-    if (didMount) {
+    if (didMountRef.current) {
       onPress(isChecked, isIndeterminate);
+    } else {
+      didMountRef.current = true;
     }
   }, [isChecked]);
 

@@ -7,6 +7,7 @@ import { AlertIcon } from '@components/Icons';
 import {
   getButtonHeight,
   getButtonPadding,
+  getFontSize,
   getIconSize,
   getBorderRadius,
   getLineHeight,
@@ -16,6 +17,13 @@ import {
 } from '../utils';
 
 describe('Button/utils', () => {
+  it('getFontSize', () => {
+    expect(getFontSize('very-small')).toBe(12);
+    expect(getFontSize('small')).toBe(14);
+    expect(getFontSize('medium')).toBe(16);
+    expect(getFontSize('large')).toBe(24);
+  });
+
   it('getButtonPadding', () => {
     expect(getButtonPadding('very-small')).toEqual({ paddingVertical: 5, paddingHorizontal: 20 });
     expect(getButtonPadding('small')).toEqual({ paddingVertical: 5, paddingHorizontal: 28 });

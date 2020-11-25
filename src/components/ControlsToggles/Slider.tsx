@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import RNSlider from '@react-native-community/slider';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 import { StyleSheet, View } from 'react-native';
 import { SecondaryTextMedium } from '@components/Text';
-import useDidMount from '@hooks/useDidMount';
 
 type Unit = string | { singular: string; plural: string };
 
@@ -27,7 +26,7 @@ function Slider({
   testID = 'Slider',
   ...props
 }: SliderProps) {
-  const didMount = useDidMount();
+  const didMountRef = useRef(false);
   const [value, setValue] = useState(props.minimumValue);
   const [slidingValue, setSlidingValue] = useState(value);
   const unitString = typeof unit === 'string' ? unit : slidingValue > 1 ? unit.plural : unit.singular;
@@ -46,8 +45,10 @@ function Slider({
   }
 
   useEffect(() => {
-    if (didMount) {
+    if (didMountRef.current) {
       onValueChange(value);
+    } else {
+      didMountRef.current = true;
     }
   }, [value]);
 

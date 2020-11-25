@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Animated, Pressable, StyleSheet } from 'react-native';
 import { colors } from '@magnetis/astro-galaxy-tokens';
-import useDidMount from '@hooks/useDidMount';
 
 interface ToggleProps {
   startEnabled?: boolean;
@@ -14,7 +13,7 @@ const OFF_POSITION = 1;
 const ON_POSITION = 21;
 
 function Toggle({ startEnabled = false, onValueChange, isDisabled = false, testID = 'Toggle.Pressable' }: ToggleProps) {
-  const didMount = useDidMount();
+  const didMountRef = useRef(false);
   const [isToggled, setIsToggled] = useState(isDisabled ? false : startEnabled);
   const bulletAnim = useRef(new Animated.Value(isToggled ? ON_POSITION : OFF_POSITION)).current;
   const backgroundColor = isDisabled ? colors.moon200 : isToggled ? colors.uranus500 : colors.moon400;
@@ -24,7 +23,7 @@ function Toggle({ startEnabled = false, onValueChange, isDisabled = false, testI
   }
 
   useEffect(() => {
-    if (didMount) {
+    if (didMountRef.current) {
       bulletAnim.stopAnimation();
       onValueChange(isToggled);
       Animated.timing(bulletAnim, {
@@ -32,6 +31,8 @@ function Toggle({ startEnabled = false, onValueChange, isDisabled = false, testI
         toValue: isToggled ? ON_POSITION : OFF_POSITION,
         duration: 300,
       }).start();
+    } else {
+      didMountRef.current = true;
     }
   }, [isToggled]);
 
