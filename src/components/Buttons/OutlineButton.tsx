@@ -1,10 +1,10 @@
 import React from 'react';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 
+import BaseButtonText from './BaseButtonText';
 import { getButtonMainColor } from './utils';
 import type { ButtonProps } from './types';
 import BaseButton from './BaseButton';
-import BaseText from './BaseText';
 
 const OutlineButton: React.FC<ButtonProps> = ({
   ref,
@@ -37,9 +37,9 @@ const OutlineButton: React.FC<ButtonProps> = ({
 
   return (
     <BaseButton {...props} {...baseProps}>
-      <BaseText size={size} color={mainColor}>
+      <BaseButtonText size={size} color={mainColor}>
         {text}
-      </BaseText>
+      </BaseButtonText>
     </BaseButton>
   );
 };
