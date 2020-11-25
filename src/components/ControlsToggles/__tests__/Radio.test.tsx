@@ -8,7 +8,7 @@ const onSelect = jest.fn();
 
 describe('Radio', () => {
   it('renders correctly when selected', () => {
-    const { getByTestId, getByText } = render(<Radio label="Radio" onSelect={onSelect} selected />);
+    const { getByTestId, getByText } = render(<Radio label="Radio" onSelect={onSelect} isSelected />);
 
     expect(getByTestId('Radio').props.style).toEqual(
       expect.objectContaining({
@@ -34,7 +34,7 @@ describe('Radio', () => {
 
   it('renders correctly when not selected', () => {
     const { getByTestId, getByText } = render(
-      <Radio testID="MyRadio" label="Radio" onSelect={onSelect} selected={false} />
+      <Radio testID="MyRadio" label="Radio" onSelect={onSelect} isSelected={false} />
     );
 
     expect(getByTestId('MyRadio').props.style).toEqual(
@@ -61,7 +61,7 @@ describe('Radio', () => {
 
   it('renders correctly when disabled', () => {
     const { getByTestId, getByText } = render(
-      <Radio testID="MyRadio" label="Radio" onSelect={onSelect} selected={false} disabled />
+      <Radio testID="MyRadio" label="Radio" onSelect={onSelect} isSelected={false} isDisabled />
     );
 
     expect(getByTestId('MyRadio').props.style).toEqual(

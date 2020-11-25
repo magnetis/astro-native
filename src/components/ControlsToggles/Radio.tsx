@@ -5,25 +5,17 @@ import { SecondaryTextMedium } from '@components/Text';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 
 interface RadioProps {
-  /** Text to be rendered aside radio button */
   label: string;
-  /** Starts Radio as selected when true */
-  selected: boolean;
-  /** Radio select callback */
+  isSelected: boolean;
   onSelect: () => void;
-  /** Disables any user interaction with component. Defaults to `false`. */
-  disabled?: boolean;
-  /** Used to locate this component in end-to-end tests. Defaults to `"Radio"`. */
+  isDisabled?: boolean;
   testID?: string;
 }
 
-/**
- * Radio buttons appear when the user must select only one option from more than two.
- */
-function Radio({ label, disabled = false, selected, onSelect, testID = 'Radio' }: RadioProps) {
+function Radio({ label, isDisabled = false, isSelected, onSelect, testID = 'Radio' }: RadioProps) {
   return (
     <Pressable
-      disabled={disabled}
+      disabled={isDisabled}
       testID={testID}
       accessibilityRole="radio"
       onPress={onSelect}
@@ -35,12 +27,12 @@ function Radio({ label, disabled = false, selected, onSelect, testID = 'Radio' }
         style={[
           styles.radio,
           {
-            borderWidth: selected ? 5 : 2,
-            borderColor: disabled ? colors.moon200 : selected ? colors.uranus500 : colors.moon500,
+            borderWidth: isSelected ? 5 : 2,
+            borderColor: isDisabled ? colors.moon200 : isSelected ? colors.uranus500 : colors.moon500,
           },
         ]}
       />
-      <SecondaryTextMedium color={disabled ? colors.moon200 : colors.moon900}>{label}</SecondaryTextMedium>
+      <SecondaryTextMedium color={isDisabled ? colors.moon200 : colors.moon900}>{label}</SecondaryTextMedium>
     </Pressable>
   );
 }
