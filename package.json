@@ -13,10 +13,10 @@
     "clean": "rm -rf ./dist",
     "test": "jest .",
     "lint": "eslint ./src --ext .ts,.tsx",
-    "prepublishOnly": "yarn clean && tsc && tscpaths -p tsconfig.json -s ./src -o ./dist",
+    "prepublishOnly": "yarn clean && tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist",
     "preversion": "yarn ci",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
-    "ci": "yarn lint && yarn test && tsc --noEmit",
+    "ci": "yarn lint && yarn test --coverage && tsc --noEmit",
     "storybook": "start-storybook -p 7007",
     "start": "yarn react-native start",
     "build:ios": "react-native run-ios",
@@ -57,6 +57,7 @@
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-module-resolver": "^4.0.0",
+    "codecov": "^3.8.1",
     "concurrently": "^5.3.0",
     "conventional-changelog-cli": "^2.1.1",
     "eslint": "^7.12.1",
@@ -64,6 +65,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.59.0",
+    "mockdate": "^3.0.2",
     "prettier": "2.1.2",
     "react": "^16.13.1",
     "react-native": "^0.63.3",
@@ -77,6 +79,7 @@
   },
   "dependencies": {
     "@magnetis/astro-galaxy-tokens": "^1.2.3",
+    "@react-native-community/slider": "^3.0.3",
     "react-native-svg": "^12.1.0"
   }
 }

@@ -12,9 +12,22 @@ jest.mock('react-native/Libraries/LogBox/Data/LogBoxData', () => {
     withSubscription: () => {},
     isLogBoxErrorMessage: () => true,
     ExceptionsManager: {
-      handleException: (e: any, _flag: boolean) => {
+      handleException: (e: any) => {
         console.error(e);
       },
     },
   };
 });
+
+const FRAME_TIME = 10;
+
+global.requestAnimationFrame = (cb) => {
+  // Default implementation of requestAnimationFrame calls setTimeout(cb, 0),
+  // which will result in a cascade of timers - this generally pisses off test runners
+  // like Jest who watch the number of timers created and assume an infinite recursion situation
+  // if the number gets too large.
+  //
+  // Setting the timeout simulates a frame every 1/100th of a second
+  setTimeout(cb, FRAME_TIME);
+  return 0;
+};

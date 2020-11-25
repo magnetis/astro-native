@@ -2,16 +2,17 @@ import React from 'react';
 import { Pressable, PressableProps, View } from 'react-native';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 
-import { SecondaryTextLarge, SecondaryTextMedium, SecondaryTextSmall, SecondaryTextVerySmall } from '@components/Text';
-import { getIcon } from '@components/Icons/utils';
 import { getFontSize } from './utils';
 import { ButtonSize } from './types';
+import { getIcon } from './utils';
+import { IconID } from '@components/Icons/types';
+import { getSecondaryTextFromSize } from '@components/Text/utils';
 
 interface IconLinkButtonProps extends PressableProps {
   text: string;
   bold?: boolean;
   onPress: () => void;
-  icon: string;
+  icon: IconID;
   iconPosition?: 'left' | 'right';
   size?: ButtonSize;
   isDisabled?: boolean;
@@ -34,12 +35,7 @@ function IconLinkButton({
     marginRight: iconPosition === 'right' ? 0 : 9,
   };
 
-  const TextComponent = {
-    'very-small': SecondaryTextVerySmall,
-    small: SecondaryTextSmall,
-    medium: SecondaryTextMedium,
-    large: SecondaryTextLarge,
-  }[size];
+  const TextComponent = getSecondaryTextFromSize(size);
 
   return (
     <Pressable hitSlop={10} disabled={isDisabled} onPress={onPress} {...props}>
