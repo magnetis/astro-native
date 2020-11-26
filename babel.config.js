@@ -10,6 +10,7 @@ module.exports = {
           '@tokens': './src/tokens',
           '@components': './src/components',
           '@typings': './typings',
+          '@hooks': './src/hooks',
           '@root': './',
         },
       },
