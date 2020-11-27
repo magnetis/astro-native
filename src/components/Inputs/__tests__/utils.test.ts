@@ -8,6 +8,59 @@ import {
 } from '../utils';
 
 describe('Inputs/utils', () => {
+  describe('getInputBorderColor', () => {
+    it('when disabled is true', () => {
+      expect(
+        getInputBorderColor({
+          disabled: true,
+          hasError: false,
+          validated: false,
+          hasFocus: false,
+        })
+      ).toEqual(colors.moon200);
+    });
+    it('when hasError is true', () => {
+      expect(
+        getInputBorderColor({
+          disabled: false,
+          hasError: true,
+          validated: false,
+          hasFocus: false,
+        })
+      ).toEqual(colors.mars500);
+    });
+    it('when validated is true', () => {
+      expect(
+        getInputBorderColor({
+          disabled: false,
+          hasError: false,
+          validated: true,
+          hasFocus: false,
+        })
+      ).toEqual(colors.earth400);
+    });
+    it('when hasFocus is true', () => {
+      expect(
+        getInputBorderColor({
+          disabled: false,
+          hasError: false,
+          validated: false,
+          hasFocus: true,
+        })
+      ).toEqual(colors.uranus500);
+    });
+    it('when every status is false', () => {
+      expect(
+        getInputBorderColor({
+          disabled: false,
+          hasError: false,
+          validated: false,
+          hasFocus: false,
+        })
+      ).toEqual(colors.moon900);
+    });
+  });
+
   describe('getInputLabelColor', () => {
     it('when disabled is true', () => {
       expect(
@@ -58,6 +111,15 @@ describe('Inputs/utils', () => {
           hasFocus: false,
         })
       ).toEqual(colors.moon400);
+    });
+  });
+
+  describe('getInputBackgroundColor', () => {
+    it('when disabled is true', () => {
+      expect(getInputBackgroundColor({ disabled: true })).toEqual(colors.moon100);
+    });
+    it('when disabled is false', () => {
+      expect(getInputBackgroundColor({ disabled: false })).toEqual(colors.space100);
     });
   });
 
