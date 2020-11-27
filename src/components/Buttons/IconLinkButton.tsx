@@ -2,9 +2,9 @@ import React from 'react';
 import { Pressable, PressableProps, View } from 'react-native';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 
-import { getFontSize } from './utils';
 import { ButtonSize } from './types';
 import { getIcon } from './utils';
+import { getFontSize } from '@tokens/utils';
 import { IconID } from '@components/Icons/types';
 import { getSecondaryTextFromSize } from '@components/Text/utils';
 
