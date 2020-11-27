@@ -10,26 +10,15 @@ interface InputLabelProps {
   disabled: boolean;
   hasError: boolean;
   validated: boolean;
-  isEmpty?: boolean;
+  isEmpty: boolean;
   large: boolean;
   baseSize: number;
   label: string;
-  disableAnimation?: boolean;
 }
 
-function InputLabel({
-  hasFocus,
-  disabled,
-  hasError,
-  validated,
-  isEmpty = false,
-  large,
-  baseSize,
-  label,
-  disableAnimation = false,
-}: InputLabelProps) {
+function InputLabel({ hasFocus, disabled, hasError, validated, isEmpty, large, baseSize, label }: InputLabelProps) {
   const didMount = useDidMount();
-  const expandLabel = !disableAnimation && !hasFocus && isEmpty;
+  const expandLabel = !hasFocus && isEmpty;
   const labelAnim = useRef(new Animated.Value(getLabelPosition({ expandLabel, large }))).current;
 
   const computedTextStyles = {
@@ -38,7 +27,7 @@ function InputLabel({
   };
 
   useEffect(() => {
-    if (didMount && !disableAnimation) {
+    if (didMount) {
       labelAnim.stopAnimation();
       Animated.timing(labelAnim, {
         useNativeDriver: true,

@@ -1,8 +1,9 @@
-import { Colors, colors } from '@magnetis/astro-galaxy-tokens';
-import { ButtonColor, ButtonSize } from './types';
-
-import * as icons from '@components/Icons';
 import { ReactElement } from 'react';
+import { Colors, colors } from '@magnetis/astro-galaxy-tokens';
+
+import { ButtonColor, ButtonSize } from './types';
+import * as icons from '@components/Icons';
+import { getFontSize } from '@tokens/utils';
 import {
   PrimaryTextLarge,
   PrimaryTextMedium,
@@ -13,20 +14,6 @@ import {
   SecondaryTextSmall,
   SecondaryTextVerySmall,
 } from '@components/Text';
-
-export function getFontSize(size: ButtonSize): number {
-  switch (size) {
-    case 'very-small':
-      return 12;
-    case 'small':
-      return 14;
-    case 'large':
-      return 24;
-    case 'medium':
-    default:
-      return 16;
-  }
-}
 
 export function getButtonPadding(size: ButtonSize, noHorizontalPadding?: boolean) {
   let paddingHorizontal = 38;

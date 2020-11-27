@@ -11,14 +11,9 @@ import InputStatusIcon from './InputStatusIcon';
 import InputEyeToggle from './InputEyeToggle';
 
 interface TextInputProps extends BaseInputProps {
-  /** Behaves as a password input when true */
   password?: boolean;
 }
 
-/**
- *
- * The regular input. Labels appear on the default state and slightly move upwards when the user starts interacting and typing on the component.
- */
 function TextInput({
   error = '',
   password = false,
@@ -51,7 +46,7 @@ function TextInput({
   const computedInputStyles = {
     paddingLeft: baseSize,
     fontSize: baseSize,
-    paddingRight: hasError || isValidated ? 56 : baseSize,
+    paddingRight: hasError || validated ? 56 : baseSize,
   };
 
   function handleInputPress() {
