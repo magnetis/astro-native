@@ -10,7 +10,7 @@ import InputErrorMessage from './InputErrorMessage';
 import InputStatusIcon from './InputStatusIcon';
 import InputEyeToggle from './InputEyeToggle';
 
-interface TextInputProps extends Omit<BaseInputProps, 'placeholder'> {
+interface TextInputProps extends BaseInputProps {
   password?: boolean;
 }
 
@@ -25,7 +25,7 @@ function TextInput({
   onFocus,
   onChangeText,
   label,
-  testID = 'TextInput.Input',
+  testID = 'TextInput',
   ...props
 }: TextInputProps) {
   const inputRef = useRef<RNTextInput>(null);
@@ -46,7 +46,7 @@ function TextInput({
   const computedInputStyles = {
     paddingLeft: baseSize,
     fontSize: baseSize,
-    paddingRight: hasError || isValidated ? 56 : baseSize,
+    paddingRight: hasError || validated ? 56 : baseSize,
   };
 
   function handleInputPress() {
@@ -75,7 +75,7 @@ function TextInput({
   }
 
   return (
-    <View testID="TextInput" style={styles.wrapper}>
+    <View testID={testID} style={styles.wrapper}>
       <Pressable
         testID="TextInput.Container"
         onPress={handleInputPress}
@@ -93,8 +93,8 @@ function TextInput({
         />
         <RNTextInput
           {...props}
-          secureTextEntry={password && !showPassword}
-          testID={testID}
+          secureTextEntry={!showPassword}
+          testID="TextInput.Input"
           editable={!disabled}
           style={[styles.input, computedInputStyles]}
           onFocus={handleInputFocus}

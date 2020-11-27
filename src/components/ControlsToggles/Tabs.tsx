@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Colors } from '@magnetis/astro-galaxy-tokens';
 
 import { IconID } from '@components/Icons/types';
@@ -6,7 +6,9 @@ import type { Size } from '@tokens/sizes';
 import sizes from '@tokens/sizes';
 import { Pressable, ScrollView, StyleSheet } from 'react-native';
 import { getSecondaryTextFromSize } from '@components/Text/utils';
-import { getFontSize, getIcon } from '@components/Buttons/utils';
+import { getIcon } from '@components/Buttons/utils';
+import { getFontSize } from '@tokens/utils';
+import useDidMount from '@hooks/useDidMount';
 
 interface TabItem {
   label: string;
@@ -46,7 +48,7 @@ function Tabs({
   size = sizes.Medium,
   testID = 'Tabs',
 }: TabsProps) {
-  const didMountRef = useRef(false);
+  const didMount = useDidMount();
   const TextComponent = getSecondaryTextFromSize(size);
   const [selectedItem, setSelectedItem] = useState(defaultSelected || items[0].value);
 
@@ -69,10 +71,8 @@ function Tabs({
   }
 
   useEffect(() => {
-    if (didMountRef.current) {
+    if (didMount) {
       onChange(selectedItem);
-    } else {
-      didMountRef.current = true;
     }
   }, [selectedItem]);
 
