@@ -9,13 +9,13 @@ module.exports = {
     '!src/components/Icons/Dashboard/**/*.{ts,tsx}',
     '!src/components/Icons/Support/**/*.{ts,tsx}',
   ],
-  coverageReporters: ['lcov', 'text-summary'],
+  coverageReporters: ['lcov', 'text', 'text-summary'],
   coverageThreshold: {
     global: {
       branches: 95,
-      functions: 100,
-      lines: 100,
-      statements: 100,
+      functions: 95,
+      lines: 95,
+      statements: 95,
     },
   },
 };
