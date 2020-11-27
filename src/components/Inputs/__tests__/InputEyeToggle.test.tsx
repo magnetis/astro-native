@@ -14,7 +14,6 @@ describe('InputEyeToggle', () => {
 
     expect(getByTestId('InputEyeToggle.EyeOpen').props.style[0]).toEqual(
       expect.objectContaining({
-        backgroundColor: 'transparent',
         position: 'absolute',
         right: 16,
       })
@@ -33,7 +32,6 @@ describe('InputEyeToggle', () => {
 
     expect(getByTestId('InputEyeToggle.EyeClosed').props.style[0]).toEqual(
       expect.objectContaining({
-        backgroundColor: 'transparent',
         position: 'absolute',
         right: 16,
       })
@@ -52,7 +50,6 @@ describe('InputEyeToggle', () => {
 
     expect(getByTestId('InputEyeToggle.EyeOpen').props.style[0]).toEqual(
       expect.objectContaining({
-        backgroundColor: 'transparent',
         position: 'absolute',
         right: 16,
       })
@@ -71,7 +68,6 @@ describe('InputEyeToggle', () => {
 
     expect(getByTestId('InputEyeToggle.EyeClosed').props.style[0]).toEqual(
       expect.objectContaining({
-        backgroundColor: 'transparent',
         position: 'absolute',
         right: 16,
       })
