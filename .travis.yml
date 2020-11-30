@@ -3,6 +3,16 @@ node_js:
   - '14'
 install:
   - yarn install
-script: yarn ci
+script: 
+  - test $TRAVIS_BRANCH = "main" && yarn ci:main
+  - |
+    test $TRAVIS_BRANCH =~ "/^release\//" OR \
+    test $TRAVIS_BRANCH =~ "/^hotfix\//" AND \
+    yarn ci:release
+  - |
+    test !($TRAVIS_BRANCH =~ "/^release\//") AND \
+    test !($TRAVIS_BRANCH =~ "/^hotfix\//") AND \
+    test $TRAVIS_BRANCH != "main" AND \
+    yarn ci
 after_success:
-  - test $TRAVIS_BRANCH = "main" && test $TRAVIS_PULL_REQUEST = "false" && yarn codecov -t $CODECOV_TOKEN
+  - yarn codecov -t $CODECOV_TOKEN
