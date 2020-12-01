@@ -50,7 +50,7 @@ function MaskedInput({
   };
 
   function handleInputPress() {
-    // inputRef.current?.focus();
+    inputRef.current?.focus();
   }
 
   function handleInputFocus() {
