@@ -5,14 +5,7 @@ install:
   - yarn install
 script: 
   - test $TRAVIS_BRANCH = "main" && yarn ci:main
-  - |
-    test $TRAVIS_BRANCH =~ "/^release\//" OR \
-    test $TRAVIS_BRANCH =~ "/^hotfix\//" AND \
-    yarn ci:release
-  - |
-    test !($TRAVIS_BRANCH =~ "/^release\//") AND \
-    test !($TRAVIS_BRANCH =~ "/^hotfix\//") AND \
-    test $TRAVIS_BRANCH != "main" AND \
-    yarn ci
+  - test $TRAVIS_BRANCH =~ "/^release\//" OR test $TRAVIS_BRANCH =~ "/^hotfix\//" AND yarn ci:release
+  - test !($TRAVIS_BRANCH =~ "/^release\//") AND test !($TRAVIS_BRANCH =~ "/^hotfix\//") AND test $TRAVIS_BRANCH != "main" AND yarn ci
 after_success:
   - yarn codecov -t $CODECOV_TOKEN
