@@ -1,5 +1,6 @@
 import { colors } from '@magnetis/astro-galaxy-tokens';
 import {
+  formatRawValueToCurrency,
   getInputBackgroundColor,
   getInputBorderColor,
   getInputLabelColor,
@@ -147,6 +148,199 @@ describe('Inputs/utils', () => {
     });
     it('when expandLabel is false and large is false', () => {
       expect(getInputLabelFontSize({ expandLabel: false, large: false, baseSize: 16 })).toEqual(12);
+    });
+  });
+
+  describe('formatRawValueToCurrency', () => {
+    describe('when enableCents is true', () => {
+      it('returns 987.612.345,67 when rawValue is 987612345.67', () => {
+        expect(
+          formatRawValueToCurrency({
+            enableCents: true,
+            decimalSeparator: ',',
+            milesimalSeparator: '.',
+            rawValue: 987612345.67,
+          })
+        ).toEqual('987.612.345,67');
+      });
+
+      it('returns 12.345,67 when rawValue is 12345.67', () => {
+        expect(
+          formatRawValueToCurrency({
+            enableCents: true,
+            decimalSeparator: ',',
+            milesimalSeparator: '.',
+            rawValue: 12345.67,
+          })
+        ).toEqual('12.345,67');
+      });
+
+      it('returns 345,67 when rawValue is 345.67', () => {
+        expect(
+          formatRawValueToCurrency({
+            enableCents: true,
+            decimalSeparator: ',',
+            milesimalSeparator: '.',
+            rawValue: 345.67,
+          })
+        ).toEqual('345,67');
+      });
+
+      it('returns 0,67 when rawValue is 0.67', () => {
+        expect(
+          formatRawValueToCurrency({
+            enableCents: true,
+            decimalSeparator: ',',
+            milesimalSeparator: '.',
+            rawValue: 0.67,
+          })
+        ).toEqual('0,67');
+      });
+
+      it('returns 0,00 when rawValue is 0', () => {
+        expect(
+          formatRawValueToCurrency({
+            enableCents: true,
+            decimalSeparator: ',',
+            milesimalSeparator: '.',
+            rawValue: 0,
+          })
+        ).toEqual('0,00');
+      });
+
+      it('returns -987.612.345,67 when rawValue is -987612345.67', () => {
+        expect(
+          formatRawValueToCurrency({
+            enableCents: true,
+            decimalSeparator: ',',
+            milesimalSeparator: '.',
+            rawValue: -987612345.67,
+          })
+        ).toEqual('-987.612.345,67');
+      });
+
+      it('returns -12.345,67 when rawValue is -12345.67', () => {
+        expect(
+          formatRawValueToCurrency({
+            enableCents: true,
+            decimalSeparator: ',',
+            milesimalSeparator: '.',
+            rawValue: -12345.67,
+          })
+        ).toEqual('-12.345,67');
+      });
+
+      it('returns -345,67 when rawValue is -345.67', () => {
+        expect(
+          formatRawValueToCurrency({
+            enableCents: true,
+            decimalSeparator: ',',
+            milesimalSeparator: '.',
+            rawValue: -345.67,
+          })
+        ).toEqual('-345,67');
+      });
+
+      it('returns -0,67 when rawValue is -0.67', () => {
+        expect(
+          formatRawValueToCurrency({
+            enableCents: true,
+            decimalSeparator: ',',
+            milesimalSeparator: '.',
+            rawValue: -0.67,
+          })
+        ).toEqual('-0,67');
+      });
+    });
+
+    describe('when enableCents is false', () => {
+      it('returns 987.612.345 when rawValue is 987612345.67', () => {
+        expect(
+          formatRawValueToCurrency({
+            enableCents: false,
+            decimalSeparator: ',',
+            milesimalSeparator: '.',
+            rawValue: 987612345.67,
+          })
+        ).toEqual('987.612.345');
+      });
+
+      it('returns 12.345 when rawValue is 12345.67', () => {
+        expect(
+          formatRawValueToCurrency({
+            enableCents: false,
+            decimalSeparator: ',',
+            milesimalSeparator: '.',
+            rawValue: 12345.67,
+          })
+        ).toEqual('12.345');
+      });
+
+      it('returns 345 when rawValue is 345.67', () => {
+        expect(
+          formatRawValueToCurrency({
+            enableCents: false,
+            decimalSeparator: ',',
+            milesimalSeparator: '.',
+            rawValue: 345.67,
+          })
+        ).toEqual('345');
+      });
+
+      it('returns 0 when rawValue is 0.67', () => {
+        expect(
+          formatRawValueToCurrency({
+            enableCents: false,
+            decimalSeparator: ',',
+            milesimalSeparator: '.',
+            rawValue: 0.67,
+          })
+        ).toEqual('0');
+      });
+
+      it('returns 0 when rawValue is 0', () => {
+        expect(
+          formatRawValueToCurrency({
+            enableCents: false,
+            decimalSeparator: ',',
+            milesimalSeparator: '.',
+            rawValue: 0,
+          })
+        ).toEqual('0');
+      });
+
+      it('returns -987.612.345 when rawValue is -987612345.67', () => {
+        expect(
+          formatRawValueToCurrency({
+            enableCents: false,
+            decimalSeparator: ',',
+            milesimalSeparator: '.',
+            rawValue: -987612345.67,
+          })
+        ).toEqual('-987.612.345');
+      });
+
+      it('returns -12.345 when rawValue is -12345.67', () => {
+        expect(
+          formatRawValueToCurrency({
+            enableCents: false,
+            decimalSeparator: ',',
+            milesimalSeparator: '.',
+            rawValue: -12345.67,
+          })
+        ).toEqual('-12.345');
+      });
+
+      it('returns -345 when rawValue is -345.67', () => {
+        expect(
+          formatRawValueToCurrency({
+            enableCents: false,
+            decimalSeparator: ',',
+            milesimalSeparator: '.',
+            rawValue: -345.67,
+          })
+        ).toEqual('-345');
+      });
     });
   });
 });

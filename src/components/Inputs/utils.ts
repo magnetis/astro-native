@@ -72,3 +72,45 @@ export function getInputLabelFontSize({
 
   return large ? LABEL_FONT_SIZE_LARGE : LABEL_FONT_SIZE;
 }
+
+interface FormatRawValueToCurrencyParams {
+  decimalSeparator: string;
+  milesimalSeparator: string;
+  rawValue: number;
+  enableCents: boolean;
+}
+
+export function formatRawValueToCurrency({
+  decimalSeparator,
+  milesimalSeparator,
+  rawValue,
+  enableCents,
+}: FormatRawValueToCurrencyParams) {
+  let integerDigits = '';
+  const signal = rawValue < 0 ? '-' : '';
+  const absoluteValue = Math.abs(rawValue);
+  const integerValue = String(absoluteValue - (absoluteValue - Math.floor(absoluteValue)));
+  const _decimalSeparator = enableCents ? decimalSeparator : '';
+  const decimalDigits = enableCents
+    ? String(Number(absoluteValue - Math.floor(absoluteValue)).toFixed(2))
+        .replace('0.', '')
+        .padEnd(2, '0')
+    : '';
+
+  if (integerValue.length <= 3) {
+    return `${signal}${integerValue}${_decimalSeparator}${decimalDigits}`;
+  }
+
+  for (let i = integerValue.length - 3; i > 0; i = i - 3) {
+    if (i <= 3) {
+      integerDigits = `${integerValue.substring(0, i)}${milesimalSeparator}${integerValue.substr(
+        i,
+        3
+      )}${integerDigits}`;
+    } else {
+      integerDigits = `${milesimalSeparator}${integerValue.substr(i, 3)}${integerDigits}`;
+    }
+  }
+
+  return `${signal}${integerDigits}${_decimalSeparator}${decimalDigits}`;
+}
