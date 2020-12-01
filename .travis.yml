@@ -1,11 +1,29 @@
 language: node_js
 node_js:
   - '14'
-install:
-  - yarn install
-script: 
-  - test $TRAVIS_BRANCH = "main" && yarn ci:main
-  - test $TRAVIS_BRANCH =~ "/^release\//" OR test $TRAVIS_BRANCH =~ "/^hotfix\//" AND yarn ci:release
-  - test !($TRAVIS_BRANCH =~ "/^release\//") AND test !($TRAVIS_BRANCH =~ "/^hotfix\//") AND test $TRAVIS_BRANCH != "main" AND yarn ci
+
+jobs:
+  include:
+    - stage: main
+      if: branch = main
+      name: CI on main branch
+      install:
+        - yarn install
+      script: yarn lint && yarn test --coverage && tsc --noEmit
+
+    - stage: release
+      if: branch =~ /^release\// OR branch =~ /^hotfix\//
+      name: CI on release branch
+      install:
+        - yarn install
+      script: yarn lint && yarn test --coverage --changedSince=main && tsc --noEmit
+      
+    - stage: PR
+      if: (NOT branch =~ /^release\//) AND (NOT branch =~ /^hotfix\//)
+      name: CI on Pull Request
+      install:
+        - yarn install
+      script: yarn lint && yarn test --coverage --changedSince=develop && tsc --noEmit
+  
 after_success:
   - yarn codecov -t $CODECOV_TOKEN
