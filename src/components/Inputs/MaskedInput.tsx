@@ -11,19 +11,10 @@ import InputErrorMessage from './InputErrorMessage';
 import { getInputBackgroundColor, getInputBorderColor } from './utils';
 
 interface MaskedInputProps extends BaseInputProps {
-  /** A placeholder string generally describing value format */
   placeholder: string;
-  /** Hides caret when true, very useful for currency inputs */
   blockCursor?: boolean;
 }
 
-/**
- * Inputs that have a specific value structure for certain kinds of data.
- *
- * They need a mask plugin and custom logic to work hence it should be used as a controlled input.
- *
- * To know more about controlled components, check https://reactjs.org/docs/forms.html#controlled-components
- */
 function MaskedInput({
   error = '',
   validated = false,
@@ -35,7 +26,7 @@ function MaskedInput({
   onFocus,
   onChangeText,
   label,
-  testID = 'MaskedInput.Input',
+  testID = 'MaskedInput',
   ...props
 }: MaskedInputProps) {
   const inputRef = useRef<RNTextInput>(null);
@@ -55,7 +46,7 @@ function MaskedInput({
     paddingLeft: baseSize,
     fontSize: baseSize,
     paddingRight: hasError || validated ? 56 : baseSize,
-    textAlign: 'left' as TextStyle['textAlign'],
+    textAlign: (blockCursor ? 'right' : 'left') as TextStyle['textAlign'],
   };
 
   function handleInputPress() {
@@ -73,7 +64,7 @@ function MaskedInput({
   }
 
   return (
-    <View testID="MaskedInput" style={styles.wrapper}>
+    <View testID={testID} style={styles.wrapper}>
       <Pressable
         testID="MaskedInput.Container"
         onPress={handleInputPress}
@@ -93,7 +84,7 @@ function MaskedInput({
           {...props}
           caretHidden={blockCursor}
           placeholderTextColor={colors.moon300}
-          testID={testID}
+          testID="MaskedInput.Input"
           editable={!disabled}
           style={[styles.input, computedInputStyles]}
           onFocus={handleInputFocus}
