@@ -26,7 +26,7 @@ function MaskedInput({
   onFocus,
   onChangeText,
   label,
-  testID = 'MaskedInput.Input',
+  testID = 'MaskedInput',
   ...props
 }: MaskedInputProps) {
   const inputRef = useRef<RNTextInput>(null);
@@ -46,7 +46,7 @@ function MaskedInput({
     paddingLeft: baseSize,
     fontSize: baseSize,
     paddingRight: hasError || validated ? 56 : baseSize,
-    textAlign: 'left' as TextStyle['textAlign'],
+    textAlign: (blockCursor ? 'right' : 'left') as TextStyle['textAlign'],
   };
 
   function handleInputPress() {
@@ -64,7 +64,7 @@ function MaskedInput({
   }
 
   return (
-    <View testID="MaskedInput" style={styles.wrapper}>
+    <View testID={testID} style={styles.wrapper}>
       <Pressable
         testID="MaskedInput.Container"
         onPress={handleInputPress}
@@ -84,7 +84,7 @@ function MaskedInput({
           {...props}
           caretHidden={blockCursor}
           placeholderTextColor={colors.moon300}
-          testID={testID}
+          testID="MaskedInput.Input"
           editable={!disabled}
           style={[styles.input, computedInputStyles]}
           onFocus={handleInputFocus}

@@ -38,3 +38,7 @@ export type {
   TabsProps,
   TabItem,
 } from '@components/ControlsToggles';
+
+// Inputs
+export * from '@components/Inputs';
+export type { TextInputProps, MaskedInputProps } from '@components/Inputs';
