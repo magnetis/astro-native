@@ -11,16 +11,27 @@ import { CircleLessIcon, CircleMoreIcon } from '@components/Icons';
 import useDidMount from '@hooks/useDidMount';
 
 interface ControlInputProps extends Omit<BaseInputProps, 'onChangeText'> {
+  /** Amount which value will increase or decrease */
   step: number;
+  /** Value set initially for input */
   initialValue: number;
+  /** Use currency cents when true */
   enableCents?: boolean;
+  /** Char to use as decimal separator */
   decimalSeparator?: string;
+  /** Char to use as milesimal separator */
   milesimalSeparator?: string;
+  /** Limits decrement to be great or equal to provided minValue */
   minValue?: number;
+  /** Limits increment to be less or equal to provided minValue */
   maxValue?: number;
+  /** Input change callback who provides two values: raw and formatted */
   onValueChange: (rawValue: number, formattedValue?: string) => void;
 }
 
+/**
+ * These inputs are commonly used for money input data, in contexts that require increasing and decreasing the value in large amounts while still enabling users to type in numbers manually.
+ */
 function ControlInput({
   step,
   initialValue,
