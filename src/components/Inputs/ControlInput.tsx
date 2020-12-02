@@ -23,7 +23,7 @@ interface ControlInputProps extends Omit<BaseInputProps, 'onChangeText'> {
   milesimalSeparator?: string;
   /** Limits decrement to be great or equal to provided minValue */
   minValue?: number;
-  /** Limits increment to be less or equal to provided minValue */
+  /** Limits increment to be less or equal to provided maxValue */
   maxValue?: number;
   /** Input change callback who provides two values: raw and formatted */
   onValueChange: (rawValue: number, formattedValue?: string) => void;
