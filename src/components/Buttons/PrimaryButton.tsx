@@ -7,7 +7,6 @@ import type { ButtonProps } from './types';
 import BaseButton from './BaseButton';
 
 const PrimaryButton: React.FC<ButtonProps> = ({
-  ref,
   text,
   onPress,
   accessibilityLabel = '',
@@ -33,7 +32,6 @@ const PrimaryButton: React.FC<ButtonProps> = ({
     testID,
     size,
     fill,
-    ref,
   };
 
   return (

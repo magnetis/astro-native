@@ -8,7 +8,6 @@ import BaseButton from './BaseButton';
 import { getIcon } from './utils';
 
 const OutlineIconButton: React.FC<IconButtonProps> = ({
-  ref,
   onPress,
   accessibilityLabel = '',
   loading = false,
@@ -33,7 +32,6 @@ const OutlineIconButton: React.FC<IconButtonProps> = ({
     testID,
     size,
     fill: false,
-    ref,
   };
 
   return (

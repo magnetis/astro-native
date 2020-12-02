@@ -8,7 +8,6 @@ import BaseButton from './BaseButton';
 import { getIcon } from './utils';
 
 const GhostIconButton: React.FC<IconButtonProps> = ({
-  ref,
   onPress,
   accessibilityLabel = '',
   loading = false,
@@ -34,7 +33,6 @@ const GhostIconButton: React.FC<IconButtonProps> = ({
     testID,
     size,
     fill: false,
-    ref,
   };
 
   return (

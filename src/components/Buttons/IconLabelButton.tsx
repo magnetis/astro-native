@@ -9,7 +9,6 @@ import BaseButton from './BaseButton';
 import { getIcon } from './utils';
 
 const IconLabelButton: React.FC<IconLabelButtonProps> = ({
-  ref,
   text,
   onPress,
   accessibilityLabel = '',
@@ -38,7 +37,6 @@ const IconLabelButton: React.FC<IconLabelButtonProps> = ({
     testID,
     size,
     fill,
-    ref,
   };
 
   const iconWrapperStyle = {

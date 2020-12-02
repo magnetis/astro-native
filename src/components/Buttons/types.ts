@@ -1,4 +1,3 @@
-import React from 'react';
 import { PressableProps } from 'react-native';
 
 import { IconID } from '@components/Icons/types';
@@ -18,7 +17,7 @@ export interface ButtonProps extends PressableProps {
   disabled?: boolean;
   testID?: string;
   accessibilityLabel?: string;
-  ref?: React.Ref<any>;
+
   size?: ButtonSize;
   fill?: boolean;
 }

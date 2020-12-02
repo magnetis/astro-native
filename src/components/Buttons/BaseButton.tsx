@@ -12,7 +12,6 @@ interface BaseButtonProps extends PressableProps {
   disabled?: boolean;
   activityIndicatorColor: string;
   onPress: () => void;
-  ref?: React.Ref<any>;
   backgroundColor: string;
   textColor: string;
   borderColor: string;

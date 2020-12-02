@@ -9,7 +9,6 @@ import BaseButton from './BaseButton';
 import { getIcon } from './utils';
 
 const OutlineIconLabelButton: React.FC<IconLabelButtonProps> = ({
-  ref,
   text,
   onPress,
   accessibilityLabel = '',
@@ -37,7 +36,6 @@ const OutlineIconLabelButton: React.FC<IconLabelButtonProps> = ({
     testID,
     size,
     fill,
-    ref,
   };
 
   const iconWrapperStyle = {
