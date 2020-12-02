@@ -1,9 +1,9 @@
 import React from 'react';
-import { fireEvent, render } from '@testing-library/react-native';
+import { act, create } from 'react-test-renderer';
+import { fireEvent, render, waitFor } from '@testing-library/react-native';
 
 import TextInput from '../TextInput';
 import { colors } from '@magnetis/astro-galaxy-tokens';
-import { act } from 'react-test-renderer';
 
 const onChangeText = jest.fn();
 const onFocus = jest.fn();
@@ -12,7 +12,6 @@ const onBlur = jest.fn();
 const props = {
   onChangeText,
   label: 'Label',
-  touched: true,
   onFocus,
   onBlur,
 };
@@ -53,7 +52,7 @@ describe('TextInput', () => {
     );
   });
 
-  it('renders correctly on focus state', async () => {
+  it('renders correctly on focus state', () => {
     const { getByTestId } = render(<TextInput {...props} />);
 
     act(() => {
@@ -83,7 +82,7 @@ describe('TextInput', () => {
     );
   });
 
-  it('renders correctly when validated is true', async () => {
+  it('renders correctly when validated is true', () => {
     const { getByTestId } = render(<TextInput {...props} validated />);
 
     act(() => {
@@ -113,8 +112,8 @@ describe('TextInput', () => {
     );
   });
 
-  it('renders correctly when error is truthy', async () => {
-    const { getByTestId } = render(<TextInput {...props} error="error" />);
+  it('renders correctly when error is truthy', () => {
+    const { getByTestId } = render(<TextInput {...props} error="error" touched />);
 
     act(() => {
       getByTestId('TextInput.Input').props.onFocus();
@@ -143,7 +142,7 @@ describe('TextInput', () => {
     );
   });
 
-  it('renders correctly on blur state when large is true', async () => {
+  it('renders correctly on blur state when large is true', () => {
     const { getByTestId } = render(<TextInput {...props} large />);
 
     expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
@@ -169,7 +168,7 @@ describe('TextInput', () => {
     );
   });
 
-  it('renders correctly on focus state  when large is true', async () => {
+  it('renders correctly on focus state when large is true', () => {
     const { getByTestId } = render(<TextInput {...props} large />);
 
     act(() => {
@@ -199,7 +198,7 @@ describe('TextInput', () => {
     );
   });
 
-  it('renders correctly when validated and large are true', async () => {
+  it('renders correctly when validated and large are true', () => {
     const { getByTestId } = render(<TextInput {...props} validated large />);
 
     act(() => {
@@ -229,8 +228,8 @@ describe('TextInput', () => {
     );
   });
 
-  it('renders correctly when error is truthy and large is true', async () => {
-    const { getByTestId } = render(<TextInput {...props} error="error" large />);
+  it('renders correctly when error is truthy and large is true', () => {
+    const { getByTestId } = render(<TextInput {...props} error="error" large touched />);
 
     act(() => {
       getByTestId('TextInput.Input').props.onFocus();
@@ -281,5 +280,23 @@ describe('TextInput', () => {
 
     expect(queryByTestId('InputEyeToggle.EyeOpen')).not.toBeNull();
     expect(getByTestId('TextInput.Input').props.secureTextEntry).toBe(false);
+  });
+
+  it('does not render error state when touched is false', () => {
+    const { getByTestId } = render(<TextInput {...props} touched={false} error="Error" />);
+
+    expect(getByTestId('TextInput.Container').props.style[1]).toEqual(
+      expect.objectContaining({ backgroundColor: colors.space100, borderColor: colors.moon900 })
+    );
+  });
+
+  it('focus input when container is pressed', async () => {
+    const wrapper = create(<TextInput {...props} touched={false} />);
+    const container = wrapper.root.findByProps({ testID: 'TextInput.Container' });
+    const input = wrapper.root.findByProps({ testID: 'TextInput.Input' });
+    const spy = jest.spyOn(input.instance, 'focus');
+
+    fireEvent.press(container);
+    waitFor(() => expect(spy).toHaveBeenCalled());
   });
 });

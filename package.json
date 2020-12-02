@@ -16,7 +16,6 @@
     "prepublishOnly": "yarn clean && tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist",
     "preversion": "yarn ci",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
-    "ci": "yarn lint && yarn test --coverage && tsc --noEmit",
     "storybook": "start-storybook -p 7007",
     "start": "yarn react-native start",
     "build:ios": "react-native run-ios",
@@ -86,8 +85,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn ci"
+      "pre-commit": "lint-staged"
     }
   }
 }
