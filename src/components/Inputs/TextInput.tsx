@@ -46,7 +46,7 @@ function TextInput({
   const computedInputStyles = {
     paddingLeft: baseSize,
     fontSize: baseSize,
-    paddingRight: hasError || validated ? 56 : baseSize,
+    paddingRight: hasError || isValidated ? 56 : baseSize,
   };
 
   function handleInputPress() {
