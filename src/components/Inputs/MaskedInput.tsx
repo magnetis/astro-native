@@ -11,19 +11,10 @@ import InputErrorMessage from './InputErrorMessage';
 import { getInputBackgroundColor, getInputBorderColor } from './utils';
 
 interface MaskedInputProps extends BaseInputProps {
-  /** A placeholder string generally describing value format */
   placeholder: string;
-  /** Hides caret when true, very useful for currency inputs */
   blockCursor?: boolean;
 }
 
-/**
- * Inputs that have a specific value structure for certain kinds of data.
- *
- * They need a mask plugin and custom logic to work hence it should be used as a controlled input.
- *
- * To know more about controlled components, check https://reactjs.org/docs/forms.html#controlled-components
- */
 function MaskedInput({
   error = '',
   validated = false,
