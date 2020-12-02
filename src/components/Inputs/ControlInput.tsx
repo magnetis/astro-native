@@ -38,7 +38,7 @@ function ControlInput({
   large = false,
   label,
   onValueChange,
-  testID = 'ControlInput.Input',
+  testID = 'ControlInput',
 }: ControlInputProps) {
   const inputRef = useRef<TextInput>(null);
   const didMount = useDidMount();
@@ -117,7 +117,7 @@ function ControlInput({
   }, [rawValue]);
 
   return (
-    <View testID="ControlInput" style={styles.wrapper}>
+    <View testID={testID} style={styles.wrapper}>
       <Pressable
         testID="ControlInput.Container"
         onPress={handleInputPress}
@@ -140,7 +140,7 @@ function ControlInput({
           keyboardType="numeric"
           autoCompleteType="off"
           value={formattedValue}
-          testID={testID}
+          testID="ControlInput.Input"
           style={[styles.input, computedInputStyles]}
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
