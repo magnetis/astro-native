@@ -1,8 +1,9 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react-native';
-import { TextInput, MaskedInput } from '@components/Inputs';
 import { Text, View } from 'react-native';
-import { boolean, text } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react-native';
+import { boolean, number, text } from '@storybook/addon-knobs';
+
+import { TextInput, MaskedInput, ControlInput } from '@components/Inputs';
 
 const inputsStories = storiesOf('Inputs', module);
 
@@ -22,6 +23,27 @@ inputsStories.add('TextInput', () => (
     />
     <View style={{ height: 10 }}></View>
     <TextInput label="Last Name" onChangeText={(value) => console.log('onChangeText', value)} touched />
+  </View>
+));
+
+inputsStories.add('ControlInput', () => (
+  <View>
+    <ControlInput
+      touched
+      enableCents={boolean('enableCents', false)}
+      onValueChange={(raw, formatted) => console.log({ raw, formatted })}
+      initialValue={0}
+      maxValue={number('maxValue', 1000)}
+      minValue={number('minValue', 0)}
+      step={number('step', 100)}
+      large={boolean('large', false)}
+      error={text('error', '')}
+      validated={boolean('validated', false)}
+      label={text('label', 'Value (R$)')}
+      disabled={boolean('disabled', false)}
+      onBlur={() => console.log('onBlur')}
+      onFocus={() => console.log('onFocus')}
+    />
   </View>
 ));
 
