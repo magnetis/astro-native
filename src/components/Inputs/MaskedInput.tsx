@@ -1,38 +1,37 @@
 import React, { useRef, useState } from 'react';
-import { TextInput as RNTextInput, Pressable, StyleSheet, View } from 'react-native';
+import { TextInput as RNTextInput, Pressable, StyleSheet, View, TextStyle } from 'react-native';
+import { colors } from '@magnetis/astro-galaxy-tokens';
 
-import { getInputBackgroundColor, getInputBorderColor } from './utils';
-import type { BaseInputProps } from './types';
-import { lato } from '@tokens/fonts';
 import { getFontSize } from '@tokens/utils';
+import { lato } from '@tokens/fonts';
 import InputLabel from './InputLabel';
-import InputErrorMessage from './InputErrorMessage';
+import type { BaseInputProps } from './types';
 import InputStatusIcon from './InputStatusIcon';
-import InputEyeToggle from './InputEyeToggle';
+import InputErrorMessage from './InputErrorMessage';
+import { getInputBackgroundColor, getInputBorderColor } from './utils';
 
-interface TextInputProps extends Omit<BaseInputProps, 'placeholder'> {
-  password?: boolean;
+interface MaskedInputProps extends BaseInputProps {
+  placeholder: string;
+  blockCursor?: boolean;
 }
 
-function TextInput({
+function MaskedInput({
   error = '',
-  password = false,
   validated = false,
   disabled = false,
   touched = false,
   large = false,
+  blockCursor = false,
   onBlur,
   onFocus,
   onChangeText,
   label,
-  testID = 'TextInput',
+  testID = 'MaskedInput',
   ...props
-}: TextInputProps) {
+}: MaskedInputProps) {
   const inputRef = useRef<RNTextInput>(null);
 
-  const [isEmpty, setIsEmpty] = useState(!Boolean(props.defaultValue));
   const [hasFocus, setHasFocus] = useState(false);
-  const [showPassword, setShowPassword] = useState(password);
 
   const hasError = touched && Boolean(error) && !disabled;
   const isValidated = !hasError && !disabled && validated;
@@ -47,6 +46,7 @@ function TextInput({
     paddingLeft: baseSize,
     fontSize: baseSize,
     paddingRight: hasError || validated ? 56 : baseSize,
+    textAlign: (blockCursor ? 'right' : 'left') as TextStyle['textAlign'],
   };
 
   function handleInputPress() {
@@ -63,52 +63,38 @@ function TextInput({
     onBlur && onBlur();
   }
 
-  function handleOnChangeText(value: string) {
-    if (!Boolean(value) !== isEmpty) {
-      setIsEmpty(!Boolean(value));
-    }
-    onChangeText(value);
-  }
-
-  function togglePasswordVisibility() {
-    setShowPassword((value) => !value);
-  }
-
   return (
     <View testID={testID} style={styles.wrapper}>
       <Pressable
-        testID="TextInput.Container"
+        testID="MaskedInput.Container"
         onPress={handleInputPress}
         style={[styles.container, computedContainerStyles]}
       >
         <InputLabel
+          disableAnimation
           hasFocus={hasFocus}
           disabled={disabled}
           hasError={hasError}
           validated={validated}
-          isEmpty={isEmpty}
           large={large}
           baseSize={baseSize}
           label={label}
         />
         <RNTextInput
           {...props}
-          secureTextEntry={!showPassword}
-          testID="TextInput.Input"
+          caretHidden={blockCursor}
+          placeholderTextColor={colors.moon300}
+          testID="MaskedInput.Input"
           editable={!disabled}
           style={[styles.input, computedInputStyles]}
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
           ref={inputRef}
-          onChangeText={handleOnChangeText}
+          onChangeText={onChangeText}
         />
         <InputStatusIcon hasError={hasError} isValidated={isValidated} large={large} />
       </Pressable>
-      {password ? (
-        <InputEyeToggle large={large} visible={showPassword} onPress={togglePasswordVisibility} />
-      ) : (
-        <InputErrorMessage error={error} hasError={hasError} />
-      )}
+      <InputErrorMessage error={error} hasError={hasError} />
     </View>
   );
 }
@@ -126,5 +112,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TextInput;
-export type { TextInputProps };
+export default MaskedInput;
+export type { MaskedInputProps };
