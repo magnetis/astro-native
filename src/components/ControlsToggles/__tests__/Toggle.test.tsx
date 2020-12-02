@@ -97,7 +97,7 @@ describe('Toggle', () => {
     expect(onValueChange).not.toHaveBeenCalled();
   });
 
-  it('changes on pressing', () => {
+  it('changes from off to on when pressed', () => {
     const { getByTestId } = render(<Toggle onValueChange={onValueChange} />);
     let toggleStyle = Object.assign({}, ...getByTestId('Toggle.Pressable').props.style);
     let bulletStyle = getByTestId('Toggle.Bullet').props.style;
@@ -142,6 +142,61 @@ describe('Toggle', () => {
     expect(bulletStyle).toEqual(
       expect.objectContaining({
         transform: [{ translateX: 21 }],
+        backgroundColor: colors.space100,
+        position: 'absolute',
+        borderRadius: 28,
+        height: 28,
+        width: 28,
+        top: 1,
+      })
+    );
+  });
+
+  it('changes from on to off when pressed', () => {
+    const { getByTestId } = render(<Toggle onValueChange={onValueChange} startEnabled />);
+    let toggleStyle = Object.assign({}, ...getByTestId('Toggle.Pressable').props.style);
+    let bulletStyle = getByTestId('Toggle.Bullet').props.style;
+
+    expect(toggleStyle).toEqual(
+      expect.objectContaining({
+        width: 50,
+        height: 30,
+        borderRadius: 28,
+        backgroundColor: colors.uranus500,
+      })
+    );
+
+    expect(bulletStyle).toEqual(
+      expect.objectContaining({
+        transform: [{ translateX: 21 }],
+        backgroundColor: colors.space100,
+        position: 'absolute',
+        borderRadius: 28,
+        height: 28,
+        width: 28,
+        top: 1,
+      })
+    );
+
+    fireEvent.press(getByTestId('Toggle.Pressable'));
+    expect(onValueChange).toHaveBeenCalledWith(false);
+    timeTravel(300);
+
+    toggleStyle = Object.assign({}, ...getByTestId('Toggle.Pressable').props.style);
+    bulletStyle = getByTestId('Toggle.Bullet').props.style;
+
+    expect(toggleStyle).toEqual(
+      expect.objectContaining({
+        width: 50,
+        height: 30,
+        borderRadius: 28,
+        backgroundColor: colors.moon400,
+      })
+    );
+
+    expect(bulletStyle).toEqual(
+      expect.objectContaining({
+        transform: [{ translateX: 1 }],
         backgroundColor: colors.space100,
         position: 'absolute',
         borderRadius: 28,
