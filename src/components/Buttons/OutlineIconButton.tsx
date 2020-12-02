@@ -7,6 +7,9 @@ import type { IconButtonProps } from './types';
 import BaseButton from './BaseButton';
 import { getIcon } from './utils';
 
+/**
+ * Outline icon buttons can be used for simple microinteractions and commands.
+ */
 const OutlineIconButton: React.FC<IconButtonProps> = ({
   onPress,
   accessibilityLabel = '',

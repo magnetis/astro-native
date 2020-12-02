@@ -6,6 +6,12 @@ import BaseButtonText from './BaseButtonText';
 import type { ButtonProps } from './types';
 import BaseButton from './BaseButton';
 
+/**
+ * Primary buttons have a colored background.
+ *
+ *  Use these for the main action in a section or screen. You should display only one primary button at a time.
+ *
+ */
 const PrimaryButton: React.FC<ButtonProps> = ({
   text,
   onPress,

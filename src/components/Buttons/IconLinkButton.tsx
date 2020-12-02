@@ -9,15 +9,25 @@ import { IconID } from '@components/Icons/types';
 import { getSecondaryTextFromSize } from '@components/Text/utils';
 
 interface IconLinkButtonProps extends PressableProps {
+  /** Text to be shown inside the button */
   text: string;
+  /** renders text as bold when true */
   bold?: boolean;
+  /** IconLinkButton press callback */
   onPress: () => void;
+  /** Name of valid Astro's icon in PascalCase */
   icon: IconID;
+  /** Whether icon will be positioned on left or right of text */
   iconPosition?: 'left' | 'right';
+  /** Specifies button size */
   size?: ButtonSize;
+  /** Supress any user interaction with component */
   disabled?: boolean;
 }
 
+/**
+ * Icon link buttons can be used for menu items and simple interactions or commands.
+ */
 function IconLinkButton({
   text,
   onPress,

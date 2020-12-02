@@ -8,6 +8,9 @@ import BaseButtonText from './BaseButtonText';
 import BaseButton from './BaseButton';
 import { getIcon } from './utils';
 
+/**
+ * Ghost iconlabel buttons are also used in microinteractions and smaller commands. Usage works the same as regular **IconLabelButton**.
+ */
 const GhostIconLabelButton: React.FC<IconLabelButtonProps> = ({
   text,
   onPress,

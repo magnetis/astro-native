@@ -8,6 +8,10 @@ import BaseButtonText from './BaseButtonText';
 import BaseButton from './BaseButton';
 import { getIcon } from './utils';
 
+/**
+ * Buttons with icons help identify the action or context within the interface.
+ * This component consists of a **PrimaryButton** with an icon and some text.
+ */
 const IconLabelButton: React.FC<IconLabelButtonProps> = ({
   text,
   onPress,

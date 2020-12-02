@@ -7,6 +7,9 @@ import type { IconButtonProps } from './types';
 import BaseButton from './BaseButton';
 import { getIcon } from './utils';
 
+/**
+ * Icon buttons can be used for simple microinteractions and commands.
+ */
 const IconButton: React.FC<IconButtonProps> = ({
   onPress,
   accessibilityLabel = '',
