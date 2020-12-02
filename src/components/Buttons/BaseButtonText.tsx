@@ -30,4 +30,3 @@ const styles = StyleSheet.create({
 });
 
 export default BaseButtonText;
-export type { BaseButtonTextProps };
