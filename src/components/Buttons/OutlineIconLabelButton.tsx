@@ -13,16 +13,16 @@ const OutlineIconLabelButton: React.FC<IconLabelButtonProps> = ({
   text,
   onPress,
   accessibilityLabel = '',
-  isLoading = false,
+  loading = false,
   color = 'uranus',
-  isDisabled = false,
+  disabled = false,
   size = 'medium',
   fill = false,
   testID,
   iconPosition = 'left',
   ...props
 }) => {
-  const mainColor = isDisabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
+  const mainColor = disabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
   const iconSize = getIconSize(size);
   const Icon = getIcon(props.icon);
   const baseProps = {
@@ -31,8 +31,8 @@ const OutlineIconLabelButton: React.FC<IconLabelButtonProps> = ({
     borderColor: mainColor,
     textColor: mainColor,
     accessibilityLabel,
-    isDisabled,
-    isLoading,
+    disabled,
+    loading,
     onPress,
     testID,
     size,

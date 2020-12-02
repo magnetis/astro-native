@@ -11,24 +11,24 @@ const PrimaryButton: React.FC<ButtonProps> = ({
   text,
   onPress,
   accessibilityLabel = '',
-  isLoading = false,
+  loading = false,
   color = 'uranus',
-  isDisabled = false,
+  disabled = false,
   size = 'medium',
   fill = false,
   testID,
   ...props
 }) => {
-  const backgroundColor = isDisabled ? colors.moon300 : getButtonMainColor(color);
-  const textColor = isDisabled ? colors.space100 : getButtonSecondaryColor(color);
+  const backgroundColor = disabled ? colors.moon300 : getButtonMainColor(color);
+  const textColor = disabled ? colors.space100 : getButtonSecondaryColor(color);
   const baseProps = {
     activityIndicatorColor: textColor,
     borderColor: backgroundColor,
     accessibilityLabel,
     backgroundColor,
-    isDisabled,
+    disabled,
     textColor,
-    isLoading,
+    loading,
     onPress,
     testID,
     size,

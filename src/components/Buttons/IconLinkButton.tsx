@@ -15,14 +15,14 @@ interface IconLinkButtonProps extends PressableProps {
   icon: IconID;
   iconPosition?: 'left' | 'right';
   size?: ButtonSize;
-  isDisabled?: boolean;
+  disabled?: boolean;
 }
 
 function IconLinkButton({
   text,
   onPress,
   size = 'medium',
-  isDisabled = false,
+  disabled = false,
   iconPosition = 'left',
   bold = false,
   ...props
@@ -38,9 +38,9 @@ function IconLinkButton({
   const TextComponent = getSecondaryTextFromSize(size);
 
   return (
-    <Pressable hitSlop={10} disabled={isDisabled} onPress={onPress} {...props}>
+    <Pressable hitSlop={10} disabled={disabled} onPress={onPress} {...props}>
       {({ pressed }) => {
-        const color = isDisabled ? colors.moon300 : pressed ? colors.uranus700 : colors.space100;
+        const color = disabled ? colors.moon300 : pressed ? colors.uranus700 : colors.space100;
 
         return (
           <View

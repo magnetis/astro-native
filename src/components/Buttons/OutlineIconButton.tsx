@@ -11,14 +11,14 @@ const OutlineIconButton: React.FC<IconButtonProps> = ({
   ref,
   onPress,
   accessibilityLabel = '',
-  isLoading = false,
+  loading = false,
   color = 'uranus',
-  isDisabled = false,
+  disabled = false,
   size = 'medium',
   testID,
   ...props
 }) => {
-  const mainColor = isDisabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
+  const mainColor = disabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
   const iconSize = getIconSize(size);
   const Icon = getIcon(props.icon);
   const baseProps = {
@@ -27,8 +27,8 @@ const OutlineIconButton: React.FC<IconButtonProps> = ({
     borderColor: mainColor,
     textColor: mainColor,
     accessibilityLabel,
-    isDisabled,
-    isLoading,
+    disabled,
+    loading,
     onPress,
     testID,
     size,

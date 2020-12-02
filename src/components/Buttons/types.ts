@@ -14,6 +14,8 @@ export interface ButtonProps extends PressableProps {
   onPress: () => void;
   isLoading?: boolean;
   isDisabled?: boolean;
+  loading?: boolean;
+  disabled?: boolean;
   testID?: string;
   accessibilityLabel?: string;
   ref?: React.Ref<any>;
