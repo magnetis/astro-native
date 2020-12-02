@@ -11,27 +11,16 @@ import { CircleLessIcon, CircleMoreIcon } from '@components/Icons';
 import useDidMount from '@hooks/useDidMount';
 
 interface ControlInputProps extends Omit<BaseInputProps, 'onChangeText'> {
-  /** Amount which value will increase or decrease */
   step: number;
-  /** Value set initially for input */
   initialValue: number;
-  /** Use currency cents when true */
   enableCents?: boolean;
-  /** Char to use as decimal separator */
   decimalSeparator?: string;
-  /** Char to use as milesimal separator */
   milesimalSeparator?: string;
-  /** Limits decrement to be great or equal to provided minValue */
   minValue?: number;
-  /** Limits increment to be less or equal to provided maxValue */
   maxValue?: number;
-  /** Input change callback who provides two values: raw and formatted */
   onValueChange: (rawValue: number, formattedValue?: string) => void;
 }
 
-/**
- * These inputs are commonly used for money input data, in contexts that require increasing and decreasing the value in large amounts while still enabling users to type in numbers manually.
- */
 function ControlInput({
   step,
   initialValue,
@@ -49,7 +38,7 @@ function ControlInput({
   large = false,
   label,
   onValueChange,
-  testID = 'ControlInput.Input',
+  testID = 'ControlInput',
 }: ControlInputProps) {
   const inputRef = useRef<TextInput>(null);
   const didMount = useDidMount();
@@ -128,7 +117,7 @@ function ControlInput({
   }, [rawValue]);
 
   return (
-    <View testID="ControlInput" style={styles.wrapper}>
+    <View testID={testID} style={styles.wrapper}>
       <Pressable
         testID="ControlInput.Container"
         onPress={handleInputPress}
@@ -151,7 +140,7 @@ function ControlInput({
           keyboardType="numeric"
           autoCompleteType="off"
           value={formattedValue}
-          testID={testID}
+          testID="ControlInput.Input"
           style={[styles.input, computedInputStyles]}
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
