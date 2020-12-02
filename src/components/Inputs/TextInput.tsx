@@ -10,7 +10,7 @@ import InputErrorMessage from './InputErrorMessage';
 import InputStatusIcon from './InputStatusIcon';
 import InputEyeToggle from './InputEyeToggle';
 
-interface TextInputProps extends BaseInputProps {
+interface TextInputProps extends Omit<BaseInputProps, 'placeholder'> {
   password?: boolean;
 }
 
