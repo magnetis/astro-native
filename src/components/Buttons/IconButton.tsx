@@ -36,6 +36,7 @@ const IconButton: React.FC<IconButtonProps> = ({
     testID,
     size,
     fill: false,
+    hasIcon: true,
   };
 
   return (
