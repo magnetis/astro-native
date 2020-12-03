@@ -13,15 +13,15 @@ interface IconLinkButtonProps extends PressableProps {
   text: string;
   /** renders text as bold when true */
   bold?: boolean;
-  /** IconLinkButton press callback */
+  /** IconLinkButton press callback. Defaults to `false`. */
   onPress: () => void;
   /** Name of valid Astro's icon in PascalCase */
   icon: IconID;
-  /** Whether icon will be positioned on left or right of text */
+  /** Whether icon will be positioned on left or right of text. Defaults to `left` */
   iconPosition?: 'left' | 'right';
-  /** Specifies button size */
+  /** Specifies button size. Defaults to `"medium"` */
   size?: ButtonSize;
-  /** Supress any user interaction with component */
+  /** Supress any user interaction with component. Defaults to `false`. */
   disabled?: boolean;
 }
 
