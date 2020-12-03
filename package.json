@@ -7,6 +7,9 @@
     "dist"
   ],
   "main": "dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "install:ios": "yarn && npx pod-install ios",
     "install:android": "yarn",
