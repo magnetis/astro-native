@@ -47,9 +47,9 @@ describe('BaseButton', () => {
     );
   });
 
-  it('has no interaction when isDisabled is true', () => {
+  it('has no interaction when disabled is true', () => {
     const { getByTestId } = render(
-      <BaseButton {...props} isDisabled>
+      <BaseButton {...props} disabled>
         <ButtonText />
       </BaseButton>
     );
@@ -59,9 +59,9 @@ describe('BaseButton', () => {
     expect(onPress).toHaveBeenCalledTimes(0);
   });
 
-  it('renders correctly when isLoading is true', () => {
+  it('renders correctly when loading is true', () => {
     const { getByTestId } = render(
-      <BaseButton {...props} isLoading>
+      <BaseButton {...props} loading>
         <ButtonText />
       </BaseButton>
     );

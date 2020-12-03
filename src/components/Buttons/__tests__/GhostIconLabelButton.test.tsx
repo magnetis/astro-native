@@ -193,10 +193,8 @@ describe('Ghost Icon Label Button', () => {
     );
   });
 
-  it('renders correctly when isLoading is true', () => {
-    const { getByTestId, rerender } = render(
-      <GhostIconLabelButton text="MyButton" isLoading {...props} icon="Alert" />
-    );
+  it('renders correctly when loading is true', () => {
+    const { getByTestId, rerender } = render(<GhostIconLabelButton text="MyButton" loading {...props} icon="Alert" />);
     const button = getByTestId('GhostIconLabelButton');
     const buttonStyle = Object.assign({}, ...button.props.style);
 
@@ -214,22 +212,22 @@ describe('Ghost Icon Label Button', () => {
 
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.uranus500);
 
-    // isLoading and Earth color
-    rerender(<GhostIconLabelButton text="MyButton" color="earth" isLoading {...props} icon="Alert" />);
+    // loading and Earth color
+    rerender(<GhostIconLabelButton text="MyButton" color="earth" loading {...props} icon="Alert" />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.earth600);
 
-    // isLoading and Venus color
-    rerender(<GhostIconLabelButton text="MyButton" color="venus" isLoading {...props} icon="Alert" />);
+    // loading and Venus color
+    rerender(<GhostIconLabelButton text="MyButton" color="venus" loading {...props} icon="Alert" />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.venus400);
 
-    // isLoading and Mars color
-    rerender(<GhostIconLabelButton text="MyButton" color="mars" isLoading {...props} icon="Alert" />);
+    // loading and Mars color
+    rerender(<GhostIconLabelButton text="MyButton" color="mars" loading {...props} icon="Alert" />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.mars500);
   });
 
-  it('renders correctly when isDisabled is true', () => {
+  it('renders correctly when disabled is true', () => {
     const { getByTestId, getByText } = render(
-      <GhostIconLabelButton text="MyButton" isDisabled {...props} icon="Alert" />
+      <GhostIconLabelButton text="MyButton" disabled {...props} icon="Alert" />
     );
     const button = getByTestId('GhostIconLabelButton');
     const buttonStyle = Object.assign({}, ...button.props.style);
@@ -264,7 +262,7 @@ describe('Ghost Icon Label Button', () => {
 
   it('renders correctly when iconPosition is right', () => {
     const { getByTestId, getByText } = render(
-      <GhostIconLabelButton text="MyButton" isDisabled {...props} icon="Alert" iconPosition="right" />
+      <GhostIconLabelButton text="MyButton" disabled {...props} icon="Alert" iconPosition="right" />
     );
     const button = getByTestId('GhostIconLabelButton');
     const buttonStyle = Object.assign({}, ...button.props.style);

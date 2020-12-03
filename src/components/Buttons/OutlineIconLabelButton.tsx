@@ -8,21 +8,24 @@ import BaseButtonText from './BaseButtonText';
 import BaseButton from './BaseButton';
 import { getIcon } from './utils';
 
+/**
+ * Outline iconlabel buttons are commonly used in microinteractions and secondary commands. Usage works the same as regular **IconLabelButton**.
+ * This component consists of a **OutlineButton** with an icon and some text.
+ */
 const OutlineIconLabelButton: React.FC<IconLabelButtonProps> = ({
-  ref,
   text,
   onPress,
   accessibilityLabel = '',
-  isLoading = false,
+  loading = false,
   color = 'uranus',
-  isDisabled = false,
+  disabled = false,
   size = 'medium',
   fill = false,
   testID,
   iconPosition = 'left',
   ...props
 }) => {
-  const mainColor = isDisabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
+  const mainColor = disabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
   const iconSize = getIconSize(size);
   const Icon = getIcon(props.icon);
   const baseProps = {
@@ -31,13 +34,12 @@ const OutlineIconLabelButton: React.FC<IconLabelButtonProps> = ({
     borderColor: mainColor,
     textColor: mainColor,
     accessibilityLabel,
-    isDisabled,
-    isLoading,
+    disabled,
+    loading,
     onPress,
     testID,
     size,
     fill,
-    ref,
   };
 
   const iconWrapperStyle = {

@@ -8,11 +8,10 @@ interface BaseButtonProps extends PressableProps {
   children: ReactElement;
   testID?: string;
   accessibilityLabel?: string;
-  isLoading?: boolean;
-  isDisabled?: boolean;
+  loading?: boolean;
+  disabled?: boolean;
   activityIndicatorColor: string;
   onPress: () => void;
-  ref?: React.Ref<any>;
   backgroundColor: string;
   textColor: string;
   borderColor: string;
@@ -38,8 +37,8 @@ const styles = StyleSheet.create({
 });
 
 function BaseButton({
-  isLoading = false,
-  isDisabled = false,
+  loading = false,
+  disabled = false,
   activityIndicatorColor,
   children,
   size = 'medium',
@@ -68,7 +67,7 @@ function BaseButton({
 
   const pressableProps = {
     onPress: props.onPress,
-    disabled: isDisabled,
+    disabled: disabled,
     style: [styles.button, computedStyles],
     testID: props.testID,
   };
@@ -76,8 +75,8 @@ function BaseButton({
   return (
     <Pressable accessibilityRole="button" {...props} {...pressableProps}>
       <View style={{ alignItems: 'center', justifyContent: 'center', flex: fill ? 1 : 0 }}>
-        <View style={{ opacity: isLoading ? 0 : 1 }}>{children}</View>
-        {isLoading && (
+        <View style={{ opacity: loading ? 0 : 1 }}>{children}</View>
+        {loading && (
           <View style={{ position: 'absolute', width: '100%' }}>
             <ActivityIndicator
               testID="BaseButton.ActivityIndicator"
@@ -94,4 +93,3 @@ function BaseButton({
 }
 
 export default BaseButton;
-export type { BaseButtonProps };
