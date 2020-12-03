@@ -40,6 +40,7 @@ const OutlineIconLabelButton: React.FC<IconLabelButtonProps> = ({
     testID,
     size,
     fill,
+    hasIcon: true,
   };
 
   const iconWrapperStyle = {

@@ -24,6 +24,7 @@ function BaseButtonText({ size = 'medium', color, children }: BaseButtonTextProp
 
 const styles = StyleSheet.create({
   text: {
+    textAlign: 'center',
     fontFamily: poppinsSemiBold,
     alignItems: 'center',
   },
