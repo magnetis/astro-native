@@ -9,21 +9,21 @@ jobs:
       name: CI on main branch
       install:
         - yarn install
-      script: yarn lint && yarn test --coverage && tsc --noEmit
+      script: yarn lint && yarn tsc --noEmit && yarn test --coverage 
 
     - stage: release
       if: branch =~ /^release\// OR branch =~ /^hotfix\//
       name: CI on release branch
       install:
         - yarn install
-      script: yarn lint && yarn test --coverage --changedSince=main && tsc --noEmit
+      script: yarn lint && yarn tsc --noEmit && yarn test --coverage --changedSince=main
       
     - stage: PR
       if: (NOT branch =~ /^release\//) AND (NOT branch =~ /^hotfix\//)
       name: CI on Pull Request
       install:
         - yarn install
-      script: yarn lint && yarn test --coverage --changedSince=develop && tsc --noEmit
+      script: yarn lint && yarn tsc --noEmit && yarn test --coverage --changedSince=develop
   
 after_success:
   - yarn codecov -t $CODECOV_TOKEN
