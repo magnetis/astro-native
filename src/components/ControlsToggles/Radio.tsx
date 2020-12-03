@@ -5,13 +5,21 @@ import { SecondaryTextMedium } from '@components/Text';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 
 interface RadioProps {
+  /** Text to be rendered aside radio button */
   label: string;
+  /** Starts Radio as selected when true */
   selected: boolean;
+  /** Radio select callback */
   onSelect: () => void;
+  /** Disables any user interaction with component. Defaults to `false`. */
   disabled?: boolean;
+  /** Used to locate this component in end-to-end tests. Defaults to `"Radio"`. */
   testID?: string;
 }
 
+/**
+ * Radio buttons appear when the user must select only one option from more than two.
+ */
 function Radio({ label, disabled = false, selected, onSelect, testID = 'Radio' }: RadioProps) {
   return (
     <Pressable

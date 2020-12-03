@@ -4,15 +4,22 @@ import { colors } from '@magnetis/astro-galaxy-tokens';
 import useDidMount from '@hooks/useDidMount';
 
 interface ToggleProps {
+  /** Toggle starts enabled when set to true. Defaults to `false`. */
   startEnabled?: boolean;
+  /** Callback called when user changes toggle state */
   onValueChange: (newValue: boolean) => void;
+  /** Disables any user interaction with component. Defaults to `false`. */
   disabled?: boolean;
+  /** Used to locate this component in end-to-end tests. Defaults to `"Toggle"`. */
   testID?: string;
 }
 
 const OFF_POSITION = 1;
 const ON_POSITION = 21;
 
+/**
+ * A simple control that is used to quickly switch between two possible states.
+ */
 function Toggle({ startEnabled = false, onValueChange, disabled = false, testID = 'Toggle' }: ToggleProps) {
   const didMount = useDidMount();
   const [isToggled, setIsToggled] = useState(disabled ? false : startEnabled);
