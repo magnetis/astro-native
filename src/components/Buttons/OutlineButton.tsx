@@ -6,33 +6,34 @@ import { getButtonMainColor } from './utils';
 import type { ButtonProps } from './types';
 import BaseButton from './BaseButton';
 
+/**
+ * Outline buttons can be used as secondary roles. Secondary buttons present secondary actions when there's already a primary action in the same section or screen.
+ */
 const OutlineButton: React.FC<ButtonProps> = ({
-  ref,
   text,
   onPress,
   accessibilityLabel = '',
-  isLoading = false,
+  loading = false,
   color = 'uranus',
-  isDisabled = false,
+  disabled = false,
   size = 'medium',
   fill = false,
   testID,
   ...props
 }) => {
-  const mainColor = isDisabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
+  const mainColor = disabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
   const baseProps = {
     activityIndicatorColor: mainColor,
     backgroundColor: 'transparent',
     borderColor: mainColor,
     textColor: mainColor,
     accessibilityLabel,
-    isDisabled,
-    isLoading,
+    disabled,
+    loading,
     onPress,
     testID,
     size,
     fill,
-    ref,
   };
 
   return (
