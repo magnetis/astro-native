@@ -1,7 +1,7 @@
 import { PressableProps } from 'react-native';
 
 import { IconID } from '@components/Icons/types';
-import { Size } from '@tokens/sizes';
+import type { Size } from '@tokens/sizes';
 
 export type ButtonSize = Size;
 

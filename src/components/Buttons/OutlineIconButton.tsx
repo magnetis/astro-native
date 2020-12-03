@@ -35,6 +35,7 @@ const OutlineIconButton: React.FC<IconButtonProps> = ({
     testID,
     size,
     fill: false,
+    hasIcon: true,
   };
 
   return (
