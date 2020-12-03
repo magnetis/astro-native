@@ -67,8 +67,8 @@ describe('Toggle', () => {
     );
   });
 
-  it('renders correctly with isDisabled as true', () => {
-    const { getByTestId } = render(<Toggle isDisabled startEnabled onValueChange={onValueChange} />);
+  it('renders correctly with disabled as true', () => {
+    const { getByTestId } = render(<Toggle disabled startEnabled onValueChange={onValueChange} />);
     const toggleStyle = Object.assign({}, ...getByTestId('Toggle.Pressable').props.style);
     const bulletStyle = getByTestId('Toggle.Bullet').props.style;
 
