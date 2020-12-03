@@ -19,6 +19,6 @@ export interface BaseInputProps extends TextInputProps {
   onFocus?: () => void;
   /** Render input's large size when true */
   large?: boolean;
-  /** TestID string for testing */
+  /** Used to locate this component in end-to-end tests */
   testID?: string;
 }
