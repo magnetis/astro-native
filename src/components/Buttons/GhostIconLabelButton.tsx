@@ -8,21 +8,23 @@ import BaseButtonText from './BaseButtonText';
 import BaseButton from './BaseButton';
 import { getIcon } from './utils';
 
+/**
+ * Ghost iconlabel buttons are also used in microinteractions and smaller commands. Usage works the same as regular **IconLabelButton**.
+ */
 const GhostIconLabelButton: React.FC<IconLabelButtonProps> = ({
-  ref,
   text,
   onPress,
   accessibilityLabel = '',
-  isLoading = false,
+  loading = false,
   color = 'uranus',
-  isDisabled = false,
+  disabled = false,
   size = 'medium',
   testID,
   iconPosition = 'left',
   ...props
 }) => {
   const backgroundColor = 'transparent';
-  const textColor = isDisabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
+  const textColor = disabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
   const iconSize = getIconSize(size);
   const Icon = getIcon(props.icon);
   const baseProps = {
@@ -30,14 +32,13 @@ const GhostIconLabelButton: React.FC<IconLabelButtonProps> = ({
     borderColor: backgroundColor,
     accessibilityLabel,
     backgroundColor,
-    isDisabled,
+    disabled,
     textColor,
-    isLoading,
+    loading,
     onPress,
     testID,
     size,
     fill: false,
-    ref,
   };
 
   const iconWrapperStyle = {

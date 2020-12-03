@@ -32,8 +32,8 @@ buttonsStories.add('PrimaryButton', () => (
   <PrimaryButton
     text={text('text', 'Button')}
     onPress={() => console.log('Pressed')}
-    isDisabled={boolean('isDisabled', false)}
-    isLoading={boolean('isLoading', false)}
+    disabled={boolean('disabled', false)}
+    loading={boolean('loading', false)}
     fill={boolean('fill', false)}
     color={select('color', colorOptions, 'uranus')}
     size={select('size', sizeOptions, 'medium')}
@@ -44,8 +44,8 @@ buttonsStories.add('IconLabelButton', () => (
   <IconLabelButton
     text={text('text', 'Button')}
     onPress={() => console.log('Pressed')}
-    isDisabled={boolean('isDisabled', false)}
-    isLoading={boolean('isLoading', false)}
+    disabled={boolean('disabled', false)}
+    loading={boolean('loading', false)}
     fill={boolean('fill', false)}
     color={select('color', colorOptions, 'uranus')}
     icon={select('icon', iconOptions, iconOptions[0]) as IconID}
@@ -57,8 +57,8 @@ buttonsStories.add('IconLabelButton', () => (
 buttonsStories.add('IconButton', () => (
   <IconButton
     onPress={() => console.log('Pressed')}
-    isDisabled={boolean('isDisabled', false)}
-    isLoading={boolean('isLoading', false)}
+    disabled={boolean('disabled', false)}
+    loading={boolean('loading', false)}
     color={select('color', colorOptions, 'uranus')}
     icon={select('icon', iconOptions, iconOptions[0]) as IconID}
     size={select('size', sizeOptions, 'medium')}
@@ -68,8 +68,8 @@ buttonsStories.add('IconButton', () => (
 buttonsStories.add('GhostIconButton', () => (
   <GhostIconButton
     onPress={() => console.log('Pressed')}
-    isDisabled={boolean('isDisabled', false)}
-    isLoading={boolean('isLoading', false)}
+    disabled={boolean('disabled', false)}
+    loading={boolean('loading', false)}
     color={select('color', colorOptions, 'uranus')}
     icon={select('icon', iconOptions, iconOptions[0]) as IconID}
     size={select('size', sizeOptions, 'medium')}
@@ -80,8 +80,8 @@ buttonsStories.add('GhostIconLabelButton', () => (
   <GhostIconLabelButton
     text={text('text', 'Button')}
     onPress={() => console.log('Pressed')}
-    isDisabled={boolean('isDisabled', false)}
-    isLoading={boolean('isLoading', false)}
+    disabled={boolean('disabled', false)}
+    loading={boolean('loading', false)}
     fill={boolean('fill', false)}
     color={select('color', colorOptions, 'uranus')}
     icon={select('icon', iconOptions, iconOptions[0]) as IconID}
@@ -94,8 +94,8 @@ buttonsStories.add('OutlineButton', () => (
   <OutlineButton
     text={text('text', 'Button')}
     onPress={() => console.log('Pressed')}
-    isDisabled={boolean('isDisabled', false)}
-    isLoading={boolean('isLoading', false)}
+    disabled={boolean('disabled', false)}
+    loading={boolean('loading', false)}
     fill={boolean('fill', false)}
     color={select('color', colorOptions, 'uranus')}
     size={select('size', sizeOptions, 'medium')}
@@ -106,8 +106,8 @@ buttonsStories.add('OutlineIconLabelButton', () => (
   <OutlineIconLabelButton
     text={text('text', 'Button')}
     onPress={() => console.log('Pressed')}
-    isDisabled={boolean('isDisabled', false)}
-    isLoading={boolean('isLoading', false)}
+    disabled={boolean('disabled', false)}
+    loading={boolean('loading', false)}
     fill={boolean('fill', false)}
     color={select('color', colorOptions, 'uranus')}
     icon={select('icon', iconOptions, iconOptions[0]) as IconID}
@@ -119,8 +119,8 @@ buttonsStories.add('OutlineIconLabelButton', () => (
 buttonsStories.add('OutlineIconButton', () => (
   <OutlineIconButton
     onPress={() => console.log('Pressed')}
-    isDisabled={boolean('isDisabled', false)}
-    isLoading={boolean('isLoading', false)}
+    disabled={boolean('disabled', false)}
+    loading={boolean('loading', false)}
     color={select('color', colorOptions, 'uranus')}
     icon={select('icon', iconOptions, iconOptions[0]) as IconID}
     size={select('size', sizeOptions, 'medium')}
@@ -142,7 +142,7 @@ buttonsStories.add('IconLinkButton', () => (
       size={select('size', sizeOptions, 'medium')}
       text={text('text', 'Button')}
       bold={boolean('bold', false)}
-      isDisabled={boolean('isDisabled', false)}
+      disabled={boolean('disabled', false)}
     />
   </View>
 ));
