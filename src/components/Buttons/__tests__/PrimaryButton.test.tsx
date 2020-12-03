@@ -177,8 +177,8 @@ describe('Primary Button', () => {
     );
   });
 
-  it('renders correctly when isLoading is true', () => {
-    const { getByTestId, rerender } = render(<PrimaryButton text="MyButton" isLoading {...props} />);
+  it('renders correctly when loading is true', () => {
+    const { getByTestId, rerender } = render(<PrimaryButton text="MyButton" loading {...props} />);
     const button = getByTestId('PrimaryButton');
     const buttonStyle = Object.assign({}, ...button.props.style);
 
@@ -196,21 +196,21 @@ describe('Primary Button', () => {
 
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.space100);
 
-    // isLoading and Earth color
-    rerender(<PrimaryButton text="MyButton" color="earth" isLoading {...props} />);
+    // loading and Earth color
+    rerender(<PrimaryButton text="MyButton" color="earth" loading {...props} />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.moon900);
 
-    // isLoading and Venus color
-    rerender(<PrimaryButton text="MyButton" color="venus" isLoading {...props} />);
+    // loading and Venus color
+    rerender(<PrimaryButton text="MyButton" color="venus" loading {...props} />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.space100);
 
-    // isLoading and Mars color
-    rerender(<PrimaryButton text="MyButton" color="mars" isLoading {...props} />);
+    // loading and Mars color
+    rerender(<PrimaryButton text="MyButton" color="mars" loading {...props} />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.space100);
   });
 
-  it('renders correctly when isDisabled is true', () => {
-    const { getByTestId, getByText } = render(<PrimaryButton text="MyButton" isDisabled {...props} />);
+  it('renders correctly when disabled is true', () => {
+    const { getByTestId, getByText } = render(<PrimaryButton text="MyButton" disabled {...props} />);
     const button = getByTestId('PrimaryButton');
     const buttonStyle = Object.assign({}, ...button.props.style);
     const text = getByText('MyButton');
