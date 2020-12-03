@@ -19,11 +19,18 @@ jobs:
       script: yarn lint && yarn tsc --noEmit && yarn test --coverage --changedSince=main
       
     - stage: PR
-      if: (NOT branch =~ /^release\//) AND (NOT branch =~ /^hotfix\//)
+      if: (NOT branch =~ /^release\//) AND (NOT branch =~ /^hotfix\//) AND (type = pull_request)
       name: CI on Pull Request
       install:
         - yarn install
       script: yarn lint && yarn tsc --noEmit && yarn test --coverage --changedSince=develop
+    
+    - stage: Develop
+      if: branch = develop
+      name: CI on develop branch
+      install:
+        - yarn install
+      script: yarn lint && yarn tsc --noEmit && yarn test --coverage --changedSince=main
   
 after_success:
   - yarn codecov -t $CODECOV_TOKEN
