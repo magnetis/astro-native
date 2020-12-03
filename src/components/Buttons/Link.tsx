@@ -6,9 +6,13 @@ import { isValidTextComponent } from './utils';
 
 interface LinkProps extends PressableProps {
   children: ReactElement;
+  /** Link press callback */
   onPress: () => void;
 }
 
+/**
+ * For inline links in paragraphs and informative texts. Regular links navigate to other pages or external content.
+ */
 function Link({ children, onPress, ...props }: LinkProps) {
   return (
     <Pressable hitSlop={10} onPress={onPress} {...props}>

@@ -7,19 +7,21 @@ import type { IconButtonProps } from './types';
 import BaseButton from './BaseButton';
 import { getIcon } from './utils';
 
+/**
+ * Ghost icon buttons can be used for simple microinteractions and commands.
+ */
 const GhostIconButton: React.FC<IconButtonProps> = ({
-  ref,
   onPress,
   accessibilityLabel = '',
-  isLoading = false,
+  loading = false,
   color = 'uranus',
-  isDisabled = false,
+  disabled = false,
   size = 'medium',
   testID,
   ...props
 }) => {
   const backgroundColor = 'transparent';
-  const textColor = isDisabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
+  const textColor = disabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
   const iconSize = getIconSize(size);
   const Icon = getIcon(props.icon);
   const baseProps = {
@@ -27,14 +29,13 @@ const GhostIconButton: React.FC<IconButtonProps> = ({
     borderColor: backgroundColor,
     accessibilityLabel,
     backgroundColor,
-    isDisabled,
+    disabled,
     textColor,
-    isLoading,
+    loading,
     onPress,
     testID,
     size,
     fill: false,
-    ref,
   };
 
   return (
