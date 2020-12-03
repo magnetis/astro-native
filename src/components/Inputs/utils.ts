@@ -20,6 +20,9 @@ const LABEL_BLUR_POSITION = 16;
 const LABEL_FOCUS_POSITION_LARGE = 8;
 const LABEL_BLUR_POSITION_LARGE = 18;
 
+/**
+ * Calculates input border color based on input status
+ */
 export function getInputBorderColor(status: {
   disabled: boolean;
   hasError: boolean;
@@ -33,6 +36,9 @@ export function getInputBorderColor(status: {
   return BLUR_BORDER_COLOR;
 }
 
+/**
+ * Calculates input label color based on input status
+ */
 export function getInputLabelColor(status: {
   disabled: boolean;
   hasError: boolean;
@@ -46,10 +52,16 @@ export function getInputLabelColor(status: {
   return BLUR_LABEL_COLOR;
 }
 
+/**
+ *  Calculates input background color based on input status
+ */
 export function getInputBackgroundColor({ disabled }: { disabled: boolean }) {
   return disabled ? DISABLED_BACKGROUND_COLOR : ENABLED_BACKGROUND_COLOR;
 }
 
+/**
+ * Calculates input label position based on status and size
+ */
 export function getLabelPosition({ expandLabel, large }: { expandLabel: boolean; large: boolean }) {
   if (large) {
     return expandLabel ? LABEL_BLUR_POSITION_LARGE : LABEL_FOCUS_POSITION_LARGE;
@@ -57,6 +69,9 @@ export function getLabelPosition({ expandLabel, large }: { expandLabel: boolean;
   return expandLabel ? LABEL_BLUR_POSITION : LABEL_FOCUS_POSITION;
 }
 
+/**
+ * Calculate input label font size based on input status and size
+ */
 export function getInputLabelFontSize({
   expandLabel,
   large,
@@ -74,12 +89,19 @@ export function getInputLabelFontSize({
 }
 
 interface FormatRawValueToCurrencyParams {
+  /** Char to be used as decimal separator */
   decimalSeparator: string;
+  /** Char to be used as milesimal separator */
   milesimalSeparator: string;
+  /** Raw value*/
   rawValue: number;
+  /** Use float number when set to true */
   enableCents: boolean;
 }
 
+/**
+ * Formats a number to a string in currency format
+ */
 export function formatRawValueToCurrency({
   decimalSeparator,
   milesimalSeparator,
