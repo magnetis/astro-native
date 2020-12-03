@@ -13,7 +13,7 @@ interface ToggleProps {
 const OFF_POSITION = 1;
 const ON_POSITION = 21;
 
-function Toggle({ startEnabled = false, onValueChange, disabled = false, testID = 'Toggle.Pressable' }: ToggleProps) {
+function Toggle({ startEnabled = false, onValueChange, disabled = false, testID = 'Toggle' }: ToggleProps) {
   const didMount = useDidMount();
   const [isToggled, setIsToggled] = useState(disabled ? false : startEnabled);
   const bulletAnim = useRef(new Animated.Value(isToggled ? ON_POSITION : OFF_POSITION)).current;
