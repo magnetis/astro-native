@@ -8,18 +8,31 @@ import useDidMount from '@hooks/useDidMount';
 type Unit = string | { singular: string; plural: string };
 
 interface SliderProps {
+  /** Text to be rendered on top of slider */
   label: string;
+  /** Mininum range value */
   minimumValue: number;
+  /** Maximum range value */
   maximumValue: number;
-  isDisabled?: boolean;
+  /** Disables any user interaction with component. Defaults to `false`. */
+  disabled?: boolean;
+  /** Unit used for range values. Can be either a single string or an object with `singular` and `plural` keys */
   unit?: Unit;
+  /** Fills entire slider with color when set to true. Defaults to `false` */
   fullFill?: boolean;
+  /** Slider swipe callback */
   onValueChange: (newValue: number) => void;
+  /** Used to locate this component in end-to-end tests. Defaults to `"Slider"`. */
   testID?: string;
 }
 
+/**
+ * Sliders give users a visual indication of adjustable content, mostly numerical (for time, money, etc). They can be used with or without text labels.
+ *
+ * Adjust `minimumValue` and `maximumValue` attributes to set the value range.
+ */
 function Slider({
-  isDisabled = false,
+  disabled = false,
   fullFill = false,
   onValueChange,
   label,
@@ -32,8 +45,8 @@ function Slider({
   const [slidingValue, setSlidingValue] = useState(value);
   const unitString = typeof unit === 'string' ? unit : slidingValue > 1 ? unit.plural : unit.singular;
   const sliderProps = {
-    minimumTrackTintColor: isDisabled ? colors.moon200 : fullFill ? colors.uranus600 : colors.uranus500,
-    maximumTrackTintColor: isDisabled ? colors.moon200 : fullFill ? colors.uranus400 : colors.moon400,
+    minimumTrackTintColor: disabled ? colors.moon200 : fullFill ? colors.uranus600 : colors.uranus500,
+    maximumTrackTintColor: disabled ? colors.moon200 : fullFill ? colors.uranus400 : colors.moon400,
   };
 
   function handleSlindingComplete(newValue: number) {
@@ -54,17 +67,17 @@ function Slider({
   return (
     <View testID="Slider.Container" style={styles.container}>
       <View testID="Slider.LabelContainer" style={styles.labelContainer}>
-        <SecondaryTextMedium color={isDisabled ? colors.moon200 : colors.moon900} bold>
+        <SecondaryTextMedium color={disabled ? colors.moon200 : colors.moon900} bold>
           {String(slidingValue)} {unitString}
         </SecondaryTextMedium>
-        <SecondaryTextMedium color={isDisabled ? colors.moon200 : colors.moon900}>{label}</SecondaryTextMedium>
+        <SecondaryTextMedium color={disabled ? colors.moon200 : colors.moon900}>{label}</SecondaryTextMedium>
       </View>
       <RNSlider
         {...props}
         {...sliderProps}
         testID={testID}
         step={1}
-        disabled={isDisabled}
+        disabled={disabled}
         onSlidingComplete={handleSlindingComplete}
         onValueChange={handleValueChange}
       />
