@@ -21,11 +21,10 @@ describe('Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 23,
         backgroundColor: colors.uranus500,
         borderColor: colors.uranus500,
       })
@@ -61,11 +60,10 @@ describe('Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 23,
         backgroundColor: colors.mars500,
         borderColor: colors.mars500,
       })
@@ -96,11 +94,10 @@ describe('Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 23,
         backgroundColor: colors.venus400,
         borderColor: colors.venus400,
       })
@@ -131,11 +128,10 @@ describe('Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 23,
         backgroundColor: colors.uranus500,
         borderColor: colors.uranus500,
       })
@@ -166,11 +162,10 @@ describe('Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 23,
         backgroundColor: colors.earth400,
         borderColor: colors.earth400,
       })
@@ -198,11 +193,10 @@ describe('Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 23,
         backgroundColor: colors.uranus500,
         borderColor: colors.uranus500,
       })
@@ -231,11 +225,10 @@ describe('Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 23,
         backgroundColor: colors.moon300,
         borderColor: colors.moon300,
       })
@@ -267,11 +260,10 @@ describe('Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 23,
         backgroundColor: colors.moon300,
         borderColor: colors.moon300,
       })

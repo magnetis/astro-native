@@ -39,6 +39,7 @@ const GhostIconLabelButton: React.FC<IconLabelButtonProps> = ({
     testID,
     size,
     fill: false,
+    hasIcon: true,
   };
 
   const iconWrapperStyle = {
