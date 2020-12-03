@@ -11,13 +11,13 @@ import { getSecondaryTextFromSize } from '@components/Text/utils';
 interface IconLinkButtonProps extends PressableProps {
   /** Text to be shown inside the button */
   text: string;
-  /** renders text as bold when true */
+  /** renders text as bold when true. Defaults to `false`. */
   bold?: boolean;
-  /** IconLinkButton press callback. Defaults to `false`. */
+  /** IconLinkButton press callback */
   onPress: () => void;
   /** Name of valid Astro's icon in PascalCase */
   icon: IconID;
-  /** Whether icon will be positioned on left or right of text. Defaults to `left` */
+  /** Whether icon will be positioned on left or right of text. Defaults to `"left"` */
   iconPosition?: 'left' | 'right';
   /** Specifies button size. Defaults to `"medium"` */
   size?: ButtonSize;
