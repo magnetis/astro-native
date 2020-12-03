@@ -6,11 +6,17 @@ import { SecondaryTextMedium } from '@components/Text';
 import useDidMount from '@hooks/useDidMount';
 
 interface CheckboxProps {
+  /** Text to be rendered aside checkbox */
   label: string;
+  /** Checkbox press callback */
   onPress: (newValue: boolean, indeterminate: boolean) => void;
-  isIndeterminate?: boolean;
+  /** Sets if checkbox should render as indeterminate. Defaults to `false`. */
+  indeterminate?: boolean;
+  /** Sets checkbox initial value to true. Defaults to `false`. */
   startChecked?: boolean;
-  isDisabled?: boolean;
+  /** Disables any user interaction with component. Defaults to `false`. */
+  disabled?: boolean;
+  /** Used to locate this component in end-to-end tests. Defaults to `"Checkbox"`. */
   testID?: string;
 }
 
@@ -48,18 +54,21 @@ const Indeterminate = () => (
   />
 );
 
+/**
+ * Checkboxes are used when a user might select multiple options from a list, or when a single specific action is required - like agreeing to terms and conditions.
+ */
 function Checkbox({
   startChecked = false,
-  isIndeterminate = false,
-  isDisabled = false,
+  indeterminate = false,
+  disabled = false,
   testID = 'Checkbox',
   onPress,
   label,
 }: CheckboxProps) {
   const didMount = useDidMount();
   const [isChecked, setIsChecked] = useState(startChecked);
-  const borderColor = isDisabled ? colors.moon200 : isChecked ? colors.uranus500 : colors.moon500;
-  const backgroundColor = isChecked && !isDisabled ? colors.uranus500 : colors.space100;
+  const borderColor = disabled ? colors.moon200 : isChecked ? colors.uranus500 : colors.moon500;
+  const backgroundColor = isChecked && !disabled ? colors.uranus500 : colors.space100;
 
   function handleCheck() {
     setIsChecked((isChecked) => !isChecked);
@@ -67,13 +76,13 @@ function Checkbox({
 
   useEffect(() => {
     if (didMount) {
-      onPress(isChecked, isIndeterminate);
+      onPress(isChecked, indeterminate);
     }
   }, [isChecked]);
 
   return (
     <Pressable
-      disabled={isDisabled}
+      disabled={disabled}
       accessibilityRole="checkbox"
       style={styles.wrapper}
       onPress={handleCheck}
@@ -81,9 +90,9 @@ function Checkbox({
       hitSlop={10}
     >
       <View testID="Checkbox.Box" style={[styles.box, { borderColor, backgroundColor }]}>
-        {isIndeterminate && isChecked && !isDisabled ? <Indeterminate /> : isChecked && !isDisabled ? <Check /> : null}
+        {indeterminate && isChecked && !disabled ? <Indeterminate /> : isChecked && !disabled ? <Check /> : null}
       </View>
-      <SecondaryTextMedium color={isDisabled ? colors.moon200 : colors.moon900}>{label}</SecondaryTextMedium>
+      <SecondaryTextMedium color={disabled ? colors.moon200 : colors.moon900}>{label}</SecondaryTextMedium>
     </Pressable>
   );
 }

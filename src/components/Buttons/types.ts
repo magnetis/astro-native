@@ -10,27 +10,27 @@ export type ButtonColor = 'uranus' | 'earth' | 'venus' | 'mars';
 export interface ButtonProps extends PressableProps {
   /** Text to be shown inside the button */
   text: string;
-  /** Color to be used as background color of button */
+  /** Color to be used as background color of button. Defaults to `"uranus"`. */
   color?: ButtonColor;
   /** Button press callback */
   onPress: () => void;
-  /** Shows activity indicator inside button when true  */
+  /** Shows activity indicator inside button when true. Defaults to `false`.  */
   loading?: boolean;
-  /** Supress any user interaction with component */
+  /** Supress any user interaction with component. Defaults to `false`. */
   disabled?: boolean;
-  /** TestID string for testing */
+  /** Used to locate this component in end-to-end tests */
   testID?: string;
   accessibilityLabel?: string;
-  /** Specifies button size */
+  /** Specifies button size. Defaults to `"medium"`. */
   size?: ButtonSize;
-  /** Button fills entire parent when set to true */
+  /** Button fills entire parent when set to true. Defaults to `false`. */
   fill?: boolean;
 }
 
 export interface IconLabelButtonProps extends ButtonProps {
   /** Name of valid Astro's icon in PascalCase */
   icon: IconID;
-  /** Whether icon will be positioned on left or right of text */
+  /** Whether icon will be positioned on left or right of text. Defaults to `"left"`. */
   iconPosition?: 'left' | 'right';
 }
 

@@ -4,20 +4,27 @@ import { colors } from '@magnetis/astro-galaxy-tokens';
 import useDidMount from '@hooks/useDidMount';
 
 interface ToggleProps {
+  /** Toggle starts enabled when set to true. Defaults to `false`. */
   startEnabled?: boolean;
+  /** Callback called when user changes toggle state */
   onValueChange: (newValue: boolean) => void;
-  isDisabled?: boolean;
+  /** Disables any user interaction with component. Defaults to `false`. */
+  disabled?: boolean;
+  /** Used to locate this component in end-to-end tests. Defaults to `"Toggle"`. */
   testID?: string;
 }
 
 const OFF_POSITION = 1;
 const ON_POSITION = 21;
 
-function Toggle({ startEnabled = false, onValueChange, isDisabled = false, testID = 'Toggle.Pressable' }: ToggleProps) {
+/**
+ * A simple control that is used to quickly switch between two possible states.
+ */
+function Toggle({ startEnabled = false, onValueChange, disabled = false, testID = 'Toggle' }: ToggleProps) {
   const didMount = useDidMount();
-  const [isToggled, setIsToggled] = useState(isDisabled ? false : startEnabled);
+  const [isToggled, setIsToggled] = useState(disabled ? false : startEnabled);
   const bulletAnim = useRef(new Animated.Value(isToggled ? ON_POSITION : OFF_POSITION)).current;
-  const backgroundColor = isDisabled ? colors.moon200 : isToggled ? colors.uranus500 : colors.moon400;
+  const backgroundColor = disabled ? colors.moon200 : isToggled ? colors.uranus500 : colors.moon400;
 
   function handleChange() {
     setIsToggled((isToggled) => !isToggled);
@@ -36,12 +43,7 @@ function Toggle({ startEnabled = false, onValueChange, isDisabled = false, testI
   }, [isToggled]);
 
   return (
-    <Pressable
-      testID={testID}
-      disabled={isDisabled}
-      onPress={handleChange}
-      style={[styles.toggle, { backgroundColor }]}
-    >
+    <Pressable testID={testID} disabled={disabled} onPress={handleChange} style={[styles.toggle, { backgroundColor }]}>
       <Animated.View
         testID="Toggle.Bullet"
         style={[styles.bullet, { top: 1, transform: [{ translateX: bulletAnim }] }]}

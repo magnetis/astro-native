@@ -6,13 +6,23 @@ import { RadioGroupOption } from './types';
 import { getUniqueOptions } from './utils';
 
 interface RadioGroupProps {
+  /** Array with options the user has to select from. */
   options: RadioGroupOption[];
+  /** RadioGroup option select callback. */
   onOptionChange: (newOption: RadioGroupOption) => void;
+  /** Show options in a single line when set to `true`. Defaults to `false`. */
   inline?: boolean;
+  /** When provided, group starts with default option selected. */
   defaultOption?: string | number | boolean;
+  /** Used to locate this component in end-to-end tests. Defaults to `"RadioGroup"`. */
   testID?: string;
 }
 
+/**
+ * Radio buttons appear when the user must select only one option from more than two.
+ *
+ * You can pass an array of options to RadioGroup and let the component handle the logic.
+ */
 function RadioGroup({
   options,
   onOptionChange,
@@ -45,7 +55,7 @@ function RadioGroup({
             <Radio
               {...option}
               testID={`RadioGroup.${key}`}
-              isSelected={option.value === selected}
+              selected={option.value === selected}
               label={option.label}
               onSelect={handleSelect(option)}
             />
