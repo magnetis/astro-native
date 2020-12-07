@@ -98,7 +98,7 @@ function TextInput({
         />
         <RNTextInput
           {...props}
-          secureTextEntry={!showPassword}
+          secureTextEntry={password && !showPassword}
           testID={testID}
           editable={!disabled}
           style={[styles.input, computedInputStyles]}
