@@ -30,7 +30,7 @@ function TextInput({
   onFocus,
   onChangeText,
   label,
-  testID = 'TextInput',
+  testID = 'TextInput.Input',
   ...props
 }: TextInputProps) {
   const inputRef = useRef<RNTextInput>(null);
@@ -80,7 +80,7 @@ function TextInput({
   }
 
   return (
-    <View testID={testID} style={styles.wrapper}>
+    <View testID="TextInput" style={styles.wrapper}>
       <Pressable
         testID="TextInput.Container"
         onPress={handleInputPress}
@@ -99,7 +99,7 @@ function TextInput({
         <RNTextInput
           {...props}
           secureTextEntry={!showPassword}
-          testID="TextInput.Input"
+          testID={testID}
           editable={!disabled}
           style={[styles.input, computedInputStyles]}
           onFocus={handleInputFocus}
