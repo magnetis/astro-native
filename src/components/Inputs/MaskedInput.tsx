@@ -35,7 +35,7 @@ function MaskedInput({
   onFocus,
   onChangeText,
   label,
-  testID = 'MaskedInput',
+  testID = 'MaskedInput.Input',
   ...props
 }: MaskedInputProps) {
   const inputRef = useRef<RNTextInput>(null);
@@ -73,7 +73,7 @@ function MaskedInput({
   }
 
   return (
-    <View testID={testID} style={styles.wrapper}>
+    <View testID="MaskedInput" style={styles.wrapper}>
       <Pressable
         testID="MaskedInput.Container"
         onPress={handleInputPress}
@@ -93,7 +93,7 @@ function MaskedInput({
           {...props}
           caretHidden={blockCursor}
           placeholderTextColor={colors.moon300}
-          testID="MaskedInput.Input"
+          testID={testID}
           editable={!disabled}
           style={[styles.input, computedInputStyles]}
           onFocus={handleInputFocus}
