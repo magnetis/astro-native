@@ -55,7 +55,7 @@ function MaskedInput({
     paddingLeft: baseSize,
     fontSize: baseSize,
     paddingRight: hasError || validated ? 56 : baseSize,
-    textAlign: (blockCursor ? 'right' : 'left') as TextStyle['textAlign'],
+    textAlign: 'left' as TextStyle['textAlign'],
   };
 
   function handleInputPress() {
