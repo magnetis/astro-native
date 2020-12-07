@@ -1,3 +1,16 @@
+#### 1.0.1 (2020-12-07)
+
+##### Chores
+
+- fix changelog generator ([#18](https://github.com/magnetis/astro-native/pull/18)) ([5a4aec79](https://github.com/magnetis/astro-native/commit/5a4aec79a52434431b16077749a6a6e17db4f56b))
+- fix version script ([d0e51dd0](https://github.com/magnetis/astro-native/commit/d0e51dd09a8f47ec0491f18f3617577830baa0f9))
+- **ci:**
+  - Make travisci deploy occur on tags only ([f1a66875](https://github.com/magnetis/astro-native/commit/f1a66875ed27f51474e1a5e0149742f4f334453a))
+
+##### Bug Fixes
+
+- **Inputs:** change testID prop forward ([5c93357b](https://github.com/magnetis/astro-native/commit/5c93357b0d5161b182f86cc2cbb74efec0fab3f6))
+
 #### 1.0.0 (2020-12-07)
 
 ##### Chores
