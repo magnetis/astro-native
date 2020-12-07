@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   iconView: {
     position: 'absolute',
     right: 16,
-    backgroundColor: 'red',
+    backgroundColor: 'transparent',
   },
 });
 
