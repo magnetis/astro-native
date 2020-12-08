@@ -17,7 +17,7 @@
     "test": "jest .",
     "lint": "eslint ./src --ext .ts,.tsx",
     "prepublishOnly": "yarn clean && tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist",
-    "version": "git add CHANGELOG.md package.json && git commit -m \"release: bump version to v${npm_package_version}\"",
+    "version": "standard-changelog && git add CHANGELOG.md package.json && git commit -m \"release: bump version to v${npm_package_version}\"",
     "storybook": "start-storybook -p 7007",
     "start": "yarn react-native start",
     "build:ios": "react-native run-ios",
