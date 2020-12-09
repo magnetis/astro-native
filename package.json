@@ -72,6 +72,7 @@
     "react": "^16.13.1",
     "react-native": "^0.63.3",
     "react-test-renderer": "^17.0.1",
+    "rimraf": "^3.0.2",
     "standard-changelog": "^2.0.27",
     "tscpaths": "^0.0.9",
     "typescript": "^4.0.5"
