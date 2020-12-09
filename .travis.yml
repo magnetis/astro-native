@@ -25,14 +25,12 @@ jobs:
 after_success:
 - yarn codecov -t $CODECOV_TOKEN
 
-before_deploy: yarn lint && yarn tsc --noEmit && yarn test --coverage
-deploy:
-  provider: npm
-  email: alyssondlopes@gmail.com
-  api_key:
-    secure: FmRLj7uJk4KAuIGPdz3Zodq4mGWZb3JlXMrjVzjhVJTsS5K9Yta08bBXwd4v7Bfcjvg8l8XZcENK4PYD8FZWmXWYIxaM+lyh0LekeX5Cpn8LfRWttKeVzYU8Dlo6E++QcsLX5YsuGJ+K25ohERLPPlJ4/j8MhzjVbfge4SO66dMszsMsrTedsvRTE5ziIGPUoeCmEMNy+GNU5xY7sJ/TdWlDGa2lvQ5d7AFL5nxH2xkd44r65rhTafLjlfnN7yxpZbkOWkR7Hxgdg54+P9kKgW4YPIVDDOI3YWjtztqpKh3X5Lo0DsNMiuRXkZuspEFoh5ZMcl1lyqwJSmvB8vQpFur5pKDbMTrI2TQoH3iWbL18Dz8CLo3OhhDqyX4fmPELgGkXfYyp3VGtyNfbjsJFGyeasFka5OL70WmLYfUDCsnmrSA7C4yxsNZs6Qb2/9YtvVLy5tz5O/TQYENtZ9RBmitqcupXssiXbqJ0Pwq13bMkeBBC1mBQryTX7PGhsinQYt5hIaaAmkn/BDcHwOTtXU/edrsVo6YoCz8NmN3Tyyf85nLLi5cYOdJDOQU7KAxY942RG6BAQE5EOct+W6UhgT0Xy0o8T64HwjTx96zyrcNI20R2uiAPZ2SuK1fvtqs4KcDFPUmEspvNW4lA2TQAMdyqSK1hgUtQTWNrnkFDTnY=
-  on:
-    repo: magnetis/astro-native
-    branch: main
-  skip_cleanup: 'true'
-after_deploy: yarn codecov -t $CODECOV_TOKEN
+  - stage: Deploy
+    if: tag IS present
+    deploy:
+      provider: npm
+      email: alyssondlopes@gmail.com
+      api_key:
+        secure: FmRLj7uJk4KAuIGPdz3Zodq4mGWZb3JlXMrjVzjhVJTsS5K9Yta08bBXwd4v7Bfcjvg8l8XZcENK4PYD8FZWmXWYIxaM+lyh0LekeX5Cpn8LfRWttKeVzYU8Dlo6E++QcsLX5YsuGJ+K25ohERLPPlJ4/j8MhzjVbfge4SO66dMszsMsrTedsvRTE5ziIGPUoeCmEMNy+GNU5xY7sJ/TdWlDGa2lvQ5d7AFL5nxH2xkd44r65rhTafLjlfnN7yxpZbkOWkR7Hxgdg54+P9kKgW4YPIVDDOI3YWjtztqpKh3X5Lo0DsNMiuRXkZuspEFoh5ZMcl1lyqwJSmvB8vQpFur5pKDbMTrI2TQoH3iWbL18Dz8CLo3OhhDqyX4fmPELgGkXfYyp3VGtyNfbjsJFGyeasFka5OL70WmLYfUDCsnmrSA7C4yxsNZs6Qb2/9YtvVLy5tz5O/TQYENtZ9RBmitqcupXssiXbqJ0Pwq13bMkeBBC1mBQryTX7PGhsinQYt5hIaaAmkn/BDcHwOTtXU/edrsVo6YoCz8NmN3Tyyf85nLLi5cYOdJDOQU7KAxY942RG6BAQE5EOct+W6UhgT0Xy0o8T64HwjTx96zyrcNI20R2uiAPZ2SuK1fvtqs4KcDFPUmEspvNW4lA2TQAMdyqSK1hgUtQTWNrnkFDTnY=
+      on:
+        tags: true
