@@ -16,21 +16,21 @@ jobs:
     install:
     - yarn install
     name:  Test on Release PR
-    script: yarn test --coverage --changedSince=main && yarn codecov -t $CODECOV_TOKEN
+    script: yarn jest --coverage --changedSince=main && yarn codecov -t $CODECOV_TOKEN
 
   - stage: Test on Pull Request
     if: (NOT branch =~ /^release\\//) AND (NOT branch =~ /^hotfix\\//) AND (type = pull_request)
     install:
     - yarn install
     name: Test on Pull Request
-    script: yarn test --coverage --changedSince=develop && yarn codecov -t $CODECOV_TOKEN
+    script: yarn jest --coverage --changedSince=develop && yarn codecov -t $CODECOV_TOKEN
 
   - stage: Coverage
     if: branch IN (develop, main) AND (NOT type = pull_request)
     install:
     - yarn install
     name: CI on develop branch
-    script: yarn test --coverage && yarn codecov -t $CODECOV_TOKEN
+    script: yarn jest --coverage && yarn codecov -t $CODECOV_TOKEN
 
   - stage: Deploy
     if: tag IS present
