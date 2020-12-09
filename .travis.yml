@@ -12,7 +12,7 @@ jobs:
     script: yarn lint && yarn tsc --noEmit
 
   - stage: Test on Release PR
-    if: branch =~ /^release\// OR branch =~ /^hotfix\//  AND (type = pull_request)
+    if: (branch =~ /^release\// OR branch =~ /^hotfix\//) AND (type = pull_request)
     install:
     - yarn install
     name:  Test on Release PR
