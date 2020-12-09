@@ -34,7 +34,6 @@ jobs:
 
   - stage: Deploy
     if: tag IS present
-    before_deploy: yarn tsc --project tsconfig.prod.json
     deploy:
       provider: npm
       email: alyssondlopes@gmail.com
