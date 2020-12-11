@@ -4,37 +4,25 @@ node_js:
 
 jobs:
   include:
-  - stage: release
-    if: branch =~ /^release\// OR branch =~ /^hotfix\//
-    name: CI on release branch
+  - stage: Lint
+    if: type = pull_request
     install:
     - yarn install
-    name: Lint
     script: yarn lint && yarn tsc --noEmit
 
-  - stage: Test on Release PR
-    if: (branch =~ /^release\// OR branch =~ /^hotfix\//) AND (type = pull_request)
+  - stage: Run Tests
+    if: type = pull_request
     install:
     - yarn install
-    name:  Test on Release PR
     script: yarn jest --coverage --changedSince=main && yarn codecov -t $CODECOV_TOKEN
 
-  - stage: Test on Pull Request
-    if: (NOT branch =~ /^release\\//) AND (NOT branch =~ /^hotfix\\//) AND (type = pull_request)
-    name: CI on Pull Request
+  - stage: Run Tests & Upload Coverage Report
+    if: NOT type = pull_request AND branch = main
     install:
     - yarn install
-    name: Test on Pull Request
-    script: yarn jest --coverage --changedSince=develop && yarn codecov -t $CODECOV_TOKEN
-
-  - stage: Coverage
-    if: branch IN (develop, main) AND (NOT type = pull_request)
-    install:
-    - yarn install
-    name: CI on develop branch
     script: yarn jest --coverage && yarn codecov -t $CODECOV_TOKEN
 
-  - stage: Deploy
+  - stage: Deploy to NPM
     if: tag IS present
     deploy:
       provider: npm
