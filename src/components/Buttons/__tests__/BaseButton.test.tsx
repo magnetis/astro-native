@@ -47,9 +47,9 @@ describe('BaseButton', () => {
     );
   });
 
-  it('has no interaction when isDisabled is true', () => {
+  it('has no interaction when disabled is true', () => {
     const { getByTestId } = render(
-      <BaseButton {...props} isDisabled>
+      <BaseButton {...props} disabled>
         <ButtonText />
       </BaseButton>
     );

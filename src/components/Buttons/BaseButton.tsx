@@ -9,7 +9,7 @@ interface BaseButtonProps extends PressableProps {
   testID?: string;
   accessibilityLabel?: string;
   loading?: boolean;
-  isDisabled?: boolean;
+  disabled?: boolean;
   activityIndicatorColor: string;
   onPress: () => void;
   ref?: React.Ref<any>;
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
 
 function BaseButton({
   loading = false,
-  isDisabled = false,
+  disabled = false,
   activityIndicatorColor,
   children,
   size = 'medium',
@@ -68,7 +68,7 @@ function BaseButton({
 
   const pressableProps = {
     onPress: props.onPress,
-    disabled: isDisabled,
+    disabled: disabled,
     style: [styles.button, computedStyles],
     testID: props.testID,
   };
