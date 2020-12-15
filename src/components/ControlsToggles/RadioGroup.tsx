@@ -45,7 +45,7 @@ function RadioGroup({
             <Radio
               {...option}
               testID={`RadioGroup.${key}`}
-              isSelected={option.value === selected}
+              selected={option.value === selected}
               label={option.label}
               onSelect={handleSelect(option)}
             />
