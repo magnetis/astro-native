@@ -12,7 +12,7 @@ export interface ButtonProps extends PressableProps {
   text: string;
   color?: ButtonColor;
   onPress: () => void;
-  isLoading?: boolean;
+  loading?: boolean;
   isDisabled?: boolean;
   testID?: string;
   accessibilityLabel?: string;
