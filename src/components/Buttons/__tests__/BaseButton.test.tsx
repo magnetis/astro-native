@@ -37,11 +37,10 @@ describe('BaseButton', () => {
       expect.objectContaining({
         backgroundColor: colors.uranus500,
         borderColor: colors.uranus500,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
-        height: 48,
+        paddingHorizontal: 46,
         alignSelf: 'center',
       })
     );
@@ -70,11 +69,10 @@ describe('BaseButton', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 46,
         backgroundColor: colors.uranus500,
         borderColor: colors.uranus500,
       })

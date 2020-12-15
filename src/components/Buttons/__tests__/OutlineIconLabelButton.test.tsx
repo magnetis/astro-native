@@ -21,11 +21,10 @@ describe('Outline Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 23,
         backgroundColor: 'transparent',
         borderColor: colors.uranus500,
       })
@@ -63,11 +62,10 @@ describe('Outline Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 23,
         backgroundColor: 'transparent',
         borderColor: colors.mars500,
       })
@@ -98,11 +96,10 @@ describe('Outline Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 23,
         backgroundColor: 'transparent',
         borderColor: colors.venus400,
       })
@@ -133,11 +130,10 @@ describe('Outline Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 23,
         backgroundColor: 'transparent',
         borderColor: colors.uranus500,
       })
@@ -168,11 +164,10 @@ describe('Outline Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 23,
         backgroundColor: 'transparent',
         borderColor: colors.earth600,
       })
@@ -202,11 +197,10 @@ describe('Outline Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 23,
         backgroundColor: 'transparent',
         borderColor: colors.uranus500,
       })
@@ -237,11 +231,10 @@ describe('Outline Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 23,
         backgroundColor: 'transparent',
         borderColor: colors.moon300,
       })
@@ -273,11 +266,10 @@ describe('Outline Icon Label Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 23,
         backgroundColor: 'transparent',
         borderColor: colors.moon300,
       })

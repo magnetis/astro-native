@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { View, StyleSheet, ActivityIndicator, Pressable, PressableProps } from 'react-native';
 
-import { getBorderRadius, getButtonPadding, getButtonHeight } from './utils';
+import { getBorderRadius, getButtonPadding } from './utils';
 import { ButtonSize } from './types';
 
 interface BaseButtonProps extends PressableProps {
@@ -12,18 +12,17 @@ interface BaseButtonProps extends PressableProps {
   disabled?: boolean;
   activityIndicatorColor: string;
   onPress: () => void;
-  ref?: React.Ref<any>;
   backgroundColor: string;
   textColor: string;
   borderColor: string;
   size?: ButtonSize;
   noHorizontalPadding?: boolean;
   fill?: boolean;
+  hasIcon?: boolean;
 }
 
 const styles = StyleSheet.create({
   button: {
-    height: 44,
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
@@ -45,14 +44,14 @@ function BaseButton({
   size = 'medium',
   noHorizontalPadding = false,
   fill = false,
+  hasIcon = false,
   ...props
 }: BaseButtonProps) {
   const computedStyles: any = {
-    ...getButtonPadding(size, noHorizontalPadding),
+    ...getButtonPadding(size, { noHorizontalPadding, hasIcon }),
     backgroundColor: props.backgroundColor,
-    borderRadius: getBorderRadius(size, noHorizontalPadding),
+    borderRadius: getBorderRadius(size, { noHorizontalPadding, hasIcon }),
     borderColor: props.borderColor,
-    height: getButtonHeight(size),
     borderWidth: 2,
   };
 
@@ -60,10 +59,6 @@ function BaseButton({
     computedStyles.width = '100%';
   } else {
     computedStyles.alignSelf = 'center';
-  }
-
-  if (noHorizontalPadding) {
-    computedStyles.width = getButtonHeight(size);
   }
 
   const pressableProps = {
@@ -94,4 +89,3 @@ function BaseButton({
 }
 
 export default BaseButton;
-export type { BaseButtonProps };
