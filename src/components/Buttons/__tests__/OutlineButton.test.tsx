@@ -20,11 +20,10 @@ describe('Outline Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 46,
         backgroundColor: 'transparent',
         borderColor: colors.uranus500,
       })
@@ -53,11 +52,10 @@ describe('Outline Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 46,
         backgroundColor: 'transparent',
         borderColor: colors.mars500,
       })
@@ -86,11 +84,10 @@ describe('Outline Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 46,
         backgroundColor: 'transparent',
         borderColor: colors.venus400,
       })
@@ -119,11 +116,10 @@ describe('Outline Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 46,
         backgroundColor: 'transparent',
         borderColor: colors.uranus500,
       })
@@ -152,11 +148,10 @@ describe('Outline Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 46,
         backgroundColor: 'transparent',
         borderColor: colors.earth600,
       })
@@ -184,11 +179,10 @@ describe('Outline Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 46,
         backgroundColor: 'transparent',
         borderColor: colors.uranus500,
       })
@@ -217,11 +211,10 @@ describe('Outline Button', () => {
 
     expect(buttonStyle).toEqual(
       expect.objectContaining({
-        height: 48,
-        borderRadius: 31,
+        borderRadius: 24,
         borderWidth: 2,
         paddingVertical: 8,
-        paddingHorizontal: 38,
+        paddingHorizontal: 46,
         backgroundColor: 'transparent',
         borderColor: colors.moon300,
       })

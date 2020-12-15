@@ -15,7 +15,7 @@ const onValueChange = jest.fn();
 describe('Toggle', () => {
   it('renders correctly with default props', () => {
     const { getByTestId } = render(<Toggle onValueChange={onValueChange} />);
-    const toggleStyle = Object.assign({}, ...getByTestId('Toggle.Pressable').props.style);
+    const toggleStyle = Object.assign({}, ...getByTestId('Toggle').props.style);
     const bulletStyle = getByTestId('Toggle.Bullet').props.style;
 
     expect(toggleStyle).toEqual(
@@ -42,7 +42,7 @@ describe('Toggle', () => {
 
   it('renders correctly with value as true', () => {
     const { getByTestId } = render(<Toggle startEnabled onValueChange={onValueChange} />);
-    const toggleStyle = Object.assign({}, ...getByTestId('Toggle.Pressable').props.style);
+    const toggleStyle = Object.assign({}, ...getByTestId('Toggle').props.style);
     const bulletStyle = getByTestId('Toggle.Bullet').props.style;
 
     expect(toggleStyle).toEqual(
@@ -69,7 +69,7 @@ describe('Toggle', () => {
 
   it('renders correctly with disabled as true', () => {
     const { getByTestId } = render(<Toggle disabled startEnabled onValueChange={onValueChange} />);
-    const toggleStyle = Object.assign({}, ...getByTestId('Toggle.Pressable').props.style);
+    const toggleStyle = Object.assign({}, ...getByTestId('Toggle').props.style);
     const bulletStyle = getByTestId('Toggle.Bullet').props.style;
 
     expect(toggleStyle).toEqual(
@@ -93,13 +93,13 @@ describe('Toggle', () => {
       })
     );
 
-    fireEvent.press(getByTestId('Toggle.Pressable'));
+    fireEvent.press(getByTestId('Toggle'));
     expect(onValueChange).not.toHaveBeenCalled();
   });
 
   it('changes from off to on when pressed', () => {
     const { getByTestId } = render(<Toggle onValueChange={onValueChange} />);
-    let toggleStyle = Object.assign({}, ...getByTestId('Toggle.Pressable').props.style);
+    let toggleStyle = Object.assign({}, ...getByTestId('Toggle').props.style);
     let bulletStyle = getByTestId('Toggle.Bullet').props.style;
 
     expect(toggleStyle).toEqual(
@@ -123,11 +123,11 @@ describe('Toggle', () => {
       })
     );
 
-    fireEvent.press(getByTestId('Toggle.Pressable'));
+    fireEvent.press(getByTestId('Toggle'));
     expect(onValueChange).toHaveBeenCalledWith(true);
     timeTravel(300);
 
-    toggleStyle = Object.assign({}, ...getByTestId('Toggle.Pressable').props.style);
+    toggleStyle = Object.assign({}, ...getByTestId('Toggle').props.style);
     bulletStyle = getByTestId('Toggle.Bullet').props.style;
 
     expect(toggleStyle).toEqual(
@@ -154,7 +154,7 @@ describe('Toggle', () => {
 
   it('changes from on to off when pressed', () => {
     const { getByTestId } = render(<Toggle onValueChange={onValueChange} startEnabled />);
-    let toggleStyle = Object.assign({}, ...getByTestId('Toggle.Pressable').props.style);
+    let toggleStyle = Object.assign({}, ...getByTestId('Toggle').props.style);
     let bulletStyle = getByTestId('Toggle.Bullet').props.style;
 
     expect(toggleStyle).toEqual(
@@ -178,11 +178,11 @@ describe('Toggle', () => {
       })
     );
 
-    fireEvent.press(getByTestId('Toggle.Pressable'));
+    fireEvent.press(getByTestId('Toggle'));
     expect(onValueChange).toHaveBeenCalledWith(false);
     timeTravel(300);
 
-    toggleStyle = Object.assign({}, ...getByTestId('Toggle.Pressable').props.style);
+    toggleStyle = Object.assign({}, ...getByTestId('Toggle').props.style);
     bulletStyle = getByTestId('Toggle.Bullet').props.style;
 
     expect(toggleStyle).toEqual(

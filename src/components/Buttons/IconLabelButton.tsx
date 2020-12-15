@@ -8,8 +8,11 @@ import BaseButtonText from './BaseButtonText';
 import BaseButton from './BaseButton';
 import { getIcon } from './utils';
 
+/**
+ * Buttons with icons help identify the action or context within the interface.
+ * This component consists of a **PrimaryButton** with an icon and some text.
+ */
 const IconLabelButton: React.FC<IconLabelButtonProps> = ({
-  ref,
   text,
   onPress,
   accessibilityLabel = '',
@@ -38,7 +41,7 @@ const IconLabelButton: React.FC<IconLabelButtonProps> = ({
     testID,
     size,
     fill,
-    ref,
+    hasIcon: true,
   };
 
   const iconWrapperStyle = {

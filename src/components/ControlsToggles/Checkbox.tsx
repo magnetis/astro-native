@@ -6,11 +6,17 @@ import { SecondaryTextMedium } from '@components/Text';
 import useDidMount from '@hooks/useDidMount';
 
 interface CheckboxProps {
+  /** Text to be rendered aside checkbox */
   label: string;
+  /** Checkbox press callback */
   onPress: (newValue: boolean, indeterminate: boolean) => void;
+  /** Sets if checkbox should render as indeterminate. Defaults to `false`. */
   indeterminate?: boolean;
+  /** Sets checkbox initial value to true. Defaults to `false`. */
   startChecked?: boolean;
+  /** Disables any user interaction with component. Defaults to `false`. */
   disabled?: boolean;
+  /** Used to locate this component in end-to-end tests. Defaults to `"Checkbox"`. */
   testID?: string;
 }
 
@@ -48,6 +54,9 @@ const Indeterminate = () => (
   />
 );
 
+/**
+ * Checkboxes are used when a user might select multiple options from a list, or when a single specific action is required - like agreeing to terms and conditions.
+ */
 function Checkbox({
   startChecked = false,
   indeterminate = false,

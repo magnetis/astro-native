@@ -15,69 +15,89 @@ import {
   SecondaryTextVerySmall,
 } from '@components/Text';
 
-export function getButtonPadding(size: ButtonSize, noHorizontalPadding?: boolean) {
-  let paddingHorizontal = 38;
-  let paddingVertical = 8;
-
-  switch (size) {
-    case 'very-small':
-      paddingVertical = 5;
-      paddingHorizontal = 20;
-      break;
-    case 'small':
-      paddingVertical = 5;
-      paddingHorizontal = 28;
-      break;
-    case 'large':
-      paddingVertical = 5;
-      paddingHorizontal = 28;
-      break;
-  }
-
-  if (noHorizontalPadding) {
-    paddingHorizontal = 0;
-  }
-
-  return { paddingHorizontal, paddingVertical };
+interface getPropertiesOptionsParam {
+  noHorizontalPadding: boolean;
+  hasIcon: boolean;
 }
 
+/**
+ * Calculates button padding according to button size and if should have horizontal padding
+ * @param size Valid **ButtonSize**
+ * @param options Options object
+ * @param options.noHorizontalPadding If button should have horizontal padding
+ * @param options.hasIcon If button has an Icon
+ */
+export function getButtonPadding(size: ButtonSize, options: getPropertiesOptionsParam) {
+  const { noHorizontalPadding, hasIcon } = options;
+  const noHorizontalPaddingValues = {
+    'very-small': 4,
+    small: 8,
+    medium: 8,
+    large: 8,
+  };
+  const regularHorizontalPadding = {
+    'very-small': 20,
+    small: 26,
+    medium: 46,
+    large: 64,
+  };
+  const regularVerticalPadding = {
+    'very-small': 4,
+    small: 8,
+    medium: 8,
+    large: 8,
+  };
+
+  if (noHorizontalPadding) {
+    return { paddingHorizontal: noHorizontalPaddingValues[size], paddingVertical: regularVerticalPadding[size] };
+  }
+
+  return {
+    paddingHorizontal: regularHorizontalPadding[size] / (hasIcon ? 2 : 1),
+    paddingVertical: regularVerticalPadding[size],
+  };
+}
+
+/**
+ * Calculates button icon width and height according to button size
+ * @param buttonSize Valid **ButtonSize**
+ */
 export function getIconSize(buttonSize: ButtonSize): { width: number; height: number } {
   const size = getFontSize(buttonSize) * 2;
 
   return { width: size, height: size };
 }
 
-export function getButtonHeight(size: ButtonSize): number {
-  switch (size) {
-    case 'very-small':
-      return getFontSize(size) * 2.5;
-    default:
-      return getFontSize(size) * 3;
+/**
+ * Calculates button borderRadius according to button size
+ * @param buttonSize Valid **ButtonSize**
+ * @param options Options object
+ * @param options.noHorizontalPadding If button should have horizontal padding
+ * @param options.hasIcon If button has an Icon
+ */
+export function getBorderRadius(size: ButtonSize, options: getPropertiesOptionsParam): number {
+  const padding = getButtonPadding(size, options).paddingVertical;
+  const fontSize = getFontSize(size);
+
+  if (options.noHorizontalPadding) {
+    return padding + fontSize * 2;
   }
+
+  return padding + fontSize;
 }
 
-export function getBorderRadius(size: ButtonSize, noHorizontalPadding: boolean): number {
-  if (noHorizontalPadding) {
-    return getFontSize(size) * 2;
-  }
-
-  switch (size) {
-    case 'very-small':
-      return 25;
-    case 'small':
-      return 16;
-    case 'large':
-      return 24;
-    case 'medium':
-    default:
-      return 31;
-  }
-}
-
+/**
+ * Calculates button's text line-height based on size
+ * @param size Valid **ButtonSize**
+ */
 export function getLineHeight(size: ButtonSize): number {
   return getFontSize(size) * 1.5;
 }
 
+/**
+ * Checks button's main color based on base color and is its an outline button
+ * @param color Valid **ButtonColor**
+ */
 export function getButtonMainColor(
   color: ButtonColor,
   { outline }: { outline?: boolean } = { outline: false }
@@ -94,6 +114,10 @@ export function getButtonMainColor(
   }
 }
 
+/**
+ * Checks button's secondary color based on base color
+ * @param color Valid **ButtonColor**
+ */
 export function getButtonSecondaryColor(color: ButtonColor): Colors[keyof Colors] {
   switch (color) {
     case 'earth':
@@ -103,6 +127,10 @@ export function getButtonSecondaryColor(color: ButtonColor): Colors[keyof Colors
   }
 }
 
+/**
+ * Recovers Icon component based on iconName
+ * @param _iconName Valid **IconID**
+ */
 export function getIcon(_iconName: string) {
   const iconName = `${_iconName}Icon`;
 
@@ -113,6 +141,10 @@ export function getIcon(_iconName: string) {
   return () => null;
 }
 
+/**
+ * Checks if provided component is a Primary or Secondary text component
+ * @param component The component to be checked
+ */
 export function isValidTextComponent(component: ReactElement) {
   return (
     component.type === PrimaryTextVerySmall ||

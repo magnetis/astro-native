@@ -7,8 +7,10 @@ import type { IconButtonProps } from './types';
 import BaseButton from './BaseButton';
 import { getIcon } from './utils';
 
+/**
+ * Icon buttons can be used for simple microinteractions and commands.
+ */
 const IconButton: React.FC<IconButtonProps> = ({
-  ref,
   onPress,
   accessibilityLabel = '',
   loading = false,
@@ -34,7 +36,7 @@ const IconButton: React.FC<IconButtonProps> = ({
     testID,
     size,
     fill: false,
-    ref,
+    hasIcon: true,
   };
 
   return (

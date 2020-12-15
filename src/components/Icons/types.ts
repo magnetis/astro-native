@@ -4,10 +4,15 @@ import { Colors } from '@magnetis/astro-galaxy-tokens';
 import { GradientID } from '@tokens/gradients';
 
 export interface IconProps extends Omit<SvgProps, 'color'> {
+  /** Id for icon gradient. Recomended to pass a unique value. */
   id?: string;
+  /** A valid gradient name from `GradientID` */
   gradient?: GradientID;
+  /** Width value */
   width?: number | string;
+  /** Height value */
   height?: number | string;
+  /** A valid color for Astro's colors */
   color?: Colors[keyof Colors];
 }
 
