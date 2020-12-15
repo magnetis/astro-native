@@ -10,7 +10,7 @@ interface CheckboxProps {
   onPress: (newValue: boolean, indeterminate: boolean) => void;
   isIndeterminate?: boolean;
   startChecked?: boolean;
-  isDisabled?: boolean;
+  disabled?: boolean;
   testID?: string;
 }
 
@@ -51,15 +51,15 @@ const Indeterminate = () => (
 function Checkbox({
   startChecked = false,
   isIndeterminate = false,
-  isDisabled = false,
+  disabled = false,
   testID = 'Checkbox',
   onPress,
   label,
 }: CheckboxProps) {
   const didMount = useDidMount();
   const [isChecked, setIsChecked] = useState(startChecked);
-  const borderColor = isDisabled ? colors.moon200 : isChecked ? colors.uranus500 : colors.moon500;
-  const backgroundColor = isChecked && !isDisabled ? colors.uranus500 : colors.space100;
+  const borderColor = disabled ? colors.moon200 : isChecked ? colors.uranus500 : colors.moon500;
+  const backgroundColor = isChecked && !disabled ? colors.uranus500 : colors.space100;
 
   function handleCheck() {
     setIsChecked((isChecked) => !isChecked);
@@ -73,7 +73,7 @@ function Checkbox({
 
   return (
     <Pressable
-      disabled={isDisabled}
+      disabled={disabled}
       accessibilityRole="checkbox"
       style={styles.wrapper}
       onPress={handleCheck}
@@ -81,9 +81,9 @@ function Checkbox({
       hitSlop={10}
     >
       <View testID="Checkbox.Box" style={[styles.box, { borderColor, backgroundColor }]}>
-        {isIndeterminate && isChecked && !isDisabled ? <Indeterminate /> : isChecked && !isDisabled ? <Check /> : null}
+        {isIndeterminate && isChecked && !disabled ? <Indeterminate /> : isChecked && !disabled ? <Check /> : null}
       </View>
-      <SecondaryTextMedium color={isDisabled ? colors.moon200 : colors.moon900}>{label}</SecondaryTextMedium>
+      <SecondaryTextMedium color={disabled ? colors.moon200 : colors.moon900}>{label}</SecondaryTextMedium>
     </Pressable>
   );
 }

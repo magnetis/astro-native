@@ -132,9 +132,9 @@ describe('Checkbox', () => {
     expect(onPress).toHaveBeenCalledWith(false, true);
   });
 
-  it('renders correctly when isDisabled is true and do nothing when pressed', () => {
+  it('renders correctly when disabled is true and do nothing when pressed', () => {
     const { getByTestId, getByText, queryByTestId } = render(
-      <Checkbox isDisabled testID="Checkbox" label="check this" onPress={onPress} />
+      <Checkbox disabled testID="Checkbox" label="check this" onPress={onPress} />
     );
 
     expect(getByTestId('Checkbox').props.style).toEqual(

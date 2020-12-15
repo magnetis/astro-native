@@ -61,7 +61,7 @@ describe('Radio', () => {
 
   it('renders correctly when disabled', () => {
     const { getByTestId, getByText } = render(
-      <Radio testID="MyRadio" label="Radio" onSelect={onSelect} isSelected={false} isDisabled />
+      <Radio testID="MyRadio" label="Radio" onSelect={onSelect} isSelected={false} disabled />
     );
 
     expect(getByTestId('MyRadio').props.style).toEqual(

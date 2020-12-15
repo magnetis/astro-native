@@ -13,10 +13,7 @@ const controlsTogglesStories = storiesOf('Controls & Toggles', module);
 
 controlsTogglesStories.add('Toggle', () => (
   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <Toggle
-      isDisabled={boolean('isDisabled', false)}
-      onValueChange={(newValue) => console.log('Toggled ->', newValue)}
-    />
+    <Toggle disabled={boolean('disabled', false)} onValueChange={(newValue) => console.log('Toggled ->', newValue)} />
   </View>
 ));
 
@@ -24,7 +21,7 @@ controlsTogglesStories.add('Radio', () => (
   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
     <Radio
       label="Option #1"
-      isDisabled={boolean('isDisabled', false)}
+      disabled={boolean('disabled', false)}
       onSelect={() => console.log('selected')}
       isSelected={boolean('isSelected', false)}
     />
@@ -34,7 +31,7 @@ controlsTogglesStories.add('Radio', () => (
 const mockOptions = [
   { label: 'Pizza', value: 'pizza' },
   { label: 'Hamburguer', value: 'hamburguer' },
-  { label: 'Salad', value: 'salad', isDisabled: true },
+  { label: 'Salad', value: 'salad', disabled: true },
 ];
 
 controlsTogglesStories.add('RadioGroup', () => (
@@ -53,7 +50,7 @@ controlsTogglesStories.add('Checkbox', () => (
     <Checkbox
       label="Check this"
       isIndeterminate={boolean('isIndeterminate', false)}
-      isDisabled={boolean('isDisabled', false)}
+      disabled={boolean('disabled', false)}
       startChecked={boolean('startChecked', false)}
       onPress={(checked, indeterminate) => console.log({ checked, indeterminate })}
     />
@@ -68,7 +65,7 @@ controlsTogglesStories.add('Slider', () => (
       minimumValue={number('minimumValue', 1)}
       maximumValue={number('maximumValue', 70)}
       fullFill={boolean('fullFill', false)}
-      isDisabled={boolean('isDisabled', false)}
+      disabled={boolean('disabled', false)}
       onValueChange={(newValue) => console.log('slider to ', newValue)}
     />
   </View>
