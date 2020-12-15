@@ -191,8 +191,8 @@ describe('Icon Label Button', () => {
     );
   });
 
-  it('renders correctly when isLoading is true', () => {
-    const { getByTestId, rerender } = render(<IconLabelButton text="MyButton" isLoading {...props} icon="Alert" />);
+  it('renders correctly when loading is true', () => {
+    const { getByTestId, rerender } = render(<IconLabelButton text="MyButton" loading {...props} icon="Alert" />);
     const button = getByTestId('IconLabelButton');
     const buttonStyle = Object.assign({}, ...button.props.style);
 
@@ -210,16 +210,16 @@ describe('Icon Label Button', () => {
 
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.space100);
 
-    // isLoading and Earth color
-    rerender(<IconLabelButton text="MyButton" color="earth" isLoading {...props} icon="Alert" />);
+    // loading and Earth color
+    rerender(<IconLabelButton text="MyButton" color="earth" loading {...props} icon="Alert" />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.moon900);
 
-    // isLoading and Venus color
-    rerender(<IconLabelButton text="MyButton" color="venus" isLoading {...props} icon="Alert" />);
+    // loading and Venus color
+    rerender(<IconLabelButton text="MyButton" color="venus" loading {...props} icon="Alert" />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.space100);
 
-    // isLoading and Mars color
-    rerender(<IconLabelButton text="MyButton" color="mars" isLoading {...props} icon="Alert" />);
+    // loading and Mars color
+    rerender(<IconLabelButton text="MyButton" color="mars" loading {...props} icon="Alert" />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.space100);
   });
 

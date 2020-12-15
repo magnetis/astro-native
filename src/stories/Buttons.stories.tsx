@@ -33,7 +33,7 @@ buttonsStories.add('PrimaryButton', () => (
     text={text('text', 'Button')}
     onPress={() => console.log('Pressed')}
     isDisabled={boolean('isDisabled', false)}
-    isLoading={boolean('isLoading', false)}
+    loading={boolean('loading', false)}
     fill={boolean('fill', false)}
     color={select('color', colorOptions, 'uranus')}
     size={select('size', sizeOptions, 'medium')}
@@ -45,7 +45,7 @@ buttonsStories.add('IconLabelButton', () => (
     text={text('text', 'Button')}
     onPress={() => console.log('Pressed')}
     isDisabled={boolean('isDisabled', false)}
-    isLoading={boolean('isLoading', false)}
+    loading={boolean('loading', false)}
     fill={boolean('fill', false)}
     color={select('color', colorOptions, 'uranus')}
     icon={select('icon', iconOptions, iconOptions[0]) as IconID}
@@ -58,7 +58,7 @@ buttonsStories.add('IconButton', () => (
   <IconButton
     onPress={() => console.log('Pressed')}
     isDisabled={boolean('isDisabled', false)}
-    isLoading={boolean('isLoading', false)}
+    loading={boolean('loading', false)}
     color={select('color', colorOptions, 'uranus')}
     icon={select('icon', iconOptions, iconOptions[0]) as IconID}
     size={select('size', sizeOptions, 'medium')}
@@ -69,7 +69,7 @@ buttonsStories.add('GhostIconButton', () => (
   <GhostIconButton
     onPress={() => console.log('Pressed')}
     isDisabled={boolean('isDisabled', false)}
-    isLoading={boolean('isLoading', false)}
+    loading={boolean('loading', false)}
     color={select('color', colorOptions, 'uranus')}
     icon={select('icon', iconOptions, iconOptions[0]) as IconID}
     size={select('size', sizeOptions, 'medium')}
@@ -81,7 +81,7 @@ buttonsStories.add('GhostIconLabelButton', () => (
     text={text('text', 'Button')}
     onPress={() => console.log('Pressed')}
     isDisabled={boolean('isDisabled', false)}
-    isLoading={boolean('isLoading', false)}
+    loading={boolean('loading', false)}
     fill={boolean('fill', false)}
     color={select('color', colorOptions, 'uranus')}
     icon={select('icon', iconOptions, iconOptions[0]) as IconID}
@@ -95,7 +95,7 @@ buttonsStories.add('OutlineButton', () => (
     text={text('text', 'Button')}
     onPress={() => console.log('Pressed')}
     isDisabled={boolean('isDisabled', false)}
-    isLoading={boolean('isLoading', false)}
+    loading={boolean('loading', false)}
     fill={boolean('fill', false)}
     color={select('color', colorOptions, 'uranus')}
     size={select('size', sizeOptions, 'medium')}
@@ -107,7 +107,7 @@ buttonsStories.add('OutlineIconLabelButton', () => (
     text={text('text', 'Button')}
     onPress={() => console.log('Pressed')}
     isDisabled={boolean('isDisabled', false)}
-    isLoading={boolean('isLoading', false)}
+    loading={boolean('loading', false)}
     fill={boolean('fill', false)}
     color={select('color', colorOptions, 'uranus')}
     icon={select('icon', iconOptions, iconOptions[0]) as IconID}
@@ -120,7 +120,7 @@ buttonsStories.add('OutlineIconButton', () => (
   <OutlineIconButton
     onPress={() => console.log('Pressed')}
     isDisabled={boolean('isDisabled', false)}
-    isLoading={boolean('isLoading', false)}
+    loading={boolean('loading', false)}
     color={select('color', colorOptions, 'uranus')}
     icon={select('icon', iconOptions, iconOptions[0]) as IconID}
     size={select('size', sizeOptions, 'medium')}

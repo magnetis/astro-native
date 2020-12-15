@@ -8,7 +8,7 @@ interface BaseButtonProps extends PressableProps {
   children: ReactElement;
   testID?: string;
   accessibilityLabel?: string;
-  isLoading?: boolean;
+  loading?: boolean;
   isDisabled?: boolean;
   activityIndicatorColor: string;
   onPress: () => void;
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
 });
 
 function BaseButton({
-  isLoading = false,
+  loading = false,
   isDisabled = false,
   activityIndicatorColor,
   children,
@@ -76,8 +76,8 @@ function BaseButton({
   return (
     <Pressable accessibilityRole="button" {...props} {...pressableProps}>
       <View style={{ alignItems: 'center', justifyContent: 'center', flex: fill ? 1 : 0 }}>
-        <View style={{ opacity: isLoading ? 0 : 1 }}>{children}</View>
-        {isLoading && (
+        <View style={{ opacity: loading ? 0 : 1 }}>{children}</View>
+        {loading && (
           <View style={{ position: 'absolute', width: '100%' }}>
             <ActivityIndicator
               testID="BaseButton.ActivityIndicator"

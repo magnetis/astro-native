@@ -102,8 +102,8 @@ describe('Outline Icon Button', () => {
     );
   });
 
-  it('renders correctly when isLoading is true', () => {
-    const { getByTestId, rerender } = render(<OutlineIconButton isLoading {...props} icon="Alert" />);
+  it('renders correctly when loading is true', () => {
+    const { getByTestId, rerender } = render(<OutlineIconButton loading {...props} icon="Alert" />);
     const button = getByTestId('OutlineIconButton');
     const buttonStyle = Object.assign({}, ...button.props.style);
 
@@ -121,16 +121,16 @@ describe('Outline Icon Button', () => {
 
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.uranus500);
 
-    // isLoading and Earth color
-    rerender(<OutlineIconButton color="earth" isLoading {...props} icon="Alert" />);
+    // loading and Earth color
+    rerender(<OutlineIconButton color="earth" loading {...props} icon="Alert" />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.earth600);
 
-    // isLoading and Venus color
-    rerender(<OutlineIconButton color="venus" isLoading {...props} icon="Alert" />);
+    // loading and Venus color
+    rerender(<OutlineIconButton color="venus" loading {...props} icon="Alert" />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.venus400);
 
-    // isLoading and Mars color
-    rerender(<OutlineIconButton color="mars" isLoading {...props} icon="Alert" />);
+    // loading and Mars color
+    rerender(<OutlineIconButton color="mars" loading {...props} icon="Alert" />);
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.mars500);
   });
 
