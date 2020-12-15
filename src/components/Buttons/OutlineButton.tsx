@@ -13,20 +13,20 @@ const OutlineButton: React.FC<ButtonProps> = ({
   accessibilityLabel = '',
   loading = false,
   color = 'uranus',
-  isDisabled = false,
+  disabled = false,
   size = 'medium',
   fill = false,
   testID,
   ...props
 }) => {
-  const mainColor = isDisabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
+  const mainColor = disabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
   const baseProps = {
     activityIndicatorColor: mainColor,
     backgroundColor: 'transparent',
     borderColor: mainColor,
     textColor: mainColor,
     accessibilityLabel,
-    isDisabled,
+    disabled,
     loading,
     onPress,
     testID,

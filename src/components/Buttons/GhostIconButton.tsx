@@ -13,13 +13,13 @@ const GhostIconButton: React.FC<IconButtonProps> = ({
   accessibilityLabel = '',
   loading = false,
   color = 'uranus',
-  isDisabled = false,
+  disabled = false,
   size = 'medium',
   testID,
   ...props
 }) => {
   const backgroundColor = 'transparent';
-  const textColor = isDisabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
+  const textColor = disabled ? colors.moon300 : getButtonMainColor(color, { outline: true });
   const iconSize = getIconSize(size);
   const Icon = getIcon(props.icon);
   const baseProps = {
@@ -27,7 +27,7 @@ const GhostIconButton: React.FC<IconButtonProps> = ({
     borderColor: backgroundColor,
     accessibilityLabel,
     backgroundColor,
-    isDisabled,
+    disabled,
     textColor,
     loading,
     onPress,

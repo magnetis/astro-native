@@ -134,8 +134,8 @@ describe('Outline Icon Button', () => {
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.mars500);
   });
 
-  it('renders correctly when isDisabled is true', () => {
-    const { getByTestId } = render(<OutlineIconButton isDisabled {...props} icon="Alert" />);
+  it('renders correctly when disabled is true', () => {
+    const { getByTestId } = render(<OutlineIconButton disabled {...props} icon="Alert" />);
     const button = getByTestId('OutlineIconButton');
     const buttonStyle = Object.assign({}, ...button.props.style);
 

@@ -223,8 +223,8 @@ describe('Icon Label Button', () => {
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.space100);
   });
 
-  it('renders correctly when isDisabled is true', () => {
-    const { getByTestId, getByText } = render(<IconLabelButton text="MyButton" isDisabled {...props} icon="Alert" />);
+  it('renders correctly when disabled is true', () => {
+    const { getByTestId, getByText } = render(<IconLabelButton text="MyButton" disabled {...props} icon="Alert" />);
     const button = getByTestId('IconLabelButton');
     const buttonStyle = Object.assign({}, ...button.props.style);
     const text = getByText('MyButton');
@@ -258,7 +258,7 @@ describe('Icon Label Button', () => {
 
   it('renders correctly when iconPosition is right', () => {
     const { getByTestId, getByText } = render(
-      <IconLabelButton text="MyButton" isDisabled {...props} icon="Alert" iconPosition="right" />
+      <IconLabelButton text="MyButton" disabled {...props} icon="Alert" iconPosition="right" />
     );
     const button = getByTestId('IconLabelButton');
     const buttonStyle = Object.assign({}, ...button.props.style);

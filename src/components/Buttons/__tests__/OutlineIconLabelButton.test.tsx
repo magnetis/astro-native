@@ -227,9 +227,9 @@ describe('Outline Icon Label Button', () => {
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.mars500);
   });
 
-  it('renders correctly when isDisabled is true', () => {
+  it('renders correctly when disabled is true', () => {
     const { getByTestId, getByText } = render(
-      <OutlineIconLabelButton text="MyButton" isDisabled {...props} icon="Alert" />
+      <OutlineIconLabelButton text="MyButton" disabled {...props} icon="Alert" />
     );
     const button = getByTestId('OutlineIconLabelButton');
     const buttonStyle = Object.assign({}, ...button.props.style);
@@ -264,7 +264,7 @@ describe('Outline Icon Label Button', () => {
 
   it('renders correctly when iconPosition is right', () => {
     const { getByTestId, getByText } = render(
-      <OutlineIconLabelButton text="MyButton" isDisabled {...props} icon="Alert" iconPosition="right" />
+      <OutlineIconLabelButton text="MyButton" disabled {...props} icon="Alert" iconPosition="right" />
     );
     const button = getByTestId('OutlineIconLabelButton');
     const buttonStyle = Object.assign({}, ...button.props.style);

@@ -13,13 +13,13 @@ const IconButton: React.FC<IconButtonProps> = ({
   accessibilityLabel = '',
   loading = false,
   color = 'uranus',
-  isDisabled = false,
+  disabled = false,
   size = 'medium',
   testID,
   ...props
 }) => {
-  const backgroundColor = isDisabled ? colors.moon300 : getButtonMainColor(color);
-  const textColor = isDisabled ? colors.space100 : getButtonSecondaryColor(color);
+  const backgroundColor = disabled ? colors.moon300 : getButtonMainColor(color);
+  const textColor = disabled ? colors.space100 : getButtonSecondaryColor(color);
   const iconSize = getIconSize(size);
   const Icon = getIcon(props.icon);
   const baseProps = {
@@ -27,7 +27,7 @@ const IconButton: React.FC<IconButtonProps> = ({
     borderColor: backgroundColor,
     accessibilityLabel,
     backgroundColor,
-    isDisabled,
+    disabled,
     textColor,
     loading,
     onPress,
