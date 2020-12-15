@@ -49,7 +49,7 @@ controlsTogglesStories.add('Checkbox', () => (
   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
     <Checkbox
       label="Check this"
-      isIndeterminate={boolean('isIndeterminate', false)}
+      indeterminate={boolean('indeterminate', false)}
       disabled={boolean('disabled', false)}
       startChecked={boolean('startChecked', false)}
       onPress={(checked, indeterminate) => console.log({ checked, indeterminate })}

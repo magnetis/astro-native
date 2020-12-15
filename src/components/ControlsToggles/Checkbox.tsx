@@ -8,7 +8,7 @@ import useDidMount from '@hooks/useDidMount';
 interface CheckboxProps {
   label: string;
   onPress: (newValue: boolean, indeterminate: boolean) => void;
-  isIndeterminate?: boolean;
+  indeterminate?: boolean;
   startChecked?: boolean;
   disabled?: boolean;
   testID?: string;
@@ -50,7 +50,7 @@ const Indeterminate = () => (
 
 function Checkbox({
   startChecked = false,
-  isIndeterminate = false,
+  indeterminate = false,
   disabled = false,
   testID = 'Checkbox',
   onPress,
@@ -67,7 +67,7 @@ function Checkbox({
 
   useEffect(() => {
     if (didMount) {
-      onPress(isChecked, isIndeterminate);
+      onPress(isChecked, indeterminate);
     }
   }, [isChecked]);
 
@@ -81,7 +81,7 @@ function Checkbox({
       hitSlop={10}
     >
       <View testID="Checkbox.Box" style={[styles.box, { borderColor, backgroundColor }]}>
-        {isIndeterminate && isChecked && !disabled ? <Indeterminate /> : isChecked && !disabled ? <Check /> : null}
+        {indeterminate && isChecked && !disabled ? <Indeterminate /> : isChecked && !disabled ? <Check /> : null}
       </View>
       <SecondaryTextMedium color={disabled ? colors.moon200 : colors.moon900}>{label}</SecondaryTextMedium>
     </Pressable>
