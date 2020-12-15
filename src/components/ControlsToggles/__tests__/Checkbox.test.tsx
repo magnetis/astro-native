@@ -85,9 +85,9 @@ describe('Checkbox', () => {
     expect(onPress).toHaveBeenCalledWith(true, false);
   });
 
-  it('renders correctly when isIndeterminate is true and changes to indeterminate checked when pressed', () => {
+  it('renders correctly when indeterminate is true and changes to indeterminate checked when pressed', () => {
     const { getByTestId, getByText, queryByTestId } = render(
-      <Checkbox isIndeterminate testID="Checkbox" label="check this" onPress={onPress} />
+      <Checkbox indeterminate testID="Checkbox" label="check this" onPress={onPress} />
     );
 
     expect(getByTestId('Checkbox').props.style).toEqual(
