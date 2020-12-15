@@ -270,7 +270,7 @@ describe('MaskedInput', () => {
     const { getByTestId } = render(<MaskedInput blockCursor {...props} touched={false} />);
 
     expect(getByTestId('MaskedInput.Input').props.caretHidden).toEqual(true);
-    expect(getByTestId('MaskedInput.Input').props.style[1]).toEqual(expect.objectContaining({ textAlign: 'right' }));
+    expect(getByTestId('MaskedInput.Input').props.style[1]).toEqual(expect.objectContaining({ textAlign: 'left' }));
   });
 
   it('does not render error state when touched is false', () => {
