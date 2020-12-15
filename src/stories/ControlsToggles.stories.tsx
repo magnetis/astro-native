@@ -23,7 +23,7 @@ controlsTogglesStories.add('Radio', () => (
       label="Option #1"
       disabled={boolean('disabled', false)}
       onSelect={() => console.log('selected')}
-      isSelected={boolean('isSelected', false)}
+      selected={boolean('selected', false)}
     />
   </View>
 ));

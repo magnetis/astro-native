@@ -6,13 +6,13 @@ import { colors } from '@magnetis/astro-galaxy-tokens';
 
 interface RadioProps {
   label: string;
-  isSelected: boolean;
+  selected: boolean;
   onSelect: () => void;
   disabled?: boolean;
   testID?: string;
 }
 
-function Radio({ label, disabled = false, isSelected, onSelect, testID = 'Radio' }: RadioProps) {
+function Radio({ label, disabled = false, selected, onSelect, testID = 'Radio' }: RadioProps) {
   return (
     <Pressable
       disabled={disabled}
@@ -27,8 +27,8 @@ function Radio({ label, disabled = false, isSelected, onSelect, testID = 'Radio'
         style={[
           styles.radio,
           {
-            borderWidth: isSelected ? 5 : 2,
-            borderColor: disabled ? colors.moon200 : isSelected ? colors.uranus500 : colors.moon500,
+            borderWidth: selected ? 5 : 2,
+            borderColor: disabled ? colors.moon200 : selected ? colors.uranus500 : colors.moon500,
           },
         ]}
       />
