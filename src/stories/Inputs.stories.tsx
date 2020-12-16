@@ -7,6 +7,8 @@ import { TextInput, MaskedInput, ControlInput } from '@components/Inputs';
 
 const inputsStories = storiesOf('Inputs', module);
 
+import '@components/Inputs/stories';
+
 inputsStories.add('TextInput', () => (
   <View>
     <TextInput
