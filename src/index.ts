@@ -41,4 +41,4 @@ export type {
 
 // Inputs
 export * from '@components/Inputs';
-export type { TextInputProps, MaskedInputProps } from '@components/Inputs';
+export type { TextInputProps, MaskedInputProps, CurrencyInputProps, ControlInputProps } from '@components/Inputs';
