@@ -8,6 +8,7 @@ module.exports = {
     'src/components/**/*.{ts,tsx}',
     '!src/components/Icons/Dashboard/**/*.{ts,tsx}',
     '!src/components/Icons/Support/**/*.{ts,tsx}',
+    '!src/components/**/stories/**/*',
   ],
   coverageReporters: ['lcov', 'text', 'text-summary'],
   coverageThreshold: {
