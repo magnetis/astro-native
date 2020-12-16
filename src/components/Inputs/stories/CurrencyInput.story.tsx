@@ -29,3 +29,5 @@ storiesOf('Inputs', module).add('CurrencyInput', () => (
     />
   </View>
 ));
+
+export {};

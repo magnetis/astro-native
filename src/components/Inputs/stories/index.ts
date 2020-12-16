@@ -1,1 +1,1 @@
-import './CurrencyInput.stories';
+import './CurrencyInput.story';

@@ -112,7 +112,7 @@ function ControlInput({
   }
 
   function handleOnChangeText(_value: string) {
-    const onlyNums = _value.replace(/\./g, '').replace(',', '');
+    const onlyNums = _value.replace(/\D/g, '').substr(0, enableCents ? 13 : 11);
 
     if (!onlyNums) {
       setRawValue(minValue || 0);
