@@ -7,7 +7,7 @@ import { boolean, number, text, select } from '@storybook/addon-knobs';
 import sizes from '@tokens/sizes';
 import type { TabItem } from '@components/ControlsToggles';
 import { Toggle, Radio, Checkbox, RadioGroup, Slider, Tabs } from '@components/ControlsToggles';
-import { colorOptions, colorOptionsWithTransparent, sizeOptions } from './options';
+import { colorOptions, colorOptionsWithTransparent, sizeOptions } from '../../storybook/options';
 
 const controlsTogglesStories = storiesOf('Controls & Toggles', module);
 
