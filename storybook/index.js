@@ -13,7 +13,7 @@ addDecorator(StoryDecorator);
 
 // import stories
 configure(() => {
-  require('../src/stories');
+  require('./stories');
 }, module);
 
 // Refer to https://github.com/storybookjs/storybook/tree/master/app/react-native#start-command-parameters
