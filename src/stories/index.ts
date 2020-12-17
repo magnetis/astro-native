@@ -1,4 +1,4 @@
-import './Buttons.stories';
+import '@components/Buttons/stories';
 import './Text.stories';
 import './ControlsToggles.stories';
 import '@components/Icons/stories';
