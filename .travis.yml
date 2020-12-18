@@ -24,6 +24,8 @@ jobs:
 
   - stage: Deploy to NPM
     if: tag IS present
+    install:
+    - yarn install
     deploy:
       provider: npm
       email: alyssondlopes@gmail.com
