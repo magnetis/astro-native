@@ -1,3 +1,17 @@
+# [1.1.0](https://github.com/magnetis/astro-native/compare/v1.0.3...v1.1.0) (2020-12-18)
+
+
+### Bug Fixes
+
+* **ControlInput:** fix format bevahior ([2b3fbc4](https://github.com/magnetis/astro-native/commit/2b3fbc461f2c784573299e9c18ce79c9a4ca2f79))
+
+
+### Features
+
+* **Inputs:** Implement Currency Input ([c732d0a](https://github.com/magnetis/astro-native/commit/c732d0a36b640754c589b20253d982f47c5a2b8b))
+
+
+
 ## [1.0.3](https://github.com/magnetis/astro-native/compare/v1.0.2...v1.0.3) (2020-12-15)
 
 
