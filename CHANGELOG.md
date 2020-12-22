@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/magnetis/astro-native/compare/v1.1.0...v1.2.0) (2020-12-22)
+
+
+### Features
+
+* **CurrencyInput:** Implement controlled input support ([1d27f5c](https://github.com/magnetis/astro-native/commit/1d27f5c8edfb1251a58b4cf56de66456c2e8f663))
+
+
+
 # [1.1.0](https://github.com/magnetis/astro-native/compare/v1.0.3...v1.1.0) (2020-12-18)
 
 
