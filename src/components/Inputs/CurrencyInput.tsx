@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import MaskedInput, { MaskedInputProps } from './MaskedInput';
 import { formatRawValueToCurrency } from './utils';
 
-interface CurrencyInputProps extends Omit<MaskedInputProps, 'onChangeText'> {
+interface CurrencyInputProps extends Omit<MaskedInputProps, 'onChangeText' | 'value'> {
   /** Value set initially for input */
   initialValue?: number;
   /** Use currency cents when true. Defaults to `false`. */
@@ -14,6 +14,8 @@ interface CurrencyInputProps extends Omit<MaskedInputProps, 'onChangeText'> {
   milesimalSeparator?: string;
   /** Input change callback who provides two values: raw and formatted */
   onValueChange: (rawValue: number | null, formattedValue?: string) => void;
+  /** Raw value for controlled inputs. To know more about controlled components, check https://reactjs.org/docs/forms.html#controlled-components */
+  value?: number;
 }
 
 function CurrencyInput({
@@ -23,16 +25,17 @@ function CurrencyInput({
   disabled = false,
   initialValue,
   onValueChange,
+  value,
   testID = 'CurrencyInput',
   ...props
 }: CurrencyInputProps) {
   const didMount = useDidMount();
-  const [rawValue, setRawValue] = useState<number | null>(initialValue ?? null);
+  const [rawValue, setRawValue] = useState<number | null>((initialValue || value) ?? null);
   const formattedValue = useMemo(
     () =>
       disabled || rawValue === null
         ? ''
-        : formatRawValueToCurrency({ decimalSeparator, milesimalSeparator, rawValue, enableCents }),
+        : formatRawValueToCurrency({ decimalSeparator, milesimalSeparator, rawValue: rawValue, enableCents }),
     [decimalSeparator, milesimalSeparator, rawValue, enableCents, disabled]
   );
 
@@ -51,6 +54,16 @@ function CurrencyInput({
       onValueChange(rawValue, formattedValue);
     }
   }, [rawValue]);
+
+  useEffect(() => {
+    if (didMount) {
+      if (value) {
+        setRawValue(value);
+      } else {
+        setRawValue(null);
+      }
+    }
+  }, [value]);
 
   return (
     <MaskedInput

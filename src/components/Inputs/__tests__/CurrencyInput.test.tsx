@@ -46,4 +46,24 @@ describe('CurrencyInput', () => {
     expect(getByTestId('CurrencyInput').props.value).toEqual('');
     expect(onValueChange).toHaveBeenCalledWith(null, '');
   });
+
+  it('updates internal value when controlled', () => {
+    const { getByTestId, update } = render(<CurrencyInput value={0} {...props} enableCents />);
+
+    expect(getByTestId('CurrencyInput').props.value).toEqual('0,00');
+
+    fireEvent.changeText(getByTestId('CurrencyInput'), '123240');
+    expect(getByTestId('CurrencyInput').props.value).toEqual('1.232,40');
+    expect(onValueChange).toHaveBeenCalledWith(1232.4, '1.232,40');
+
+    update(<CurrencyInput value={1234.21} {...props} enableCents />);
+
+    expect(getByTestId('CurrencyInput').props.value).toEqual('1.234,21');
+    expect(onValueChange).toHaveBeenCalledWith(1234.21, '1.234,21');
+
+    update(<CurrencyInput value={undefined} {...props} enableCents />);
+
+    expect(getByTestId('CurrencyInput').props.value).toEqual('');
+    expect(onValueChange).toHaveBeenCalledWith(null, '');
+  });
 });
