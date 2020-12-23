@@ -34,8 +34,9 @@ function TextInput({
   ...props
 }: TextInputProps) {
   const inputRef = useRef<RNTextInput>(null);
+  const hasValue = Boolean(props.defaultValue) || Boolean(props.value);
 
-  const [isEmpty, setIsEmpty] = useState(!Boolean(props.defaultValue));
+  const [isEmpty, setIsEmpty] = useState(!hasValue);
   const [hasFocus, setHasFocus] = useState(false);
   const [showPassword, setShowPassword] = useState(password);
 
