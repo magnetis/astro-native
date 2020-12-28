@@ -1,3 +1,17 @@
+# [1.3.0](https://github.com/magnetis/astro-native/compare/v1.2.0...v1.3.0) (2020-12-28)
+
+
+### Bug Fixes
+
+* **TextInput:** fix input text label animation ([9d0b667](https://github.com/magnetis/astro-native/commit/9d0b667c6d520bdfa3d24e3729bc71182db4c54d))
+
+
+### Features
+
+* **Title:** Implement Title component ([f2b242f](https://github.com/magnetis/astro-native/commit/f2b242fce8118fd3c5773a58481edbe3fc7263c6))
+
+
+
 # [1.2.0](https://github.com/magnetis/astro-native/compare/v1.1.0...v1.2.0) (2020-12-22)
 
 
