@@ -109,6 +109,64 @@ describe('TextInput', () => {
     );
   });
 
+  it('renders correctly on blur state and the value changes', () => {
+    const { getByTestId, rerender } = render(<TextInput {...props} value="" />);
+
+    act(() => {
+      getByTestId('TextInput.Input').props.onBlur();
+    });
+
+    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
+
+    expect(getByTestId('TextInput.Container').props.style[0]).toEqual(
+      expect.objectContaining({
+        borderWidth: 1,
+        borderRadius: 8,
+      })
+    );
+    expect(getByTestId('TextInput.Container').props.style[1]).toEqual(
+      expect.objectContaining({ backgroundColor: colors.space100, borderColor: colors.moon900 })
+    );
+
+    expect(getByTestId('TextInput.Input').props.style[0]).toEqual(
+      expect.objectContaining({
+        fontFamily: 'Lato-Regular',
+        paddingBottom: 8,
+        paddingTop: 28,
+      })
+    );
+    expect(getByTestId('TextInput.Input').props.style[1]).toEqual(
+      expect.objectContaining({ paddingLeft: 16, fontSize: 16, paddingRight: 16 })
+    );
+    expect(getByTestId('TextInput.Input').props.value).toEqual('');
+
+    timeTravel(200);
+    expect(getByTestId('InputLabel').props.style).toEqual(
+      expect.objectContaining({
+        transform: [{ translateY: 16 }],
+        position: 'absolute',
+        overflow: 'hidden',
+        width: '95%',
+        left: 0,
+        top: 0,
+      })
+    );
+
+    rerender(<TextInput {...props} value="some value" />);
+    expect(getByTestId('TextInput.Input').props.value).toEqual('some value');
+    timeTravel(200);
+    expect(getByTestId('InputLabel').props.style).toEqual(
+      expect.objectContaining({
+        transform: [{ translateY: 6 }],
+        position: 'absolute',
+        overflow: 'hidden',
+        width: '95%',
+        left: 0,
+        top: 0,
+      })
+    );
+  });
+
   it('renders correctly on focus state', () => {
     const { getByTestId } = render(<TextInput {...props} />);
 

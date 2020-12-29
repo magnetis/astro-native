@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { TextInput as RNTextInput, Pressable, StyleSheet, View } from 'react-native';
 
 import { getInputBackgroundColor, getInputBorderColor } from './utils';
@@ -54,6 +54,12 @@ function TextInput({
     fontSize: baseSize,
     paddingRight: hasError || isValidated ? 56 : baseSize,
   };
+
+  useEffect(() => {
+    if (!Boolean(props.value) !== isEmpty) {
+      setIsEmpty(!Boolean(props.value));
+    }
+  }, [props.value]);
 
   function handleInputPress() {
     inputRef.current?.focus();

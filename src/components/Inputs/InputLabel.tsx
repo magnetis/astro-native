@@ -46,7 +46,7 @@ function InputLabel({
         toValue: getLabelPosition({ expandLabel, large }),
       }).start();
     }
-  }, [hasFocus]);
+  }, [hasFocus, isEmpty]);
 
   return (
     <Animated.View
