@@ -1,3 +1,12 @@
+## [1.3.1](https://github.com/magnetis/astro-native/compare/v1.3.0...v1.3.1) (2020-12-29)
+
+
+### Bug Fixes
+
+* **TextInput:** update state when value changes ([a0b2d74](https://github.com/magnetis/astro-native/commit/a0b2d74e5ff808462651207ea1a6e4aede7df1a3))
+
+
+
 # [1.3.0](https://github.com/magnetis/astro-native/compare/v1.2.0...v1.3.0) (2020-12-28)
 
 
