@@ -4,6 +4,7 @@
 
 - [Branch Naming](#branch-naming)
 - [Commit Messages](#commit-messages)
+- [Committing](#committing)
 - [Merging Branches](#merging-branches)
 - [Níveis de Requisito das Palavras-chave](#níveis-de-requisito-das-palavras-chave)
 
@@ -70,6 +71,10 @@ Implement GhostButton
 feat(Buttons): Implement GhostButton
 
 ```
+
+## Committing
+
+We recommend you to use `yarn cz` when committing. That way, you'll be presentend an interactive prompt to build tout commit message. But don't worry, if you prefer to commit in any other way, our project uses CommitLint to make sure patterns are being followed.
 
 ## Merging Branches
 
