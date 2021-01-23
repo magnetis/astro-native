@@ -35,9 +35,11 @@ interface TabsProps {
   /** Items' text color when active */
   activeTextColor: Colors[keyof Colors];
   /** Items' backgroundColor color when active */
-  activeItemColor: Colors[keyof Colors] | 'transparent';
+  activeItemColor?: Colors[keyof Colors] | 'transparent';
   /** Items' backgroundColor color when not active */
-  backgroundColor: Colors[keyof Colors] | 'transparent';
+  backgroundColor?: Colors[keyof Colors] | 'transparent';
+  /** Define items borderBottom if true */
+  borderBottom?: boolean;
   /** Used to locate this component in end-to-end tests. Defaults to `"Tabs"`. */
   testID?: string;
   /** Disables any user interaction with component. Defaults to `false`. */
@@ -59,7 +61,8 @@ function Tabs({
   disabled = false,
   activeItemColor,
   activeTextColor,
-  backgroundColor,
+  backgroundColor = 'transparent',
+  borderBottom,
   defaultSelected,
   disabledColor,
   textColor,
@@ -113,7 +116,11 @@ function Tabs({
         const Icon = getIcon(item.icon ?? '');
         const active = selectedItem === item.value;
         const itemBackgroundColor =
-          item.disabled || disabled ? 'transparent' : active ? item.activeColor ?? activeItemColor : backgroundColor;
+          item.disabled || disabled || borderBottom
+            ? 'transparent'
+            : active
+            ? item.activeColor ?? activeItemColor
+            : backgroundColor;
         const color =
           item.disabled || disabled ? disabledColor : active ? item.activeTextColor ?? activeTextColor : textColor;
         const iconSize = getFontSize(size) * 1.5;
@@ -122,7 +129,18 @@ function Tabs({
           <Pressable
             testID={`Tabs.Item.Pressable-${item.value}`}
             key={item.value}
-            style={[styles.item, { backgroundColor: itemBackgroundColor, paddingHorizontal: iconSize }]}
+            style={[
+              styles.item,
+              {
+                backgroundColor: itemBackgroundColor,
+                paddingHorizontal: iconSize,
+                borderRadius: borderBottom ? 0 : 24,
+                paddingBottom: borderBottom ? 12 : 6,
+                paddingVertical: borderBottom ? 0 : 4,
+                borderBottomColor: color,
+                borderBottomWidth: borderBottom ? 2 : 0,
+              },
+            ]}
             onPress={handlePress(item.value)}
             disabled={item.disabled || disabled}
           >
@@ -141,9 +159,6 @@ const styles = StyleSheet.create({
   container: { width: '100%', flex: 0, padding: 4 },
   item: {
     minWidth: 68,
-    paddingVertical: 4,
-    paddingBottom: 6,
-    borderRadius: 24,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

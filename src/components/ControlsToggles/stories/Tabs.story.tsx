@@ -18,24 +18,46 @@ const items: TabItem[] = [
   { label: 'Item #6', value: 'item-6' },
 ];
 
-storiesOf('Controls & Toggles', module).add('Tabs', () => (
-  <View style={{ width: '100%', flex: 1, backgroundColor: colors.space900, justifyContent: 'center' }}>
-    <View style={{ width: '100%' }}>
-      <Tabs
-        onChange={(value: string) => console.log('Tab selected ->', value)}
-        items={items}
-        disabled={boolean('disabled', false)}
-        defaultSelected="item-2"
-        borderColor={select('borderColor', colorOptionsWithTransparent, 'transparent')}
-        backgroundColor={select('backgroundColor', colorOptionsWithTransparent, 'transparent')}
-        textColor={select('textColor', colorOptionsWithTransparent, colors.space100) as Colors[keyof Colors]}
-        disabledColor={select('disabledColor', colorOptions, colors.space100)}
-        activeItemColor={select('activeItemColor', colorOptionsWithTransparent, colors.space100)}
-        activeTextColor={select('activeTextColor', colorOptionsWithTransparent, colors.moon900) as Colors[keyof Colors]}
-        size={select('size', sizeOptions, sizes.Medium)}
-      />
+storiesOf('Controls & Toggles', module)
+  .add('Tabs', () => (
+    <View style={{ width: '100%', flex: 1, backgroundColor: colors.space900, justifyContent: 'center' }}>
+      <View style={{ width: '100%' }}>
+        <Tabs
+          onChange={(value: string) => console.log('Tab selected ->', value)}
+          items={items}
+          disabled={boolean('disabled', false)}
+          defaultSelected="item-2"
+          borderColor={select('borderColor', colorOptionsWithTransparent, 'transparent')}
+          backgroundColor={select('backgroundColor', colorOptionsWithTransparent, 'transparent')}
+          textColor={select('textColor', colorOptionsWithTransparent, colors.space100) as Colors[keyof Colors]}
+          disabledColor={select('disabledColor', colorOptions, colors.space100)}
+          activeItemColor={select('activeItemColor', colorOptionsWithTransparent, colors.space100)}
+          activeTextColor={
+            select('activeTextColor', colorOptionsWithTransparent, colors.moon900) as Colors[keyof Colors]
+          }
+          size={select('size', sizeOptions, sizes.Medium)}
+        />
+      </View>
     </View>
-  </View>
-));
+  ))
+  .add('Tabs borderBottom', () => (
+    <View style={{ width: '100%', flex: 1, backgroundColor: colors.space100, justifyContent: 'center' }}>
+      <View style={{ width: '100%' }}>
+        <Tabs
+          onChange={(value: string) => console.log('Tab selected ->', value)}
+          items={items}
+          disabled={boolean('disabled', false)}
+          defaultSelected="item-1"
+          borderBottom={boolean('borderBottom', true)}
+          textColor={select('textColor', colorOptionsWithTransparent, colors.moon300) as Colors[keyof Colors]}
+          disabledColor={select('disabledColor', colorOptions, colors.moon200)}
+          activeTextColor={
+            select('activeTextColor', colorOptionsWithTransparent, colors.uranus500) as Colors[keyof Colors]
+          }
+          size={select('size', sizeOptions, sizes.Medium)}
+        />
+      </View>
+    </View>
+  ));
 
 export {};
