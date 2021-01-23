@@ -54,9 +54,6 @@ describe('Tabs', () => {
     expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[0]).toEqual(
       expect.objectContaining({
         minWidth: 68,
-        paddingVertical: 4,
-        paddingBottom: 6,
-        borderRadius: 24,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
@@ -68,6 +65,9 @@ describe('Tabs', () => {
       expect.objectContaining({
         backgroundColor: colors.uranus500,
         paddingHorizontal: 16 * 1.5,
+        paddingVertical: 4,
+        paddingBottom: 6,
+        borderRadius: 24,
       })
     );
     expect(getByText('Item #1').props.style).toEqual(
@@ -317,9 +317,6 @@ describe('Tabs', () => {
     expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[0]).toEqual(
       expect.objectContaining({
         minWidth: 68,
-        paddingVertical: 4,
-        paddingBottom: 6,
-        borderRadius: 24,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
@@ -331,6 +328,9 @@ describe('Tabs', () => {
       expect.objectContaining({
         backgroundColor: 'transparent',
         paddingHorizontal: 16 * 1.5,
+        paddingVertical: 4,
+        paddingBottom: 6,
+        borderRadius: 24,
       })
     );
     expect(getByText('Item #1').props.style).toEqual(
@@ -396,6 +396,73 @@ describe('Tabs', () => {
     expect(getByText('Item #6').props.style).toEqual(
       expect.objectContaining({
         color: colors.moon200,
+        fontFamily: 'Lato-Regular',
+      })
+    );
+  });
+
+  it('renders correctly when borderBottom is true', () => {
+    const { getByTestId, getByText } = render(<Tabs {...props} disabledColor={colors.uranus600} borderBottom={true} />);
+
+    // Check ScrolView styles
+    expect(getByTestId('Tabs').props.style[0]).toEqual(
+      expect.objectContaining({
+        width: '100%',
+        flex: 0,
+        padding: 4,
+      })
+    );
+    expect(getByTestId('Tabs').props.style[1]).toEqual(
+      expect.objectContaining({
+        borderRadius: 24,
+        borderWidth: 1,
+        borderColor: 'transparent',
+      })
+    );
+
+    // Check Pressable styles
+    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[0]).toEqual(
+      expect.objectContaining({
+        minWidth: 68,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1,
+      })
+    );
+
+    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[1]).toEqual(
+      expect.objectContaining({
+        backgroundColor: 'transparent',
+        paddingHorizontal: 24,
+        borderRadius: 0,
+        paddingBottom: 12,
+        paddingVertical: 0,
+        borderBottomColor: colors.space100,
+        borderBottomWidth: 2,
+      })
+    );
+    expect(getByText('Item #1').props.style).toEqual(
+      expect.objectContaining({
+        color: colors.space100,
+        fontFamily: 'Lato-Regular',
+      })
+    );
+
+    expect(getByTestId('Tabs.Item.Pressable-item-3').props.style[1]).toEqual(
+      expect.objectContaining({
+        backgroundColor: 'transparent',
+        paddingHorizontal: 24,
+        borderRadius: 0,
+        paddingBottom: 12,
+        paddingVertical: 0,
+        borderBottomColor: colors.uranus600,
+        borderBottomWidth: 2,
+      })
+    );
+    expect(getByText('Item #3').props.style).toEqual(
+      expect.objectContaining({
+        color: colors.uranus600,
         fontFamily: 'Lato-Regular',
       })
     );
