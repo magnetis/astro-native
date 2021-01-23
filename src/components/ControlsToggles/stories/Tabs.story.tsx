@@ -40,7 +40,7 @@ storiesOf('Controls & Toggles', module)
       </View>
     </View>
   ))
-  .add('Tabs borderBottom', () => (
+  .add('Tabs with borderBottom', () => (
     <View style={{ width: '100%', flex: 1, backgroundColor: colors.space100, justifyContent: 'center' }}>
       <View style={{ width: '100%' }}>
         <Tabs
