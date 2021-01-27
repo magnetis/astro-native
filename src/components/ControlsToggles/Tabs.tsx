@@ -59,7 +59,7 @@ interface TabsProps {
  */
 function Tabs({
   disabled = false,
-  activeItemColor,
+  activeItemColor = 'transparent',
   activeTextColor,
   backgroundColor = 'transparent',
   borderBottom,
