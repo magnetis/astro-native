@@ -86,6 +86,14 @@ function Tabs({
     },
   ];
 
+  const tabsWithBorderBottom = (color: string) => ({
+    borderRadius: 0,
+    paddingBottom: 12,
+    paddingVertical: 0,
+    borderBottomColor: color,
+    borderBottomWidth: 2,
+  });
+
   function handlePress(value: string) {
     return function () {
       if (value !== selectedItem) {
@@ -134,12 +142,8 @@ function Tabs({
               {
                 backgroundColor: itemBackgroundColor,
                 paddingHorizontal: iconSize,
-                borderRadius: borderBottom ? 0 : 24,
-                paddingBottom: borderBottom ? 12 : 6,
-                paddingVertical: borderBottom ? 0 : 4,
-                borderBottomColor: color,
-                borderBottomWidth: borderBottom ? 2 : 0,
               },
+              borderBottom && tabsWithBorderBottom(color),
             ]}
             onPress={handlePress(item.value)}
             disabled={item.disabled || disabled}
@@ -159,6 +163,9 @@ const styles = StyleSheet.create({
   container: { width: '100%', flex: 0, padding: 4 },
   item: {
     minWidth: 68,
+    paddingVertical: 4,
+    paddingBottom: 6,
+    borderRadius: 24,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
