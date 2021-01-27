@@ -138,6 +138,59 @@ describe('Tabs', () => {
     );
   });
 
+  it('renders correctly when backgroundColor and activeItemColor are not passed', () => {
+    const { getByTestId, getByText } = render(
+      <Tabs
+        items={props.items}
+        onChange={props.onChange}
+        textColor={props.textColor}
+        activeTextColor={props.activeTextColor}
+        disabledColor={props.disabledColor}
+      />
+    );
+
+    // Check ScrolView styles
+    expect(getByTestId('Tabs').props.style[0]).toEqual(
+      expect.objectContaining({
+        width: '100%',
+        flex: 0,
+        padding: 4,
+      })
+    );
+    expect(getByTestId('Tabs').props.style[1]).toEqual(
+      expect.objectContaining({
+        backgroundColor: 'transparent',
+        borderRadius: 24,
+        borderWidth: 1,
+        borderColor: 'transparent',
+      })
+    );
+
+    // Check Pressable styles
+    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[0]).toEqual(
+      expect.objectContaining({
+        minWidth: 68,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1,
+      })
+    );
+
+    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[1]).toEqual(
+      expect.objectContaining({
+        backgroundColor: 'transparent',
+        paddingHorizontal: 24,
+      })
+    );
+    expect(getByText('Item #1').props.style).toEqual(
+      expect.objectContaining({
+        color: colors.space100,
+        fontFamily: 'Lato-Regular',
+      })
+    );
+  });
+
   it('renders icon aside when option has it', () => {
     const { queryByTestId } = render(<Tabs {...props} />);
 
