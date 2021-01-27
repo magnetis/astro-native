@@ -54,6 +54,9 @@ describe('Tabs', () => {
     expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[0]).toEqual(
       expect.objectContaining({
         minWidth: 68,
+        paddingVertical: 4,
+        paddingBottom: 6,
+        borderRadius: 24,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
@@ -65,9 +68,6 @@ describe('Tabs', () => {
       expect.objectContaining({
         backgroundColor: colors.uranus500,
         paddingHorizontal: 16 * 1.5,
-        paddingVertical: 4,
-        paddingBottom: 6,
-        borderRadius: 24,
       })
     );
     expect(getByText('Item #1').props.style).toEqual(
@@ -317,6 +317,9 @@ describe('Tabs', () => {
     expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[0]).toEqual(
       expect.objectContaining({
         minWidth: 68,
+        paddingVertical: 4,
+        paddingBottom: 6,
+        borderRadius: 24,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
@@ -328,9 +331,6 @@ describe('Tabs', () => {
       expect.objectContaining({
         backgroundColor: 'transparent',
         paddingHorizontal: 16 * 1.5,
-        paddingVertical: 4,
-        paddingBottom: 6,
-        borderRadius: 24,
       })
     );
     expect(getByText('Item #1').props.style).toEqual(
@@ -435,6 +435,10 @@ describe('Tabs', () => {
       expect.objectContaining({
         backgroundColor: 'transparent',
         paddingHorizontal: 24,
+      })
+    );
+    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[2]).toEqual(
+      expect.objectContaining({
         borderRadius: 0,
         paddingBottom: 12,
         paddingVertical: 0,
@@ -453,6 +457,10 @@ describe('Tabs', () => {
       expect.objectContaining({
         backgroundColor: 'transparent',
         paddingHorizontal: 24,
+      })
+    );
+    expect(getByTestId('Tabs.Item.Pressable-item-3').props.style[2]).toEqual(
+      expect.objectContaining({
         borderRadius: 0,
         paddingBottom: 12,
         paddingVertical: 0,
