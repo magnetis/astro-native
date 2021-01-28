@@ -64,7 +64,7 @@ describe('Tabs', () => {
       })
     );
 
-    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: colors.uranus500,
         paddingHorizontal: 16 * 1.5,
@@ -77,7 +77,7 @@ describe('Tabs', () => {
       })
     );
 
-    expect(getByTestId('Tabs.Item.Pressable-item-2').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-2').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: colors.space100,
       })
@@ -89,7 +89,7 @@ describe('Tabs', () => {
       })
     );
 
-    expect(getByTestId('Tabs.Item.Pressable-item-3').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-3').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: 'transparent',
       })
@@ -101,7 +101,7 @@ describe('Tabs', () => {
       })
     );
 
-    expect(getByTestId('Tabs.Item.Pressable-item-4').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-4').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: colors.space100,
       })
@@ -113,7 +113,7 @@ describe('Tabs', () => {
       })
     );
 
-    expect(getByTestId('Tabs.Item.Pressable-item-5').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-5').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: colors.space100,
       })
@@ -125,7 +125,7 @@ describe('Tabs', () => {
       })
     );
 
-    expect(getByTestId('Tabs.Item.Pressable-item-6').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-6').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: colors.space100,
       })
@@ -177,7 +177,7 @@ describe('Tabs', () => {
       })
     );
 
-    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: 'transparent',
         paddingHorizontal: 24,
@@ -200,7 +200,7 @@ describe('Tabs', () => {
   it('changes color of active items', () => {
     const { getByTestId, getByText } = render(<Tabs {...props} />);
 
-    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: colors.uranus500,
       })
@@ -212,7 +212,7 @@ describe('Tabs', () => {
     );
 
     fireEvent.press(getByTestId('Tabs.Item.Pressable-item-2'));
-    expect(getByTestId('Tabs.Item.Pressable-item-2').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-2').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: colors.mars500,
       })
@@ -224,7 +224,7 @@ describe('Tabs', () => {
     );
 
     fireEvent.press(getByTestId('Tabs.Item.Pressable-item-3'));
-    expect(getByTestId('Tabs.Item.Pressable-item-3').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-3').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: 'transparent',
       })
@@ -236,7 +236,7 @@ describe('Tabs', () => {
     );
 
     fireEvent.press(getByTestId('Tabs.Item.Pressable-item-4'));
-    expect(getByTestId('Tabs.Item.Pressable-item-4').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-4').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: colors.venus500,
       })
@@ -248,7 +248,7 @@ describe('Tabs', () => {
     );
 
     fireEvent.press(getByTestId('Tabs.Item.Pressable-item-5'));
-    expect(getByTestId('Tabs.Item.Pressable-item-5').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-5').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: colors.uranus500,
       })
@@ -260,7 +260,7 @@ describe('Tabs', () => {
     );
 
     fireEvent.press(getByTestId('Tabs.Item.Pressable-item-6'));
-    expect(getByTestId('Tabs.Item.Pressable-item-6').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-6').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: colors.uranus500,
       })
@@ -275,7 +275,7 @@ describe('Tabs', () => {
   it('renders correctly in every size', () => {
     const { getByTestId, getByText, update } = render(<Tabs size="very-small" {...props} />);
 
-    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[2]).toEqual(
       expect.objectContaining({
         paddingHorizontal: 12 * 1.5,
       })
@@ -293,7 +293,7 @@ describe('Tabs', () => {
     );
 
     update(<Tabs {...props} size="small" />);
-    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[2]).toEqual(
       expect.objectContaining({
         paddingHorizontal: 14 * 1.5,
       })
@@ -311,7 +311,7 @@ describe('Tabs', () => {
     );
 
     update(<Tabs {...props} size="medium" />);
-    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[2]).toEqual(
       expect.objectContaining({
         paddingHorizontal: 16 * 1.5,
       })
@@ -329,7 +329,7 @@ describe('Tabs', () => {
     );
 
     update(<Tabs {...props} size="large" />);
-    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[2]).toEqual(
       expect.objectContaining({
         paddingHorizontal: 24 * 1.5,
       })
@@ -380,7 +380,7 @@ describe('Tabs', () => {
       })
     );
 
-    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: 'transparent',
         paddingHorizontal: 16 * 1.5,
@@ -393,7 +393,7 @@ describe('Tabs', () => {
       })
     );
 
-    expect(getByTestId('Tabs.Item.Pressable-item-2').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-2').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: 'transparent',
       })
@@ -405,7 +405,7 @@ describe('Tabs', () => {
       })
     );
 
-    expect(getByTestId('Tabs.Item.Pressable-item-3').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-3').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: 'transparent',
       })
@@ -417,7 +417,7 @@ describe('Tabs', () => {
       })
     );
 
-    expect(getByTestId('Tabs.Item.Pressable-item-4').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-4').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: 'transparent',
       })
@@ -429,7 +429,7 @@ describe('Tabs', () => {
       })
     );
 
-    expect(getByTestId('Tabs.Item.Pressable-item-5').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-5').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: 'transparent',
       })
@@ -441,7 +441,7 @@ describe('Tabs', () => {
       })
     );
 
-    expect(getByTestId('Tabs.Item.Pressable-item-6').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-6').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: 'transparent',
       })
@@ -484,18 +484,18 @@ describe('Tabs', () => {
       })
     );
 
-    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: 'transparent',
         paddingHorizontal: 24,
+        borderBottomColor: colors.space100,
       })
     );
-    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[2]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-1').props.style[1]).toEqual(
       expect.objectContaining({
         borderRadius: 0,
         paddingBottom: 12,
         paddingVertical: 0,
-        borderBottomColor: colors.space100,
         borderBottomWidth: 2,
       })
     );
@@ -506,18 +506,18 @@ describe('Tabs', () => {
       })
     );
 
-    expect(getByTestId('Tabs.Item.Pressable-item-3').props.style[1]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-3').props.style[2]).toEqual(
       expect.objectContaining({
         backgroundColor: 'transparent',
         paddingHorizontal: 24,
+        borderBottomColor: colors.uranus600,
       })
     );
-    expect(getByTestId('Tabs.Item.Pressable-item-3').props.style[2]).toEqual(
+    expect(getByTestId('Tabs.Item.Pressable-item-3').props.style[1]).toEqual(
       expect.objectContaining({
         borderRadius: 0,
         paddingBottom: 12,
         paddingVertical: 0,
-        borderBottomColor: colors.uranus600,
         borderBottomWidth: 2,
       })
     );
