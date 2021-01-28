@@ -62,7 +62,7 @@ function Tabs({
   activeItemColor = 'transparent',
   activeTextColor,
   backgroundColor = 'transparent',
-  borderBottom,
+  borderBottom = false,
   defaultSelected,
   disabledColor,
   textColor,
@@ -85,14 +85,6 @@ function Tabs({
       borderColor,
     },
   ];
-
-  const tabsWithBorderBottom = (color: string) => ({
-    borderRadius: 0,
-    paddingBottom: 12,
-    paddingVertical: 0,
-    borderBottomColor: color,
-    borderBottomWidth: 2,
-  });
 
   function handlePress(value: string) {
     return function () {
@@ -139,11 +131,12 @@ function Tabs({
             key={item.value}
             style={[
               styles.item,
+              borderBottom && styles.itemWithBorderBottom,
               {
                 backgroundColor: itemBackgroundColor,
                 paddingHorizontal: iconSize,
+                borderBottomColor: color,
               },
-              borderBottom && tabsWithBorderBottom(color),
             ]}
             onPress={handlePress(item.value)}
             disabled={item.disabled || disabled}
@@ -170,6 +163,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
+  },
+  itemWithBorderBottom: {
+    borderRadius: 0,
+    paddingBottom: 12,
+    paddingVertical: 0,
+    borderBottomWidth: 2,
   },
 });
 
