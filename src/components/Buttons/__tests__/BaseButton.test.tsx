@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text } from 'react-native';
-import { fireEvent, render } from '@testing-library/react-native';
+import { fireEvent, render, act } from '@testing-library/react-native';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 
 import BaseButton from '../BaseButton';
@@ -91,5 +91,164 @@ describe('BaseButton', () => {
     const baseButtonStyle = Object.assign({}, ...baseButton.props.style);
 
     expect(baseButtonStyle.width).toEqual('100%');
+  });
+
+  it('has min hit slop 50X48 when button width and height is small', () => {
+    const { getByTestId } = render(
+      <BaseButton {...props} fill>
+        <ButtonText />
+      </BaseButton>
+    );
+
+    const baseButton = getByTestId('BaseButton');
+    act(() => {
+      baseButton.props.onLayout({
+        nativeEvent: {
+          layout: {
+            height: 20,
+            width: 20,
+          },
+        },
+      });
+    });
+
+    expect(baseButton.props.hitSlop).toStrictEqual({
+      top: 14,
+      bottom: 14,
+      left: 14,
+      right: 14,
+    });
+  });
+
+  it('has min hit slop 48X48 when button width is small', () => {
+    const { getByTestId } = render(
+      <BaseButton {...props} fill>
+        <ButtonText />
+      </BaseButton>
+    );
+
+    const baseButton = getByTestId('BaseButton');
+    act(() => {
+      baseButton.props.onLayout({
+        nativeEvent: {
+          layout: {
+            height: 50,
+            width: 20,
+          },
+        },
+      });
+    });
+
+    expect(baseButton.props.hitSlop).toStrictEqual({
+      top: 0,
+      bottom: 0,
+      left: 14,
+      right: 14,
+    });
+  });
+
+  it('has min hit slop 48X50 when button height is small', () => {
+    const { getByTestId } = render(
+      <BaseButton {...props} fill>
+        <ButtonText />
+      </BaseButton>
+    );
+
+    const baseButton = getByTestId('BaseButton');
+    act(() => {
+      baseButton.props.onLayout({
+        nativeEvent: {
+          layout: {
+            height: 20,
+            width: 50,
+          },
+        },
+      });
+    });
+
+    expect(baseButton.props.hitSlop).toStrictEqual({
+      top: 14,
+      bottom: 14,
+      left: 0,
+      right: 0,
+    });
+  });
+
+  it('has min hit slop 60X50 when button height is bigger then minimum', () => {
+    const { getByTestId } = render(
+      <BaseButton {...props} fill>
+        <ButtonText />
+      </BaseButton>
+    );
+
+    const baseButton = getByTestId('BaseButton');
+    act(() => {
+      baseButton.props.onLayout({
+        nativeEvent: {
+          layout: {
+            height: 50,
+            width: 50,
+          },
+        },
+      });
+    });
+
+    expect(baseButton.props.hitSlop).toStrictEqual({
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0,
+    });
+  });
+
+  it('has hit slop passed when button width and height is small, but hit slop prop has been passed', () => {
+    const { getByTestId } = render(
+      <BaseButton {...props} fill hitSlop={0}>
+        <ButtonText />
+      </BaseButton>
+    );
+
+    const baseButton = getByTestId('BaseButton');
+    act(() => {
+      baseButton.props.onLayout({
+        nativeEvent: {
+          layout: {
+            height: 20,
+            width: 20,
+          },
+        },
+      });
+    });
+
+    expect(baseButton.props.hitSlop).toStrictEqual({ bottom: 0, left: 0, right: 0, top: 0 });
+  });
+
+  it('has onLayout called if user set this prop', () => {
+    const onLayout = jest.fn();
+    const { getByTestId } = render(
+      <BaseButton {...props} fill onLayout={onLayout}>
+        <ButtonText />
+      </BaseButton>
+    );
+
+    const baseButton = getByTestId('BaseButton');
+    act(() => {
+      baseButton.props.onLayout({
+        nativeEvent: {
+          layout: {
+            height: 20,
+            width: 20,
+          },
+        },
+      });
+    });
+
+    expect(onLayout).toBeCalledTimes(1);
+    expect(baseButton.props.hitSlop).toStrictEqual({
+      top: 14,
+      bottom: 14,
+      left: 14,
+      right: 14,
+    });
   });
 });
