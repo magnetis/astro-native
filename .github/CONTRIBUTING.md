@@ -5,8 +5,10 @@
 - [Branch Naming](#branch-naming)
 - [Commit Messages](#commit-messages)
 - [Committing](#committing)
-- [Merging Branches](#merging-branches)
-- [Níveis de Requisito das Palavras-chave](#níveis-de-requisito-das-palavras-chave)
+- [Opening a PR](#opening-a-pr)
+  - [Merging Branches](#merging-branches)
+- [Creating a new Release](#creating-a-new-release)
+- [Key words for use to indicate requirement levels](#key-words-for-use-to-indicate-requirement-levels)
 
 ## Standards
 
@@ -76,9 +78,45 @@ feat(Buttons): Implement GhostButton
 
 We recommend you to use `yarn cz` when committing. That way, you'll be presentend an interactive prompt to build tout commit message. But don't worry, if you prefer to commit in any other way, our project uses CommitLint to make sure patterns are being followed.
 
-## Merging Branches
+## Opening a PR
+
+Where applicable, you **MUST** add the Jira ticket from our board on the PR's title in the following pattern: `[JIRA_TICKET] Your PR Title`. _eg_.:
+
+```
+[AST-42] Fix Button alignment
+```
+
+### Merging Branches
 
 It is **RECOMMENDED** that you choose the `Rebase and Merge` approach when merging a PR into main branch.
+
+## Creating a new Release
+
+We use [Semantic Versioning](https://semver.org/) on this package's release. A quick summary of this principle is:
+
+**Given a version number _MAJOR.MINOR.PATCH_, increment the:**
+
+1. _MAJOR_ version when you make incompatible API changes,
+2. _MINOR_ version when you add functionality in a backwards compatible manner, and
+3. _PATCH_ version when you make backwards compatible bug fixes.
+
+To release a new version, you **MUST** create a new branch from main with name in the release format `release/vx.x.x`. After that, simply run `npm version [major|minor|patch]` according to the release type you're doing.
+
+This command will do a lot for you:
+
+1. bump the package.json version;
+2. generate the changelog and
+3. commit these changes in a single commit.
+
+After that, you can just push this to remote and open the release PR. :rocket:
+
+:warning: _Don't forget to add the **release** label_ :wink:
+
+## QA Proccess
+
+After your PR is approved and before it's merged, it must be ran through the QA proccess. For that, you **MUST** write a script for testing the changes you've made. The QA will be done in a dev environment using and iOS Simulator or Android Emulator.
+
+:warning: Don't forget to implement the stories in storybook, in order to make QA possible.
 
 ## Key words for use to indicate requirement levels
 
