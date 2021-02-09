@@ -1,11 +1,11 @@
 import React, { ReactElement } from 'react';
-import { Pressable, PressableProps } from 'react-native';
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { TextProps } from 'react-native';
 
 import { isValidTextComponent } from './utils';
 
-interface LinkProps extends PressableProps {
+interface LinkProps extends TextProps {
   children: ReactElement;
+  /** Color to be used as background color of button. Defaults to `"uranus"`. */
   /** Link press callback */
   onPress: () => void;
 }
@@ -14,13 +14,13 @@ interface LinkProps extends PressableProps {
  * For inline links in paragraphs and informative texts. Regular links navigate to other pages or external content.
  */
 function Link({ children, onPress, ...props }: LinkProps) {
-  return (
-    <Pressable hitSlop={10} onPress={onPress} {...props}>
-      {isValidTextComponent(children)
-        ? React.cloneElement(children, { color: colors.uranus700, style: { textDecorationLine: 'underline' } })
-        : null}
-    </Pressable>
-  );
+  return isValidTextComponent(children)
+    ? React.cloneElement(children, {
+        ...props,
+        onPress,
+        style: { textDecorationLine: 'underline' },
+      })
+    : null;
 }
 
 export default Link;
