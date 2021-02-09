@@ -27,4 +27,4 @@
 
 <!-- Jira link -->
 
-[AST-xxx](link_do_card_no_jira)
+[AST-xxx](card_link_in_jira)
