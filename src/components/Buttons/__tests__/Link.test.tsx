@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text } from 'react-native';
 import { render } from '@testing-library/react-native';
-import { colors } from '@magnetis/astro-galaxy-tokens';
 
 import Link from '../Link';
 import { PrimaryTextMedium } from '@components/Text';
@@ -23,7 +22,6 @@ describe('Link', () => {
     expect(getByText('this is a link').props.style).toEqual(
       expect.objectContaining({
         textDecorationLine: 'underline',
-        color: colors.uranus700,
       })
     );
   });
