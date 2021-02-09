@@ -30,7 +30,7 @@ describe('TextInput', () => {
       getByTestId('TextInput.Input').props.onBlur();
     });
 
-    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
+    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
 
     expect(getByTestId('TextInput.Container').props.style[0]).toEqual(
       expect.objectContaining({
@@ -72,7 +72,7 @@ describe('TextInput', () => {
       getByTestId('TextInput.Input').props.onBlur();
     });
 
-    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
+    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
 
     expect(getByTestId('TextInput.Container').props.style[0]).toEqual(
       expect.objectContaining({
@@ -116,7 +116,7 @@ describe('TextInput', () => {
       getByTestId('TextInput.Input').props.onBlur();
     });
 
-    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
+    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
 
     expect(getByTestId('TextInput.Container').props.style[0]).toEqual(
       expect.objectContaining({
@@ -174,7 +174,7 @@ describe('TextInput', () => {
       getByTestId('TextInput.Input').props.onFocus();
     });
 
-    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
+    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
     expect(getByTestId('TextInput.Container').props.style[0]).toEqual(
       expect.objectContaining({
         borderWidth: 1,
@@ -216,7 +216,7 @@ describe('TextInput', () => {
       getByTestId('TextInput.Input').props.onFocus();
     });
 
-    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
+    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
     expect(getByTestId('TextInput.Container').props.style[0]).toEqual(
       expect.objectContaining({
         borderWidth: 1,
@@ -260,7 +260,7 @@ describe('TextInput', () => {
       getByTestId('TextInput.Input').props.onFocus();
     });
 
-    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
+    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
     expect(getByTestId('TextInput.Container').props.style[0]).toEqual(
       expect.objectContaining({
         borderWidth: 1,
@@ -290,7 +290,7 @@ describe('TextInput', () => {
       getByTestId('TextInput.Input').props.onFocus();
     });
 
-    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
+    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
     expect(getByTestId('TextInput.Container').props.style[0]).toEqual(
       expect.objectContaining({
         borderWidth: 1,
@@ -316,7 +316,7 @@ describe('TextInput', () => {
   it('renders correctly on blur state when large is true', () => {
     const { getByTestId } = render(<TextInput {...props} large />);
 
-    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
+    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
     expect(getByTestId('TextInput.Container').props.style[0]).toEqual(
       expect.objectContaining({
         borderWidth: 1,
@@ -346,7 +346,7 @@ describe('TextInput', () => {
       getByTestId('TextInput.Input').props.onFocus();
     });
 
-    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
+    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
     expect(getByTestId('TextInput.Container').props.style[0]).toEqual(
       expect.objectContaining({
         borderWidth: 1,
@@ -376,7 +376,7 @@ describe('TextInput', () => {
       getByTestId('TextInput.Input').props.onFocus();
     });
 
-    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
+    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
     expect(getByTestId('TextInput.Container').props.style[0]).toEqual(
       expect.objectContaining({
         borderWidth: 1,
@@ -406,7 +406,7 @@ describe('TextInput', () => {
       getByTestId('TextInput.Input').props.onFocus();
     });
 
-    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
+    expect(getByTestId('TextInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
     expect(getByTestId('TextInput.Container').props.style[0]).toEqual(
       expect.objectContaining({
         borderWidth: 1,

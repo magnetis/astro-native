@@ -114,19 +114,24 @@ function TextInput({
           ref={inputRef}
           onChangeText={handleOnChangeText}
         />
-        <InputStatusIcon hasError={hasError} isValidated={isValidated} large={large} />
+        {!password && <InputStatusIcon hasError={hasError} isValidated={isValidated} large={large} />}
       </Pressable>
-      {password ? (
-        <InputEyeToggle large={large} visible={showPassword} onPress={togglePasswordVisibility} />
-      ) : (
-        <InputErrorMessage error={error} hasError={hasError} />
+      {password && (
+        <InputEyeToggle
+          hasError={hasError}
+          hasFocus={hasFocus}
+          large={large}
+          visible={showPassword}
+          onPress={togglePasswordVisibility}
+        />
       )}
+      {hasError && <InputErrorMessage error={error} hasError={hasError} />}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  wrapper: { paddingBottom: 22 },
+  wrapper: { paddingBottom: 12 },
   container: {
     borderWidth: 1,
     borderRadius: 8,
