@@ -60,7 +60,7 @@ describe('Tabs', () => {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        flex: 1,
+        flex: 0,
       })
     );
 
@@ -173,7 +173,7 @@ describe('Tabs', () => {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        flex: 1,
+        flex: 0,
       })
     );
 
@@ -376,7 +376,7 @@ describe('Tabs', () => {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        flex: 1,
+        flex: 0,
       })
     );
 
@@ -480,7 +480,7 @@ describe('Tabs', () => {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        flex: 1,
+        flex: 0,
       })
     );
 
