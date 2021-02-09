@@ -1,17 +1,23 @@
 import React from 'react';
 import { Pressable, StyleSheet } from 'react-native';
-import { colors } from '@magnetis/astro-galaxy-tokens';
 
 import { EyeClosedIcon, EyeOpenIcon } from '@components/Icons';
+import { getInputBorderColor } from './utils';
 
 interface InputEyeToggleProps {
+  hasError?: boolean;
+  hasFocus?: boolean;
   visible: boolean;
   onPress: () => void;
   large: boolean;
 }
 
-function InputEyeToggle({ visible, onPress, large }: InputEyeToggleProps) {
-  const iconProps = { color: colors.moon900, width: 32, height: 32 };
+function InputEyeToggle({ hasError = false, hasFocus = false, visible, onPress, large }: InputEyeToggleProps) {
+  const iconProps = {
+    color: getInputBorderColor({ disabled: false, hasError, hasFocus, validated: false }),
+    width: 32,
+    height: 32,
+  };
 
   if (visible) {
     return (
