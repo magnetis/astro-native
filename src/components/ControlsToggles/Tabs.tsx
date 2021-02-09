@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    flex: 1,
+    flex: 0,
   },
   itemWithBorderBottom: {
     borderRadius: 0,
