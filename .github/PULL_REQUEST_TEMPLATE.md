@@ -14,6 +14,10 @@
 
 <!-- Add screenshots or gifs when relevant -->
 
+# QA
+
+<!-- Add instructions for QA >
+
 <!-- ✅ TODOs -->
 <!-- Assign at least one manteiner to review this PR -->
 <!-- Assign everyone who worked on this PR -->
@@ -21,6 +25,6 @@
 <!-- EXTRAS -->
 <!-- 💸 Describe possible tech debits -->
 
-<!-- Clubhouse link -->
+<!-- Jira link -->
 
-[chXXXX](link_do_card_no_clubhouse)
+[AST-xxx](card_link_in_jira)
