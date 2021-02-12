@@ -19,9 +19,7 @@ function InputErrorMessage({ error, hasError }: InputErrorMessageProps) {
 
 const styles = StyleSheet.create({
   errorContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 16,
+    margin: 5,
   },
   error: {
     fontFamily: lato,
