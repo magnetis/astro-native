@@ -4,6 +4,7 @@ import { render } from '@testing-library/react-native';
 
 import Link from '../Link';
 import { PrimaryTextMedium } from '@components/Text';
+import { getButtonMainColor } from '../utils';
 
 const onPress = jest.fn();
 
@@ -22,6 +23,22 @@ describe('Link', () => {
     expect(getByText('this is a link').props.style).toEqual(
       expect.objectContaining({
         textDecorationLine: 'underline',
+        color: getButtonMainColor('uranus'),
+      })
+    );
+  });
+
+  it('renders correctly with mars color prop', () => {
+    const { getByText } = render(
+      <Link onPress={onPress} color="mars">
+        <PrimaryTextMedium>this is a link</PrimaryTextMedium>
+      </Link>
+    );
+
+    expect(getByText('this is a link').props.style).toEqual(
+      expect.objectContaining({
+        textDecorationLine: 'underline',
+        color: getButtonMainColor('mars'),
       })
     );
   });
