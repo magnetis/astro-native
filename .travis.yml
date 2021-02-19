@@ -14,7 +14,7 @@ jobs:
     if: type = pull_request
     install:
     - yarn install
-    script: yarn jest --coverage --changedSince=main && yarn codecov -t $CODECOV_TOKEN
+    script: yarn jest --coverage && yarn codecov -t $CODECOV_TOKEN
 
   - stage: Run Tests & Upload Coverage Report
     if: NOT type = pull_request AND branch = main
