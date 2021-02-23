@@ -1,3 +1,23 @@
+# [1.5.0](https://github.com/magnetis/astro-native/compare/v1.4.0...v1.5.0) (2021-02-23)
+
+
+### Bug Fixes
+
+* **checkicon:** fix check icon view box ([1fc2cf3](https://github.com/magnetis/astro-native/commit/1fc2cf3e8939f0778fdd392767a6a2ea27761a36))
+* **flagicon:** update FlagIcon to match DS definition ([d802668](https://github.com/magnetis/astro-native/commit/d802668e81f8a2315e4b133b54ebef2d2e83a95f))
+* **icons:** fix fillRule and clipRulle misspelling on several icons ([2c0093b](https://github.com/magnetis/astro-native/commit/2c0093bd2509ef012987781638e8df8034717621))
+* **link:** fix vertical alignment ([8de6696](https://github.com/magnetis/astro-native/commit/8de669615be3b41671ee996e3f5050fd98aefaaf))
+* **maskedinput:** fix masked input error layout ([0af9e14](https://github.com/magnetis/astro-native/commit/0af9e14ef79186c9e8115bc3f0e1ddbbada107c2))
+* **tabs:** fix UI when has single item ([e4a8e37](https://github.com/magnetis/astro-native/commit/e4a8e3708516242ccaad23f4408ea871ff434e69))
+
+
+### Features
+
+* **faqicon:** add faq icon ([c3dacf1](https://github.com/magnetis/astro-native/commit/c3dacf1cea4bda7726798510cd99369bc2e61055))
+* **link:** add color prop ([6be83f4](https://github.com/magnetis/astro-native/commit/6be83f4d46b503c353ba241e5818edf02de25152))
+
+
+
 # [1.4.0](https://github.com/magnetis/astro-native/compare/v1.3.1...v1.4.0) (2021-02-10)
 
 ### Bug Fixes

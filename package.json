@@ -1,6 +1,6 @@
 {
   "name": "@magnetis/astro-native",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Astro components for React Native",
   "homepage": "https://astro-galaxy.magnetis.com.br/",
   "files": [
