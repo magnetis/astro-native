@@ -9,6 +9,7 @@
 ## Table of contents
 
 - [Introduction](#introduction)
+- [Installation](#installation)
 - [Contact us](#contact-us)
 
 ## Introduction
@@ -25,6 +26,36 @@ Magnetis believes that good design and experiences can **impact the product mark
 
 Design is meant to be **for all**. Astro style and components follow basic recommendations from the **WCAG guidelines** for accessibility, with tested contrast ratios and good practices in legibility and screen reading solutions.
 [See WCAG.](https://www.w3.org/TR/WCAG21/)
+
+## Installation
+
+### Adding dependency
+
+To use Astro Native, first you must add our package to your project dependencies by running:
+
+**Using Yarn:**
+
+```bash
+yarn add @magnetis/astro-native @magnetis/astro-galaxy-tokens
+```
+
+**Using NPM:**
+
+```bash
+npm install @magnetis/astro-native @magnetis/astro-galaxy-tokens
+```
+
+> :warning: We strongly recommend you to also install `@magnetis/astro-galaxy-tokens` package, in order to acess and use our colors;
+
+### Adding fonts
+
+In order to our components to function correctly, you must download all fonts located in the [assets directory](https://github.com/magnetis/astro-native/tree/main/src/assets/fonts) of this project and add it on your RN project.
+
+Follow [this article](https://medium.com/@mehrankhandev/ultimate-guide-to-use-custom-fonts-in-react-native-77fcdf859cf4) to add it to your project.
+
+### Ready to use!
+
+Now that you've added Astro Native to your project, just use it!
 
 ## Contact us
 
