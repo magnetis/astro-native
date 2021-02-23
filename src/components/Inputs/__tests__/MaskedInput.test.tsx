@@ -25,7 +25,7 @@ describe('MaskedInput', () => {
       getByTestId('MaskedInput.Input').props.onBlur();
     });
 
-    expect(getByTestId('MaskedInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
+    expect(getByTestId('MaskedInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
 
     expect(getByTestId('MaskedInput.Container').props.style[0]).toEqual(
       expect.objectContaining({
@@ -57,7 +57,7 @@ describe('MaskedInput', () => {
       getByTestId('MaskedInput.Input').props.onFocus();
     });
 
-    expect(getByTestId('MaskedInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
+    expect(getByTestId('MaskedInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
 
     expect(getByTestId('MaskedInput.Container').props.style[0]).toEqual(
       expect.objectContaining({
@@ -89,7 +89,7 @@ describe('MaskedInput', () => {
       getByTestId('MaskedInput.Input').props.onFocus();
     });
 
-    expect(getByTestId('MaskedInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
+    expect(getByTestId('MaskedInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
     expect(getByTestId('MaskedInput.Container').props.style[0]).toEqual(
       expect.objectContaining({
         borderWidth: 1,
@@ -119,7 +119,7 @@ describe('MaskedInput', () => {
       getByTestId('MaskedInput.Input').props.onFocus();
     });
 
-    expect(getByTestId('MaskedInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
+    expect(getByTestId('MaskedInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
     expect(getByTestId('MaskedInput.Container').props.style[0]).toEqual(
       expect.objectContaining({
         borderWidth: 1,
@@ -145,7 +145,7 @@ describe('MaskedInput', () => {
   it('renders correctly on blur state when large is true', () => {
     const { getByTestId } = render(<MaskedInput {...props} large />);
 
-    expect(getByTestId('MaskedInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
+    expect(getByTestId('MaskedInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
     expect(getByTestId('MaskedInput.Container').props.style[0]).toEqual(
       expect.objectContaining({
         borderWidth: 1,
@@ -175,7 +175,7 @@ describe('MaskedInput', () => {
       getByTestId('MaskedInput.Input').props.onFocus();
     });
 
-    expect(getByTestId('MaskedInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
+    expect(getByTestId('MaskedInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
     expect(getByTestId('MaskedInput.Container').props.style[0]).toEqual(
       expect.objectContaining({
         borderWidth: 1,
@@ -205,7 +205,7 @@ describe('MaskedInput', () => {
       getByTestId('MaskedInput.Input').props.onFocus();
     });
 
-    expect(getByTestId('MaskedInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
+    expect(getByTestId('MaskedInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
     expect(getByTestId('MaskedInput.Container').props.style[0]).toEqual(
       expect.objectContaining({
         borderWidth: 1,
@@ -229,13 +229,13 @@ describe('MaskedInput', () => {
   });
 
   it('renders correctly when error is truthy and large is true', () => {
-    const { getByTestId } = render(<MaskedInput {...props} error="error" large touched />);
+    const { getByText, getByTestId } = render(<MaskedInput {...props} error="error" large touched />);
 
     act(() => {
       getByTestId('MaskedInput.Input').props.onFocus();
     });
 
-    expect(getByTestId('MaskedInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 22 }));
+    expect(getByTestId('MaskedInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
     expect(getByTestId('MaskedInput.Container').props.style[0]).toEqual(
       expect.objectContaining({
         borderWidth: 1,
@@ -256,6 +256,8 @@ describe('MaskedInput', () => {
     expect(getByTestId('MaskedInput.Input').props.style[1]).toEqual(
       expect.objectContaining({ paddingLeft: 24, fontSize: 24, paddingRight: 56, textAlign: 'left' })
     );
+
+    expect(getByText('error')).toBeTruthy();
   });
 
   it('calls onChangeText when input text changes', () => {
