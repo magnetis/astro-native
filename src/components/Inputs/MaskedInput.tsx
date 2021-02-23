@@ -103,13 +103,13 @@ function MaskedInput({
         />
         <InputStatusIcon hasError={hasError} isValidated={isValidated} large={large} />
       </Pressable>
-      <InputErrorMessage error={error} hasError={hasError} />
+      {hasError && <InputErrorMessage error={error} hasError={hasError} />}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  wrapper: { paddingBottom: 22 },
+  wrapper: { paddingBottom: 12 },
   container: {
     borderWidth: 1,
     borderRadius: 8,
