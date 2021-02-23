@@ -70,6 +70,7 @@ export type IconID =
   | 'Education'
   | 'EyeOpen'
   | 'EyeClosed'
+  | 'Faq'
   | 'Floater'
   | 'Gift'
   | 'House'

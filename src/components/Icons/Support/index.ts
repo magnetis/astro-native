@@ -40,6 +40,7 @@ export { default as DropUpIcon } from './DropUp';
 export { default as EducationIcon } from './Education';
 export { default as EyeOpenIcon } from './EyeOpen';
 export { default as EyeClosedIcon } from './EyeClosed';
+export { default as FaqIcon } from './Faq';
 export { default as FloaterIcon } from './Floater';
 export { default as GiftIcon } from './Gift';
 export { default as HouseIcon } from './House';
