@@ -52,6 +52,8 @@ interface TabsProps {
   onChange: (value: string) => void;
   /** When provided, defines which tab will be selected at first */
   defaultSelected?: string;
+  /** When provided, defines tab alignemt */
+  alignment?: 'left' | 'center' | 'right';
 }
 
 /**
@@ -71,6 +73,7 @@ function Tabs({
   borderColor = 'transparent',
   size = sizes.Medium,
   testID = 'Tabs',
+  alignment = 'left',
 }: TabsProps) {
   const didMount = useDidMount();
   const TextComponent = getSecondaryTextFromSize(size);
@@ -100,6 +103,12 @@ function Tabs({
     }
   }, [selectedItem]);
 
+  enum tabsAlignemt {
+    left = 'flex-start',
+    center = 'center',
+    right = 'flex-end',
+  }
+
   return (
     <ScrollView
       testID={testID}
@@ -108,6 +117,7 @@ function Tabs({
       contentContainerStyle={{
         flexGrow: 1,
         flexDirection: 'row',
+        justifyContent: tabsAlignemt[alignment],
         paddingRight: items.length * 2 - 1,
       }}
       showsHorizontalScrollIndicator={false}
