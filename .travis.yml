@@ -1,3 +1,5 @@
+os: linux
+dist: xenial
 language: node_js
 node_js:
 - lts/*
@@ -23,8 +25,8 @@ jobs:
     deploy:
       provider: npm
       email: alyssondlopes@gmail.com
-      api_key:
-        secure: FmRLj7uJk4KAuIGPdz3Zodq4mGWZb3JlXMrjVzjhVJTsS5K9Yta08bBXwd4v7Bfcjvg8l8XZcENK4PYD8FZWmXWYIxaM+lyh0LekeX5Cpn8LfRWttKeVzYU8Dlo6E++QcsLX5YsuGJ+K25ohERLPPlJ4/j8MhzjVbfge4SO66dMszsMsrTedsvRTE5ziIGPUoeCmEMNy+GNU5xY7sJ/TdWlDGa2lvQ5d7AFL5nxH2xkd44r65rhTafLjlfnN7yxpZbkOWkR7Hxgdg54+P9kKgW4YPIVDDOI3YWjtztqpKh3X5Lo0DsNMiuRXkZuspEFoh5ZMcl1lyqwJSmvB8vQpFur5pKDbMTrI2TQoH3iWbL18Dz8CLo3OhhDqyX4fmPELgGkXfYyp3VGtyNfbjsJFGyeasFka5OL70WmLYfUDCsnmrSA7C4yxsNZs6Qb2/9YtvVLy5tz5O/TQYENtZ9RBmitqcupXssiXbqJ0Pwq13bMkeBBC1mBQryTX7PGhsinQYt5hIaaAmkn/BDcHwOTtXU/edrsVo6YoCz8NmN3Tyyf85nLLi5cYOdJDOQU7KAxY942RG6BAQE5EOct+W6UhgT0Xy0o8T64HwjTx96zyrcNI20R2uiAPZ2SuK1fvtqs4KcDFPUmEspvNW4lA2TQAMdyqSK1hgUtQTWNrnkFDTnY=
-      skip_cleanup: true
+      api_token:
+        secure: 3CK3e9HmyBd8wp7TVxIAXMfb/owHt8s+UG2NoPj/YYV2Y+6Dzxvym5gvE8ToMTuPou1KzeYgTGDm4/GzlnslSK68MVulOmXXQN7M1gFX+45YOslOOjfe2l7TBBryeLHg+7OMnlGS+stYHaeQ/wL81NJFFv96aMkyzahsbyZfJR6Y0EMFqMaf6zqATvHY10vIe2PsJhNB+agLecCT43+la7blCWWwlv1llT6hKY78sblCDjoQ70FjNQ9LUvObY1wpsiugRJjxHpTxF5j4cEE8LY0Cf1HQEXlU+35JXHEZsXAMcTkinsVKmq3bsuQWoEr7bHAisman2uzWQPlvYGktksR4d/m3zt0OItOkXTCVfNdQwKJzRYeUdBRPxKni0p8gyhXsRyr84QElK64El2kBCdjf4awkz+WM2gINU1YDxNyQzyMNVSesSA6m3vyCcCFOjzCSbccTvwKNnftoo2szsjgWcVug1AUnD39XpK3y5s9t3imH9uz9wlJIMqsRDkoapcn3OMdTXN2jHMV2CM6L7YGl7Ti25acHvap0RsfPanDhqX/i+TIbxaq9bXNZLED7CiON9FTg7PbpuOSd0TNuaH/vatrYEZdzcgHZ3DR1KMZ4gatdvrycGiY78oxXXMQQQT38ZdwBNRqeBRvmPfpahRqvamD42mzecOeNrjXmimM=
+      cleanup: false
       on:
         tags: true
