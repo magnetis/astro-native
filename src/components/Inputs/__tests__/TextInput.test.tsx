@@ -440,17 +440,17 @@ describe('TextInput', () => {
   it('hides value when password is set to true and renders eye toggle', () => {
     const { getByTestId, queryByTestId, update } = render(<TextInput {...props} />);
 
-    expect(queryByTestId('InputEyeToggle.EyeClosed')).toBeNull();
+    expect(queryByTestId('InputEyeToggle.EyeOpen')).toBeNull();
 
     update(<TextInput {...props} password />);
 
     expect(queryByTestId('InputEyeToggle.EyeClosed')).not.toBeNull();
-    expect(getByTestId('TextInput.Input').props.secureTextEntry).toBe(true);
+    expect(getByTestId('TextInput.Input').props.secureTextEntry).toBe(false);
 
     fireEvent.press(getByTestId('InputEyeToggle.EyeClosed'));
 
     expect(queryByTestId('InputEyeToggle.EyeOpen')).not.toBeNull();
-    expect(getByTestId('TextInput.Input').props.secureTextEntry).toBe(false);
+    expect(getByTestId('TextInput.Input').props.secureTextEntry).toBe(true);
   });
 
   it('does not render error state when touched is false', () => {
