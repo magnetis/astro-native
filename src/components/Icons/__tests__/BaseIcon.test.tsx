@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react-native';
+import { fireEvent, render } from '@testing-library/react-native';
 import React from 'react';
 import { Path } from 'react-native-svg';
 
@@ -138,5 +138,99 @@ describe('BaseIcon', () => {
         </RNSVGGroup>
       </RNSVGSvgView>
     `);
+  });
+
+  it('when icon does not have onPress', () => {
+    const { getByTestId } = render(
+      <BaseIcon id="BaseIcon" gradient="nebulosa" testID="BaseIcon">
+        <Path fillRule="evenodd" clipRule="evenodd" d="M16.5" fill="red" />
+      </BaseIcon>
+    );
+
+    expect(getByTestId('BaseIcon').props.hitSlop).toBeUndefined();
+  });
+
+  it('when icon has onPress', () => {
+    const onPress = jest.fn();
+
+    const { getByTestId } = render(
+      <BaseIcon id="BaseIcon" gradient="nebulosa" testID="BaseIcon" onPress={onPress}>
+        <Path fillRule="evenodd" clipRule="evenodd" d="M16.5" fill="red" />
+      </BaseIcon>
+    );
+
+    const baseIcon = getByTestId('BaseIcon');
+
+    expect(baseIcon.props.hitSlop).toBeDefined();
+
+    fireEvent.press(baseIcon);
+    expect(onPress).toHaveBeenCalledTimes(1);
+  });
+
+  it('when icon has onPress and is too small', () => {
+    const onPress = jest.fn();
+    const { getByTestId } = render(
+      <BaseIcon id="BaseIcon" gradient="nebulosa" testID="BaseIcon" width={16} height={'32'} onPress={onPress}>
+        <Path fillRule="evenodd" clipRule="evenodd" d="M16.5" fill="red" />
+      </BaseIcon>
+    );
+
+    expect(getByTestId('BaseIcon').props.hitSlop).toStrictEqual({
+      top: 8,
+      bottom: 8,
+      left: 16,
+      right: 16,
+    });
+  });
+
+  it('when icon has onPress and is too large', () => {
+    const onPress = jest.fn();
+    const { getByTestId } = render(
+      <BaseIcon id="BaseIcon" gradient="nebulosa" testID="BaseIcon" width={'64'} height={48} onPress={onPress}>
+        <Path fillRule="evenodd" clipRule="evenodd" d="M16.5" fill="red" />
+      </BaseIcon>
+    );
+
+    expect(getByTestId('BaseIcon').props.hitSlop).toStrictEqual({
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0,
+    });
+  });
+
+  it('when icon has size prop', () => {
+    const { getByTestId } = render(
+      <BaseIcon id="BaseIcon" gradient="nebulosa" testID="BaseIcon" size={64}>
+        <Path fillRule="evenodd" clipRule="evenodd" d="M16.5" fill="red" />
+      </BaseIcon>
+    );
+
+    expect(getByTestId('BaseIcon').props.width).toBe(64);
+    expect(getByTestId('BaseIcon').props.height).toBe(64);
+  });
+
+  it('when icon has onPress and is too small but has hitSlop prop', () => {
+    const onPress = jest.fn();
+    const { getByTestId } = render(
+      <BaseIcon
+        id="BaseIcon"
+        gradient="nebulosa"
+        testID="BaseIcon"
+        width={16}
+        height={'32'}
+        onPress={onPress}
+        hitSlop={{
+          bottom: 10,
+          left: 10,
+          right: 10,
+          top: 10,
+        }}
+      >
+        <Path fillRule="evenodd" clipRule="evenodd" d="M16.5" fill="red" />
+      </BaseIcon>
+    );
+
+    expect(getByTestId('BaseIcon').props.hitSlop).toStrictEqual({ bottom: 10, left: 10, right: 10, top: 10 });
   });
 });

@@ -18,10 +18,11 @@ Object.keys(icons).forEach((key) => {
   const Icon = icons[key];
   iconsStories.add(key.replace('Icon', ''), () => (
     <Icon
-      width={number('width', 64)}
-      height={number('height', 64)}
+      width={number('width', 16)}
+      height={number('height', 16)}
       gradient={select('gradient', gradientOptions, undefined) || undefined}
       color={select('color', colorOptions, colors.uranus500)}
+      onPress={() => console.log('Pressed')}
     />
   ));
 });

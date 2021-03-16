@@ -1,16 +1,11 @@
 import React, { ReactElement, useState } from 'react';
-import {
-  View,
-  StyleSheet,
-  ActivityIndicator,
-  Pressable,
-  PressableProps,
-  LayoutChangeEvent,
-  Insets,
-} from 'react-native';
+import { View, StyleSheet, ActivityIndicator, Pressable, PressableProps, LayoutChangeEvent } from 'react-native';
 
+import type { HitSlop } from '../types';
+import { getFixedHitSlop } from '../utils';
+
+import type { ButtonSize } from './types';
 import { getBorderRadius, getButtonPadding } from './utils';
-import { ButtonSize } from './types';
 
 interface BaseButtonProps extends PressableProps {
   children: ReactElement;
@@ -43,10 +38,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
 });
-
-type HitSlop = null | Insets | number;
-
-const MIN_HIT_SLOP = 48;
 
 function BaseButton({
   loading = false,
@@ -85,17 +76,8 @@ function BaseButton({
 
   function adjustHitSlop(event: LayoutChangeEvent) {
     const { width, height } = event.nativeEvent.layout;
-    if (width < MIN_HIT_SLOP || height < MIN_HIT_SLOP) {
-      const horizontalOffset = width < MIN_HIT_SLOP ? (MIN_HIT_SLOP - width) / 2 : 0;
-      const verticalOffset = height < MIN_HIT_SLOP ? (MIN_HIT_SLOP - height) / 2 : 0;
-      const newHitSlop = {
-        top: verticalOffset,
-        bottom: verticalOffset,
-        left: horizontalOffset,
-        right: horizontalOffset,
-      };
-      setHitSlop(newHitSlop);
-    }
+    const newHitSlop = getFixedHitSlop({ width, height });
+    setHitSlop(newHitSlop);
   }
 
   function onLayoutButton(event: LayoutChangeEvent) {

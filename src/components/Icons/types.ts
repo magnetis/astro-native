@@ -1,9 +1,10 @@
 import type { SvgProps } from 'react-native-svg';
 import { Colors } from '@magnetis/astro-galaxy-tokens';
+import type { GestureResponderEvent } from 'react-native';
 
 import { GradientID } from '@tokens/gradients';
 
-export interface IconProps extends Omit<SvgProps, 'color'> {
+export interface IconProps extends Omit<SvgProps, 'color' | 'onPress'> {
   /** Id for icon gradient. Recomended to pass a unique value. */
   id?: string;
   /** A valid gradient name from `GradientID` */
@@ -14,6 +15,10 @@ export interface IconProps extends Omit<SvgProps, 'color'> {
   height?: number | string;
   /** A valid color for Astro's colors */
   color?: Colors[keyof Colors];
+  /** Size value. This value will be used as icon's width and height internally */
+  size?: number;
+  /** Called when a single tap gesture is detected */
+  onPress?: (event: GestureResponderEvent) => void;
 }
 
 export type IconID =
