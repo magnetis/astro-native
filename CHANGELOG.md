@@ -1,3 +1,17 @@
+# [1.6.0](https://github.com/magnetis/astro-native/compare/v1.5.0...v1.6.0) (2021-03-16)
+
+
+### Bug Fixes
+
+* **textinput:** fix secure text entry to be true when input is password ([3e10f5c](https://github.com/magnetis/astro-native/commit/3e10f5c26a237d201601cf4d31263d5298af757c))
+
+
+### Features
+
+* **tabs:** add alignment options ([a18c276](https://github.com/magnetis/astro-native/commit/a18c276b00633dad9463de17fbdc78da1d724cb3))
+
+
+
 # [1.5.0](https://github.com/magnetis/astro-native/compare/v1.4.0...v1.5.0) (2021-02-23)
 
 
