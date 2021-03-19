@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useCallback, useState } from 'react';
 import { View, StyleSheet, ActivityIndicator, Pressable, PressableProps, LayoutChangeEvent } from 'react-native';
 
 import type { HitSlop } from '../types';
@@ -74,20 +74,19 @@ function BaseButton({
     hitSlop: typeof props.hitSlop !== 'undefined' ? props.hitSlop : hitSlop,
   };
 
-  function adjustHitSlop(event: LayoutChangeEvent) {
-    const { width, height } = event.nativeEvent.layout;
-    const newHitSlop = getFixedHitSlop({ width, height });
-    setHitSlop(newHitSlop);
-  }
-
-  function onLayoutButton(event: LayoutChangeEvent) {
-    if (props.onLayout) {
-      props.onLayout(event);
-    }
-    if (typeof props.hitSlop === 'undefined') {
-      adjustHitSlop(event);
-    }
-  }
+  const onLayoutButton = useCallback(
+    (event: LayoutChangeEvent) => {
+      if (props.onLayout) {
+        props.onLayout(event);
+      }
+      if (typeof props.hitSlop === 'undefined') {
+        const { width, height } = event.nativeEvent.layout;
+        const newHitSlop = getFixedHitSlop({ width, height });
+        setHitSlop(newHitSlop);
+      }
+    },
+    [props.onLayout, props.hitSlop]
+  );
 
   return (
     <Pressable accessibilityRole="button" {...props} {...pressableProps} onLayout={onLayoutButton}>
