@@ -1,3 +1,13 @@
+# [1.7.0](https://github.com/magnetis/astro-native/compare/v1.6.0...v1.7.0) (2021-03-24)
+
+
+### Features
+
+* **icon:** add camera, notification and pause icons ([56639ad](https://github.com/magnetis/astro-native/commit/56639ad52209721eaff8924b3f6cf17449e1d13a))
+* **icon:** add pressable, calculate hitslop and add props size and onPress into icon ([dde028b](https://github.com/magnetis/astro-native/commit/dde028bb255d2e7d0a10f3e72e04b43b05a548a0))
+
+
+
 # [1.6.0](https://github.com/magnetis/astro-native/compare/v1.5.0...v1.6.0) (2021-03-16)
 
 
