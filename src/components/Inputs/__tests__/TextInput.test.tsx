@@ -55,12 +55,18 @@ describe('TextInput', () => {
 
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
-        transform: [{ translateY: 16 }],
-        position: 'absolute',
-        overflow: 'hidden',
-        width: '95%',
+        backgroundColor: '#ffffff',
+        borderRadius: 8,
         left: 0,
-        top: 0,
+        overflow: 'hidden',
+        paddingBottom: 4,
+        paddingLeft: 16,
+        paddingTop: 8,
+        position: 'absolute',
+        top: -6,
+        transform: [{ translateY: 16 }],
+        width: '100%',
+        zIndex: 1,
       })
     );
   });
@@ -99,12 +105,18 @@ describe('TextInput', () => {
     timeTravel(200);
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
-        transform: [{ translateY: 6 }],
-        position: 'absolute',
-        overflow: 'hidden',
-        width: '95%',
+        backgroundColor: '#ffffff',
+        borderRadius: 8,
         left: 0,
-        top: 0,
+        overflow: 'hidden',
+        paddingBottom: 4,
+        paddingLeft: 16,
+        paddingTop: 8,
+        position: 'absolute',
+        top: -6,
+        transform: [{ translateY: 6 }],
+        width: '100%',
+        zIndex: 1,
       })
     );
   });
@@ -143,12 +155,18 @@ describe('TextInput', () => {
     timeTravel(200);
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
-        transform: [{ translateY: 16 }],
-        position: 'absolute',
-        overflow: 'hidden',
-        width: '95%',
+        backgroundColor: '#ffffff',
+        borderRadius: 8,
         left: 0,
-        top: 0,
+        overflow: 'hidden',
+        paddingBottom: 4,
+        paddingLeft: 16,
+        paddingTop: 8,
+        position: 'absolute',
+        top: -6,
+        transform: [{ translateY: 16 }],
+        width: '100%',
+        zIndex: 1,
       })
     );
 
@@ -157,12 +175,18 @@ describe('TextInput', () => {
     timeTravel(200);
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
-        transform: [{ translateY: 6 }],
-        position: 'absolute',
-        overflow: 'hidden',
-        width: '95%',
+        backgroundColor: '#ffffff',
+        borderRadius: 8,
         left: 0,
-        top: 0,
+        overflow: 'hidden',
+        paddingBottom: 4,
+        paddingLeft: 16,
+        paddingTop: 8,
+        position: 'absolute',
+        top: -6,
+        transform: [{ translateY: 6 }],
+        width: '100%',
+        zIndex: 1,
       })
     );
   });
@@ -199,12 +223,18 @@ describe('TextInput', () => {
     timeTravel(200);
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
-        transform: [{ translateY: 6 }],
-        position: 'absolute',
-        overflow: 'hidden',
-        width: '95%',
+        backgroundColor: '#ffffff',
+        borderRadius: 8,
         left: 0,
-        top: 0,
+        overflow: 'hidden',
+        paddingBottom: 4,
+        paddingLeft: 16,
+        paddingTop: 8,
+        position: 'absolute',
+        top: -6,
+        transform: [{ translateY: 6 }],
+        width: '100%',
+        zIndex: 1,
       })
     );
   });
@@ -243,12 +273,18 @@ describe('TextInput', () => {
     timeTravel(200);
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
-        transform: [{ translateY: 6 }],
-        position: 'absolute',
-        overflow: 'hidden',
-        width: '95%',
+        backgroundColor: '#ffffff',
+        borderRadius: 8,
         left: 0,
-        top: 0,
+        overflow: 'hidden',
+        paddingBottom: 4,
+        paddingLeft: 16,
+        paddingTop: 8,
+        position: 'absolute',
+        top: -6,
+        transform: [{ translateY: 6 }],
+        width: '100%',
+        zIndex: 1,
       })
     );
   });
