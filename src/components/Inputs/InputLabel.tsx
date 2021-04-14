@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import { Animated, StyleSheet, Text } from 'react-native';
 
 import useDidMount from '@hooks/useDidMount';
 import { latoBold } from '@tokens/fonts';
-import { getInputLabelColor, getInputLabelFontSize, getLabelPosition } from './utils';
+import { getInputLabelColor, getInputLabelFontSize, getLabelPosition, getInputBackgroundColor } from './utils';
 
 interface InputLabelProps {
   hasFocus: boolean;
@@ -37,6 +37,15 @@ function InputLabel({
     color: getInputLabelColor({ disabled, hasError, validated, hasFocus }),
   };
 
+  const computedLabelContainerStyles = useMemo(
+    () => ({
+      backgroundColor: getInputBackgroundColor({ disabled }),
+      top: large ? -8 : -6,
+      paddingLeft: baseSize,
+    }),
+    [large, disabled, baseSize]
+  );
+
   useEffect(() => {
     if (didMount && !disableAnimation) {
       labelAnim.stopAnimation();
@@ -51,7 +60,7 @@ function InputLabel({
   return (
     <Animated.View
       testID="InputLabel"
-      style={[styles.labelContainer, { transform: [{ translateY: labelAnim }], paddingLeft: baseSize }]}
+      style={[styles.labelContainer, { transform: [{ translateY: labelAnim }] }, computedLabelContainerStyles]}
     >
       <Text numberOfLines={1} style={[styles.label, computedTextStyles]}>
         {label}
@@ -64,9 +73,12 @@ const styles = StyleSheet.create({
   labelContainer: {
     position: 'absolute',
     overflow: 'hidden',
-    top: 0,
+    zIndex: 1,
     left: 0,
-    width: '95%',
+    width: '100%',
+    borderRadius: 8,
+    paddingTop: 8,
+    paddingBottom: 4,
   },
   label: {
     fontFamily: latoBold,
