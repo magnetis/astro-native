@@ -1,0 +1,505 @@
+import React from 'react';
+import { act, create } from 'react-test-renderer';
+import { fireEvent, render, waitFor } from '@testing-library/react-native';
+
+import TextAreaInput from '../TextAreaInput';
+import { colors } from '@magnetis/astro-galaxy-tokens';
+
+import { setupTimeTravel, timeTravel } from '@root/timeTravel';
+
+const onChangeText = jest.fn();
+const onFocus = jest.fn();
+const onBlur = jest.fn();
+
+const props = {
+  onChangeText,
+  label: 'Label',
+  onFocus,
+  onBlur,
+};
+beforeEach(setupTimeTravel);
+afterEach(() => {
+  jest.clearAllMocks();
+});
+
+describe('TextAreaInput', () => {
+  it('renders correctly on blur state', () => {
+    const { getByTestId } = render(<TextAreaInput {...props} />);
+
+    act(() => {
+      getByTestId('TextAreaInput.Input').props.onBlur();
+    });
+
+    expect(getByTestId('TextAreaInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
+
+    expect(getByTestId('TextAreaInput.Container').props.style[0]).toEqual(
+      expect.objectContaining({
+        borderWidth: 1,
+        borderRadius: 8,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Container').props.style[1]).toEqual(
+      expect.objectContaining({ backgroundColor: colors.space100, borderColor: colors.moon900 })
+    );
+
+    expect(getByTestId('TextAreaInput.Input').props.style[0]).toEqual(
+      expect.objectContaining({
+        fontFamily: 'Lato-Regular',
+        paddingBottom: 8,
+        paddingTop: 28,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Input').props.style[1]).toEqual(
+      expect.objectContaining({ paddingLeft: 16, fontSize: 16, paddingRight: 16 })
+    );
+
+    expect(getByTestId('InputLabel').props.style).toEqual(
+      expect.objectContaining({
+        backgroundColor: '#ffffff',
+        borderRadius: 8,
+        left: 0,
+        overflow: 'hidden',
+        paddingBottom: 4,
+        paddingLeft: 16,
+        paddingTop: 8,
+        position: 'absolute',
+        top: -6,
+        transform: [{ translateY: 16 }],
+        width: '100%',
+        zIndex: 1,
+      })
+    );
+  });
+
+  it('renders correctly on blur state and has value', () => {
+    const { getByTestId } = render(<TextAreaInput {...props} value="some value" />);
+
+    act(() => {
+      getByTestId('TextAreaInput.Input').props.onBlur();
+    });
+
+    expect(getByTestId('TextAreaInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
+
+    expect(getByTestId('TextAreaInput.Container').props.style[0]).toEqual(
+      expect.objectContaining({
+        borderWidth: 1,
+        borderRadius: 8,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Container').props.style[1]).toEqual(
+      expect.objectContaining({ backgroundColor: colors.space100, borderColor: colors.moon900 })
+    );
+
+    expect(getByTestId('TextAreaInput.Input').props.style[0]).toEqual(
+      expect.objectContaining({
+        fontFamily: 'Lato-Regular',
+        paddingBottom: 8,
+        paddingTop: 28,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Input').props.style[1]).toEqual(
+      expect.objectContaining({ paddingLeft: 16, fontSize: 16, paddingRight: 16 })
+    );
+    expect(getByTestId('TextAreaInput.Input').props.value).toEqual('some value');
+
+    timeTravel(200);
+    expect(getByTestId('InputLabel').props.style).toEqual(
+      expect.objectContaining({
+        backgroundColor: '#ffffff',
+        borderRadius: 8,
+        left: 0,
+        overflow: 'hidden',
+        paddingBottom: 4,
+        paddingLeft: 16,
+        paddingTop: 8,
+        position: 'absolute',
+        top: -6,
+        transform: [{ translateY: 6 }],
+        width: '100%',
+        zIndex: 1,
+      })
+    );
+  });
+
+  it('renders correctly on blur state and the value changes', () => {
+    const { getByTestId, rerender } = render(<TextAreaInput {...props} value="" />);
+
+    act(() => {
+      getByTestId('TextAreaInput.Input').props.onBlur();
+    });
+
+    expect(getByTestId('TextAreaInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
+
+    expect(getByTestId('TextAreaInput.Container').props.style[0]).toEqual(
+      expect.objectContaining({
+        borderWidth: 1,
+        borderRadius: 8,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Container').props.style[1]).toEqual(
+      expect.objectContaining({ backgroundColor: colors.space100, borderColor: colors.moon900 })
+    );
+
+    expect(getByTestId('TextAreaInput.Input').props.style[0]).toEqual(
+      expect.objectContaining({
+        fontFamily: 'Lato-Regular',
+        paddingBottom: 8,
+        paddingTop: 28,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Input').props.style[1]).toEqual(
+      expect.objectContaining({ paddingLeft: 16, fontSize: 16, paddingRight: 16 })
+    );
+    expect(getByTestId('TextAreaInput.Input').props.value).toEqual('');
+
+    timeTravel(200);
+    expect(getByTestId('InputLabel').props.style).toEqual(
+      expect.objectContaining({
+        backgroundColor: '#ffffff',
+        borderRadius: 8,
+        left: 0,
+        overflow: 'hidden',
+        paddingBottom: 4,
+        paddingLeft: 16,
+        paddingTop: 8,
+        position: 'absolute',
+        top: -6,
+        transform: [{ translateY: 16 }],
+        width: '100%',
+        zIndex: 1,
+      })
+    );
+
+    rerender(<TextAreaInput {...props} value="some value" />);
+    expect(getByTestId('TextAreaInput.Input').props.value).toEqual('some value');
+    timeTravel(200);
+    expect(getByTestId('InputLabel').props.style).toEqual(
+      expect.objectContaining({
+        backgroundColor: '#ffffff',
+        borderRadius: 8,
+        left: 0,
+        overflow: 'hidden',
+        paddingBottom: 4,
+        paddingLeft: 16,
+        paddingTop: 8,
+        position: 'absolute',
+        top: -6,
+        transform: [{ translateY: 6 }],
+        width: '100%',
+        zIndex: 1,
+      })
+    );
+  });
+
+  it('renders correctly on focus state', () => {
+    const { getByTestId } = render(<TextAreaInput {...props} />);
+
+    act(() => {
+      getByTestId('TextAreaInput.Input').props.onFocus();
+    });
+
+    expect(getByTestId('TextAreaInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
+    expect(getByTestId('TextAreaInput.Container').props.style[0]).toEqual(
+      expect.objectContaining({
+        borderWidth: 1,
+        borderRadius: 8,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Container').props.style[1]).toEqual(
+      expect.objectContaining({ backgroundColor: colors.space100, borderColor: colors.uranus500 })
+    );
+
+    expect(getByTestId('TextAreaInput.Input').props.style[0]).toEqual(
+      expect.objectContaining({
+        fontFamily: 'Lato-Regular',
+        paddingBottom: 8,
+        paddingTop: 28,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Input').props.style[1]).toEqual(
+      expect.objectContaining({ paddingLeft: 16, fontSize: 16, paddingRight: 16 })
+    );
+
+    timeTravel(200);
+    expect(getByTestId('InputLabel').props.style).toEqual(
+      expect.objectContaining({
+        backgroundColor: '#ffffff',
+        borderRadius: 8,
+        left: 0,
+        overflow: 'hidden',
+        paddingBottom: 4,
+        paddingLeft: 16,
+        paddingTop: 8,
+        position: 'absolute',
+        top: -6,
+        transform: [{ translateY: 6 }],
+        width: '100%',
+        zIndex: 1,
+      })
+    );
+  });
+
+  it('renders correctly on focus state when has value', () => {
+    const { getByTestId } = render(<TextAreaInput {...props} value="some value" />);
+
+    act(() => {
+      getByTestId('TextAreaInput.Input').props.onFocus();
+    });
+
+    expect(getByTestId('TextAreaInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
+    expect(getByTestId('TextAreaInput.Container').props.style[0]).toEqual(
+      expect.objectContaining({
+        borderWidth: 1,
+        borderRadius: 8,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Container').props.style[1]).toEqual(
+      expect.objectContaining({ backgroundColor: colors.space100, borderColor: colors.uranus500 })
+    );
+
+    expect(getByTestId('TextAreaInput.Input').props.style[0]).toEqual(
+      expect.objectContaining({
+        fontFamily: 'Lato-Regular',
+        paddingBottom: 8,
+        paddingTop: 28,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Input').props.style[1]).toEqual(
+      expect.objectContaining({ paddingLeft: 16, fontSize: 16, paddingRight: 16 })
+    );
+
+    expect(getByTestId('TextAreaInput.Input').props.value).toEqual('some value');
+
+    timeTravel(200);
+    expect(getByTestId('InputLabel').props.style).toEqual(
+      expect.objectContaining({
+        backgroundColor: '#ffffff',
+        borderRadius: 8,
+        left: 0,
+        overflow: 'hidden',
+        paddingBottom: 4,
+        paddingLeft: 16,
+        paddingTop: 8,
+        position: 'absolute',
+        top: -6,
+        transform: [{ translateY: 6 }],
+        width: '100%',
+        zIndex: 1,
+      })
+    );
+  });
+
+  it('renders correctly when validated is true', () => {
+    const { getByTestId } = render(<TextAreaInput {...props} validated />);
+
+    act(() => {
+      getByTestId('TextAreaInput.Input').props.onFocus();
+    });
+
+    expect(getByTestId('TextAreaInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
+    expect(getByTestId('TextAreaInput.Container').props.style[0]).toEqual(
+      expect.objectContaining({
+        borderWidth: 1,
+        borderRadius: 8,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Container').props.style[1]).toEqual(
+      expect.objectContaining({ backgroundColor: colors.space100, borderColor: colors.earth400 })
+    );
+
+    expect(getByTestId('TextAreaInput.Input').props.style[0]).toEqual(
+      expect.objectContaining({
+        fontFamily: 'Lato-Regular',
+        paddingBottom: 8,
+        paddingTop: 28,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Input').props.style[1]).toEqual(
+      expect.objectContaining({ paddingLeft: 16, fontSize: 16, paddingRight: 56 })
+    );
+  });
+
+  it('renders correctly when error is truthy', () => {
+    const { getByTestId } = render(<TextAreaInput {...props} error="error" touched />);
+
+    act(() => {
+      getByTestId('TextAreaInput.Input').props.onFocus();
+    });
+
+    expect(getByTestId('TextAreaInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
+    expect(getByTestId('TextAreaInput.Container').props.style[0]).toEqual(
+      expect.objectContaining({
+        borderWidth: 1,
+        borderRadius: 8,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Container').props.style[1]).toEqual(
+      expect.objectContaining({ backgroundColor: colors.space100, borderColor: colors.mars500 })
+    );
+
+    expect(getByTestId('TextAreaInput.Input').props.style[0]).toEqual(
+      expect.objectContaining({
+        fontFamily: 'Lato-Regular',
+        paddingBottom: 8,
+        paddingTop: 28,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Input').props.style[1]).toEqual(
+      expect.objectContaining({ paddingLeft: 16, fontSize: 16, paddingRight: 56 })
+    );
+  });
+
+  it('renders correctly on blur state when large is true', () => {
+    const { getByTestId } = render(<TextAreaInput {...props} large />);
+
+    expect(getByTestId('TextAreaInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
+    expect(getByTestId('TextAreaInput.Container').props.style[0]).toEqual(
+      expect.objectContaining({
+        borderWidth: 1,
+        borderRadius: 8,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Container').props.style[1]).toEqual(
+      expect.objectContaining({ backgroundColor: colors.space100, borderColor: colors.moon900 })
+    );
+
+    expect(getByTestId('TextAreaInput.Input').props.style[0]).toEqual(
+      expect.objectContaining({
+        fontFamily: 'Lato-Regular',
+        paddingBottom: 8,
+        paddingTop: 28,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Input').props.style[1]).toEqual(
+      expect.objectContaining({ paddingLeft: 24, fontSize: 24, paddingRight: 24 })
+    );
+  });
+
+  it('renders correctly on focus state when large is true', () => {
+    const { getByTestId } = render(<TextAreaInput {...props} large />);
+
+    act(() => {
+      getByTestId('TextAreaInput.Input').props.onFocus();
+    });
+
+    expect(getByTestId('TextAreaInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
+    expect(getByTestId('TextAreaInput.Container').props.style[0]).toEqual(
+      expect.objectContaining({
+        borderWidth: 1,
+        borderRadius: 8,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Container').props.style[1]).toEqual(
+      expect.objectContaining({ backgroundColor: colors.space100, borderColor: colors.uranus500 })
+    );
+
+    expect(getByTestId('TextAreaInput.Input').props.style[0]).toEqual(
+      expect.objectContaining({
+        fontFamily: 'Lato-Regular',
+        paddingBottom: 8,
+        paddingTop: 28,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Input').props.style[1]).toEqual(
+      expect.objectContaining({ paddingLeft: 24, fontSize: 24, paddingRight: 24 })
+    );
+  });
+
+  it('renders correctly when validated and large are true', () => {
+    const { getByTestId } = render(<TextAreaInput {...props} validated large />);
+
+    act(() => {
+      getByTestId('TextAreaInput.Input').props.onFocus();
+    });
+
+    expect(getByTestId('TextAreaInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
+    expect(getByTestId('TextAreaInput.Container').props.style[0]).toEqual(
+      expect.objectContaining({
+        borderWidth: 1,
+        borderRadius: 8,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Container').props.style[1]).toEqual(
+      expect.objectContaining({ backgroundColor: colors.space100, borderColor: colors.earth400 })
+    );
+
+    expect(getByTestId('TextAreaInput.Input').props.style[0]).toEqual(
+      expect.objectContaining({
+        fontFamily: 'Lato-Regular',
+        paddingBottom: 8,
+        paddingTop: 28,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Input').props.style[1]).toEqual(
+      expect.objectContaining({ paddingLeft: 24, fontSize: 24, paddingRight: 56 })
+    );
+  });
+
+  it('renders correctly when error is truthy and large is true', () => {
+    const { getByTestId } = render(<TextAreaInput {...props} error="error" large touched />);
+
+    act(() => {
+      getByTestId('TextAreaInput.Input').props.onFocus();
+    });
+
+    expect(getByTestId('TextAreaInput').props.style).toEqual(expect.objectContaining({ paddingBottom: 12 }));
+    expect(getByTestId('TextAreaInput.Container').props.style[0]).toEqual(
+      expect.objectContaining({
+        borderWidth: 1,
+        borderRadius: 8,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Container').props.style[1]).toEqual(
+      expect.objectContaining({ backgroundColor: colors.space100, borderColor: colors.mars500 })
+    );
+
+    expect(getByTestId('TextAreaInput.Input').props.style[0]).toEqual(
+      expect.objectContaining({
+        fontFamily: 'Lato-Regular',
+        paddingBottom: 8,
+        paddingTop: 28,
+      })
+    );
+    expect(getByTestId('TextAreaInput.Input').props.style[1]).toEqual(
+      expect.objectContaining({ paddingLeft: 24, fontSize: 24, paddingRight: 56 })
+    );
+  });
+
+  it('calls onChangeText when input text changes', () => {
+    const { getByTestId } = render(<TextAreaInput {...props} />);
+
+    fireEvent.changeText(getByTestId('TextAreaInput.Input'), 'any text');
+
+    expect(props.onChangeText).toHaveBeenCalledWith('any text');
+  });
+
+  it('does not render error state when touched is false', () => {
+    const { getByTestId } = render(<TextAreaInput {...props} touched={false} error="Error" />);
+
+    expect(getByTestId('TextAreaInput.Container').props.style[1]).toEqual(
+      expect.objectContaining({ backgroundColor: colors.space100, borderColor: colors.moon900 })
+    );
+  });
+
+  it('does have a fixed height if text area is not elastic', () => {
+    const { getByTestId } = render(<TextAreaInput {...props} elastic={false} />);
+
+    expect(getByTestId('TextAreaInput.Input').props.style[1]).toEqual(expect.objectContaining({ height: 160 }));
+  });
+
+  it('does have a initial size if text area is not elastic', () => {
+    const { getByTestId } = render(<TextAreaInput {...props} elastic={true} />);
+
+    expect(getByTestId('TextAreaInput.Input').props.style[1]).toEqual(expect.objectContaining({ height: undefined }));
+  });
+
+  it('focus input when container is pressed', async () => {
+    const wrapper = create(<TextAreaInput {...props} touched={false} />);
+    const container = wrapper.root.findByProps({ testID: 'TextAreaInput.Container' });
+    const input = wrapper.root.findByProps({ testID: 'TextAreaInput.Input' });
+    const spy = jest.spyOn(input.instance, 'focus');
+
+    fireEvent.press(container);
+    waitFor(() => expect(spy).toHaveBeenCalled());
+  });
+});
