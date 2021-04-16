@@ -1,3 +1,12 @@
+# [1.8.0](https://github.com/magnetis/astro-native/compare/v1.7.0...v1.8.0) (2021-04-16)
+
+
+### Features
+
+- **input** add text area ([c018b39](https://github.com/magnetis/astro-native/commit/0bd590d29915900f126b35fdbe023a66f3ae2a96))
+
+
+
 # [1.7.0](https://github.com/magnetis/astro-native/compare/v1.6.0...v1.7.0) (2021-03-24)
 
 
