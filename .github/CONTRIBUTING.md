@@ -24,7 +24,7 @@ Every branch **MUST** be prefixed with a valid type that describes its main purp
 | bugfix/\*     | Represents a bugfix                                                         |
 | release/x.x.x | New release                                                                 |
 | hotfix/\*     | Fix to be applied on production code                                        |
-| chore/\*      | Represents changes that do not afect codebase                               |
+| chore/\*      | Represents changes that do not affect codebase                               |
 
 ## Commit Messages
 
@@ -75,7 +75,7 @@ feat(Buttons): Implement GhostButton
 
 ## Committing
 
-We recommend you to use `yarn cz` when committing. That way, you'll be presentend an interactive prompt to build tout commit message. But don't worry, if you prefer to commit in any other way, our project uses CommitLint to make sure patterns are being followed.
+We recommend you to use `yarn cz` when committing. That way, you'll be presented an interactive prompt to build out commit message. But don't worry, if you prefer to commit in any other way, our project uses CommitLint to make sure patterns are being followed.
 
 ## Opening a PR
 
@@ -87,7 +87,7 @@ Where applicable, you **MUST** add the Jira ticket from our board on the PR's ti
 
 ### QA Proccess
 
-After your PR is approved and before it's merged, it must be ran through the QA proccess. For that, you **MUST** write a script for testing the changes you've made. The QA will be done in a dev environment using an iOS Simulator or Android Emulator.
+After your PR is approved and before it's merged, it must be ran through the QA process. For that, you **MUST** write a script for testing the changes you've made. The QA will be done in a dev environment using an iOS Simulator or Android Emulator.
 
 :warning: Don't forget to implement the stories in storybook, in order to make QA possible.
 
@@ -123,7 +123,7 @@ Once your PR is approved and merged, you **MUST** [draft a new release](https://
 
 ### Running Storybook on Android phisical device
 
-If you want to use an Android phisical device while developing for Astro Native, you need to run `adb reverse tcp:7007 tcp:7007`. That way, the device will be able to listen to changes made in the browser by the storybook server.
+If you want to use an Android physical device while developing for Astro Native, you need to run `adb reverse tcp:7007 tcp:7007`. That way, the device will be able to listen to changes made in the browser by the storybook server.
 
 ## Key words for use to indicate requirement levels
 
