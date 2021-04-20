@@ -174,4 +174,20 @@ describe('Slider', () => {
     expect(queryByText('1 day')).toBeNull();
     expect(queryByText('6 days')).not.toBeNull();
   });
+
+  it('renders correctly without label', () => {
+    const { queryByText } = render(
+      <Slider
+        unit={{ singular: 'day', plural: 'days' }}
+        hideLabel
+        onValueChange={onValueChange}
+        label="Deadline"
+        minimumValue={1}
+        maximumValue={10}
+      />
+    );
+
+    expect(queryByText('1 day')).toBeNull();
+    expect(queryByText('Deadline')).toBeNull();
+  });
 });
