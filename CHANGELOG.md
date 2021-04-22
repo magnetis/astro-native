@@ -1,9 +1,16 @@
+# [1.8.1](https://github.com/magnetis/astro-native/compare/v1.8.0...v1.8.1) (2021-04-22)
+
+
+### Features
+
+- **input** allow to hide slider label ([6997b09](https://github.com/magnetis/astro-native/commit/ea8c79281845c5cf28c5c0cf27400cc36b3e8dd0))
+
 # [1.8.0](https://github.com/magnetis/astro-native/compare/v1.7.0...v1.8.0) (2021-04-16)
 
 
 ### Features
 
-- **input** add text area ([c018b39](https://github.com/magnetis/astro-native/commit/0bd590d29915900f126b35fdbe023a66f3ae2a96))
+- **input** add text area ([0bd590d](https://github.com/magnetis/astro-native/commit/0bd590d29915900f126b35fdbe023a66f3ae2a96))
 
 
 
