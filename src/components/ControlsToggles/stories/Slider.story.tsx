@@ -12,7 +12,7 @@ storiesOf('Controls & Toggles', module).add('Slider', () => (
       unit={{ plural: 'days', singular: 'day' }}
       minimumValue={number('minimumValue', 1)}
       maximumValue={number('maximumValue', 70)}
-      hideLabel={boolean('hideLabel', false)}
+      hideHeader={boolean('hideHeader', false)}
       fullFill={boolean('fullFill', false)}
       disabled={boolean('disabled', false)}
       onValueChange={(newValue) => console.log('slider to ', newValue)}

@@ -24,8 +24,8 @@ interface SliderProps {
   onValueChange: (newValue: number) => void;
   /** Used to locate this component in end-to-end tests. Defaults to `"Slider"`. */
   testID?: string;
-  /** Hides the label when is needed to display only the slider */
-  hideLabel?: boolean;
+  /** Hides the header when is needed to display only the slider */
+  hideHeader?: boolean;
 }
 
 /**
@@ -36,7 +36,7 @@ interface SliderProps {
 function Slider({
   disabled = false,
   fullFill = false,
-  hideLabel = false,
+  hideHeader = false,
   onValueChange,
   label = '',
   unit = '',
@@ -69,12 +69,20 @@ function Slider({
 
   return (
     <View testID="Slider.Container" style={styles.container}>
-      {!hideLabel && label !== '' && (
+      {!hideHeader && (
         <View testID="Slider.LabelContainer" style={styles.labelContainer}>
-          <SecondaryTextMedium color={disabled ? colors.moon200 : colors.moon900} bold>
-            {String(slidingValue)} {unitString}
+          <SecondaryTextMedium
+            accessibilityLabel="valor selecionado"
+            color={disabled ? colors.moon200 : colors.moon900}
+            bold
+          >
+            {`${slidingValue} ${unitString}`}
           </SecondaryTextMedium>
-          <SecondaryTextMedium color={disabled ? colors.moon200 : colors.moon900}>{label}</SecondaryTextMedium>
+          {label !== '' && (
+            <SecondaryTextMedium accessibilityLabel="tipo de valor" color={disabled ? colors.moon200 : colors.moon900}>
+              {label}
+            </SecondaryTextMedium>
+          )}
         </View>
       )}
       <RNSlider
