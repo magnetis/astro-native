@@ -175,11 +175,11 @@ describe('Slider', () => {
     expect(queryByText('6 days')).not.toBeNull();
   });
 
-  it('renders correctly without label', () => {
+  it('renders correctly without header', () => {
     const { queryByText } = render(
       <Slider
         unit={{ singular: 'day', plural: 'days' }}
-        hideLabel
+        hideHeader
         onValueChange={onValueChange}
         label="Deadline"
         minimumValue={1}
@@ -189,5 +189,19 @@ describe('Slider', () => {
 
     expect(queryByText('1 day')).toBeNull();
     expect(queryByText('Deadline')).toBeNull();
+  });
+
+  it('renders correctly without label', () => {
+    const { getByText, queryByA11yLabel } = render(
+      <Slider
+        unit={{ singular: 'day', plural: 'days' }}
+        onValueChange={onValueChange}
+        minimumValue={1}
+        maximumValue={10}
+      />
+    );
+
+    expect(getByText('1 day')).toBeDefined();
+    expect(queryByA11yLabel('tipo de valor')).toBeNull();
   });
 });
