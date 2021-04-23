@@ -7,11 +7,11 @@ import { act } from 'react-test-renderer';
 
 const onValueChange = jest.fn();
 
-afterEach(() => {
-  jest.clearAllMocks();
-});
-
 describe('Slider', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('renders correctly with default props', () => {
     const { getByTestId, getByText } = render(
       <Slider onValueChange={onValueChange} label="Deadline" minimumValue={1} maximumValue={10} />
