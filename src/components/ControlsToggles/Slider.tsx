@@ -8,12 +8,12 @@ import useDidMount from '@hooks/useDidMount';
 type Unit = string | { singular: string; plural: string };
 
 interface SliderProps {
-  /** Text to be rendered on top of slider */
-  label: string;
   /** Mininum range value */
   minimumValue: number;
   /** Maximum range value */
   maximumValue: number;
+  /** Text to be rendered on top of slider */
+  label?: string;
   /** Disables any user interaction with component. Defaults to `false`. */
   disabled?: boolean;
   /** Unit used for range values. Can be either a single string or an object with `singular` and `plural` keys */
@@ -38,7 +38,7 @@ function Slider({
   fullFill = false,
   hideLabel = false,
   onValueChange,
-  label,
+  label = '',
   unit = '',
   testID = 'Slider',
   ...props
@@ -69,7 +69,7 @@ function Slider({
 
   return (
     <View testID="Slider.Container" style={styles.container}>
-      {!hideLabel && (
+      {!hideLabel && label !== '' && (
         <View testID="Slider.LabelContainer" style={styles.labelContainer}>
           <SecondaryTextMedium color={disabled ? colors.moon200 : colors.moon900} bold>
             {String(slidingValue)} {unitString}
