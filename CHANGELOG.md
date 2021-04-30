@@ -1,3 +1,12 @@
+# [1.8.2](https://github.com/magnetis/astro-native/compare/v1.8.1...v1.8.2) (2021-04-22)
+
+
+### Features
+
+- **slider** improve type ([ad5f4f9](https://github.com/magnetis/astro-native/commit/ad5f4f9aa951ed4665aeb0292de36c1945b9661a)), show slider selected value without label ([5f6920a](https://github.com/magnetis/astro-native/commit/5f6920a9861a23068ba550831057c6581bd11d44)) and turns label optional ([ed2f2dd](https://github.com/magnetis/astro-native/commit/ed2f2dd2da056e1826fdaff379bcedcc7736020f))
+
+
+
 # [1.8.1](https://github.com/magnetis/astro-native/compare/v1.8.0...v1.8.1) (2021-04-22)
 
 
