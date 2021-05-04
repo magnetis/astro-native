@@ -1,6 +1,6 @@
 import React from 'react';
-import { act, create } from 'react-test-renderer';
-import { fireEvent, render, waitFor } from '@testing-library/react-native';
+import { act } from 'react-test-renderer';
+import { fireEvent, render } from '@testing-library/react-native';
 
 import TextInput from '../TextInput';
 import { colors } from '@magnetis/astro-galaxy-tokens';
@@ -56,17 +56,13 @@ describe('TextInput', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 16,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 16,
         paddingTop: 8,
         position: 'absolute',
         top: -6,
         transform: [{ translateY: 16 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
   });
@@ -106,17 +102,13 @@ describe('TextInput', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 16,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 16,
         paddingTop: 8,
         position: 'absolute',
         top: -6,
         transform: [{ translateY: 6 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
   });
@@ -156,17 +148,13 @@ describe('TextInput', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 16,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 16,
         paddingTop: 8,
         position: 'absolute',
         top: -6,
         transform: [{ translateY: 16 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
 
@@ -176,17 +164,13 @@ describe('TextInput', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 16,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 16,
         paddingTop: 8,
         position: 'absolute',
         top: -6,
         transform: [{ translateY: 6 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
   });
@@ -224,17 +208,13 @@ describe('TextInput', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 16,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 16,
         paddingTop: 8,
         position: 'absolute',
         top: -6,
         transform: [{ translateY: 6 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
   });
@@ -274,17 +254,13 @@ describe('TextInput', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 16,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 16,
         paddingTop: 8,
         position: 'absolute',
         top: -6,
         transform: [{ translateY: 6 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
   });
@@ -495,15 +471,5 @@ describe('TextInput', () => {
     expect(getByTestId('TextInput.Container').props.style[1]).toEqual(
       expect.objectContaining({ backgroundColor: colors.space100, borderColor: colors.moon900 })
     );
-  });
-
-  it('focus input when container is pressed', async () => {
-    const wrapper = create(<TextInput {...props} touched={false} />);
-    const container = wrapper.root.findByProps({ testID: 'TextInput.Container' });
-    const input = wrapper.root.findByProps({ testID: 'TextInput.Input' });
-    const spy = jest.spyOn(input.instance, 'focus');
-
-    fireEvent.press(container);
-    waitFor(() => expect(spy).toHaveBeenCalled());
   });
 });

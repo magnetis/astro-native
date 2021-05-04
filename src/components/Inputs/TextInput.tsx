@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { TextInput as RNTextInput, Pressable, StyleSheet, View } from 'react-native';
+import { TextInput as RNTextInput, StyleSheet, View } from 'react-native';
 
 import { getInputBackgroundColor, getInputBorderColor } from './utils';
 import type { BaseInputProps } from './types';
@@ -61,10 +61,6 @@ function TextInput({
     }
   }, [props.value]);
 
-  function handleInputPress() {
-    inputRef.current?.focus();
-  }
-
   function handleInputFocus() {
     setHasFocus(true);
     onFocus && onFocus();
@@ -88,11 +84,7 @@ function TextInput({
 
   return (
     <View testID="TextInput" style={styles.wrapper}>
-      <Pressable
-        testID="TextInput.Container"
-        onPress={handleInputPress}
-        style={[styles.container, computedContainerStyles]}
-      >
+      <View testID="TextInput.Container" style={[styles.container, computedContainerStyles]}>
         <InputLabel
           hasFocus={hasFocus}
           disabled={disabled}
@@ -115,7 +107,7 @@ function TextInput({
           onChangeText={handleOnChangeText}
         />
         {!password && <InputStatusIcon hasError={hasError} isValidated={isValidated} large={large} />}
-      </Pressable>
+      </View>
       {password && (
         <InputEyeToggle
           hasError={hasError}
@@ -135,11 +127,16 @@ const styles = StyleSheet.create({
   container: {
     borderWidth: 1,
     borderRadius: 8,
+    paddingTop: 0,
+    paddingBottom: 0,
   },
   input: {
     fontFamily: lato,
     paddingBottom: 8,
     paddingTop: 28,
+    flexGrow: 1,
+    margin: 0,
+    zIndex: 1,
   },
 });
 

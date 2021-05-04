@@ -56,17 +56,13 @@ describe('TextAreaInput', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 16,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 16,
         paddingTop: 8,
         position: 'absolute',
         top: -6,
         transform: [{ translateY: 16 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
   });
@@ -106,17 +102,13 @@ describe('TextAreaInput', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 16,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 16,
         paddingTop: 8,
         position: 'absolute',
         top: -6,
         transform: [{ translateY: 6 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
   });
@@ -156,17 +148,13 @@ describe('TextAreaInput', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 16,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 16,
         paddingTop: 8,
         position: 'absolute',
         top: -6,
         transform: [{ translateY: 16 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
 
@@ -176,17 +164,13 @@ describe('TextAreaInput', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 16,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 16,
         paddingTop: 8,
         position: 'absolute',
         top: -6,
         transform: [{ translateY: 6 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
   });
@@ -224,17 +208,13 @@ describe('TextAreaInput', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 16,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 16,
         paddingTop: 8,
         position: 'absolute',
         top: -6,
         transform: [{ translateY: 6 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
   });
@@ -274,17 +254,13 @@ describe('TextAreaInput', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 16,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 16,
         paddingTop: 8,
         position: 'absolute',
         top: -6,
         transform: [{ translateY: 6 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
   });
