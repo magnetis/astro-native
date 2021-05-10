@@ -5,7 +5,7 @@ import type { Size } from '@tokens/sizes';
 
 export type ButtonSize = Size;
 
-export type ButtonColor = 'uranus' | 'earth' | 'venus' | 'mars';
+export type ButtonColor = 'uranus' | 'earth' | 'venus' | 'mars' | 'moon' | 'space';
 
 export interface ButtonProps extends PressableProps {
   /** Text to be shown inside the button */
