@@ -1,4 +1,4 @@
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { colors } from '@magnetis/astro-tokens';
 
 import { getFill } from '../utils';
 

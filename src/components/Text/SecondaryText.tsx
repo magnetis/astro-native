@@ -1,5 +1,5 @@
 import React from 'react';
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { colors } from '@magnetis/astro-tokens';
 
 import { lato, latoBold } from '@tokens/fonts';
 import { BaseTextProps } from './types';

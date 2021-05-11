@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pressable, PressableProps, View } from 'react-native';
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { colors } from '@magnetis/astro-tokens';
 
 import { ButtonSize } from './types';
 import { getIcon } from './utils';

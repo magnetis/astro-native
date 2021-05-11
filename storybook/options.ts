@@ -1,16 +1,21 @@
-import { Colors, colors } from '@magnetis/astro-galaxy-tokens';
+import { colors } from '@magnetis/astro-tokens';
+
 import gradients from '@tokens/gradients';
 import { Size } from '@tokens/sizes';
 import * as icons from '@components/Icons';
 import type { IconID } from '@components/Icons';
 import { ButtonColor } from '@components/Buttons';
 
-export const colorOptions = Object.keys(colors).reduce((acc, key) => {
-  acc[key] = colors[(key as unknown) as keyof Colors];
-  return acc;
-}, {} as { [key: string]: Colors[keyof Colors] });
+import type { Color } from '@magnetis/astro-tokens';
 
-export const colorOptionsWithTransparent: { [key: string]: Colors[keyof Colors] | 'transparent' } = {
+type Colors = keyof typeof colors;
+
+export const colorOptions = Object.keys(colors).reduce((acc, key) => {
+  acc[key] = colors[key as Colors];
+  return acc;
+}, {} as Record<string, string>);
+
+export const colorOptionsWithTransparent: { [key: string]: Color | 'transparent' } = {
   ...colorOptions,
   transparent: 'transparent',
 };

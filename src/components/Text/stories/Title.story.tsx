@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { select } from '@storybook/addon-knobs';
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { colors } from '@magnetis/astro-tokens';
 
 import { TitleSmall, TitleMedium, TitleLarge } from '..';
 import { colorOptions } from '@root/storybook/options';

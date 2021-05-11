@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ImageURISource } from 'react-native';
 import RNSlider from '@react-native-community/slider';
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { colors } from '@magnetis/astro-tokens';
 import { StyleSheet, View } from 'react-native';
 import { SecondaryTextMedium } from '@components/Text';
 import useDidMount from '@hooks/useDidMount';

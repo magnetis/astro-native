@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Colors } from '@magnetis/astro-galaxy-tokens';
-
-import { IconID } from '@components/Icons/types';
-import type { Size } from '@tokens/sizes';
-import sizes from '@tokens/sizes';
 import { Pressable, ScrollView, StyleSheet } from 'react-native';
+
 import { getSecondaryTextFromSize } from '@components/Text/utils';
 import { getIcon } from '@components/Buttons/utils';
-import { getFontSize } from '@tokens/utils';
+
 import useDidMount from '@hooks/useDidMount';
+import sizes from '@tokens/sizes';
+import { getFontSize } from '@tokens/utils';
+
+import type { Size } from '@tokens/sizes';
+import type { Color } from '@magnetis/astro-tokens';
+import { IconID } from '@components/Icons/types';
 
 interface TabItem {
   /** Text to be shown inside tab */
@@ -20,24 +22,24 @@ interface TabItem {
   /** Disables any user interaction with component. Defaults to `false`. */
   disabled?: boolean;
   /** Items' backgroundColor color when active */
-  activeColor?: Colors[keyof Colors];
+  activeColor?: Color;
   /** Items' text color when active */
-  activeTextColor?: Colors[keyof Colors];
+  activeTextColor?: Color;
 }
 
 interface TabsProps {
   /** List of tab items */
   items: TabItem[];
   /** Items' text color when not active */
-  textColor: Colors[keyof Colors];
+  textColor: Color;
   /** Items' text color when disabled */
-  disabledColor: Colors[keyof Colors];
+  disabledColor: Color;
   /** Items' text color when active */
-  activeTextColor: Colors[keyof Colors];
+  activeTextColor: Color;
   /** Items' backgroundColor color when active */
-  activeItemColor?: Colors[keyof Colors] | 'transparent';
+  activeItemColor?: Color | 'transparent';
   /** Items' backgroundColor color when not active */
-  backgroundColor?: Colors[keyof Colors] | 'transparent';
+  backgroundColor?: Color | 'transparent';
   /** Define items borderBottom if true */
   borderBottom?: boolean;
   /** Used to locate this component in end-to-end tests. Defaults to `"Tabs"`. */
@@ -47,7 +49,7 @@ interface TabsProps {
   /** Define which size tab will have. Defaults to `"medium"`. */
   size?: Size;
   /** Tab border color */
-  borderColor?: Colors[keyof Colors] | 'transparent';
+  borderColor?: Color | 'transparent';
   /** Callback called when a tab is selected */
   onChange: (value: string) => void;
   /** When provided, defines which tab will be selected at first */
