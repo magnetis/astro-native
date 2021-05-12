@@ -1,3 +1,13 @@
+# [1.8.3](https://github.com/magnetis/astro-native/compare/v1.8.2...v1.8.3) (2021-05-12)
+
+
+### Features
+
+- **input** fix control buttons position ([173ebd5](https://github.com/magnetis/astro-native/commit/173ebd58a2605b27b5778236bb57b4ac91cb5e66))
+- **buttons**: add moon and space colors ([d68b355](https://github.com/magnetis/astro-native/commit/d68b35565893200a543c59c43f6ccbf024b377cb))
+
+
+
 # [1.8.2](https://github.com/magnetis/astro-native/compare/v1.8.1...v1.8.2) (2021-04-22)
 
 
