@@ -1,5 +1,3 @@
-/* global NodeJS */
-
 import React, { useEffect, useRef } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import { colors } from '@magnetis/astro-galaxy-tokens';
