@@ -1,7 +1,7 @@
 /* global NodeJS */
 
-import React, { useEffect, useRef, ElementType } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { Text, TouchableOpacity } from 'react-native';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 
 export interface ToastItemProps {
@@ -10,7 +10,8 @@ export interface ToastItemProps {
   type: 'alert' | 'success' | 'warning' | 'info';
   timeout: number;
   key: string;
-  Icon: any;
+  Icon: Function;
+  testID?: string;
 }
 
 const typecolors = {
@@ -20,7 +21,7 @@ const typecolors = {
   info: colors.uranus500,
 };
 
-const ToastItem: React.FC<ToastItemProps> = ({ onClose, Icon, message, type, timeout = 5000 }) => {
+const ToastItem: React.FC<ToastItemProps> = ({ onClose, Icon, message, type, testID, timeout = 5000 }) => {
   const timer = useRef<ReturnType<typeof setTimeout>>();
 
   useEffect(() => {
@@ -37,7 +38,7 @@ const ToastItem: React.FC<ToastItemProps> = ({ onClose, Icon, message, type, tim
 
   return (
     <TouchableOpacity
-      testID={'toast.view'}
+      testID={`touchable.${testID}`}
       style={{
         paddingHorizontal: 24,
         paddingVertical: 18,
@@ -51,7 +52,7 @@ const ToastItem: React.FC<ToastItemProps> = ({ onClose, Icon, message, type, tim
       }}
       onPress={onClose}
     >
-      <Icon color={colors.space100} width={32} height={32} />
+      <Icon testID={`icon.${testID}`} color={colors.space100} width={32} height={32} />
       <Text style={{ color: colors.space100, marginTop: 8 }}>{message}</Text>
     </TouchableOpacity>
   );

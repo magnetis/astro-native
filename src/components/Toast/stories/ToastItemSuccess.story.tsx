@@ -13,6 +13,7 @@ storiesOf('Toast', module).add('ToastIconSuccess', () => (
       timeout={1}
       key="sucess"
       Icon={CircleCheckIcon}
+      testID={'alert'}
     />
   </View>
 ));
