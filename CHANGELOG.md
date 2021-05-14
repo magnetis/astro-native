@@ -1,3 +1,12 @@
+# [1.8.3](https://github.com/magnetis/astro-native/compare/v1.8.3...v1.8.4) (2021-05-12)
+
+
+### Features
+
+- **input** change input control to focus on input when clicking the buttons  ([173ebd5](https://github.com/magnetis/astro-native/commit/8d35bbe570502dcf01ca10cb0af1e471e69d1123))
+
+
+
 # [1.8.3](https://github.com/magnetis/astro-native/compare/v1.8.2...v1.8.3) (2021-05-12)
 
 
