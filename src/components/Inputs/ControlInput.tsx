@@ -50,6 +50,7 @@ function ControlInput({
   label,
   onValueChange,
   testID = 'ControlInput.Input',
+  caretHidden = true,
 }: ControlInputProps) {
   const inputRef = useRef<TextInput>(null);
   const didMount = useDidMount();
@@ -92,6 +93,8 @@ function ControlInput({
   }
 
   function increment() {
+    !hasFocus && setHasFocus(true);
+
     setRawValue((rawValue) => {
       const incremented = enableCents ? rawValue + step : Math.floor(rawValue + step);
       const validMaxResult = maxValue !== undefined ? Math.min(incremented, maxValue) : incremented;
@@ -102,6 +105,8 @@ function ControlInput({
   }
 
   function decrement() {
+    !hasFocus && setHasFocus(true);
+
     setRawValue((rawValue) => {
       const decremented = enableCents ? rawValue - step : Math.floor(rawValue - step);
       const validMinResult = minValue !== undefined ? Math.max(decremented, minValue) : decremented;
@@ -146,7 +151,7 @@ function ControlInput({
           label={label}
         />
         <TextInput
-          caretHidden
+          caretHidden={caretHidden}
           editable={!disabled}
           keyboardType="numeric"
           autoCompleteType="off"
@@ -187,7 +192,7 @@ const styles = StyleSheet.create({
     paddingTop: 28,
   },
   controls: {
-    zIndex: 1,
+    zIndex: 2,
     position: 'absolute',
     flexDirection: 'row',
     right: 20,
