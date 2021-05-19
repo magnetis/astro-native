@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { ImageURISource } from 'react-native';
 import RNSlider from '@react-native-community/slider';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 import { StyleSheet, View } from 'react-native';
@@ -26,6 +27,14 @@ interface SliderProps {
   testID?: string;
   /** Hides the header when is needed to display only the slider */
   hideHeader?: boolean;
+  /** Assigns a maximum track image. Only static images are supported.*/
+  maximumTrackImage?: ImageURISource;
+  /** Assigns a minimum track image. Only static images are supported. */
+  minimumTrackImage?: ImageURISource;
+  /** Sets an image for the thumb. Only static images are supported. */
+  thumbImage?: ImageURISource;
+  /** Assigns a single image for the track. */
+  trackImage?: ImageURISource;
 }
 
 /**
