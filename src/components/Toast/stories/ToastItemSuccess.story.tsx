@@ -9,7 +9,7 @@ storiesOf('Toast', module).add('ToastIconSuccess', () => (
     <ToastItem
       onClose={() => console.log('Pressed')}
       message="Type here the success message from the galaxy."
-      type="success"
+      typeVariante="success"
       timeout={1}
       key="sucess"
       Icon={CircleCheckIcon}

@@ -1,9 +1,9 @@
-import { ToastRef } from '@components/toast/toast';
+import { ToastRef } from './toast';
 
 export class ToastHolder {
   private static toast: ToastRef;
 
-  static setToast(toast) {
+  static setToast(toast: any) {
     this.toast = toast;
   }
 
@@ -24,11 +24,11 @@ export class ToastHolder {
   }
 }
 
-export function alert(message) {
+export function alert(message: string) {
   ToastHolder.alert(message);
 }
 
-export function success(message) {
+export function success(message: string) {
   ToastHolder.success(message);
 }
 

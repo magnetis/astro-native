@@ -10,7 +10,7 @@ interface ToastState {
 }
 
 export interface ToastRef {
-  queueNewMessage(message: string, type: MessageType): void;
+  queueNewMessage(message: string, typeVariante: MessageType): void;
   state: ToastState;
 }
 
@@ -19,12 +19,12 @@ class ToastComponent extends Component<any, ToastState> implements ToastRef {
     messagesQueue: [],
   };
 
-  queueNewMessage = (message: string, type: MessageType = 'alert') => {
-    this.setState((state) => {
+  queueNewMessage = (message: string, typeVariante: MessageType = 'alert') => {
+    this.setState((state: any) => {
       const key = `${+new Date()}`;
 
       return {
-        messagesQueue: [...state.messagesQueue, { message, key, type, onClose: this.dequeueMessage(key) }],
+        messagesQueue: [...state.messagesQueue, { message, key, typeVariante, onClose: this.dequeueMessage(key) }],
       };
     });
   };

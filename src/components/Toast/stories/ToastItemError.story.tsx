@@ -9,7 +9,7 @@ storiesOf('Toast', module).add('ToastIconError', () => (
     <ToastItem
       onClose={() => console.log('Pressed')}
       message="Type here the error message from the galaxy."
-      type="alert"
+      typeVariante="alert"
       timeout={1}
       key="error"
       Icon={AlertIcon}

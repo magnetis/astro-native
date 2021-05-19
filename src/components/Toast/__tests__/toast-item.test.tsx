@@ -9,7 +9,7 @@ const onClose = jest.fn();
 const props: ToastItemProps = {
   onClose,
   message: 'Type here the success message from the galaxy.',
-  type: 'alert',
+  typeVariante: 'alert',
   timeout: 1,
   key: 'alerta',
   Icon: CircleCheckIcon,
@@ -19,7 +19,7 @@ const props: ToastItemProps = {
 const propsError: ToastItemProps = {
   onClose,
   message: 'Type here the error message from the galaxy.',
-  type: 'alert',
+  typeVariante: 'alert',
   timeout: 1,
   key: 'alerta',
   Icon: AlertIcon,
@@ -29,7 +29,7 @@ const propsError: ToastItemProps = {
 const propsInfo: ToastItemProps = {
   onClose,
   message: 'Type here the info message from the galaxy.',
-  type: 'info',
+  typeVariante: 'info',
   timeout: 1,
   key: 'info',
   Icon: AlertIcon,
@@ -39,7 +39,7 @@ const propsInfo: ToastItemProps = {
 const propsWarning: ToastItemProps = {
   onClose,
   message: 'Type here the warning message from the galaxy.',
-  type: 'warning',
+  typeVariante: 'warning',
   timeout: 1,
   key: 'warning',
   Icon: WarningIcon,

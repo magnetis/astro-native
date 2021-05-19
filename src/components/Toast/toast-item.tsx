@@ -5,7 +5,7 @@ import { colors } from '@magnetis/astro-galaxy-tokens';
 export interface ToastItemProps {
   onClose: () => void;
   message: string;
-  type: 'alert' | 'success' | 'warning' | 'info';
+  typeVariante: 'alert' | 'success' | 'warning' | 'info';
   timeout: number;
   key: string;
   Icon: Function;
@@ -19,7 +19,7 @@ const typecolors = {
   info: colors.uranus500,
 };
 
-const ToastItem: React.FC<ToastItemProps> = ({ onClose, Icon, message, type, testID, timeout = 5000 }) => {
+const ToastItem: React.FC<ToastItemProps> = ({ onClose, Icon, message, typeVariante, testID, timeout = 5000 }) => {
   const timer = useRef<ReturnType<typeof setTimeout>>();
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const ToastItem: React.FC<ToastItemProps> = ({ onClose, Icon, message, type, tes
         paddingHorizontal: 24,
         paddingVertical: 18,
         borderRadius: 4,
-        backgroundColor: typecolors[type],
+        backgroundColor: typecolors[typeVariante],
         marginBottom: 10,
         marginHorizontal: 32,
         width: `100%`,
