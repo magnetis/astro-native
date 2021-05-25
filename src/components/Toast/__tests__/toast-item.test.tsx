@@ -65,6 +65,7 @@ describe('Outline Icon Label Button', () => {
 
   it('renders correctly with default props for type error', () => {
     const { getByText, getByTestId } = render(<ToastItem {...propsError} />);
+    jest.clearAllMocks();
 
     const touchable = getByTestId('touchable.error');
     expect(touchable).toBeTruthy();
