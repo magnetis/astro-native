@@ -24,7 +24,7 @@ Every branch **MUST** be prefixed with a valid type that describes its main purp
 | bugfix/\*     | Represents a bugfix                                                         |
 | release/x.x.x | New release                                                                 |
 | hotfix/\*     | Fix to be applied on production code                                        |
-| chore/\*      | Represents changes that do not affect codebase                               |
+| chore/\*      | Represents changes that do not affect codebase                              |
 
 ## Commit Messages
 
@@ -121,7 +121,7 @@ Once your PR is approved and merged, you **MUST** [draft a new release](https://
 
 ## Troubleshooting
 
-### Running Storybook on Android phisical device
+### Running Storybook on Android physical device
 
 If you want to use an Android physical device while developing for Astro Native, you need to run `adb reverse tcp:7007 tcp:7007`. That way, the device will be able to listen to changes made in the browser by the storybook server.
 
