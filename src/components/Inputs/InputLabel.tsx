@@ -41,7 +41,7 @@ function InputLabel({
     () => ({
       backgroundColor: getInputBackgroundColor({ disabled }),
       top: large ? -8 : -6,
-      paddingLeft: baseSize,
+      left: baseSize,
     }),
     [large, disabled, baseSize]
   );
@@ -60,6 +60,7 @@ function InputLabel({
   return (
     <Animated.View
       testID="InputLabel"
+      pointerEvents="none"
       style={[styles.labelContainer, { transform: [{ translateY: labelAnim }] }, computedLabelContainerStyles]}
     >
       <Text numberOfLines={1} style={[styles.label, computedTextStyles]}>
@@ -73,10 +74,7 @@ const styles = StyleSheet.create({
   labelContainer: {
     position: 'absolute',
     overflow: 'hidden',
-    zIndex: 1,
     left: 0,
-    width: '100%',
-    borderRadius: 8,
     paddingTop: 8,
     paddingBottom: 4,
   },

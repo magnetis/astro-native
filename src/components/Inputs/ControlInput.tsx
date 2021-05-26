@@ -50,6 +50,7 @@ function ControlInput({
   label,
   onValueChange,
   testID = 'ControlInput.Input',
+  caretHidden = true,
 }: ControlInputProps) {
   const inputRef = useRef<TextInput>(null);
   const didMount = useDidMount();
@@ -92,6 +93,8 @@ function ControlInput({
   }
 
   function increment() {
+    !hasFocus && setHasFocus(true);
+
     setRawValue((rawValue) => {
       const incremented = enableCents ? rawValue + step : Math.floor(rawValue + step);
       const validMaxResult = maxValue !== undefined ? Math.min(incremented, maxValue) : incremented;
@@ -102,6 +105,8 @@ function ControlInput({
   }
 
   function decrement() {
+    !hasFocus && setHasFocus(true);
+
     setRawValue((rawValue) => {
       const decremented = enableCents ? rawValue - step : Math.floor(rawValue - step);
       const validMinResult = minValue !== undefined ? Math.max(decremented, minValue) : decremented;
@@ -146,7 +151,7 @@ function ControlInput({
           label={label}
         />
         <TextInput
-          caretHidden
+          caretHidden={caretHidden}
           editable={!disabled}
           keyboardType="numeric"
           autoCompleteType="off"
@@ -158,12 +163,14 @@ function ControlInput({
           ref={inputRef}
           onChangeText={handleOnChangeText}
         />
-        <Pressable testID="ControlInput.Decrement" onPress={decrement} disabled={disabled}>
-          <CircleLessIcon width={iconSize} height={iconSize} color={mainColor} />
-        </Pressable>
-        <Pressable testID="ControlInput.Increment" onPress={increment} disabled={disabled}>
-          <CircleMoreIcon width={iconSize} height={iconSize} color={mainColor} />
-        </Pressable>
+        <View style={styles.controls}>
+          <Pressable testID="ControlInput.Decrement" onPress={decrement} disabled={disabled}>
+            <CircleLessIcon width={iconSize} height={iconSize} color={mainColor} />
+          </Pressable>
+          <Pressable testID="ControlInput.Increment" onPress={increment} disabled={disabled}>
+            <CircleMoreIcon width={iconSize} height={iconSize} color={mainColor} />
+          </Pressable>
+        </View>
       </Pressable>
       <InputErrorMessage error={error} hasError={hasError} />
     </View>
@@ -183,6 +190,12 @@ const styles = StyleSheet.create({
     fontFamily: lato,
     paddingBottom: 8,
     paddingTop: 28,
+  },
+  controls: {
+    zIndex: 2,
+    position: 'absolute',
+    flexDirection: 'row',
+    right: 20,
   },
 });
 
