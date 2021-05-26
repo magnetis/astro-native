@@ -31,17 +31,13 @@ describe('InputLabel', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 16,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 16,
         paddingTop: 8,
         position: 'absolute',
         top: -6,
         transform: [{ translateY: 6 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
     expect(getByText('Label').props.style[0]).toEqual(expect.objectContaining({ fontFamily: 'Lato-Bold' }));
@@ -68,17 +64,13 @@ describe('InputLabel', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#f6f7f8',
-        borderRadius: 8,
-        left: 0,
+        left: 16,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 16,
         paddingTop: 8,
         position: 'absolute',
         top: -6,
         transform: [{ translateY: 6 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
     expect(getByText('Label').props.style[0]).toEqual(expect.objectContaining({ fontFamily: 'Lato-Bold' }));
@@ -105,17 +97,13 @@ describe('InputLabel', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 16,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 16,
         paddingTop: 8,
         position: 'absolute',
         top: -6,
         transform: [{ translateY: 6 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
     expect(getByText('Label').props.style[0]).toEqual(expect.objectContaining({ fontFamily: 'Lato-Bold' }));
@@ -142,17 +130,13 @@ describe('InputLabel', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 16,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 16,
         paddingTop: 8,
         position: 'absolute',
         top: -6,
         transform: [{ translateY: 6 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
     expect(getByText('Label').props.style[0]).toEqual(expect.objectContaining({ fontFamily: 'Lato-Bold' }));
@@ -179,17 +163,13 @@ describe('InputLabel', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 16,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 16,
         paddingTop: 8,
         position: 'absolute',
         top: -6,
         transform: [{ translateY: 16 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
     expect(getByText('Label').props.style[0]).toEqual(expect.objectContaining({ fontFamily: 'Lato-Bold' }));
@@ -217,17 +197,13 @@ describe('InputLabel', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 24,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 24,
         paddingTop: 8,
         position: 'absolute',
         top: -8,
         transform: [{ translateY: 8 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
     expect(getByText('Label').props.style[0]).toEqual(expect.objectContaining({ fontFamily: 'Lato-Bold' }));
@@ -255,17 +231,13 @@ describe('InputLabel', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#f6f7f8',
-        borderRadius: 8,
-        left: 0,
+        left: 24,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 24,
         paddingTop: 8,
         position: 'absolute',
         top: -8,
         transform: [{ translateY: 8 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
     expect(getByText('Label').props.style[0]).toEqual(expect.objectContaining({ fontFamily: 'Lato-Bold' }));
@@ -293,17 +265,13 @@ describe('InputLabel', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 24,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 24,
         paddingTop: 8,
         position: 'absolute',
         top: -8,
         transform: [{ translateY: 8 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
     expect(getByText('Label').props.style[0]).toEqual(expect.objectContaining({ fontFamily: 'Lato-Bold' }));
@@ -331,17 +299,13 @@ describe('InputLabel', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 24,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 24,
         paddingTop: 8,
         position: 'absolute',
         top: -8,
         transform: [{ translateY: 8 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
     expect(getByText('Label').props.style[0]).toEqual(expect.objectContaining({ fontFamily: 'Lato-Bold' }));
@@ -369,17 +333,13 @@ describe('InputLabel', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 24,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 24,
         paddingTop: 8,
         position: 'absolute',
         top: -8,
         transform: [{ translateY: 18 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
     expect(getByText('Label').props.style[0]).toEqual(expect.objectContaining({ fontFamily: 'Lato-Bold' }));
@@ -406,17 +366,13 @@ describe('InputLabel', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 16,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 16,
         paddingTop: 8,
         position: 'absolute',
         top: -6,
         transform: [{ translateY: 16 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
     expect(getByText('Label').props.style[1]).toEqual(
@@ -435,17 +391,13 @@ describe('InputLabel', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 16,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 16,
         paddingTop: 8,
         position: 'absolute',
         top: -6,
         transform: [{ translateY: 6 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
     expect(getByText('Label').props.style[1]).toEqual(
@@ -472,17 +424,13 @@ describe('InputLabel', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 24,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 24,
         paddingTop: 8,
         position: 'absolute',
         top: -8,
         transform: [{ translateY: 18 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
     expect(getByText('Label').props.style[1]).toEqual(
@@ -499,17 +447,13 @@ describe('InputLabel', () => {
     expect(getByTestId('InputLabel').props.style).toEqual(
       expect.objectContaining({
         backgroundColor: '#ffffff',
-        borderRadius: 8,
-        left: 0,
+        left: 16,
         overflow: 'hidden',
         paddingBottom: 4,
-        paddingLeft: 16,
         paddingTop: 8,
         position: 'absolute',
         top: -8,
         transform: [{ translateY: 8 }],
-        width: '100%',
-        zIndex: 1,
       })
     );
     expect(getByText('Label').props.style[1]).toEqual(

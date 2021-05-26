@@ -24,7 +24,4 @@
 
 <!-- EXTRAS -->
 <!-- 💸 Describe possible tech debits -->
-
-<!-- Jira link -->
-
-[AST-xxx](card_link_in_jira)
+<!-- Jira link if needed -->
