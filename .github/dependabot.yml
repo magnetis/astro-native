@@ -1,41 +1,38 @@
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: daily
-    time: "11:00"
-    timezone: America/Sao_Paulo
-  pull-request-branch-name:
-    separator: "-"
-  open-pull-requests-limit: 10
-  reviewers:
-  - julianosbento
-  - victorheringer
-  - murillo94
-  - pleaobraga
-  - an-mag
-  - LopesAlysson
-  - pedro-cerdera
-  - caiogodoi
-  - carlosberti
-  assignees:
-  - julianosbento
-  - victorheringer
-  - murillo94
-  - pleaobraga
-  - an-mag
-  - LopesAlysson
-  - pedro-cerdera
-  - caiogodoi
-  - carlosberti
-  ignore:
-  - dependency-name: "@types/jest"
-    versions:
-    - 26.0.22
-  - dependency-name: "@babel/runtime"
-    versions:
-    - 7.13.10
-  - dependency-name: "@babel/core"
-    versions:
-    - 7.13.15
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: daily
+      time: '11:00'
+      timezone: America/Sao_Paulo
+    pull-request-branch-name:
+      separator: '-'
+    open-pull-requests-limit: 10
+    reviewers:
+      - julianosbento
+      - victorheringer
+      - murillo94
+      - pleaobraga
+      - an-mag
+      - LopesAlysson
+      - pedro-cerdera
+      - lucianomlima
+      - carlosberti
+    assignees:
+      - julianosbento
+      - victorheringer
+      - murillo94
+      - pleaobraga
+      - an-mag
+      - LopesAlysson
+      - pedro-cerdera
+      - lucianomlima
+      - carlosberti
+    ignore:
+      - dependency-name: '@babel/runtime'
+      - dependency-name: '@babel/core'
+      - dependency-name: 'react'
+        update-types: ['version-update:semver-minor']
+      - dependency-name: 'react-native'
+        update-types: ['version-update:semver-minor']
