@@ -1898,9 +1898,9 @@
     react-select "^3.0.8"
 
 "@storybook/addon-ondevice-knobs@^5.3.23":
-  version "5.3.23"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-ondevice-knobs/-/addon-ondevice-knobs-5.3.23.tgz#82b8888187705980fe4683c90cc6f4e23c4ae112"
-  integrity sha512-KunX4o+Dsui4pkm+/uiirJJr72dVEHKNdMiQ2xElHl66gbSlRPZo0T56ODOZohxZXgLb7AxmMx20Gok1EWeNqA==
+  version "5.3.25"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-ondevice-knobs/-/addon-ondevice-knobs-5.3.25.tgz#bebdc3160aafa095e4f178e422628d0493d5890c"
+  integrity sha512-jbPNcbtLv3I7iGUYN7ZCXBPCg2Qr8s06Nz8S+GEYTKr/KqySPi7in2vNeZi7DqYcKe9ZtcbjdCe5emZuIAVu5A==
   dependencies:
     "@emotion/native" "^10.0.14"
     "@storybook/addons" "5.3.21"
