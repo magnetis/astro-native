@@ -22,7 +22,8 @@
     "storybook": "start-storybook -p 7007",
     "start": "yarn react-native start",
     "build:ios": "react-native run-ios",
-    "build:android": "react-native run-android"
+    "build:android": "react-native run-android",
+    "prepare": "npx husky install"
   },
   "repository": {
     "type": "git",
