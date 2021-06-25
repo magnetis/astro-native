@@ -1,8 +1,8 @@
-import type { SvgProps } from 'react-native-svg';
 import { Colors } from '@magnetis/astro-galaxy-tokens';
-import type { GestureResponderEvent } from 'react-native';
-
 import { GradientID } from '@tokens/gradients';
+
+import type { GestureResponderEvent } from 'react-native';
+import type { SvgProps } from 'react-native-svg';
 
 export interface IconProps extends Omit<SvgProps, 'color' | 'onPress'> {
   /** Id for icon gradient. Recomended to pass a unique value. */
@@ -101,6 +101,7 @@ export type IconID =
   | 'Play'
   | 'Profile'
   | 'Return'
+  | 'RotatePhone'
   | 'Sliders'
   | 'Tax'
   | 'Trash'

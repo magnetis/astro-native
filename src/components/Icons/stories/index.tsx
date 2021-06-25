@@ -3,9 +3,10 @@ import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import { select, number } from '@storybook/addon-knobs';
 
-import * as icons from '..';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 import { colorOptions, gradientOptions } from '@root/storybook/options';
+
+import * as icons from '..';
 
 const iconsStories = storiesOf('Icons', module).addDecorator((Story: any) => (
   <View style={{ alignSelf: 'center', alignItems: 'center', justifyContent: 'center', flex: 1 }}>
