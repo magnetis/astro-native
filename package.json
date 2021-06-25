@@ -90,7 +90,7 @@
     "@magnetis/astro-galaxy-tokens": "^1.2.3",
     "@react-native-community/slider": "^3.0.3",
     "react-native-svg": "^12.1.0",
-    "y18n": "4.0.1"
+    "y18n": "5.0.8"
   },
   "husky": {
     "hooks": {
