@@ -2,7 +2,7 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
 
 import Tabs, { TabItem } from '../Tabs';
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { colors } from '@magnetis/astro-tokens';
 
 beforeEach(() => {
   jest.clearAllMocks();

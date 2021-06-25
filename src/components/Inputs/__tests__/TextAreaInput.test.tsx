@@ -3,7 +3,7 @@ import { act, create } from 'react-test-renderer';
 import { fireEvent, render, waitFor } from '@testing-library/react-native';
 
 import TextAreaInput from '../TextAreaInput';
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { colors } from '@magnetis/astro-tokens';
 
 import { setupTimeTravel, timeTravel } from '@root/timeTravel';
 

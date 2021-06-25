@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { colors } from '@magnetis/astro-tokens';
 
 import { AlertIcon, CircleCheckIcon } from '@components/Icons';
 

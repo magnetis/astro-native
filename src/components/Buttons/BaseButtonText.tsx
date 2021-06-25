@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TextProps } from 'react-native';
-import type { Colors } from '@magnetis/astro-galaxy-tokens';
+import type { Color } from '@magnetis/astro-tokens';
 
 import { getLineHeight } from './utils';
 import { ButtonSize } from './types';
@@ -9,7 +9,7 @@ import { getFontSize } from '@tokens/utils';
 
 interface BaseButtonTextProps extends TextProps {
   size?: ButtonSize;
-  color: Colors[keyof Colors];
+  color: Color;
   children: string;
 }
 

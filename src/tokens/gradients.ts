@@ -1,4 +1,4 @@
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { colors } from '@magnetis/astro-tokens';
 
 const {
   earth200,

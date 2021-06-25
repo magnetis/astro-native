@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { TextInput as RNTextInput, Pressable, StyleSheet, View, TextStyle } from 'react-native';
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { colors } from '@magnetis/astro-tokens';
 
 import { getFontSize } from '@tokens/utils';
 import { lato } from '@tokens/fonts';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { colors } from '@magnetis/astro-tokens';
 
 import { getButtonMainColor, getButtonSecondaryColor } from './utils';
 import BaseButtonText from './BaseButtonText';

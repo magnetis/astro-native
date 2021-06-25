@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { colors } from '@magnetis/astro-tokens';
 
 import { getButtonMainColor, getButtonSecondaryColor, getIconSize } from './utils';
 import type { IconLabelButtonProps } from './types';

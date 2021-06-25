@@ -1,9 +1,8 @@
 import { ReactElement } from 'react';
-import { Colors, colors } from '@magnetis/astro-galaxy-tokens';
+import { colors } from '@magnetis/astro-tokens';
 
-import { ButtonColor, ButtonSize } from './types';
 import * as icons from '@components/Icons';
-import { getFontSize } from '@tokens/utils';
+
 import {
   PrimaryTextLarge,
   PrimaryTextMedium,
@@ -14,6 +13,11 @@ import {
   SecondaryTextSmall,
   SecondaryTextVerySmall,
 } from '@components/Text';
+
+import { getFontSize } from '@tokens/utils';
+
+import { ButtonColor, ButtonSize } from './types';
+import type { Color } from '@magnetis/astro-tokens';
 
 interface getPropertiesOptionsParam {
   noHorizontalPadding: boolean;
@@ -98,10 +102,7 @@ export function getLineHeight(size: ButtonSize): number {
  * Checks button's main color based on base color and is its an outline button
  * @param color Valid **ButtonColor**
  */
-export function getButtonMainColor(
-  color: ButtonColor,
-  { outline }: { outline?: boolean } = { outline: false }
-): Colors[keyof Colors] {
+export function getButtonMainColor(color: ButtonColor, { outline }: { outline?: boolean } = { outline: false }): Color {
   switch (color) {
     case 'earth':
       return outline ? colors.earth600 : colors.earth400;
@@ -122,7 +123,7 @@ export function getButtonMainColor(
  * Checks button's secondary color based on base color
  * @param color Valid **ButtonColor**
  */
-export function getButtonSecondaryColor(color: ButtonColor): Colors[keyof Colors] {
+export function getButtonSecondaryColor(color: ButtonColor): Color {
   switch (color) {
     case 'earth':
       return colors.moon900;

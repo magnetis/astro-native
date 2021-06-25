@@ -1,6 +1,6 @@
 import React from 'react';
 import { Path } from 'react-native-svg';
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { colors } from '@magnetis/astro-tokens';
 import { IconProps } from '../types';
 import BaseIcon from '../BaseIcon';
 import { getFill } from '../utils';

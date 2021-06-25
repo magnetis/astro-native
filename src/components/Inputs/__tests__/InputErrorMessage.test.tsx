@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
 import InputErrorMessage from '../InputErrorMessage';
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { colors } from '@magnetis/astro-tokens';
 
 describe('InputErrorMessage', () => {
   it('renders correctly when hasError is true', () => {

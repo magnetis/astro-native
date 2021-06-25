@@ -36,16 +36,16 @@ To use Astro Native, first you must add our package to your project dependencies
 **Using Yarn:**
 
 ```bash
-yarn add @magnetis/astro-native @magnetis/astro-galaxy-tokens
+yarn add @magnetis/astro-native @magnetis/astro-tokens
 ```
 
 **Using NPM:**
 
 ```bash
-npm install @magnetis/astro-native @magnetis/astro-galaxy-tokens
+npm install @magnetis/astro-native @magnetis/astro-tokens
 ```
 
-> :warning: We strongly recommend you to also install `@magnetis/astro-galaxy-tokens` package, in order to acess and use our colors;
+> :warning: We strongly recommend you to also install `@magnetis/astro-tokens` package, in order to acess and use our colors;
 
 ### Adding fonts
 

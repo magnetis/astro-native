@@ -1,4 +1,4 @@
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { colors } from '@magnetis/astro-tokens';
 
 const BLUR_BORDER_COLOR = colors.moon900;
 const BLUR_LABEL_COLOR = colors.moon400;

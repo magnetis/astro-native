@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { colors } from '@magnetis/astro-tokens';
 
 import { setupTimeTravel, timeTravel } from '@root/timeTravel';
 import InputLabel from '../InputLabel';

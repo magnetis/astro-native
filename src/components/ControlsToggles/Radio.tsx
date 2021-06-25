@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Pressable } from 'react-native';
 
 import { SecondaryTextMedium } from '@components/Text';
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { colors } from '@magnetis/astro-tokens';
 
 interface RadioProps {
   /** Text to be rendered aside radio button */

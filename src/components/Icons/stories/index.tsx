@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react-native';
 import { select, number } from '@storybook/addon-knobs';
 
 import * as icons from '..';
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { colors } from '@magnetis/astro-tokens';
 import { colorOptions, gradientOptions } from '@root/storybook/options';
 
 const iconsStories = storiesOf('Icons', module).addDecorator((Story: any) => (
