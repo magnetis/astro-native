@@ -16,7 +16,7 @@ jobs:
     if: type = pull_request OR branch = main
     install:
     - yarn install
-    script: yarn jest --coverage && yarn codecov -t $CODECOV_TOKEN
+    script: yarn test:coverage && yarn codecov -t $CODECOV_TOKEN
 
   - stage: Deploy to NPM
     if: tag IS present
