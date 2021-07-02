@@ -1,3 +1,10 @@
+## [1.8.6](https://github.com/magnetis/astro-native/compare/v1.8.5...v1.8.6) (2021-06-25)
+
+### Features
+
+- **component** add new selection component ([415616f](https://github.com/magnetis/astro-native/commit/415616f05220e5278073670623e3f64f9c7ab359))
+- **icon** add new RotatePhone icon ([70dd269](https://github.com/magnetis/astro-native/commit/70dd269c4aa545f5f260d5a972d4cb7156219581))
+
 ## [1.8.5](https://github.com/magnetis/astro-native/compare/v1.8.4...v1.8.5) (2021-05-17)
 
 ### Features
