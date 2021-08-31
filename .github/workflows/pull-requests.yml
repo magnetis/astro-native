@@ -1,0 +1,28 @@
+name: PR CI
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: yarn
+      - name: Lint
+        run: yarn lint && yarn tsc --noEmit
+      - name: Run tests & upload TestCov report
+        env:
+          CODECOV_TOKEN: ${{ secrets.CodeCov_Token }}
+        run: yarn test:coverage && yarn codecov -t $CODECOV_TOKEN
