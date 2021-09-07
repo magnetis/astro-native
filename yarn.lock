@@ -2860,9 +2860,9 @@
     "@types/reactcss" "*"
 
 "@types/react-native@^0.64.5":
-  version "0.64.11"
-  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.64.11.tgz#c40264c5bd916e589b6c914982df324f5107960a"
-  integrity sha512-WgOJtQpFyH063MHZugOHq8Qr0J0UnASmz0NvSNRXEOd8ySkuNvLmlkiITr+L85o2BPj3hB/wx8IiK16dW/uVkQ==
+  version "0.64.14"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.64.14.tgz#6a72d7585c7075da51d45c1c825d04d09cb240b5"
+  integrity sha512-RBBc55sV2AS/ibdiyuju+Ju0HXZH6AP//ZlcK4lWatOWgeFYqBZlYWl+nKa4efYwlotg+1gWkyd2vYEKVF1a/w==
   dependencies:
     "@types/react" "*"
 
