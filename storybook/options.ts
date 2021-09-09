@@ -1,12 +1,11 @@
 import { Colors, colors } from '@magnetis/astro-galaxy-tokens';
 import gradients from '@tokens/gradients';
-import { Size } from '@tokens/sizes';
 import * as icons from '@components/Icons';
+
 import type { IconID } from '@components/Icons';
-import { ButtonColor } from '@components/Buttons';
 
 export const colorOptions = Object.keys(colors).reduce((acc, key) => {
-  acc[key] = colors[(key as unknown) as keyof Colors];
+  acc[key] = colors[key as unknown as keyof Colors];
   return acc;
 }, {} as { [key: string]: Colors[keyof Colors] });
 
@@ -14,8 +13,6 @@ export const colorOptionsWithTransparent: { [key: string]: Colors[keyof Colors] 
   ...colorOptions,
   transparent: 'transparent',
 };
-
-export const sizeOptions: Size[] = ['very-small', 'small', 'medium', 'large'];
 
 export const gradientOptions = Object.keys(gradients).reduce(
   (acc, key) => {
@@ -26,7 +23,3 @@ export const gradientOptions = Object.keys(gradients).reduce(
 );
 
 export const iconOptions: Array<IconID> = Object.keys(icons).map((key) => key.replace('Icon', '') as IconID);
-
-export const buttonColorOptions: ButtonColor[] = ['uranus', 'venus', 'mars', 'earth'];
-
-export const iconButtonPositionOptions: Array<'left' | 'right'> = ['left', 'right'];

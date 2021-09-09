@@ -1,22 +1,22 @@
 import React from 'react';
 import { Text } from 'react-native';
 import { fireEvent, render, act } from '@testing-library/react-native';
-import { colors } from '@magnetis/astro-galaxy-tokens';
+import { borders, colors, radius, sizes } from '@magnetis/astro-tokens';
 
 import BaseButton from '../BaseButton';
 
+import type { BaseButtonProps } from '../BaseButton';
+
 const ButtonText = () => <Text testID="BaseButton.Text">MyBaseButton</Text>;
 
-const onPress = jest.fn();
-
-const props = {
-  activityIndicatorColor: colors.space100,
-  backgroundColor: colors.uranus500,
-  borderColor: colors.uranus500,
-  textColor: colors.space100,
-  onPress,
+const initialProps: BaseButtonProps = {
+  activityIndicatorColor: colors.solidBrightLightest,
+  backgroundColor: colors.solidPrimaryMedium,
+  borderColor: colors.solidPrimaryMedium,
+  textColor: colors.solidBrightLightest,
   testID: 'BaseButton',
   style: {},
+  onPress: jest.fn(),
 };
 
 describe('BaseButton', () => {
@@ -26,76 +26,66 @@ describe('BaseButton', () => {
 
   it('renders correctly with default props', () => {
     const { getByTestId } = render(
-      <BaseButton {...props}>
+      <BaseButton {...initialProps}>
         <ButtonText />
       </BaseButton>
     );
-    const baseButton = getByTestId('BaseButton');
-    const baseButtonStyle = Object.assign({}, ...baseButton.props.style);
 
-    expect(baseButtonStyle).toEqual(
-      expect.objectContaining({
-        backgroundColor: colors.uranus500,
-        borderColor: colors.uranus500,
-        borderRadius: 24,
-        borderWidth: 2,
-        paddingVertical: 8,
-        paddingHorizontal: 46,
-        alignSelf: 'center',
-      })
-    );
+    expect(getByTestId('BaseButton')).toHaveStyle({
+      backgroundColor: colors.solidPrimaryMedium,
+      borderColor: colors.solidPrimaryMedium,
+      borderRadius: radius.small,
+      borderWidth: borders.hairline,
+      paddingVertical: 17,
+      paddingHorizontal: sizes.tiny,
+      alignSelf: 'center',
+    });
   });
 
   it('has no interaction when disabled is true', () => {
     const { getByTestId } = render(
-      <BaseButton {...props} disabled>
+      <BaseButton {...initialProps} disabled>
         <ButtonText />
       </BaseButton>
     );
     const baseButton = getByTestId('BaseButton');
 
     fireEvent.press(baseButton);
-    expect(onPress).toHaveBeenCalledTimes(0);
+    expect(initialProps.onPress).toHaveBeenCalledTimes(0);
   });
 
   it('renders correctly when loading is true', () => {
     const { getByTestId } = render(
-      <BaseButton {...props} loading>
+      <BaseButton {...initialProps} loading>
         <ButtonText />
       </BaseButton>
     );
-    const button = getByTestId('BaseButton');
-    const buttonStyle = Object.assign({}, ...button.props.style);
 
-    expect(buttonStyle).toEqual(
-      expect.objectContaining({
-        borderRadius: 24,
-        borderWidth: 2,
-        paddingVertical: 8,
-        paddingHorizontal: 46,
-        backgroundColor: colors.uranus500,
-        borderColor: colors.uranus500,
-      })
-    );
+    expect(getByTestId('BaseButton')).toHaveStyle({
+      borderRadius: radius.small,
+      borderWidth: borders.hairline,
+      paddingVertical: 17,
+      paddingHorizontal: sizes.tiny,
+      backgroundColor: colors.solidPrimaryMedium,
+      borderColor: colors.solidPrimaryMedium,
+    });
 
-    expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.space100);
+    expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.solidBrightLightest);
   });
 
   it('has width of 100% when fill is true', () => {
     const { getByTestId } = render(
-      <BaseButton {...props} fill>
+      <BaseButton {...initialProps} fill>
         <ButtonText />
       </BaseButton>
     );
-    const baseButton = getByTestId('BaseButton');
-    const baseButtonStyle = Object.assign({}, ...baseButton.props.style);
 
-    expect(baseButtonStyle.width).toEqual('100%');
+    expect(getByTestId('BaseButton')).toHaveStyle({ width: '100%' });
   });
 
   it('has min hit slop 50X48 when button width and height is small', () => {
     const { getByTestId } = render(
-      <BaseButton {...props} fill>
+      <BaseButton {...initialProps} fill>
         <ButtonText />
       </BaseButton>
     );
@@ -122,7 +112,7 @@ describe('BaseButton', () => {
 
   it('has min hit slop 48X48 when button width is small', () => {
     const { getByTestId } = render(
-      <BaseButton {...props} fill>
+      <BaseButton {...initialProps} fill>
         <ButtonText />
       </BaseButton>
     );
@@ -149,7 +139,7 @@ describe('BaseButton', () => {
 
   it('has min hit slop 48X50 when button height is small', () => {
     const { getByTestId } = render(
-      <BaseButton {...props} fill>
+      <BaseButton {...initialProps} fill>
         <ButtonText />
       </BaseButton>
     );
@@ -176,7 +166,7 @@ describe('BaseButton', () => {
 
   it('has min hit slop 60X50 when button height is bigger then minimum', () => {
     const { getByTestId } = render(
-      <BaseButton {...props} fill>
+      <BaseButton {...initialProps} fill>
         <ButtonText />
       </BaseButton>
     );
@@ -203,7 +193,7 @@ describe('BaseButton', () => {
 
   it('has hit slop passed when button width and height is small, but hit slop prop has been passed', () => {
     const { getByTestId } = render(
-      <BaseButton {...props} fill hitSlop={0}>
+      <BaseButton {...initialProps} fill hitSlop={0}>
         <ButtonText />
       </BaseButton>
     );
@@ -226,7 +216,7 @@ describe('BaseButton', () => {
   it('has onLayout called if user set this prop', () => {
     const onLayout = jest.fn();
     const { getByTestId } = render(
-      <BaseButton {...props} fill onLayout={onLayout}>
+      <BaseButton {...initialProps} fill onLayout={onLayout}>
         <ButtonText />
       </BaseButton>
     );

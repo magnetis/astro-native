@@ -1,37 +1,32 @@
-import React, { ReactElement, useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { View, StyleSheet, ActivityIndicator, Pressable, PressableProps, LayoutChangeEvent } from 'react-native';
 
-import type { HitSlop } from '../types';
-import { getFixedHitSlop } from '../utils';
+import { borders, radius } from '@magnetis/astro-tokens';
 
-import type { ButtonSize } from './types';
-import { getBorderRadius, getButtonPadding } from './utils';
+import { getFixedHitSlop } from '@components/utils';
 
-interface BaseButtonProps extends PressableProps {
-  children: ReactElement;
-  testID?: string;
-  accessibilityLabel?: string;
-  loading?: boolean;
-  disabled?: boolean;
+import { getButtonPadding, getLoadingSize } from '@components/Buttons/utils';
+
+import type { HitSlop, Size } from '@components/types';
+
+export interface BaseButtonProps extends PressableProps {
   activityIndicatorColor: string;
-  onPress: () => void;
   backgroundColor: string;
-  textColor: string;
   borderColor: string;
-  size?: ButtonSize;
-  noHorizontalPadding?: boolean;
   fill?: boolean;
-  hasIcon?: boolean;
+  loading?: boolean;
+  isIconButton?: boolean;
+  textColor: string;
+  size?: Size;
 }
 
 const styles = StyleSheet.create({
   button: {
-    flexDirection: 'row',
     alignItems: 'center',
-    borderWidth: 1,
-    borderRadius: 8,
-    marginBottom: 10,
     alignSelf: 'stretch',
+    borderRadius: radius.small,
+    borderWidth: borders.hairline,
+    flexDirection: 'row',
     justifyContent: 'center',
   },
   spinner: {
@@ -40,24 +35,20 @@ const styles = StyleSheet.create({
 });
 
 function BaseButton({
-  loading = false,
-  disabled = false,
   activityIndicatorColor,
   children,
-  size = 'medium',
-  noHorizontalPadding = false,
   fill = false,
-  hasIcon = false,
+  isIconButton = false,
+  loading = false,
+  size = 'medium',
   ...props
 }: BaseButtonProps) {
   const [hitSlop, setHitSlop] = useState<HitSlop>({ top: 0, bottom: 0, left: 0, right: 0 });
 
   const computedStyles: any = {
-    ...getButtonPadding(size, { noHorizontalPadding, hasIcon }),
+    ...getButtonPadding(size, { isIconButton }),
     backgroundColor: props.backgroundColor,
-    borderRadius: getBorderRadius(size, { noHorizontalPadding, hasIcon }),
     borderColor: props.borderColor,
-    borderWidth: 2,
   };
 
   if (fill) {
@@ -65,14 +56,6 @@ function BaseButton({
   } else {
     computedStyles.alignSelf = 'center';
   }
-
-  const pressableProps = {
-    onPress: props.onPress,
-    disabled: disabled,
-    style: [styles.button, computedStyles],
-    testID: props.testID,
-    hitSlop: typeof props.hitSlop !== 'undefined' ? props.hitSlop : hitSlop,
-  };
 
   const onLayoutButton = useCallback(
     (event: LayoutChangeEvent) => {
@@ -89,7 +72,13 @@ function BaseButton({
   );
 
   return (
-    <Pressable accessibilityRole="button" {...props} {...pressableProps} onLayout={onLayoutButton}>
+    <Pressable
+      accessibilityRole="button"
+      {...props}
+      style={[styles.button, computedStyles]}
+      hitSlop={props.hitSlop ?? hitSlop}
+      onLayout={onLayoutButton}
+    >
       <View style={{ alignItems: 'center', justifyContent: 'center', flex: fill ? 1 : 0 }}>
         <View style={{ opacity: loading ? 0 : 1 }}>{children}</View>
         {loading && (
@@ -97,7 +86,7 @@ function BaseButton({
             <ActivityIndicator
               testID="BaseButton.ActivityIndicator"
               animating={true}
-              size="small"
+              size={getLoadingSize(size)}
               style={styles.spinner}
               color={activityIndicatorColor}
             />
