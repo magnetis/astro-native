@@ -1,51 +1,51 @@
 import React from 'react';
 import { View } from 'react-native';
-import { colors } from '@magnetis/astro-galaxy-tokens';
 
-import { getButtonMainColor, getButtonSecondaryColor, getIconSize } from './utils';
-import type { IconButtonProps } from './types';
+import { getButtonProperties, getIconProperties } from './utils';
+import { getIcon } from '@components/Buttons/utils';
+
 import BaseButton from './BaseButton';
-import { getIcon } from './utils';
 
+import type { IconButtonProps } from './types';
 /**
- * Icon buttons can be used for simple microinteractions and commands.
+ * Primary buttons have a colored background.
+ *
+ *  Use these for the main action in a section or screen. You should display only one primary button at a time.
+ *
  */
-const IconButton: React.FC<IconButtonProps> = ({
-  onPress,
-  accessibilityLabel = '',
-  loading = false,
-  color = 'uranus',
-  disabled = false,
+function IconButton({
+  disabled,
+  icon,
   size = 'medium',
-  testID,
+  variant = 'primary',
+  type = 'solid',
   ...props
-}) => {
-  const backgroundColor = disabled ? colors.moon300 : getButtonMainColor(color);
-  const textColor = disabled ? colors.space100 : getButtonSecondaryColor(color);
-  const iconSize = getIconSize(size);
-  const Icon = getIcon(props.icon);
+}: IconButtonProps) {
+  const { backgroundColor, textColor } = getButtonProperties(disabled ? 'disabled' : variant, type);
+
+  const { iconSize } = getIconProperties(size);
+
   const baseProps = {
     activityIndicatorColor: textColor,
-    borderColor: backgroundColor,
-    accessibilityLabel,
     backgroundColor,
+    borderColor: type === 'outline' ? textColor : backgroundColor,
     disabled,
+    isIconButton: true,
     textColor,
-    loading,
-    onPress,
-    testID,
     size,
-    fill: false,
-    hasIcon: true,
   };
 
+  const Icon = getIcon(icon!);
+
   return (
-    <BaseButton {...props} {...baseProps} noHorizontalPadding>
-      <View testID="IconButton.Icon">
-        <Icon {...iconSize} color={textColor} />
+    <BaseButton {...props} {...baseProps}>
+      <View style={{ alignItems: 'center' }}>
+        <View testID="IconButton.Icon">
+          <Icon size={iconSize} color={textColor} />
+        </View>
       </View>
     </BaseButton>
   );
-};
+}
 
 export default IconButton;

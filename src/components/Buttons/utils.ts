@@ -1,134 +1,50 @@
-import { ReactElement } from 'react';
-import { Colors, colors } from '@magnetis/astro-galaxy-tokens';
+import { colors, sizes } from '@magnetis/astro-tokens';
 
-import { ButtonColor, ButtonSize } from './types';
 import * as icons from '@components/Icons';
-import { getFontSize } from '@tokens/utils';
-import {
-  PrimaryTextLarge,
-  PrimaryTextMedium,
-  PrimaryTextSmall,
-  PrimaryTextVerySmall,
-  SecondaryTextLarge,
-  SecondaryTextMedium,
-  SecondaryTextSmall,
-  SecondaryTextVerySmall,
-} from '@components/Text';
+import { getFontSize } from '@tokens/fonts';
 
-interface getPropertiesOptionsParam {
-  noHorizontalPadding: boolean;
-  hasIcon: boolean;
+import type { ButtonVariant, ButtonProperties, IconProperties, ButtonType, LoadingSizes } from './types';
+import type { Size } from '@components/types';
+
+interface GetPropertiesOptionsParam {
+  isIconButton: boolean;
 }
 
 /**
  * Calculates button padding according to button size and if should have horizontal padding
- * @param size Valid **ButtonSize**
- * @param options Options object
- * @param options.noHorizontalPadding If button should have horizontal padding
- * @param options.hasIcon If button has an Icon
+ * @param {Size} size Valid **Size**
+ * @param {GetPropertiesOptionsParam} options Options object
+ * @param options.isIconButton If button is icon button
  */
-export function getButtonPadding(size: ButtonSize, options: getPropertiesOptionsParam) {
-  const { noHorizontalPadding, hasIcon } = options;
-  const noHorizontalPaddingValues = {
-    'very-small': 4,
-    small: 8,
-    medium: 8,
-    large: 8,
-  };
+export function getButtonPadding(size: Size, options: GetPropertiesOptionsParam) {
+  const { isIconButton } = options;
+
   const regularHorizontalPadding = {
-    'very-small': 20,
-    small: 26,
-    medium: 46,
-    large: 64,
-  };
-  const regularVerticalPadding = {
-    'very-small': 4,
-    small: 8,
-    medium: 8,
-    large: 8,
+    small: sizes.micro,
+    medium: sizes.tiny,
+    large: sizes.smaller,
+    xlarge: sizes.smaller,
   };
 
-  if (noHorizontalPadding) {
-    return { paddingHorizontal: noHorizontalPaddingValues[size], paddingVertical: regularVerticalPadding[size] };
-  }
+  const regularVerticalPadding = {
+    small: 10,
+    medium: 17,
+    large: 20,
+    xlarge: 22,
+  };
 
   return {
-    paddingHorizontal: regularHorizontalPadding[size] / (hasIcon ? 2 : 1),
+    paddingHorizontal: isIconButton ? regularVerticalPadding[size] : regularHorizontalPadding[size],
     paddingVertical: regularVerticalPadding[size],
   };
 }
 
 /**
- * Calculates button icon width and height according to button size
- * @param buttonSize Valid **ButtonSize**
- */
-export function getIconSize(buttonSize: ButtonSize): { width: number; height: number } {
-  const size = getFontSize(buttonSize) * 2;
-
-  return { width: size, height: size };
-}
-
-/**
- * Calculates button borderRadius according to button size
- * @param buttonSize Valid **ButtonSize**
- * @param options Options object
- * @param options.noHorizontalPadding If button should have horizontal padding
- * @param options.hasIcon If button has an Icon
- */
-export function getBorderRadius(size: ButtonSize, options: getPropertiesOptionsParam): number {
-  const padding = getButtonPadding(size, options).paddingVertical;
-  const fontSize = getFontSize(size);
-
-  if (options.noHorizontalPadding) {
-    return padding + fontSize * 2;
-  }
-
-  return padding + fontSize;
-}
-
-/**
  * Calculates button's text line-height based on size
- * @param size Valid **ButtonSize**
+ * @param {Size} size Valid **Size**
  */
-export function getLineHeight(size: ButtonSize): number {
+export function getLineHeight(size: Size): number {
   return getFontSize(size) * 1.5;
-}
-
-/**
- * Checks button's main color based on base color and is its an outline button
- * @param color Valid **ButtonColor**
- */
-export function getButtonMainColor(
-  color: ButtonColor,
-  { outline }: { outline?: boolean } = { outline: false }
-): Colors[keyof Colors] {
-  switch (color) {
-    case 'earth':
-      return outline ? colors.earth600 : colors.earth400;
-    case 'mars':
-      return colors.mars500;
-    case 'venus':
-      return colors.venus400;
-    case 'moon':
-      return colors.moon600;
-    case 'space':
-      return colors.moon100;
-    default:
-      return colors.uranus500;
-  }
-}
-
-/**
- * Checks button's secondary color based on base color
- * @param color Valid **ButtonColor**
- */
-export function getButtonSecondaryColor(color: ButtonColor): Colors[keyof Colors] {
-  switch (color) {
-    case 'earth':
-      return colors.moon900;
-    default:
-      return colors.space100;
-  }
 }
 
 /**
@@ -146,18 +62,74 @@ export function getIcon(_iconName: string) {
 }
 
 /**
- * Checks if provided component is a Primary or Secondary text component
- * @param component The component to be checked
+ * Defines button size based on size passed
+ * @param {ButtonVariant} variant Valid **ButtonVariant**
+ * @param {Size} size Valid **Size**
  */
-export function isValidTextComponent(component: ReactElement) {
-  return (
-    component.type === PrimaryTextVerySmall ||
-    component.type === PrimaryTextSmall ||
-    component.type === PrimaryTextMedium ||
-    component.type === PrimaryTextLarge ||
-    component.type === SecondaryTextVerySmall ||
-    component.type === SecondaryTextSmall ||
-    component.type === SecondaryTextMedium ||
-    component.type === SecondaryTextLarge
-  );
+export function getIconProperties(size: Size): IconProperties {
+  return {
+    small: { iconSize: sizes.tiny, iconMargin: sizes.quark },
+    medium: { iconSize: sizes.tiny, iconMargin: sizes.quark },
+    large: { iconSize: sizes.smaller, iconMargin: sizes.nano },
+    xlarge: { iconSize: sizes.small, iconMargin: sizes.nano },
+  }[size];
+}
+
+/**
+ * Defines button text color and background color based on variant and type
+ * @param {ButtonVariant} variant Valid **ButtonVariant**
+ * @param {ButtonType} type Valid **ButtonType**
+ */
+export function getButtonProperties(variant: ButtonVariant = 'primary', type: ButtonType = 'solid'): ButtonProperties {
+  return {
+    primary: {
+      solid: { textColor: colors.solidBrightLightest, backgroundColor: colors.solidPrimaryMedium },
+      subtle: { textColor: colors.solidPrimaryMedium, backgroundColor: colors.transparentPrimarySemitransparent },
+      outline: { textColor: colors.solidPrimaryMedium, backgroundColor: 'transparent' },
+      ghost: { textColor: colors.solidPrimaryMedium, backgroundColor: 'transparent' },
+    },
+    secondary: {
+      solid: { textColor: colors.solidBrightLightest, backgroundColor: colors.solidFaintDark },
+      subtle: { textColor: colors.solidFaintDark, backgroundColor: colors.transparentFaintSemitransparent },
+      outline: { textColor: colors.solidFaintDark, backgroundColor: 'transparent' },
+      ghost: { textColor: colors.solidFaintDark, backgroundColor: 'transparent' },
+    },
+    alert: {
+      solid: { textColor: colors.solidBrightLightest, backgroundColor: colors.solidAlertMedium },
+      subtle: { textColor: colors.solidAlertMedium, backgroundColor: colors.transparentAlertSemitransparent },
+      outline: { textColor: colors.solidAlertMedium, backgroundColor: 'transparent' },
+      ghost: { textColor: colors.solidAlertMedium, backgroundColor: 'transparent' },
+    },
+    success: {
+      solid: { textColor: colors.solidBrightLightest, backgroundColor: colors.solidSuccessMedium },
+      subtle: { textColor: colors.solidSuccessDark, backgroundColor: colors.transparentSuccessSemitransparent },
+      outline: { textColor: colors.solidSuccessDark, backgroundColor: 'transparent' },
+      ghost: { textColor: colors.solidSuccessDark, backgroundColor: 'transparent' },
+    },
+    inversed: {
+      solid: { textColor: colors.solidFaintLight, backgroundColor: colors.solidBrightLightest },
+      subtle: { textColor: colors.solidBrightLightest, backgroundColor: colors.transparentBrightSemitransparent },
+      outline: { textColor: colors.solidBrightLightest, backgroundColor: 'transparent' },
+      ghost: { textColor: colors.solidBrightLightest, backgroundColor: 'transparent' },
+    },
+    disabled: {
+      solid: { textColor: colors.transparentFaintSoft, backgroundColor: colors.transparentFaintSemitransparent },
+      subtle: { textColor: colors.transparentFaintSoft, backgroundColor: colors.transparentFaintSemitransparent },
+      outline: { textColor: colors.transparentFaintSoft, backgroundColor: 'transparent' },
+      ghost: { textColor: colors.transparentFaintSoft, backgroundColor: 'transparent' },
+    },
+  }[variant][type];
+}
+
+/**
+ * Defines button loading size
+ * @param {Size} size Valid **Size**
+ */
+export function getLoadingSize(size: Size): LoadingSizes {
+  return {
+    small: 'small',
+    medium: 'small',
+    large: 'large',
+    xlarge: 'large',
+  }[size] as LoadingSizes;
 }

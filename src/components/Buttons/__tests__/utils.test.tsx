@@ -1,113 +1,48 @@
 import React from 'react';
-import { colors } from '@magnetis/astro-galaxy-tokens';
 import { render } from '@testing-library/react-native';
+import { colors, sizes } from '@magnetis/astro-tokens';
 
 import { AlertIcon } from '@components/Icons';
 
 import {
   getButtonPadding,
-  getIconSize,
-  getBorderRadius,
   getLineHeight,
-  getButtonMainColor,
-  getButtonSecondaryColor,
   getIcon,
+  getIconProperties,
+  getButtonProperties,
+  getLoadingSize,
 } from '../utils';
 
 describe('Button/utils', () => {
   it('getButtonPadding', () => {
-    let options = {
-      noHorizontalPadding: false,
-      hasIcon: false,
-    };
-    expect(getButtonPadding('very-small', options)).toEqual({ paddingVertical: 4, paddingHorizontal: 20 });
-    expect(getButtonPadding('small', options)).toEqual({ paddingVertical: 8, paddingHorizontal: 26 });
-    expect(getButtonPadding('medium', options)).toEqual({ paddingVertical: 8, paddingHorizontal: 46 });
-    expect(getButtonPadding('large', options)).toEqual({ paddingVertical: 8, paddingHorizontal: 64 });
+    expect(getButtonPadding('small', { isIconButton: false })).toEqual({
+      paddingVertical: 10,
+      paddingHorizontal: sizes.micro,
+    });
+    expect(getButtonPadding('medium', { isIconButton: false })).toEqual({
+      paddingVertical: 17,
+      paddingHorizontal: sizes.tiny,
+    });
+    expect(getButtonPadding('large', { isIconButton: false })).toEqual({
+      paddingVertical: 20,
+      paddingHorizontal: sizes.smaller,
+    });
+    expect(getButtonPadding('xlarge', { isIconButton: false })).toEqual({
+      paddingVertical: 22,
+      paddingHorizontal: sizes.smaller,
+    });
 
-    options = {
-      noHorizontalPadding: true,
-      hasIcon: false,
-    };
-    expect(getButtonPadding('very-small', options)).toEqual({ paddingVertical: 4, paddingHorizontal: 4 });
-    expect(getButtonPadding('small', options)).toEqual({ paddingVertical: 8, paddingHorizontal: 8 });
-    expect(getButtonPadding('medium', options)).toEqual({ paddingVertical: 8, paddingHorizontal: 8 });
-    expect(getButtonPadding('large', options)).toEqual({ paddingVertical: 8, paddingHorizontal: 8 });
-
-    options = {
-      noHorizontalPadding: false,
-      hasIcon: true,
-    };
-    expect(getButtonPadding('very-small', options)).toEqual({ paddingVertical: 4, paddingHorizontal: 10 });
-    expect(getButtonPadding('small', options)).toEqual({ paddingVertical: 8, paddingHorizontal: 13 });
-    expect(getButtonPadding('medium', options)).toEqual({ paddingVertical: 8, paddingHorizontal: 23 });
-    expect(getButtonPadding('large', options)).toEqual({ paddingVertical: 8, paddingHorizontal: 32 });
-  });
-
-  it('getIconSize', () => {
-    expect(getIconSize('very-small')).toEqual({ width: 24, height: 24 });
-    expect(getIconSize('small')).toEqual({ width: 28, height: 28 });
-    expect(getIconSize('medium')).toEqual({ width: 32, height: 32 });
-    expect(getIconSize('large')).toEqual({ width: 48, height: 48 });
-  });
-
-  it('getBorderRadius', () => {
-    let options = {
-      noHorizontalPadding: false,
-      hasIcon: false,
-    };
-    expect(getBorderRadius('very-small', options)).toBe(16);
-    expect(getBorderRadius('small', options)).toBe(22);
-    expect(getBorderRadius('medium', options)).toBe(24);
-    expect(getBorderRadius('large', options)).toBe(32);
-
-    options = {
-      noHorizontalPadding: true,
-      hasIcon: false,
-    };
-    expect(getBorderRadius('very-small', options)).toBe(28);
-    expect(getBorderRadius('small', options)).toBe(36);
-    expect(getBorderRadius('medium', options)).toBe(40);
-    expect(getBorderRadius('large', options)).toBe(56);
-
-    options = {
-      noHorizontalPadding: false,
-      hasIcon: true,
-    };
-    expect(getBorderRadius('very-small', options)).toBe(16);
-    expect(getBorderRadius('small', options)).toBe(22);
-    expect(getBorderRadius('medium', options)).toBe(24);
-    expect(getBorderRadius('large', options)).toBe(32);
+    expect(getButtonPadding('small', { isIconButton: true })).toEqual({ paddingVertical: 10, paddingHorizontal: 10 });
+    expect(getButtonPadding('medium', { isIconButton: true })).toEqual({ paddingVertical: 17, paddingHorizontal: 17 });
+    expect(getButtonPadding('large', { isIconButton: true })).toEqual({ paddingVertical: 20, paddingHorizontal: 20 });
+    expect(getButtonPadding('xlarge', { isIconButton: true })).toEqual({ paddingVertical: 22, paddingHorizontal: 22 });
   });
 
   it('getLineHeight', () => {
-    expect(getLineHeight('very-small')).toBe(18);
-    expect(getLineHeight('small')).toBe(21);
-    expect(getLineHeight('medium')).toBe(24);
-    expect(getLineHeight('large')).toBe(36);
-  });
-
-  it('getButtonMainColor', () => {
-    expect(getButtonMainColor('venus')).toEqual(colors.venus400);
-    expect(getButtonMainColor('uranus')).toEqual(colors.uranus500);
-    expect(getButtonMainColor('mars')).toEqual(colors.mars500);
-    expect(getButtonMainColor('earth')).toEqual(colors.earth400);
-    expect(getButtonMainColor('moon')).toEqual(colors.moon600);
-    expect(getButtonMainColor('space')).toEqual(colors.moon100);
-
-    expect(getButtonMainColor('venus', { outline: true })).toEqual(colors.venus400);
-    expect(getButtonMainColor('uranus', { outline: true })).toEqual(colors.uranus500);
-    expect(getButtonMainColor('mars', { outline: true })).toEqual(colors.mars500);
-    expect(getButtonMainColor('earth', { outline: true })).toEqual(colors.earth600);
-    expect(getButtonMainColor('moon', { outline: true })).toEqual(colors.moon600);
-    expect(getButtonMainColor('space', { outline: true })).toEqual(colors.moon100);
-  });
-
-  it('getButtonSecondaryColor', () => {
-    expect(getButtonSecondaryColor('venus')).toEqual(colors.space100);
-    expect(getButtonSecondaryColor('uranus')).toEqual(colors.space100);
-    expect(getButtonSecondaryColor('mars')).toEqual(colors.space100);
-    expect(getButtonSecondaryColor('earth')).toEqual(colors.moon900);
+    expect(getLineHeight('small')).toBe(18);
+    expect(getLineHeight('medium')).toBe(21);
+    expect(getLineHeight('large')).toBe(24);
+    expect(getLineHeight('xlarge')).toBe(30);
   });
 
   describe('getIcon', () => {
@@ -125,5 +60,135 @@ describe('Button/utils', () => {
 
       expect(queryByTestId('Icon')).toBeNull();
     });
+  });
+
+  it('getIconProperties', () => {
+    expect(getIconProperties('small')).toEqual({ iconSize: sizes.tiny, iconMargin: sizes.quark });
+    expect(getIconProperties('medium')).toEqual({ iconSize: sizes.tiny, iconMargin: sizes.quark });
+    expect(getIconProperties('large')).toEqual({ iconSize: sizes.smaller, iconMargin: sizes.nano });
+    expect(getIconProperties('xlarge')).toEqual({ iconSize: sizes.small, iconMargin: sizes.nano });
+  });
+
+  describe('getButtonProperties', () => {
+    it('primary', () => {
+      expect(getButtonProperties('primary', 'solid')).toEqual({
+        textColor: colors.solidBrightLightest,
+        backgroundColor: colors.solidPrimaryMedium,
+      });
+      expect(getButtonProperties('primary', 'subtle')).toEqual({
+        textColor: colors.solidPrimaryMedium,
+        backgroundColor: colors.transparentPrimarySemitransparent,
+      });
+      expect(getButtonProperties('primary', 'outline')).toEqual({
+        textColor: colors.solidPrimaryMedium,
+        backgroundColor: 'transparent',
+      });
+      expect(getButtonProperties('primary', 'ghost')).toEqual({
+        textColor: colors.solidPrimaryMedium,
+        backgroundColor: 'transparent',
+      });
+    });
+
+    it('secondary', () => {
+      expect(getButtonProperties('secondary', 'solid')).toEqual({
+        textColor: colors.solidBrightLightest,
+        backgroundColor: colors.solidFaintDark,
+      });
+      expect(getButtonProperties('secondary', 'subtle')).toEqual({
+        textColor: colors.solidFaintDark,
+        backgroundColor: colors.transparentFaintSemitransparent,
+      });
+      expect(getButtonProperties('secondary', 'outline')).toEqual({
+        textColor: colors.solidFaintDark,
+        backgroundColor: 'transparent',
+      });
+      expect(getButtonProperties('secondary', 'ghost')).toEqual({
+        textColor: colors.solidFaintDark,
+        backgroundColor: 'transparent',
+      });
+    });
+
+    it('outline', () => {
+      expect(getButtonProperties('alert', 'solid')).toEqual({
+        textColor: colors.solidBrightLightest,
+        backgroundColor: colors.solidAlertMedium,
+      });
+      expect(getButtonProperties('alert', 'subtle')).toEqual({
+        textColor: colors.solidAlertMedium,
+        backgroundColor: colors.transparentAlertSemitransparent,
+      });
+      expect(getButtonProperties('alert', 'outline')).toEqual({
+        textColor: colors.solidAlertMedium,
+        backgroundColor: 'transparent',
+      });
+      expect(getButtonProperties('alert', 'ghost')).toEqual({
+        textColor: colors.solidAlertMedium,
+        backgroundColor: 'transparent',
+      });
+    });
+
+    it('ghost', () => {
+      expect(getButtonProperties('success', 'solid')).toEqual({
+        textColor: colors.solidBrightLightest,
+        backgroundColor: colors.solidSuccessMedium,
+      });
+      expect(getButtonProperties('success', 'subtle')).toEqual({
+        textColor: colors.solidSuccessDark,
+        backgroundColor: colors.transparentSuccessSemitransparent,
+      });
+      expect(getButtonProperties('success', 'outline')).toEqual({
+        textColor: colors.solidSuccessDark,
+        backgroundColor: 'transparent',
+      });
+      expect(getButtonProperties('success', 'ghost')).toEqual({
+        textColor: colors.solidSuccessDark,
+        backgroundColor: 'transparent',
+      });
+    });
+
+    it('inversed', () => {
+      expect(getButtonProperties('inversed', 'solid')).toEqual({
+        textColor: colors.solidFaintLight,
+        backgroundColor: colors.solidBrightLightest,
+      });
+      expect(getButtonProperties('inversed', 'subtle')).toEqual({
+        textColor: colors.solidBrightLightest,
+        backgroundColor: colors.transparentBrightSemitransparent,
+      });
+      expect(getButtonProperties('inversed', 'outline')).toEqual({
+        textColor: colors.solidBrightLightest,
+        backgroundColor: 'transparent',
+      });
+      expect(getButtonProperties('inversed', 'ghost')).toEqual({
+        textColor: colors.solidBrightLightest,
+        backgroundColor: 'transparent',
+      });
+    });
+
+    it('disabled', () => {
+      expect(getButtonProperties('disabled', 'solid')).toEqual({
+        textColor: colors.transparentFaintSoft,
+        backgroundColor: colors.transparentFaintSemitransparent,
+      });
+      expect(getButtonProperties('disabled', 'subtle')).toEqual({
+        textColor: colors.transparentFaintSoft,
+        backgroundColor: colors.transparentFaintSemitransparent,
+      });
+      expect(getButtonProperties('disabled', 'outline')).toEqual({
+        textColor: colors.transparentFaintSoft,
+        backgroundColor: 'transparent',
+      });
+      expect(getButtonProperties('disabled', 'ghost')).toEqual({
+        textColor: colors.transparentFaintSoft,
+        backgroundColor: 'transparent',
+      });
+    });
+  });
+
+  it('getLoadingSize', () => {
+    expect(getLoadingSize('small')).toBe('small');
+    expect(getLoadingSize('medium')).toBe('small');
+    expect(getLoadingSize('large')).toBe('large');
+    expect(getLoadingSize('xlarge')).toBe('large');
   });
 });

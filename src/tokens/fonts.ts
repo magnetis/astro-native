@@ -1,8 +1,18 @@
-export const poppins = 'Poppins-Regular';
-export const poppinsMedium = 'Poppins-Medium';
-export const poppinsSemiBold = 'Poppins-SemiBold';
-export const poppinsBold = 'Poppins-Bold';
-export const poppinsBlack = 'Poppins-Black';
+import type { Size } from '@components/types';
+import { typography } from '@magnetis/astro-tokens';
 
-export const lato = 'Lato-Regular';
-export const latoBold = 'Lato-Bold';
+export enum FontSize {
+  small = typography.fontSizeMicro,
+  medium = typography.fontSizeMini,
+  large = typography.fontSizeSmaller,
+  xlarge = typography.fontSizeMedium,
+}
+
+export function getFontSize(size: Size): FontSize {
+  return {
+    small: typography.fontSizeMicro,
+    medium: typography.fontSizeMini,
+    large: typography.fontSizeSmaller,
+    xlarge: typography.fontSizeMedium,
+  }[size];
+}
