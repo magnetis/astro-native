@@ -1,9 +1,20 @@
 module.exports = {
-  setupFilesAfterEnv: ['<rootDir>setupJest.ts', '@testing-library/jest-native/extend-expect'],
+  setupFilesAfterEnv: ['<rootDir>setupJest.ts'],
   preset: 'react-native',
   testEnvironment: 'jsdom',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   testMatch: ['<rootDir>/src/**/*.{spec,test}.{ts,tsx}'],
+  testPathIgnorePatterns: ['/node_modules/'],
+  transform: {
+    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.jsx?$': 'babel-jest',
+  },
+  transformIgnorePatterns: ['node_modules/(?!@magnetis/astro-tokens)/'],
+  globals: {
+    'ts-jest': {
+      babelConfig: true,
+    },
+  },
   collectCoverageFrom: [
     'src/components/**/*.{ts,tsx}',
     '!src/components/Icons/Dashboard/**/*.{ts,tsx}',
