@@ -23,9 +23,9 @@ export interface ButtonProps extends PressableProps {
   /** Text to be shown inside the button */
   text: string;
   /** Type of button, the default value is `"solid"` */
-  type: ButtonType;
+  type?: ButtonType;
   /** Variant of button, the default value is `"primary"` */
-  variant: ButtonVariant;
+  variant?: ButtonVariant;
 }
 
 export interface ButtonProperties {
