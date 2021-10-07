@@ -58,6 +58,18 @@ describe('BaseButton', () => {
     expect(onPress).toHaveBeenCalledTimes(0);
   });
 
+  it('has no interaction when loading is true', () => {
+    const { getByTestId } = render(
+      <BaseButton {...props} loading>
+        <ButtonText />
+      </BaseButton>
+    );
+    const baseButton = getByTestId('BaseButton');
+
+    fireEvent.press(baseButton);
+    expect(onPress).toHaveBeenCalledTimes(0);
+  });
+
   it('renders correctly when loading is true', () => {
     const { getByTestId } = render(
       <BaseButton {...props} loading>

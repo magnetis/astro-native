@@ -68,7 +68,7 @@ function BaseButton({
 
   const pressableProps = {
     onPress: props.onPress,
-    disabled: disabled,
+    disabled: disabled || loading,
     style: [styles.button, computedStyles],
     testID: props.testID,
     hitSlop: typeof props.hitSlop !== 'undefined' ? props.hitSlop : hitSlop,
