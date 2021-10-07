@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text } from 'react-native';
-import { fireEvent, render, act } from '@testing-library/react-native';
+import { render, act } from '@testing-library/react-native';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 
 import BaseButton from '../BaseButton';
@@ -52,10 +52,8 @@ describe('BaseButton', () => {
         <ButtonText />
       </BaseButton>
     );
-    const baseButton = getByTestId('BaseButton');
 
-    fireEvent.press(baseButton);
-    expect(onPress).toHaveBeenCalledTimes(0);
+    expect(getByTestId('BaseButton')).toBeDisabled();
   });
 
   it('has no interaction when loading is true', () => {
@@ -64,10 +62,8 @@ describe('BaseButton', () => {
         <ButtonText />
       </BaseButton>
     );
-    const baseButton = getByTestId('BaseButton');
 
-    fireEvent.press(baseButton);
-    expect(onPress).toHaveBeenCalledTimes(0);
+    expect(getByTestId('BaseButton')).toBeDisabled();
   });
 
   it('renders correctly when loading is true', () => {
