@@ -1,3 +1,17 @@
+## [1.8.7](https://github.com/magnetis/astro-native/compare/v1.8.6...v1.8.7) (2021-10-07)
+
+
+### Bug Fixes
+
+* **basebutton:** disable onPress event when loading is true ([798d2c1](https://github.com/magnetis/astro-native/commit/798d2c1989d8ef58b8ff0cf9bac35cc50813322d))
+
+
+### Features
+
+* **icons:** add icons ([690d9fb](https://github.com/magnetis/astro-native/commit/690d9fbd4bea8200c1141a17d315994ee5c8cc90))
+
+
+
 ## [1.8.6](https://github.com/magnetis/astro-native/compare/v1.8.5...v1.8.6) (2021-06-25)
 
 ### Features
