@@ -1,3 +1,14 @@
+# [2.0.0-next.0](https://github.com/magnetis/astro-native/compare/v1.8.6...v2.0.0-next.0) (2021-10-15)
+
+
+### Features
+
+* **buttons:** add buttons of new UI ([429b341](https://github.com/magnetis/astro-native/commit/429b34172d2bc15ef4a33041255e798d7313813a))
+* **buttons-group:** create buttons group ([15e1bb5](https://github.com/magnetis/astro-native/commit/15e1bb5ed10b31ccf1221d052e246c9d4a34b363))
+* **icons:** add icons ([690d9fb](https://github.com/magnetis/astro-native/commit/690d9fbd4bea8200c1141a17d315994ee5c8cc90))
+
+
+
 ## [1.8.6](https://github.com/magnetis/astro-native/compare/v1.8.5...v1.8.6) (2021-06-25)
 
 ### Features
