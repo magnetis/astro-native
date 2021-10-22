@@ -15,10 +15,15 @@ const ITEMS = [
 storiesOf('Buttons Group', module).add('Buttons Group', () => (
   <SafeAreaView>
     <View style={{ backgroundColor: colors.solidFaintDarkest }}>
-      <ButtonsGroup items={ITEMS} inversed={boolean('inversed', true)} onPress={() => console.log('value')} />
+      <ButtonsGroup
+        items={ITEMS}
+        inversed={boolean('inversed', true)}
+        legacy={boolean('legacy', false)}
+        onPress={() => console.log('value')}
+      />
     </View>
     <View style={{ marginTop: sizes.mini }}>
-      <ButtonsGroup items={ITEMS} />
+      <ButtonsGroup legacy={boolean('legacy', false)} items={ITEMS} onPress={() => console.log('value')} />
     </View>
   </SafeAreaView>
 ));

@@ -7,6 +7,7 @@ import { getIcon } from '@components/Buttons/utils';
 import BaseButton from './BaseButton';
 
 import type { IconButtonProps } from './types';
+import { radius } from '@magnetis/astro-tokens';
 /**
  * Primary buttons have a colored background.
  *
@@ -16,6 +17,7 @@ import type { IconButtonProps } from './types';
 function IconButton({
   disabled,
   icon,
+  legacy,
   size = 'medium',
   variant = 'primary',
   type = 'solid',
@@ -29,6 +31,7 @@ function IconButton({
     activityIndicatorColor: textColor,
     backgroundColor,
     borderColor: type === 'outline' ? textColor : backgroundColor,
+    borderRadius: legacy ? radius.circular : radius.small,
     disabled,
     isIconButton: true,
     textColor,
@@ -38,9 +41,9 @@ function IconButton({
   const Icon = getIcon(icon!);
 
   return (
-    <BaseButton {...props} {...baseProps}>
+    <BaseButton {...props} {...baseProps} testID="IconButton">
       <View style={{ alignItems: 'center' }}>
-        <View testID="IconButton.Icon">
+        <View testID="IconButton.IconContainer">
           <Icon size={iconSize} color={textColor} />
         </View>
       </View>

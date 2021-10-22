@@ -13,6 +13,7 @@ storiesOf('Next Buttons', module).add('Button', () => (
     fill={boolean('fill', false)}
     iconLeft={select('iconLeft', iconOptions, iconOptions[0])}
     iconRight={select('iconRight', iconOptions, iconOptions[0])}
+    legacy={boolean('legacy', false)}
     loading={boolean('loading', false)}
     size={select('size', sizeOptions, sizeOptions[1])}
     text={text('text', 'Button')}
