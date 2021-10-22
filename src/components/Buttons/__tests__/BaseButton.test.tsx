@@ -13,6 +13,7 @@ const initialProps: BaseButtonProps = {
   activityIndicatorColor: colors.solidBrightLightest,
   backgroundColor: colors.solidPrimaryMedium,
   borderColor: colors.solidPrimaryMedium,
+  borderRadius: radius.small,
   textColor: colors.solidBrightLightest,
   testID: 'BaseButton',
   style: {},
@@ -24,7 +25,7 @@ describe('BaseButton', () => {
     jest.clearAllMocks();
   });
 
-  it('renders correctly with default props', () => {
+  it('should renders correctly with default props', () => {
     const { getByTestId } = render(
       <BaseButton {...initialProps}>
         <ButtonText />
@@ -42,7 +43,7 @@ describe('BaseButton', () => {
     });
   });
 
-  it('has no interaction when disabled is true', () => {
+  it('should renders with no interaction when disabled is true', () => {
     const { getByTestId } = render(
       <BaseButton {...initialProps} disabled>
         <ButtonText />
@@ -54,7 +55,7 @@ describe('BaseButton', () => {
     expect(initialProps.onPress).toHaveBeenCalledTimes(0);
   });
 
-  it('renders correctly when loading is true', () => {
+  it('should renders correctly when loading is true', () => {
     const { getByTestId } = render(
       <BaseButton {...initialProps} loading>
         <ButtonText />
@@ -73,7 +74,7 @@ describe('BaseButton', () => {
     expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.solidBrightLightest);
   });
 
-  it('has width of 100% when fill is true', () => {
+  it('should renders with width of 100% when fill is true', () => {
     const { getByTestId } = render(
       <BaseButton {...initialProps} fill>
         <ButtonText />
@@ -83,7 +84,7 @@ describe('BaseButton', () => {
     expect(getByTestId('BaseButton')).toHaveStyle({ width: '100%' });
   });
 
-  it('has min hit slop 50X48 when button width and height is small', () => {
+  it('should renders with min hit slop 50X48 when button width and height is small', () => {
     const { getByTestId } = render(
       <BaseButton {...initialProps} fill>
         <ButtonText />
@@ -110,7 +111,7 @@ describe('BaseButton', () => {
     });
   });
 
-  it('has min hit slop 48X48 when button width is small', () => {
+  it('should renders with min hit slop 48X48 when button width is small', () => {
     const { getByTestId } = render(
       <BaseButton {...initialProps} fill>
         <ButtonText />
@@ -137,7 +138,7 @@ describe('BaseButton', () => {
     });
   });
 
-  it('has min hit slop 48X50 when button height is small', () => {
+  it('should renders with min hit slop 48X50 when button height is small', () => {
     const { getByTestId } = render(
       <BaseButton {...initialProps} fill>
         <ButtonText />
@@ -164,7 +165,7 @@ describe('BaseButton', () => {
     });
   });
 
-  it('has min hit slop 60X50 when button height is bigger then minimum', () => {
+  it('should renders with min hit slop 60X50 when button height is bigger then minimum', () => {
     const { getByTestId } = render(
       <BaseButton {...initialProps} fill>
         <ButtonText />
@@ -191,7 +192,7 @@ describe('BaseButton', () => {
     });
   });
 
-  it('has hit slop passed when button width and height is small, but hit slop prop has been passed', () => {
+  it('should renders with hit slop passed when button width and height is small, but hit slop prop has been passed', () => {
     const { getByTestId } = render(
       <BaseButton {...initialProps} fill hitSlop={0}>
         <ButtonText />
@@ -213,7 +214,7 @@ describe('BaseButton', () => {
     expect(baseButton.props.hitSlop).toStrictEqual({ bottom: 0, left: 0, right: 0, top: 0 });
   });
 
-  it('has onLayout called if user set this prop', () => {
+  it('should renders with onLayout called if user set this prop', () => {
     const onLayout = jest.fn();
     const { getByTestId } = render(
       <BaseButton {...initialProps} fill onLayout={onLayout}>

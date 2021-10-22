@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { View, StyleSheet, ActivityIndicator, Pressable, PressableProps, LayoutChangeEvent } from 'react-native';
 
-import { borders, radius } from '@magnetis/astro-tokens';
+import { borders } from '@magnetis/astro-tokens';
 
 import { getFixedHitSlop } from '@components/utils';
 
@@ -14,6 +14,7 @@ export interface BaseButtonProps extends PressableProps {
   backgroundColor: string;
   borderColor: string;
   fill?: boolean;
+  borderRadius: number;
   loading?: boolean;
   isIconButton?: boolean;
   textColor: string;
@@ -24,7 +25,6 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     alignSelf: 'stretch',
-    borderRadius: radius.small,
     borderWidth: borders.hairline,
     flexDirection: 'row',
     justifyContent: 'center',
@@ -49,6 +49,7 @@ function BaseButton({
     ...getButtonPadding(size, { isIconButton }),
     backgroundColor: props.backgroundColor,
     borderColor: props.borderColor,
+    borderRadius: props.borderRadius,
   };
 
   if (fill) {

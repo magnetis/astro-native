@@ -1,6 +1,6 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
-import { colors } from '@magnetis/astro-tokens';
+import { colors, radius } from '@magnetis/astro-tokens';
 
 import ButtonsGroup from '../ButtonsGroup';
 
@@ -29,18 +29,35 @@ describe('ButtonsGroup', () => {
 
     expect(getByA11yLabel('lorem')).toHaveStyle({
       backgroundColor: colors.solidPrimaryMedium,
+      borderRadius: radius.small,
     });
 
     expect(getByA11yLabel('ipsum')).toHaveStyle({
       backgroundColor: colors.transparentFaintSemitransparent,
+      borderRadius: radius.small,
     });
   });
 
   it('should renders correctly with inversed prop', () => {
-    const { getByA11yLabel } = render(<ButtonsGroup {...initialProps} inversed />);
+    const { getByA11yLabel } = render(<ButtonsGroup {...initialProps} inversed={true} />);
 
     expect(getByA11yLabel('ipsum')).toHaveStyle({
       backgroundColor: colors.transparentBrightSemitransparent,
+      borderRadius: radius.small,
+    });
+  });
+
+  it('should renders correctly with legacy prop', () => {
+    const { getByA11yLabel } = render(<ButtonsGroup {...initialProps} legacy={true} />);
+
+    expect(getByA11yLabel('lorem')).toHaveStyle({
+      backgroundColor: colors.solidPrimaryMedium,
+      borderRadius: radius.circular,
+    });
+
+    expect(getByA11yLabel('ipsum')).toHaveStyle({
+      backgroundColor: colors.transparentFaintSemitransparent,
+      borderRadius: radius.circular,
     });
   });
 
