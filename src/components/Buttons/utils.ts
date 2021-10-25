@@ -1,4 +1,5 @@
 import { colors, sizes } from '@magnetis/astro-tokens';
+import { colors as legacyColors } from '@magnetis/astro-galaxy-tokens';
 
 import * as icons from '@components/Icons';
 import { getFontSize } from '@tokens/fonts';
@@ -117,6 +118,12 @@ export function getButtonProperties(variant: ButtonVariant = 'primary', type: Bu
       subtle: { textColor: colors.transparentFaintSoft, backgroundColor: colors.transparentFaintSemitransparent },
       outline: { textColor: colors.transparentFaintSoft, backgroundColor: 'transparent' },
       ghost: { textColor: colors.transparentFaintSoft, backgroundColor: 'transparent' },
+    },
+    legacy: {
+      solid: { textColor: colors.solidBrightLightest, backgroundColor: legacyColors.uranus500 },
+      subtle: { textColor: colors.solidBrightLightest, backgroundColor: legacyColors.uranus500 },
+      outline: { textColor: colors.solidBrightLightest, backgroundColor: 'transparent' },
+      ghost: { textColor: colors.solidBrightLightest, backgroundColor: 'transparent' },
     },
   }[variant][type];
 }

@@ -6,7 +6,15 @@ import type { Size } from '@components/types';
 export const buttonTypeOptions = ['solid', 'subtle', 'outline', 'ghost'] as const;
 export type ButtonType = typeof buttonTypeOptions[number];
 
-export const buttonVariantOptions = ['primary', 'secondary', 'alert', 'success', 'inversed', 'disabled'] as const;
+export const buttonVariantOptions = [
+  'primary',
+  'secondary',
+  'alert',
+  'success',
+  'inversed',
+  'disabled',
+  'legacy',
+] as const;
 export type ButtonVariant = typeof buttonVariantOptions[number];
 
 export interface ButtonProps extends PressableProps {

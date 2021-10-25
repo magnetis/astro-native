@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
+import { colors as legacyColors } from '@magnetis/astro-galaxy-tokens';
 import { colors, sizes } from '@magnetis/astro-tokens';
 
 import { AlertIcon } from '@components/Icons';
@@ -180,6 +181,25 @@ describe('Button/utils', () => {
       });
       expect(getButtonProperties('disabled', 'ghost')).toEqual({
         textColor: colors.transparentFaintSoft,
+        backgroundColor: 'transparent',
+      });
+    });
+
+    it('legacy', () => {
+      expect(getButtonProperties('legacy', 'solid')).toEqual({
+        textColor: colors.solidBrightLightest,
+        backgroundColor: legacyColors.uranus500,
+      });
+      expect(getButtonProperties('legacy', 'subtle')).toEqual({
+        textColor: colors.solidBrightLightest,
+        backgroundColor: legacyColors.uranus500,
+      });
+      expect(getButtonProperties('legacy', 'outline')).toEqual({
+        textColor: colors.solidBrightLightest,
+        backgroundColor: 'transparent',
+      });
+      expect(getButtonProperties('legacy', 'ghost')).toEqual({
+        textColor: colors.solidBrightLightest,
         backgroundColor: 'transparent',
       });
     });
