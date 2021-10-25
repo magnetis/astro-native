@@ -86,7 +86,7 @@ function BaseButton({
           <View style={{ position: 'absolute', width: '100%' }}>
             <ActivityIndicator
               testID="BaseButton.ActivityIndicator"
-              animating={true}
+              animating
               size={getLoadingSize(size)}
               style={styles.spinner}
               color={activityIndicatorColor}

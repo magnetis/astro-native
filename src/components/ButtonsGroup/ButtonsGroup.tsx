@@ -12,7 +12,7 @@ type Item = {
 export interface ButtonsGroupProps extends PressableProps {
   items: Item[];
   inversed?: boolean;
-  legacy?: boolean;
+  rounded?: boolean;
 }
 
 function ButtonsGroup({ testID, items, inversed, ...props }: ButtonsGroupProps) {

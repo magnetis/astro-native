@@ -11,7 +11,7 @@ storiesOf('Next Buttons', module).add('IconButton', () => (
   <IconButton
     disabled={boolean('disabled', false)}
     icon={select('icon', iconOptions, iconOptions[0])}
-    legacy={boolean('legacy', false)}
+    rounded={boolean('rounded', false)}
     loading={boolean('loading', false)}
     size={select('size', sizeOptions, 'medium')}
     variant={select('variant', buttonVariantOptions, 'primary')}

@@ -39,7 +39,7 @@ describe('ButtonsGroup', () => {
   });
 
   it('should renders correctly with inversed prop', () => {
-    const { getByA11yLabel } = render(<ButtonsGroup {...initialProps} inversed={true} />);
+    const { getByA11yLabel } = render(<ButtonsGroup {...initialProps} inversed />);
 
     expect(getByA11yLabel('ipsum')).toHaveStyle({
       backgroundColor: colors.transparentBrightSemitransparent,
@@ -47,8 +47,8 @@ describe('ButtonsGroup', () => {
     });
   });
 
-  it('should renders correctly with legacy prop', () => {
-    const { getByA11yLabel } = render(<ButtonsGroup {...initialProps} legacy={true} />);
+  it('should renders correctly with rounded prop', () => {
+    const { getByA11yLabel } = render(<ButtonsGroup {...initialProps} rounded />);
 
     expect(getByA11yLabel('lorem')).toHaveStyle({
       backgroundColor: colors.solidPrimaryMedium,

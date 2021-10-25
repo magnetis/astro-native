@@ -68,8 +68,8 @@ describe('Button', () => {
     });
   });
 
-  it('should renders correctly with legacy layout', () => {
-    const { getByText, getByTestId, queryByTestId } = render(<Button {...initialProps} legacy={true} />);
+  it('should renders correctly with rounded layout', () => {
+    const { getByText, getByTestId, queryByTestId } = render(<Button {...initialProps} rounded />);
 
     const button = getByTestId('Button');
     const buttonLabel = getByText('text');
