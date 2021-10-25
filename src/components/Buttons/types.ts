@@ -16,8 +16,8 @@ export interface ButtonProps extends PressableProps {
   iconLeft?: IconID;
   /** Defines right icon name */
   iconRight?: IconID;
-  /** Renders legacy border radius. Defaults to `false`.  */
-  legacy?: boolean;
+  /** Renders rounded border radius. Defaults to `false`.  */
+  rounded?: boolean;
   /** Shows activity indicator inside button when true. Defaults to `false`.  */
   loading?: boolean;
   /** Specifies button size. Defaults to `"medium"`. */

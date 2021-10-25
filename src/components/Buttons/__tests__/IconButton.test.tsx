@@ -30,8 +30,8 @@ describe('IconButton', () => {
     expect(iconContainer.props.children.props.size).toEqual(sizes.tiny);
   });
 
-  it('should renders correctly with legacy prop', () => {
-    const { getByTestId } = render(<IconButton {...initialProps} legacy={true} />);
+  it('should renders correctly with rounded prop', () => {
+    const { getByTestId } = render(<IconButton {...initialProps} rounded />);
 
     const button = getByTestId('IconButton');
     const iconContainer = getByTestId('IconButton.IconContainer');

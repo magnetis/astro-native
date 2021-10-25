@@ -17,7 +17,7 @@ import { radius } from '@magnetis/astro-tokens';
 function IconButton({
   disabled,
   icon,
-  legacy,
+  rounded,
   size = 'medium',
   variant = 'primary',
   type = 'solid',
@@ -31,7 +31,7 @@ function IconButton({
     activityIndicatorColor: textColor,
     backgroundColor,
     borderColor: type === 'outline' ? textColor : backgroundColor,
-    borderRadius: legacy ? radius.circular : radius.small,
+    borderRadius: rounded ? radius.circular : radius.small,
     disabled,
     isIconButton: true,
     textColor,
