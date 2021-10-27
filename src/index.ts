@@ -19,6 +19,10 @@ export type { Gradient, GradientMap, GradientID } from '@tokens/gradients';
 export * from '@components/Buttons';
 export type { ButtonProps } from '@components/Buttons';
 
+// ButtonsGroup
+export * from '@components/ButtonsGroup';
+export type { ButtonsGroupProps } from '@components/ButtonsGroup';
+
 // Icons
 export * from '@components/Icons';
 export type { IconProps } from '@components/Icons';
