@@ -1,3 +1,20 @@
+# [2.0.0-next.1](https://github.com/magnetis/astro-native/compare/v2.0.0-next.0...v2.0.0-next.1) (2021-10-27)
+
+
+### Bug Fixes
+
+* **button:** add font weight ([ab0d5eb](https://github.com/magnetis/astro-native/commit/ab0d5eb9186c0ccdde03e6dda0ec3b5cbc1816c1))
+
+
+### Features
+
+* **buttongroup:** add ButtonsGroup to index export ([60cb52c](https://github.com/magnetis/astro-native/commit/60cb52cbc5c23629ce339ab8d748f4b044baf39c))
+* **buttons:** add legacy variant ([01f7f9a](https://github.com/magnetis/astro-native/commit/01f7f9a5878192c7cef140b5e0ac685e8ea574db))
+* **buttons:** add rounded prop ([f368105](https://github.com/magnetis/astro-native/commit/f3681053e2ab5faab0d170e9f5d7f6cfc92bfb2d))
+* **tabs:** create tabs ([657073e](https://github.com/magnetis/astro-native/commit/657073e7b0084ff12bd460a02d4836220046cbd9))
+
+
+
 # [2.0.0-next.0](https://github.com/magnetis/astro-native/compare/v1.8.6...v2.0.0-next.0) (2021-10-15)
 
 
