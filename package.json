@@ -43,7 +43,7 @@
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/runtime": "^7.8.4",
-    "@commitlint/cli": "^13.2.1",
+    "@commitlint/cli": "^14.1.0",
     "@commitlint/config-conventional": "^13.2.0",
     "@storybook/addon-knobs": "^5.3",
     "@storybook/addon-ondevice-knobs": "^5.3.23",
