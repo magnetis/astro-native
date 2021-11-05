@@ -1,6 +1,6 @@
 version: 2
 updates:
-  - package-ecosystem: npm
+  - package-ecosystem: yarn
     directory: '/'
     schedule:
       interval: daily
@@ -13,26 +13,14 @@ updates:
       - julianosbento
       - victorheringer
       - murillo94
-      - pleaobraga
       - an-mag
       - LopesAlysson
       - pedro-cerdera
       - lucianomlima
-      - carlosberti
-    assignees:
-      - julianosbento
-      - victorheringer
-      - murillo94
-      - pleaobraga
-      - an-mag
-      - LopesAlysson
-      - pedro-cerdera
-      - lucianomlima
-      - carlosberti
     ignore:
       - dependency-name: '@babel/runtime'
       - dependency-name: '@babel/core'
       - dependency-name: 'react'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-major', 'version-update:semver-minor']
       - dependency-name: 'react-native'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-major', 'version-update:semver-minor']
