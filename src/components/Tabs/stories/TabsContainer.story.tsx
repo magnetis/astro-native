@@ -35,7 +35,12 @@ storiesOf('Tabs', module).add('TabsContainer', () => (
         },
       ]}
     >
-      <TabsContainer items={TWO_ITEMS} inversed={boolean('inversed', true)} onPress={() => console.log('value')} />
+      <TabsContainer
+        items={TWO_ITEMS}
+        inversed={boolean('inversed', true)}
+        rounded
+        onPress={() => console.log('value')}
+      />
     </View>
     <View style={[styles.container, { marginTop: sizes.mini }]}>
       <TabsContainer items={THREE_ITEMS} />
