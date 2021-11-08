@@ -2018,10 +2018,12 @@
     sudo-prompt "^9.0.0"
     wcwidth "^1.0.1"
 
-"@react-native-community/slider@^3.0.3":
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/@react-native-community/slider/-/slider-3.0.3.tgz#830167fd757ba70ac638747ba3169b2dbae60330"
-  integrity sha512-8IeHfDwJ9/CTUwFs6x90VlobV3BfuPgNLjTgC6dRZovfCWigaZwVNIFFJnHBakK3pW2xErAPwhdvNR4JeNoYbw==
+"@react-native-community/slider@^4.1.11":
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/@react-native-community/slider/-/slider-4.1.11.tgz#390c870da176f110412c976f25379a3f185afe15"
+  integrity sha512-nFYCEDt8u0jJ4fpeBndGAlWSxJ5LeCMnuavUtaMH0RgbZONc98dBLyO9aZTZhXzdMGJBtoiSDQOzl3LUQ7yxZA==
+  dependencies:
+    flow-bin "0.113.0"
 
 "@sinonjs/commons@^1.7.0":
   version "1.8.1"
@@ -7381,6 +7383,11 @@ flatted@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.1.0.tgz#a5d06b4a8b01e3a63771daa5cb7a1903e2e57067"
   integrity sha512-tW+UkmtNg/jv9CSofAKvgVcO7c2URjhTdW1ZTkcAritblu8tajiYy7YisnIflEwtKssCtOxpnBRoCB7iap0/TA==
+
+flow-bin@0.113.0:
+  version "0.113.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.113.0.tgz#6457d250dbc6f71ca51e75f00a96d23cde5d987a"
+  integrity sha512-76uE2LGNe50wm+Jup8Np4FBcMbyy5V2iE+K25PPIYLaEMGHrL1jnQfP9L0hTzA5oh2ZJlexRLMlaPqIYIKH9nw==
 
 flush-write-stream@^1.0.0:
   version "1.1.1"
