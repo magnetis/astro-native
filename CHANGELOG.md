@@ -1,3 +1,10 @@
+# [2.0.0-next.2](https://github.com/magnetis/astro-native/compare/v2.0.0-next.1...v2.0.0-next.2) (2021-11-08)
+
+
+### Features
+
+* **tabs:** add rounded prop ([234e6cf](https://github.com/magnetis/astro-native/commit/234e6cf98e0c23f13dc994e52251ec30706ddec3))
+
 # [2.0.0-next.1](https://github.com/magnetis/astro-native/compare/v2.0.0-next.0...v2.0.0-next.1) (2021-10-27)
 
 
