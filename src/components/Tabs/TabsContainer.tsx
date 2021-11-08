@@ -12,9 +12,10 @@ type Item = {
 export interface TabsContainerProps extends PressableProps {
   items: Item[];
   inversed?: boolean;
+  rounded?: boolean;
 }
 
-function TabsContainer({ testID, items, inversed, ...props }: TabsContainerProps) {
+function TabsContainer({ testID, items, inversed, rounded, ...props }: TabsContainerProps) {
   const [activeItem, setActiveItem] = useState(0);
 
   return (
@@ -24,12 +25,14 @@ function TabsContainer({ testID, items, inversed, ...props }: TabsContainerProps
         styles.tabsContainer,
         {
           backgroundColor: inversed ? colors.transparentBrightSemitransparent : colors.transparentFaintSemitransparent,
+          borderRadius: rounded ? radius.circular : radius.small,
         },
       ]}
     >
       {items.map((item, index) => (
         <Tab
           {...props}
+          rounded={rounded}
           testID={`Tab.${item.value}`}
           key={item.value}
           value={item.value}
@@ -50,7 +53,6 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     padding: sizes.quark,
-    borderRadius: radius.small,
   },
 });
 

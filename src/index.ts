@@ -23,6 +23,10 @@ export type { ButtonProps } from '@components/Buttons';
 export * from '@components/ButtonsGroup';
 export type { ButtonsGroupProps } from '@components/ButtonsGroup';
 
+// TabsContainer
+export * from '@components/Tabs';
+export type { TabsContainerProps } from '@components/Tabs';
+
 // Icons
 export * from '@components/Icons';
 export type { IconProps } from '@components/Icons';

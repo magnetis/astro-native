@@ -7,6 +7,7 @@ export interface TabProps extends PressableProps {
   value: string;
   activeItem: boolean;
   inversed?: boolean;
+  rounded?: boolean;
 }
 
 function handleTextColor(activeItem: boolean, inversed?: boolean) {
@@ -17,7 +18,7 @@ function handleTextColor(activeItem: boolean, inversed?: boolean) {
   return colors.transparentBrightDiffuse;
 }
 
-function Tab({ value, activeItem, inversed, ...props }: TabProps) {
+function Tab({ value, activeItem, inversed, rounded, ...props }: TabProps) {
   return (
     <Pressable
       {...props}
@@ -25,6 +26,7 @@ function Tab({ value, activeItem, inversed, ...props }: TabProps) {
         styles.container,
         {
           backgroundColor: activeItem ? colors.solidBrightLightest : 'transparent',
+          borderRadius: rounded ? radius.circular : radius.small,
         },
         {
           ...(activeItem && {
@@ -59,7 +61,6 @@ const styles = StyleSheet.create({
     height: sizes.large,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: radius.small,
   },
 });
 
