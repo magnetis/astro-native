@@ -1,4 +1,14 @@
-## [1.8.7](https://github.com/magnetis/astro-native/compare/v1.8.6...v1.8.7) (2021-10-07)
+# [1.8.8](https://github.com/magnetis/astro-native/compare/v1.8.6...v1.8.7) (2021-11-17)
+
+### Features
+
+* **icons:** feat(icons): add icons ([9f3b7b9](https://github.com/magnetis/astro-native/commit/9f3b7b9567622f7b24732d31d9369e3911f716ef))
+
+### Chores
+
+* Update dependabot.yml ([a98fb270](https://github.com/magnetis/astro-native/commit/a98fb2707316bed39a266aa96d7a36027c9efb24))
+
+# [1.8.7](https://github.com/magnetis/astro-native/compare/v1.8.6...v1.8.7) (2021-10-07)
 
 
 ### Bug Fixes
@@ -12,14 +22,14 @@
 
 
 
-## [1.8.6](https://github.com/magnetis/astro-native/compare/v1.8.5...v1.8.6) (2021-06-25)
+# [1.8.6](https://github.com/magnetis/astro-native/compare/v1.8.5...v1.8.6) (2021-06-25)
 
 ### Features
 
 - **component** add new selection component ([415616f](https://github.com/magnetis/astro-native/commit/415616f05220e5278073670623e3f64f9c7ab359))
 - **icon** add new RotatePhone icon ([70dd269](https://github.com/magnetis/astro-native/commit/70dd269c4aa545f5f260d5a972d4cb7156219581))
 
-## [1.8.5](https://github.com/magnetis/astro-native/compare/v1.8.4...v1.8.5) (2021-05-17)
+# [1.8.5](https://github.com/magnetis/astro-native/compare/v1.8.4...v1.8.5) (2021-05-17)
 
 ### Features
 
@@ -100,7 +110,7 @@
 
 - **tabs:** add borderBottom option ([72f7e6a](https://github.com/magnetis/astro-native/commit/72f7e6aadc01cd35c244843a0abb74b5332298e2))
 
-## [1.3.1](https://github.com/magnetis/astro-native/compare/v1.3.0...v1.3.1) (2020-12-29)
+# [1.3.1](https://github.com/magnetis/astro-native/compare/v1.3.0...v1.3.1) (2020-12-29)
 
 ### Bug Fixes
 
@@ -132,7 +142,7 @@
 
 - **Inputs:** Implement Currency Input ([c732d0a](https://github.com/magnetis/astro-native/commit/c732d0a36b640754c589b20253d982f47c5a2b8b))
 
-## [1.0.3](https://github.com/magnetis/astro-native/compare/v1.0.2...v1.0.3) (2020-12-15)
+# [1.0.3](https://github.com/magnetis/astro-native/compare/v1.0.2...v1.0.3) (2020-12-15)
 
 ### Bug Fixes
 
@@ -145,13 +155,13 @@
 - **Radio:** change isSelected prop to `selected`` ([14cc701](https://github.com/magnetis/astro-native/commit/14cc70100075ecdf76bdce87e885bf328f50480c))
 - **TextInput:** Fix password behavior ([0712b1c](https://github.com/magnetis/astro-native/commit/0712b1c2a9fe3ba17b7f4a89afe33720781978d5))
 
-## [1.0.2](https://github.com/magnetis/astro-native/compare/v1.0.1...v1.0.2) (2020-12-11)
+# [1.0.2](https://github.com/magnetis/astro-native/compare/v1.0.1...v1.0.2) (2020-12-11)
 
 ### Bug Fixes
 
 - **Build** Change tsconfig module to ES2015 #28
 
-## [1.0.1](https://github.com/magnetis/astro-native/compare/v1.0.0...v1.0.1) (2020-12-08)
+# [1.0.1](https://github.com/magnetis/astro-native/compare/v1.0.0...v1.0.1) (2020-12-08)
 
 ### Bug Fixes
 
@@ -161,6 +171,6 @@
 - **MaskedInput:** show textAlign as left always ([767f7c6](https://github.com/magnetis/astro-native/commit/767f7c6f7d1726f2a7453bf2b308ed641e8bf0e4))
 - **TextInput:** fix password eye toggle behavior ([364bda5](https://github.com/magnetis/astro-native/commit/364bda521af2d598ea5183643b14c4f9bef4681a))
 
-## [1.0.0 (2020-12-07)](https://github.com/magnetis/astro-native/releases/tag/v1.0.0)
+# [1.0.0 (2020-12-07)](https://github.com/magnetis/astro-native/releases/tag/v1.0.0)
 
 - First version :tada:
