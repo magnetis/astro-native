@@ -1,11 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import { View, StyleSheet, ActivityIndicator, Pressable, PressableProps, LayoutChangeEvent } from 'react-native';
 
-import { borders } from '@magnetis/astro-tokens';
-
 import { getFixedHitSlop } from '@components/utils';
 
-import { getButtonPadding, getLoadingSize } from '@components/Buttons/utils';
+import { getButtonHeight, getButtonHorizontalPadding, getLoadingSize } from '@components/Buttons/utils';
 
 import type { HitSlop, Size } from '@components/types';
 
@@ -25,7 +23,6 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     alignSelf: 'stretch',
-    borderWidth: borders.hairline,
     flexDirection: 'row',
     justifyContent: 'center',
   },
@@ -38,15 +35,16 @@ function BaseButton({
   activityIndicatorColor,
   children,
   fill = false,
-  isIconButton = false,
   loading = false,
   size = 'medium',
+  isIconButton = false,
   ...props
 }: BaseButtonProps) {
   const [hitSlop, setHitSlop] = useState<HitSlop>({ top: 0, bottom: 0, left: 0, right: 0 });
 
   const computedStyles: any = {
-    ...getButtonPadding(size, { isIconButton }),
+    ...getButtonHeight(size),
+    ...getButtonHorizontalPadding(size, { isIconButton }),
     backgroundColor: props.backgroundColor,
     borderColor: props.borderColor,
     borderRadius: props.borderRadius,

@@ -11,32 +11,52 @@ interface GetPropertiesOptionsParam {
   isIconButton: boolean;
 }
 
+const defaultOptions = {
+  isIconButton: false,
+};
+
 /**
- * Calculates button padding according to button size and if should have horizontal padding
+ * Calculates button height according to button size
  * @param {Size} size Valid **Size**
- * @param {GetPropertiesOptionsParam} options Options object
+ */
+export function getButtonHeight(size: Size) {
+  const buttonHeight = {
+    small: sizes.small,
+    medium: sizes.large,
+    large: sizes.larger,
+    xlarge: sizes.great,
+  };
+
+  return {
+    height: buttonHeight[size],
+  };
+}
+
+/**
+ * Calculates button horizontal padding according to button size
+ * @param {Size} size Valid **Size**
  * @param options.isIconButton If button is icon button
  */
-export function getButtonPadding(size: Size, options: GetPropertiesOptionsParam) {
+export function getButtonHorizontalPadding(size: Size, options: GetPropertiesOptionsParam = defaultOptions) {
   const { isIconButton } = options;
 
-  const regularHorizontalPadding = {
+  const iconButtonWidth = {
+    small: sizes.small,
+    medium: sizes.large,
+    large: sizes.larger,
+    xlarge: sizes.great,
+  };
+
+  const buttonHorizontalPadding = {
     small: sizes.micro,
     medium: sizes.tiny,
     large: sizes.smaller,
     xlarge: sizes.smaller,
   };
 
-  const regularVerticalPadding = {
-    small: 10,
-    medium: 17,
-    large: 20,
-    xlarge: 22,
-  };
-
   return {
-    paddingHorizontal: isIconButton ? regularVerticalPadding[size] : regularHorizontalPadding[size],
-    paddingVertical: regularVerticalPadding[size],
+    width: isIconButton ? iconButtonWidth[size] : undefined,
+    paddingHorizontal: isIconButton ? 0 : buttonHorizontalPadding[size],
   };
 }
 
