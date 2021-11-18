@@ -4,6 +4,8 @@ import { sizes } from '@magnetis/astro-tokens';
 
 import Button from '@components/Buttons/Button';
 
+import type { ButtonVariant } from '@components/Buttons/types';
+
 type Item = {
   value: string;
   onPressItem: () => void;
@@ -13,10 +15,18 @@ export interface ButtonsGroupProps extends PressableProps {
   items: Item[];
   inversed?: boolean;
   rounded?: boolean;
+  legacy?: boolean;
 }
 
-function ButtonsGroup({ testID, items, inversed, ...props }: ButtonsGroupProps) {
+function ButtonsGroup({ testID, items, inversed, legacy, rounded, ...props }: ButtonsGroupProps) {
   const [activeItem, setActiveItem] = useState(0);
+
+  function getButtonGroupVariant(index: number): ButtonVariant {
+    if (activeItem === index && legacy) return 'legacy';
+    if (activeItem === index && !legacy) return 'primary';
+    if (inversed) return 'inversed';
+    return 'secondary';
+  }
 
   return (
     <FlatList
@@ -25,18 +35,17 @@ function ButtonsGroup({ testID, items, inversed, ...props }: ButtonsGroupProps) 
       style={styles.container}
       contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
       horizontal
-      bounces={false}
       showsHorizontalScrollIndicator={false}
       keyExtractor={(item) => item.value}
       ItemSeparatorComponent={() => <View style={styles.itemContainer} />}
       renderItem={({ item, index }) => (
         <Button
           {...props}
-          accessibilityLabel={item.value}
           size="small"
           type={activeItem === index ? 'solid' : 'subtle'}
-          variant={activeItem === index ? 'primary' : inversed ? 'inversed' : 'secondary'}
+          variant={getButtonGroupVariant(index)}
           text={item.value}
+          rounded={legacy || rounded}
           onPress={() => {
             setActiveItem(index);
             item.onPressItem();
