@@ -1,6 +1,7 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
 import { colors, radius } from '@magnetis/astro-tokens';
+import { colors as legacyColors } from '@magnetis/astro-galaxy-tokens';
 
 import ButtonsGroup from '../ButtonsGroup';
 
@@ -25,46 +26,60 @@ describe('ButtonsGroup', () => {
   });
 
   it('should renders correctly with default props', () => {
-    const { getByA11yLabel } = render(<ButtonsGroup {...initialProps} />);
+    const { getAllByTestId } = render(<ButtonsGroup {...initialProps} />);
 
-    expect(getByA11yLabel('lorem')).toHaveStyle({
+    expect(getAllByTestId('Button')[0]).toHaveStyle({
       backgroundColor: colors.solidPrimaryMedium,
       borderRadius: radius.small,
     });
 
-    expect(getByA11yLabel('ipsum')).toHaveStyle({
+    expect(getAllByTestId('Button')[1]).toHaveStyle({
       backgroundColor: colors.transparentFaintSemitransparent,
       borderRadius: radius.small,
     });
   });
 
   it('should renders correctly with inversed prop', () => {
-    const { getByA11yLabel } = render(<ButtonsGroup {...initialProps} inversed />);
+    const { getAllByTestId } = render(<ButtonsGroup {...initialProps} inversed />);
 
-    expect(getByA11yLabel('ipsum')).toHaveStyle({
+    expect(getAllByTestId('Button')[1]).toHaveStyle({
       backgroundColor: colors.transparentBrightSemitransparent,
       borderRadius: radius.small,
     });
   });
 
   it('should renders correctly with rounded prop', () => {
-    const { getByA11yLabel } = render(<ButtonsGroup {...initialProps} rounded />);
+    const { getAllByTestId } = render(<ButtonsGroup {...initialProps} rounded />);
 
-    expect(getByA11yLabel('lorem')).toHaveStyle({
+    expect(getAllByTestId('Button')[0]).toHaveStyle({
       backgroundColor: colors.solidPrimaryMedium,
       borderRadius: radius.circular,
     });
 
-    expect(getByA11yLabel('ipsum')).toHaveStyle({
+    expect(getAllByTestId('Button')[1]).toHaveStyle({
+      backgroundColor: colors.transparentFaintSemitransparent,
+      borderRadius: radius.circular,
+    });
+  });
+
+  it('should renders correctly with legacy prop', () => {
+    const { getAllByTestId } = render(<ButtonsGroup {...initialProps} legacy rounded />);
+
+    expect(getAllByTestId('Button')[0]).toHaveStyle({
+      backgroundColor: legacyColors.uranus500,
+      borderRadius: radius.circular,
+    });
+
+    expect(getAllByTestId('Button')[1]).toHaveStyle({
       backgroundColor: colors.transparentFaintSemitransparent,
       borderRadius: radius.circular,
     });
   });
 
   it('should call onPress when the button is pressed', () => {
-    const { getByText } = render(<ButtonsGroup {...initialProps} />);
+    const { getAllByTestId } = render(<ButtonsGroup {...initialProps} />);
 
-    fireEvent.press(getByText('lorem'));
+    fireEvent.press(getAllByTestId('Button')[0]);
 
     expect(initialProps.items[0].onPressItem).toHaveBeenCalledTimes(1);
   });
