@@ -33,7 +33,8 @@ function Button({
   const baseProps = {
     activityIndicatorColor: textColor,
     backgroundColor,
-    borderColor: type === 'outline' ? textColor : backgroundColor,
+    borderColor: type === 'outline' ? textColor : 'transparent',
+    borderWidth: type === 'outline' ? 1 : 0,
     borderRadius: rounded ? radius.circular : radius.small,
     disabled,
     textColor,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 import { fireEvent, render, act } from '@testing-library/react-native';
-import { borders, colors, radius, sizes } from '@magnetis/astro-tokens';
+import { colors, radius, sizes } from '@magnetis/astro-tokens';
 
 import BaseButton from '../BaseButton';
 
@@ -36,8 +36,6 @@ describe('BaseButton', () => {
       backgroundColor: colors.solidPrimaryMedium,
       borderColor: colors.solidPrimaryMedium,
       borderRadius: radius.small,
-      borderWidth: borders.hairline,
-      paddingVertical: 17,
       paddingHorizontal: sizes.tiny,
       alignSelf: 'center',
     });
@@ -64,8 +62,6 @@ describe('BaseButton', () => {
 
     expect(getByTestId('BaseButton')).toHaveStyle({
       borderRadius: radius.small,
-      borderWidth: borders.hairline,
-      paddingVertical: 17,
       paddingHorizontal: sizes.tiny,
       backgroundColor: colors.solidPrimaryMedium,
       borderColor: colors.solidPrimaryMedium,

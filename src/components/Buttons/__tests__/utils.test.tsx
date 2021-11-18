@@ -6,7 +6,8 @@ import { colors, sizes } from '@magnetis/astro-tokens';
 import { AlertIcon } from '@components/Icons';
 
 import {
-  getButtonPadding,
+  getButtonHeight,
+  getButtonHorizontalPadding,
   getLineHeight,
   getIcon,
   getIconProperties,
@@ -15,28 +16,48 @@ import {
 } from '../utils';
 
 describe('Button/utils', () => {
-  it('getButtonPadding', () => {
-    expect(getButtonPadding('small', { isIconButton: false })).toEqual({
-      paddingVertical: 10,
-      paddingHorizontal: sizes.micro,
+  it('getButtonHeight', () => {
+    expect(getButtonHeight('small')).toEqual({
+      height: sizes.small,
     });
-    expect(getButtonPadding('medium', { isIconButton: false })).toEqual({
-      paddingVertical: 17,
-      paddingHorizontal: sizes.tiny,
+    expect(getButtonHeight('medium')).toEqual({
+      height: sizes.large,
     });
-    expect(getButtonPadding('large', { isIconButton: false })).toEqual({
-      paddingVertical: 20,
-      paddingHorizontal: sizes.smaller,
+    expect(getButtonHeight('large')).toEqual({
+      height: sizes.larger,
     });
-    expect(getButtonPadding('xlarge', { isIconButton: false })).toEqual({
-      paddingVertical: 22,
-      paddingHorizontal: sizes.smaller,
+    expect(getButtonHeight('xlarge')).toEqual({
+      height: sizes.great,
     });
 
-    expect(getButtonPadding('small', { isIconButton: true })).toEqual({ paddingVertical: 10, paddingHorizontal: 10 });
-    expect(getButtonPadding('medium', { isIconButton: true })).toEqual({ paddingVertical: 17, paddingHorizontal: 17 });
-    expect(getButtonPadding('large', { isIconButton: true })).toEqual({ paddingVertical: 20, paddingHorizontal: 20 });
-    expect(getButtonPadding('xlarge', { isIconButton: true })).toEqual({ paddingVertical: 22, paddingHorizontal: 22 });
+    expect(getButtonHeight('small')).toEqual({ height: 32 });
+    expect(getButtonHeight('medium')).toEqual({ height: 48 });
+    expect(getButtonHeight('large')).toEqual({ height: 56 });
+    expect(getButtonHeight('xlarge')).toEqual({ height: 64 });
+  });
+
+  it('getButtonHorizontalPadding', () => {
+    expect(getButtonHorizontalPadding('small')).toEqual({ width: undefined, paddingHorizontal: sizes.micro });
+    expect(getButtonHorizontalPadding('medium')).toEqual({ width: undefined, paddingHorizontal: sizes.tiny });
+    expect(getButtonHorizontalPadding('large')).toEqual({ width: undefined, paddingHorizontal: sizes.smaller });
+    expect(getButtonHorizontalPadding('xlarge')).toEqual({ width: undefined, paddingHorizontal: sizes.smaller });
+
+    expect(getButtonHorizontalPadding('small', { isIconButton: true })).toEqual({
+      width: sizes.small,
+      paddingHorizontal: 0,
+    });
+    expect(getButtonHorizontalPadding('medium', { isIconButton: true })).toEqual({
+      width: sizes.large,
+      paddingHorizontal: 0,
+    });
+    expect(getButtonHorizontalPadding('large', { isIconButton: true })).toEqual({
+      width: sizes.larger,
+      paddingHorizontal: 0,
+    });
+    expect(getButtonHorizontalPadding('xlarge', { isIconButton: true })).toEqual({
+      width: sizes.great,
+      paddingHorizontal: 0,
+    });
   });
 
   it('getLineHeight', () => {
