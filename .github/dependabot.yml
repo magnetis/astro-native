@@ -11,12 +11,12 @@ updates:
     open-pull-requests-limit: 10
     reviewers:
       - julianosbento
-      - victorheringer
-      - murillo94
       - an-mag
       - LopesAlysson
       - pedro-cerdera
       - lucianomlima
+      - albertozaranza
+      - Michele-Camargo
     ignore:
       - dependency-name: '@babel/runtime'
       - dependency-name: '@babel/core'
