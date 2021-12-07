@@ -19,8 +19,9 @@ function StarFilled({
   return (
     <BaseIcon id={id} color={color} width={width} height={height} viewBox={viewBox} {...props}>
       <Path
-        d="M11.5 0L15.0152 7.62572L23 8.78546L17.1887 14.6579L18.607 23L11.5 19.0027L4.39206 23L5.81135 14.6579L0 8.78546L7.98485 7.62572L11.5 0Z"
+        d="M16 4L19.668 11.9573L28 13.1674L21.936 19.2952L23.416 28L16 23.8289L8.58302 28L10.064 19.2952L4 13.1674L12.332 11.9573L16 4Z"
         fill={fill}
+        fillOpacity="0.48"
       />
     </BaseIcon>
   );
