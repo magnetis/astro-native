@@ -1,5 +1,9 @@
 # [1.8.9](https://github.com/magnetis/astro-native/compare/v1.8.8...v1.8.9) (2021-11-17)
 
+### Chore
+
+* chore: fix package version ([3c83b8a](https://github.com/magnetis/astro-native/commit/9c12143b6bc1df7a12759522ea66a5a06af151c4))
+* chore: bump version from v1.8.8 to v1.8.9 ([9c12143](https://github.com/magnetis/astro-native/commit/9c12143b6bc1df7a12759522ea66a5a06af151c4))
 ### Bug Fixes
 
 * **icons:** fix(icons): fix star and star filled svg ([d3b206e](https://github.com/magnetis/astro-native/commit/d3b206e68bb2b78334c942c31481e0062080b784))
