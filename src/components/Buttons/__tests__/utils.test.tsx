@@ -170,7 +170,7 @@ describe('Button/utils', () => {
 
     it('inversed', () => {
       expect(getButtonProperties('inversed', 'solid')).toEqual({
-        textColor: colors.solidFaintLight,
+        textColor: colors.solidFaintDarkest,
         backgroundColor: colors.solidBrightLightest,
       });
       expect(getButtonProperties('inversed', 'subtle')).toEqual({
