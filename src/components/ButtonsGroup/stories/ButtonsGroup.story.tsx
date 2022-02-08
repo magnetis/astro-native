@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, select, object } from '@storybook/addon-knobs';
 import { colors, sizes } from '@magnetis/astro-tokens';
 
 import ButtonsGroup from '../ButtonsGroup';
@@ -12,22 +12,28 @@ const ITEMS = [
   { value: 'dolor', onPressItem: () => console.log('dolor') },
 ];
 
+const ITEMS_INDEX = ITEMS.map((_, index) => index);
+
 storiesOf('Buttons Group', module).add('Buttons Group', () => (
   <SafeAreaView>
     <View style={{ backgroundColor: colors.solidFaintDarkest }}>
       <ButtonsGroup
-        items={ITEMS}
+        contentContainerStyle={object('contentContainerStyle', {})}
+        initialActiveItemIndex={select('initialActiveItemIndex', ITEMS_INDEX, ITEMS_INDEX[0])}
         inversed={boolean('inversed', true)}
-        rounded={boolean('rounded', false)}
+        items={ITEMS}
         legacy={boolean('legacy', true)}
+        rounded={boolean('rounded', false)}
         onPress={() => console.log('value')}
       />
     </View>
     <View style={{ marginTop: sizes.mini }}>
       <ButtonsGroup
+        contentContainerStyle={object('contentContainerStyle', {})}
+        initialActiveItemIndex={select('initialActiveItemIndex', ITEMS_INDEX, ITEMS_INDEX[0])}
         items={ITEMS}
-        rounded={boolean('rounded', false)}
         legacy={boolean('legacy', false)}
+        rounded={boolean('rounded', false)}
         onPress={() => console.log('value')}
       />
     </View>

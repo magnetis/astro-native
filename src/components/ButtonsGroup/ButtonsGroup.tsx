@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { FlatList, PressableProps, StyleSheet, View } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 import { sizes } from '@magnetis/astro-tokens';
 
 import Button from '@components/Buttons/Button';
 
+import type { ViewStyle, PressableProps } from 'react-native';
 import type { ButtonVariant } from '@components/Buttons/types';
 
 type Item = {
@@ -12,14 +13,25 @@ type Item = {
 };
 
 export interface ButtonsGroupProps extends PressableProps {
-  items: Item[];
+  contentContainerStyle?: ViewStyle;
+  initialActiveItemIndex?: number;
   inversed?: boolean;
-  rounded?: boolean;
+  items: Item[];
   legacy?: boolean;
+  rounded?: boolean;
 }
 
-function ButtonsGroup({ testID, items, inversed, legacy, rounded, ...props }: ButtonsGroupProps) {
-  const [activeItem, setActiveItem] = useState(0);
+function ButtonsGroup({
+  contentContainerStyle = {},
+  initialActiveItemIndex = 0,
+  inversed,
+  items,
+  legacy,
+  rounded,
+  testID,
+  ...props
+}: ButtonsGroupProps) {
+  const [activeItem, setActiveItem] = useState(initialActiveItemIndex);
 
   function getButtonGroupVariant(index: number): ButtonVariant {
     if (activeItem === index && legacy) return 'legacy';
@@ -30,10 +42,10 @@ function ButtonsGroup({ testID, items, inversed, legacy, rounded, ...props }: Bu
 
   return (
     <FlatList
+      contentContainerStyle={{ ...styles.contentContainerStyle, ...contentContainerStyle }}
       testID={testID}
       data={items}
       style={styles.container}
-      contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
       horizontal
       showsHorizontalScrollIndicator={false}
       keyExtractor={(item) => item.value}
@@ -59,6 +71,10 @@ function ButtonsGroup({ testID, items, inversed, legacy, rounded, ...props }: Bu
 const styles = StyleSheet.create({
   container: {
     flexGrow: 0,
+  },
+  contentContainerStyle: {
+    flexGrow: 1,
+    justifyContent: 'center',
   },
   itemContainer: {
     marginLeft: sizes.nano,
