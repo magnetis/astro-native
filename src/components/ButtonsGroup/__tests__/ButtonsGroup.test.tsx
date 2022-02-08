@@ -16,6 +16,7 @@ const ITEMS = [
 const initialProps: ButtonsGroupProps = {
   items: ITEMS,
   inversed: false,
+  testID: 'ButtonsGroup',
 };
 
 describe('ButtonsGroup', () => {
@@ -26,7 +27,9 @@ describe('ButtonsGroup', () => {
   });
 
   it('should renders correctly with default props', () => {
-    const { getAllByTestId } = render(<ButtonsGroup {...initialProps} />);
+    const { getByTestId, getAllByTestId } = render(<ButtonsGroup {...initialProps} />);
+
+    expect(getByTestId('ButtonsGroup')).toHaveProp('contentContainerStyle', { flexGrow: 1, justifyContent: 'center' });
 
     expect(getAllByTestId('Button')[0]).toHaveStyle({
       backgroundColor: colors.solidPrimaryMedium,
@@ -40,7 +43,9 @@ describe('ButtonsGroup', () => {
   });
 
   it('should renders correctly with inversed prop', () => {
-    const { getAllByTestId } = render(<ButtonsGroup {...initialProps} inversed />);
+    const { getByTestId, getAllByTestId } = render(<ButtonsGroup {...initialProps} inversed />);
+
+    expect(getByTestId('ButtonsGroup')).toHaveProp('contentContainerStyle', { flexGrow: 1, justifyContent: 'center' });
 
     expect(getAllByTestId('Button')[1]).toHaveStyle({
       backgroundColor: colors.transparentBrightSemitransparent,
@@ -49,7 +54,9 @@ describe('ButtonsGroup', () => {
   });
 
   it('should renders correctly with rounded prop', () => {
-    const { getAllByTestId } = render(<ButtonsGroup {...initialProps} rounded />);
+    const { getByTestId, getAllByTestId } = render(<ButtonsGroup {...initialProps} rounded />);
+
+    expect(getByTestId('ButtonsGroup').props.contentContainerStyle).toEqual({ flexGrow: 1, justifyContent: 'center' });
 
     expect(getAllByTestId('Button')[0]).toHaveStyle({
       backgroundColor: colors.solidPrimaryMedium,
@@ -63,7 +70,9 @@ describe('ButtonsGroup', () => {
   });
 
   it('should renders correctly with legacy prop', () => {
-    const { getAllByTestId } = render(<ButtonsGroup {...initialProps} legacy rounded />);
+    const { getByTestId, getAllByTestId } = render(<ButtonsGroup {...initialProps} legacy rounded />);
+
+    expect(getByTestId('ButtonsGroup')).toHaveProp('contentContainerStyle', { flexGrow: 1, justifyContent: 'center' });
 
     expect(getAllByTestId('Button')[0]).toHaveStyle({
       backgroundColor: legacyColors.uranus500,
@@ -73,6 +82,27 @@ describe('ButtonsGroup', () => {
     expect(getAllByTestId('Button')[1]).toHaveStyle({
       backgroundColor: colors.transparentFaintSemitransparent,
       borderRadius: radius.circular,
+    });
+  });
+
+  it('should renders correctly with contentContainerStyle prop', () => {
+    const { getByTestId, getAllByTestId } = render(
+      <ButtonsGroup {...initialProps} contentContainerStyle={{ justifyContent: 'space-between' }} />
+    );
+
+    expect(getByTestId('ButtonsGroup')).toHaveProp('contentContainerStyle', {
+      flexGrow: 1,
+      justifyContent: 'space-between',
+    });
+
+    expect(getAllByTestId('Button')[0]).toHaveStyle({
+      backgroundColor: colors.solidPrimaryMedium,
+      borderRadius: radius.small,
+    });
+
+    expect(getAllByTestId('Button')[1]).toHaveStyle({
+      backgroundColor: colors.transparentFaintSemitransparent,
+      borderRadius: radius.small,
     });
   });
 
