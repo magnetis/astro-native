@@ -1,4 +1,10 @@
-# [2.0.0-next.3](https://github.com/magnetis/astro-native/compare/v2.0.0-next.2...v2.0.0-next.3) (2021-11-08)
+# [2.0.0-next.4](https://github.com/magnetis/astro-native/compare/v2.0.0-next.3...v2.0.0-next.4) (2022-02-09)
+
+### Refactor
+
+- **buttonsgroup**: add contentContainerStyle and initialActiveItemIndex props ([60dc7a1](https://github.com/magnetis/astro-native/commit/60dc7a1788c55200c22be0387136585daa5cfc63))
+
+# [2.0.0-next.3](https://github.com/magnetis/astro-native/compare/v2.0.0-next.2...v2.0.0-next.3) (2022-01-07)
 
 ### Bugfix
 
