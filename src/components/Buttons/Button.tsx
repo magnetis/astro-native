@@ -34,7 +34,7 @@ function Button({
     activityIndicatorColor: textColor,
     backgroundColor,
     borderColor: type === 'outline' ? textColor : 'transparent',
-    borderWidth: type === 'outline' ? 1 : 0,
+    borderWidth: type === 'outline' ? (variant === 'legacy' ? 2 : 1) : 0,
     borderRadius: rounded ? radius.circular : radius.small,
     disabled,
     textColor,
