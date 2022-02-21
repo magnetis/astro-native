@@ -216,11 +216,11 @@ describe('Button/utils', () => {
         backgroundColor: legacyColors.uranus500,
       });
       expect(getButtonProperties('legacy', 'outline')).toEqual({
-        textColor: colors.solidBrightLightest,
+        textColor: legacyColors.uranus500,
         backgroundColor: 'transparent',
       });
       expect(getButtonProperties('legacy', 'ghost')).toEqual({
-        textColor: colors.solidBrightLightest,
+        textColor: legacyColors.uranus500,
         backgroundColor: 'transparent',
       });
     });

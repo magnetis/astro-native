@@ -142,8 +142,8 @@ export function getButtonProperties(variant: ButtonVariant = 'primary', type: Bu
     legacy: {
       solid: { textColor: colors.solidBrightLightest, backgroundColor: legacyColors.uranus500 },
       subtle: { textColor: colors.solidBrightLightest, backgroundColor: legacyColors.uranus500 },
-      outline: { textColor: colors.solidBrightLightest, backgroundColor: 'transparent' },
-      ghost: { textColor: colors.solidBrightLightest, backgroundColor: 'transparent' },
+      outline: { textColor: legacyColors.uranus500, backgroundColor: 'transparent' },
+      ghost: { textColor: legacyColors.uranus500, backgroundColor: 'transparent' },
     },
   }[variant][type];
 }
