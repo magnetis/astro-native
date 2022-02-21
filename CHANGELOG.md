@@ -1,12 +1,18 @@
+# [2.0.0-next.5](https://github.com/magnetis/astro-native/compare/v2.0.0-next.4...v2.0.0-next.5) (2022-02-21)
+
+### Bug Fix
+
+- **button:** fix legacy variant layout for outline and ghost button types ([5a5d8f0](https://github.com/magnetis/astro-native/commit/5a5d8f0c908a088c9f8987389db30eb4aa99d106))
+
 # [2.0.0-next.4](https://github.com/magnetis/astro-native/compare/v2.0.0-next.3...v2.0.0-next.4) (2022-02-09)
 
 ### Refactor
 
-- **buttonsgroup**: add contentContainerStyle and initialActiveItemIndex props ([60dc7a1](https://github.com/magnetis/astro-native/commit/60dc7a1788c55200c22be0387136585daa5cfc63))
+- **buttonsgroup:** add contentContainerStyle and initialActiveItemIndex props ([60dc7a1](https://github.com/magnetis/astro-native/commit/60dc7a1788c55200c22be0387136585daa5cfc63))
 
 # [2.0.0-next.3](https://github.com/magnetis/astro-native/compare/v2.0.0-next.2...v2.0.0-next.3) (2022-01-07)
 
-### Bugfix
+### Bug Fix
 
 - **button:** fix solid inversed color ([b611886](https://github.com/magnetis/astro-native/commit/b611886971b375fd2f62cd2a71f6422cf1019378))
 
