@@ -93,6 +93,9 @@
     "react-native-svg": "^12.1.0",
     "y18n": "5.0.8"
   },
+  "resolutions": {
+    "refractor": "^3.6.0"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
