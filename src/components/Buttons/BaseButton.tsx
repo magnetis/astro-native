@@ -11,12 +11,13 @@ export interface BaseButtonProps extends PressableProps {
   activityIndicatorColor: string;
   backgroundColor: string;
   borderColor: string;
-  fill?: boolean;
   borderRadius: number;
-  loading?: boolean;
+  fill?: boolean;
   isIconButton?: boolean;
-  textColor: string;
+  loading?: boolean;
+  opacity?: number;
   size?: Size;
+  textColor: string;
 }
 
 const styles = StyleSheet.create({
@@ -35,9 +36,10 @@ function BaseButton({
   activityIndicatorColor,
   children,
   fill = false,
-  loading = false,
-  size = 'medium',
   isIconButton = false,
+  loading = false,
+  opacity = 0.7,
+  size = 'medium',
   ...props
 }: BaseButtonProps) {
   const [hitSlop, setHitSlop] = useState<HitSlop>({ top: 0, bottom: 0, left: 0, right: 0 });
@@ -74,7 +76,7 @@ function BaseButton({
     <Pressable
       accessibilityRole="button"
       {...props}
-      style={[styles.button, computedStyles]}
+      style={({ pressed }) => [{ opacity: pressed ? opacity : 1 }, styles.button, computedStyles]}
       hitSlop={props.hitSlop ?? hitSlop}
       onLayout={onLayoutButton}
     >

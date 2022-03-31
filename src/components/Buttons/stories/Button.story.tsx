@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import { boolean, select, text } from '@storybook/addon-knobs';
+import { boolean, number, select, text } from '@storybook/addon-knobs';
 
 import { Button } from '..';
 import { iconOptions } from '@root/storybook/options';
@@ -13,12 +13,13 @@ storiesOf('Next Buttons', module).add('Button', () => (
     fill={boolean('fill', false)}
     iconLeft={select('iconLeft', iconOptions, iconOptions[0])}
     iconRight={select('iconRight', iconOptions, iconOptions[0])}
-    rounded={boolean('rounded', false)}
     loading={boolean('loading', false)}
+    opacity={number('opacity', 0.7)}
+    rounded={boolean('rounded', false)}
     size={select('size', sizeOptions, sizeOptions[1])}
     text={text('text', 'Button')}
-    variant={select('variant', buttonVariantOptions, buttonVariantOptions[0])}
     type={select('type', buttonTypeOptions, buttonTypeOptions[0])}
+    variant={select('variant', buttonVariantOptions, buttonVariantOptions[0])}
     onPress={() => console.log('Pressed')}
   />
 ));

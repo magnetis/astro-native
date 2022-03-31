@@ -27,17 +27,18 @@ describe('BaseButton', () => {
 
   it('should renders correctly with default props', () => {
     const { getByTestId } = render(
-      <BaseButton {...initialProps}>
+      <BaseButton {...initialProps} testOnly_pressed>
         <ButtonText />
       </BaseButton>
     );
 
     expect(getByTestId('BaseButton')).toHaveStyle({
+      alignSelf: 'center',
       backgroundColor: colors.solidPrimaryMedium,
       borderColor: colors.solidPrimaryMedium,
       borderRadius: radius.small,
       paddingHorizontal: sizes.tiny,
-      alignSelf: 'center',
+      opacity: 0.7,
     });
   });
 
@@ -61,13 +62,13 @@ describe('BaseButton', () => {
     );
 
     expect(getByTestId('BaseButton')).toHaveStyle({
-      borderRadius: radius.small,
-      paddingHorizontal: sizes.tiny,
       backgroundColor: colors.solidPrimaryMedium,
+      borderRadius: radius.small,
       borderColor: colors.solidPrimaryMedium,
+      paddingHorizontal: sizes.tiny,
     });
 
-    expect(getByTestId('BaseButton.ActivityIndicator').props.color).toEqual(colors.solidBrightLightest);
+    expect(getByTestId('BaseButton.ActivityIndicator')).toHaveProp('color', colors.solidBrightLightest);
   });
 
   it('should renders with width of 100% when fill is true', () => {
@@ -78,6 +79,16 @@ describe('BaseButton', () => {
     );
 
     expect(getByTestId('BaseButton')).toHaveStyle({ width: '100%' });
+  });
+
+  it('should renders with custom opacity when receive opacity prop', () => {
+    const { getByTestId } = render(
+      <BaseButton {...initialProps} opacity={0.3} testOnly_pressed>
+        <ButtonText />
+      </BaseButton>
+    );
+
+    expect(getByTestId('BaseButton')).toHaveStyle({ opacity: 0.3 });
   });
 
   it('should renders with min hit slop 50X48 when button width and height is small', () => {
@@ -100,10 +111,10 @@ describe('BaseButton', () => {
     });
 
     expect(baseButton.props.hitSlop).toStrictEqual({
-      top: 14,
       bottom: 14,
       left: 14,
       right: 14,
+      top: 14,
     });
   });
 
@@ -127,10 +138,10 @@ describe('BaseButton', () => {
     });
 
     expect(baseButton.props.hitSlop).toStrictEqual({
-      top: 0,
       bottom: 0,
       left: 14,
       right: 14,
+      top: 0,
     });
   });
 
@@ -154,10 +165,10 @@ describe('BaseButton', () => {
     });
 
     expect(baseButton.props.hitSlop).toStrictEqual({
-      top: 14,
       bottom: 14,
       left: 0,
       right: 0,
+      top: 14,
     });
   });
 
@@ -181,10 +192,10 @@ describe('BaseButton', () => {
     });
 
     expect(baseButton.props.hitSlop).toStrictEqual({
-      top: 0,
       bottom: 0,
       left: 0,
       right: 0,
+      top: 0,
     });
   });
 
@@ -206,7 +217,6 @@ describe('BaseButton', () => {
         },
       });
     });
-
     expect(baseButton.props.hitSlop).toStrictEqual({ bottom: 0, left: 0, right: 0, top: 0 });
   });
 
@@ -232,10 +242,10 @@ describe('BaseButton', () => {
 
     expect(onLayout).toBeCalledTimes(1);
     expect(baseButton.props.hitSlop).toStrictEqual({
-      top: 14,
       bottom: 14,
       left: 14,
       right: 14,
+      top: 14,
     });
   });
 });
