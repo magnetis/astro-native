@@ -95,6 +95,12 @@
     "react-native-svg": "^12.1.0",
     "y18n": "5.0.8"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
