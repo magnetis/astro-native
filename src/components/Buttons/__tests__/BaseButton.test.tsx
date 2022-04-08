@@ -26,7 +26,7 @@ describe('BaseButton', () => {
 
   it('renders correctly with default props', () => {
     const { getByTestId } = render(
-      <BaseButton {...props}>
+      <BaseButton {...props} testOnly_pressed>
         <ButtonText />
       </BaseButton>
     );
@@ -35,13 +35,14 @@ describe('BaseButton', () => {
 
     expect(baseButtonStyle).toEqual(
       expect.objectContaining({
+        alignSelf: 'center',
         backgroundColor: colors.uranus500,
         borderColor: colors.uranus500,
         borderRadius: 24,
         borderWidth: 2,
+        opacity: 0.7,
         paddingVertical: 8,
         paddingHorizontal: 46,
-        alignSelf: 'center',
       })
     );
   });
@@ -99,6 +100,16 @@ describe('BaseButton', () => {
     const baseButtonStyle = Object.assign({}, ...baseButton.props.style);
 
     expect(baseButtonStyle.width).toEqual('100%');
+  });
+
+  it('should renders with custom opacity when receive opacity prop', () => {
+    const { getByTestId } = render(
+      <BaseButton {...props} opacity={0.3} testOnly_pressed>
+        <ButtonText />
+      </BaseButton>
+    );
+
+    expect(getByTestId('BaseButton')).toHaveStyle({ opacity: 0.3 });
   });
 
   it('has min hit slop 50X48 when button width and height is small', () => {

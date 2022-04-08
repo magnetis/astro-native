@@ -8,20 +8,21 @@ import type { ButtonSize } from './types';
 import { getBorderRadius, getButtonPadding } from './utils';
 
 interface BaseButtonProps extends PressableProps {
-  children: ReactElement;
-  testID?: string;
   accessibilityLabel?: string;
-  loading?: boolean;
-  disabled?: boolean;
   activityIndicatorColor: string;
-  onPress: () => void;
   backgroundColor: string;
-  textColor: string;
   borderColor: string;
-  size?: ButtonSize;
-  noHorizontalPadding?: boolean;
+  children: ReactElement;
+  disabled?: boolean;
   fill?: boolean;
   hasIcon?: boolean;
+  testID?: string;
+  loading?: boolean;
+  noHorizontalPadding?: boolean;
+  opacity?: number;
+  size?: ButtonSize;
+  textColor: string;
+  onPress: () => void;
 }
 
 const styles = StyleSheet.create({
@@ -40,14 +41,15 @@ const styles = StyleSheet.create({
 });
 
 function BaseButton({
-  loading = false,
-  disabled = false,
   activityIndicatorColor,
   children,
-  size = 'medium',
-  noHorizontalPadding = false,
+  disabled = false,
   fill = false,
   hasIcon = false,
+  loading = false,
+  noHorizontalPadding = false,
+  opacity = 0.7,
+  size = 'medium',
   ...props
 }: BaseButtonProps) {
   const [hitSlop, setHitSlop] = useState<HitSlop>({ top: 0, bottom: 0, left: 0, right: 0 });
@@ -69,7 +71,6 @@ function BaseButton({
   const pressableProps = {
     onPress: props.onPress,
     disabled: disabled || loading,
-    style: [styles.button, computedStyles],
     testID: props.testID,
     hitSlop: typeof props.hitSlop !== 'undefined' ? props.hitSlop : hitSlop,
   };
@@ -89,7 +90,13 @@ function BaseButton({
   );
 
   return (
-    <Pressable accessibilityRole="button" {...props} {...pressableProps} onLayout={onLayoutButton}>
+    <Pressable
+      accessibilityRole="button"
+      {...props}
+      {...pressableProps}
+      style={({ pressed }) => [{ opacity: pressed ? opacity : 1 }, styles.button, computedStyles]}
+      onLayout={onLayoutButton}
+    >
       <View style={{ alignItems: 'center', justifyContent: 'center', flex: fill ? 1 : 0 }}>
         <View style={{ opacity: loading ? 0 : 1 }}>{children}</View>
         {loading && (
