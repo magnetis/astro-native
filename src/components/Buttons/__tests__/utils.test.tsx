@@ -151,7 +151,7 @@ describe('Button/utils', () => {
 
     it('ghost', () => {
       expect(getButtonProperties('success', 'solid')).toEqual({
-        textColor: colors.solidBrightLightest,
+        textColor: colors.solidFaintDarkest,
         backgroundColor: colors.solidSuccessMedium,
       });
       expect(getButtonProperties('success', 'subtle')).toEqual({

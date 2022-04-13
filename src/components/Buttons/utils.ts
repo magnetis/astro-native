@@ -122,7 +122,7 @@ export function getButtonProperties(variant: ButtonVariant = 'primary', type: Bu
       ghost: { textColor: colors.solidAlertMedium, backgroundColor: 'transparent' },
     },
     success: {
-      solid: { textColor: colors.solidBrightLightest, backgroundColor: colors.solidSuccessMedium },
+      solid: { textColor: colors.solidFaintDarkest, backgroundColor: colors.solidSuccessMedium },
       subtle: { textColor: colors.solidSuccessDark, backgroundColor: colors.transparentSuccessSemitransparent },
       outline: { textColor: colors.solidSuccessDark, backgroundColor: 'transparent' },
       ghost: { textColor: colors.solidSuccessDark, backgroundColor: 'transparent' },
