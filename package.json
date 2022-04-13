@@ -6,7 +6,7 @@
   "files": [
     "dist"
   ],
-  "main": "dist/index.js",
+  "main": "node_modules/expo/AppEntry.js",
   "publishConfig": {
     "access": "public"
   },
@@ -21,9 +21,10 @@
     "prepublishOnly": "yarn clean && tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist",
     "version": "standard-changelog && git add CHANGELOG.md package.json && git commit -m \"release: bump version to v${npm_package_version}\"",
     "storybook": "start-storybook -p 7007",
-    "start": "yarn react-native start",
-    "build:ios": "react-native run-ios",
-    "build:android": "react-native run-android",
+    "start": "expo start --dev-client",
+    "build:ios": "expo run:ios",
+    "build:android": "expo run:android",
+    "build:web": "expo start --web",
     "prepare": "npx husky install"
   },
   "repository": {
@@ -41,7 +42,7 @@
   ],
   "license": "Apache-2.0",
   "devDependencies": {
-    "@babel/core": "^7.8.4",
+    "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.8.4",
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
@@ -76,8 +77,6 @@
     "metro-react-native-babel-preset": "^0.59.0",
     "mockdate": "^3.0.2",
     "prettier": "2.3.2",
-    "react": "^16.13.1",
-    "react-native": "^0.63.3",
     "react-test-renderer": "^17.0.1",
     "standard-changelog": "^2.0.27",
     "ts-jest": "^26.5.6",
@@ -91,8 +90,15 @@
   "dependencies": {
     "@magnetis/astro-galaxy-tokens": "^1.2.3",
     "@magnetis/astro-tokens": "^0.0.8",
-    "@react-native-community/slider": "^3.0.3",
-    "react-native-svg": "^12.1.0",
+    "@react-native-community/slider": "4.1.12",
+    "expo": "~44.0.2",
+    "expo-splash-screen": "~0.14.1",
+    "expo-status-bar": "~1.2.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-native": "0.64.3",
+    "react-native-svg": "12.1.1",
+    "react-native-web": "0.17.1",
     "y18n": "5.0.8"
   },
   "husky": {

@@ -104,46 +104,130 @@ export function getIconProperties(size: Size): IconProperties {
 export function getButtonProperties(variant: ButtonVariant = 'primary', type: ButtonType = 'solid'): ButtonProperties {
   return {
     primary: {
-      solid: { textColor: colors.solidBrightLightest, backgroundColor: colors.solidPrimaryMedium },
-      subtle: { textColor: colors.solidPrimaryMedium, backgroundColor: colors.transparentPrimarySemitransparent },
-      outline: { textColor: colors.solidPrimaryMedium, backgroundColor: 'transparent' },
-      ghost: { textColor: colors.solidPrimaryMedium, backgroundColor: 'transparent' },
+      solid: {
+        textColor: colors.solidBrightLightest,
+        backgroundColor: colors.solidPrimaryMedium,
+      },
+      subtle: {
+        textColor: colors.solidPrimaryMedium,
+        backgroundColor: colors.transparentPrimarySemitransparent,
+      },
+      outline: {
+        textColor: colors.solidPrimaryMedium,
+        backgroundColor: 'transparent',
+      },
+      ghost: {
+        textColor: colors.solidPrimaryMedium,
+        backgroundColor: 'transparent',
+      },
     },
     secondary: {
-      solid: { textColor: colors.solidBrightLightest, backgroundColor: colors.solidFaintDark },
-      subtle: { textColor: colors.solidFaintDark, backgroundColor: colors.transparentFaintSemitransparent },
-      outline: { textColor: colors.solidFaintDark, backgroundColor: 'transparent' },
-      ghost: { textColor: colors.solidFaintDark, backgroundColor: 'transparent' },
+      solid: {
+        textColor: colors.solidBrightLightest,
+        backgroundColor: colors.solidFaintDark,
+      },
+      subtle: {
+        textColor: colors.solidFaintDark,
+        backgroundColor: colors.transparentFaintSemitransparent,
+      },
+      outline: {
+        textColor: colors.solidFaintDark,
+        backgroundColor: 'transparent',
+      },
+      ghost: {
+        textColor: colors.solidFaintDark,
+        backgroundColor: 'transparent',
+      },
     },
     alert: {
-      solid: { textColor: colors.solidBrightLightest, backgroundColor: colors.solidAlertMedium },
-      subtle: { textColor: colors.solidAlertMedium, backgroundColor: colors.transparentAlertSemitransparent },
-      outline: { textColor: colors.solidAlertMedium, backgroundColor: 'transparent' },
-      ghost: { textColor: colors.solidAlertMedium, backgroundColor: 'transparent' },
+      solid: {
+        textColor: colors.solidBrightLightest,
+        backgroundColor: colors.solidAlertMedium,
+      },
+      subtle: {
+        textColor: colors.solidAlertMedium,
+        backgroundColor: colors.transparentAlertSemitransparent,
+      },
+      outline: {
+        textColor: colors.solidAlertMedium,
+        backgroundColor: 'transparent',
+      },
+      ghost: {
+        textColor: colors.solidAlertMedium,
+        backgroundColor: 'transparent',
+      },
     },
     success: {
-      solid: { textColor: colors.solidFaintDarkest, backgroundColor: colors.solidSuccessMedium },
-      subtle: { textColor: colors.solidSuccessDark, backgroundColor: colors.transparentSuccessSemitransparent },
-      outline: { textColor: colors.solidSuccessDark, backgroundColor: 'transparent' },
-      ghost: { textColor: colors.solidSuccessDark, backgroundColor: 'transparent' },
+      solid: {
+        textColor: colors.solidFaintDarkest,
+        backgroundColor: colors.solidSuccessMedium,
+      },
+      subtle: {
+        textColor: colors.solidSuccessDark,
+        backgroundColor: colors.transparentSuccessSemitransparent,
+      },
+      outline: {
+        textColor: colors.solidSuccessDark,
+        backgroundColor: 'transparent',
+      },
+      ghost: {
+        textColor: colors.solidSuccessDark,
+        backgroundColor: 'transparent',
+      },
     },
     inversed: {
-      solid: { textColor: colors.solidFaintDarkest, backgroundColor: colors.solidBrightLightest },
-      subtle: { textColor: colors.solidBrightLightest, backgroundColor: colors.transparentBrightSemitransparent },
-      outline: { textColor: colors.solidBrightLightest, backgroundColor: 'transparent' },
-      ghost: { textColor: colors.solidBrightLightest, backgroundColor: 'transparent' },
+      solid: {
+        textColor: colors.solidFaintDarkest,
+        backgroundColor: colors.solidBrightLightest,
+      },
+      subtle: {
+        textColor: colors.solidBrightLightest,
+        backgroundColor: colors.transparentBrightSemitransparent,
+      },
+      outline: {
+        textColor: colors.solidBrightLightest,
+        backgroundColor: 'transparent',
+      },
+      ghost: {
+        textColor: colors.solidBrightLightest,
+        backgroundColor: 'transparent',
+      },
     },
     disabled: {
-      solid: { textColor: colors.transparentFaintSoft, backgroundColor: colors.transparentFaintSemitransparent },
-      subtle: { textColor: colors.transparentFaintSoft, backgroundColor: colors.transparentFaintSemitransparent },
-      outline: { textColor: colors.transparentFaintSoft, backgroundColor: 'transparent' },
-      ghost: { textColor: colors.transparentFaintSoft, backgroundColor: 'transparent' },
+      solid: {
+        textColor: colors.transparentFaintSoft,
+        backgroundColor: colors.transparentFaintSemitransparent,
+      },
+      subtle: {
+        textColor: colors.transparentFaintSoft,
+        backgroundColor: colors.transparentFaintSemitransparent,
+      },
+      outline: {
+        textColor: colors.transparentFaintSoft,
+        backgroundColor: 'transparent',
+      },
+      ghost: {
+        textColor: colors.transparentFaintSoft,
+        backgroundColor: 'transparent',
+      },
     },
     legacy: {
-      solid: { textColor: colors.solidBrightLightest, backgroundColor: legacyColors.uranus500 },
-      subtle: { textColor: colors.solidBrightLightest, backgroundColor: legacyColors.uranus500 },
-      outline: { textColor: legacyColors.uranus500, backgroundColor: 'transparent' },
-      ghost: { textColor: legacyColors.uranus500, backgroundColor: 'transparent' },
+      solid: {
+        textColor: colors.solidBrightLightest,
+        backgroundColor: legacyColors.uranus500,
+      },
+      subtle: {
+        textColor: colors.solidBrightLightest,
+        backgroundColor: legacyColors.uranus500,
+      },
+      outline: {
+        textColor: legacyColors.uranus500,
+        backgroundColor: 'transparent',
+      },
+      ghost: {
+        textColor: legacyColors.uranus500,
+        backgroundColor: 'transparent',
+      },
     },
   }[variant][type];
 }

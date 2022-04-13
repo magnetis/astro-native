@@ -42,7 +42,10 @@ function ButtonsGroup({
 
   return (
     <FlatList
-      contentContainerStyle={{ ...styles.contentContainerStyle, ...contentContainerStyle }}
+      contentContainerStyle={{
+        ...styles.contentContainerStyle,
+        ...contentContainerStyle,
+      }}
       testID={testID}
       data={items}
       style={styles.container}

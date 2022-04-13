@@ -37,10 +37,22 @@ describe('Button/utils', () => {
   });
 
   it('getButtonHorizontalPadding', () => {
-    expect(getButtonHorizontalPadding('small')).toEqual({ width: undefined, paddingHorizontal: sizes.micro });
-    expect(getButtonHorizontalPadding('medium')).toEqual({ width: undefined, paddingHorizontal: sizes.tiny });
-    expect(getButtonHorizontalPadding('large')).toEqual({ width: undefined, paddingHorizontal: sizes.smaller });
-    expect(getButtonHorizontalPadding('xlarge')).toEqual({ width: undefined, paddingHorizontal: sizes.smaller });
+    expect(getButtonHorizontalPadding('small')).toEqual({
+      width: undefined,
+      paddingHorizontal: sizes.micro,
+    });
+    expect(getButtonHorizontalPadding('medium')).toEqual({
+      width: undefined,
+      paddingHorizontal: sizes.tiny,
+    });
+    expect(getButtonHorizontalPadding('large')).toEqual({
+      width: undefined,
+      paddingHorizontal: sizes.smaller,
+    });
+    expect(getButtonHorizontalPadding('xlarge')).toEqual({
+      width: undefined,
+      paddingHorizontal: sizes.smaller,
+    });
 
     expect(getButtonHorizontalPadding('small', { isIconButton: true })).toEqual({
       width: sizes.small,
@@ -85,10 +97,22 @@ describe('Button/utils', () => {
   });
 
   it('getIconProperties', () => {
-    expect(getIconProperties('small')).toEqual({ iconSize: sizes.tiny, iconMargin: sizes.quark });
-    expect(getIconProperties('medium')).toEqual({ iconSize: sizes.tiny, iconMargin: sizes.quark });
-    expect(getIconProperties('large')).toEqual({ iconSize: sizes.smaller, iconMargin: sizes.nano });
-    expect(getIconProperties('xlarge')).toEqual({ iconSize: sizes.small, iconMargin: sizes.nano });
+    expect(getIconProperties('small')).toEqual({
+      iconSize: sizes.tiny,
+      iconMargin: sizes.quark,
+    });
+    expect(getIconProperties('medium')).toEqual({
+      iconSize: sizes.tiny,
+      iconMargin: sizes.quark,
+    });
+    expect(getIconProperties('large')).toEqual({
+      iconSize: sizes.smaller,
+      iconMargin: sizes.nano,
+    });
+    expect(getIconProperties('xlarge')).toEqual({
+      iconSize: sizes.small,
+      iconMargin: sizes.nano,
+    });
   });
 
   describe('getButtonProperties', () => {

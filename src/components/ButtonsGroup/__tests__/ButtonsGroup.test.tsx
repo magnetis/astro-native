@@ -29,7 +29,10 @@ describe('ButtonsGroup', () => {
   it('should renders correctly with default props', () => {
     const { getByTestId, getAllByTestId } = render(<ButtonsGroup {...initialProps} />);
 
-    expect(getByTestId('ButtonsGroup')).toHaveProp('contentContainerStyle', { flexGrow: 1, justifyContent: 'center' });
+    expect(getByTestId('ButtonsGroup')).toHaveProp('contentContainerStyle', {
+      flexGrow: 1,
+      justifyContent: 'center',
+    });
 
     expect(getAllByTestId('Button')[0]).toHaveStyle({
       backgroundColor: colors.solidPrimaryMedium,
@@ -45,7 +48,10 @@ describe('ButtonsGroup', () => {
   it('should renders correctly with inversed prop', () => {
     const { getByTestId, getAllByTestId } = render(<ButtonsGroup {...initialProps} inversed />);
 
-    expect(getByTestId('ButtonsGroup')).toHaveProp('contentContainerStyle', { flexGrow: 1, justifyContent: 'center' });
+    expect(getByTestId('ButtonsGroup')).toHaveProp('contentContainerStyle', {
+      flexGrow: 1,
+      justifyContent: 'center',
+    });
 
     expect(getAllByTestId('Button')[1]).toHaveStyle({
       backgroundColor: colors.transparentBrightSemitransparent,
@@ -56,7 +62,10 @@ describe('ButtonsGroup', () => {
   it('should renders correctly with rounded prop', () => {
     const { getByTestId, getAllByTestId } = render(<ButtonsGroup {...initialProps} rounded />);
 
-    expect(getByTestId('ButtonsGroup').props.contentContainerStyle).toEqual({ flexGrow: 1, justifyContent: 'center' });
+    expect(getByTestId('ButtonsGroup').props.contentContainerStyle).toEqual({
+      flexGrow: 1,
+      justifyContent: 'center',
+    });
 
     expect(getAllByTestId('Button')[0]).toHaveStyle({
       backgroundColor: colors.solidPrimaryMedium,
@@ -72,7 +81,10 @@ describe('ButtonsGroup', () => {
   it('should renders correctly with legacy prop', () => {
     const { getByTestId, getAllByTestId } = render(<ButtonsGroup {...initialProps} legacy rounded />);
 
-    expect(getByTestId('ButtonsGroup')).toHaveProp('contentContainerStyle', { flexGrow: 1, justifyContent: 'center' });
+    expect(getByTestId('ButtonsGroup')).toHaveProp('contentContainerStyle', {
+      flexGrow: 1,
+      justifyContent: 'center',
+    });
 
     expect(getAllByTestId('Button')[0]).toHaveStyle({
       backgroundColor: legacyColors.uranus500,

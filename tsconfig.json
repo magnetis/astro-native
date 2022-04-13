@@ -3,24 +3,40 @@
     "target": "es2019",
     "module": "ES2015",
     "moduleResolution": "node",
-    "lib": ["ES2019"],
+    "lib": [
+      "ES2019"
+    ],
     "declaration": true,
     "strict": true,
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
     "outDir": "dist",
-    "typeRoots": ["typings", "node_modules/@types"],
+    "typeRoots": [
+      "typings",
+      "node_modules/@types"
+    ],
     "esModuleInterop": true,
     "skipLibCheck": true,
     "jsx": "react-native",
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@tokens/*": ["src/tokens/*"],
-      "@typings/*": ["typings/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@root/*": ["./*"]
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@tokens/*": [
+        "src/tokens/*"
+      ],
+      "@typings/*": [
+        "typings/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@root/*": [
+        "./*"
+      ]
     }
-  }
+  },
+  "extends": "expo/tsconfig.base"
 }

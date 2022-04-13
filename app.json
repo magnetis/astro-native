@@ -1,4 +1,10 @@
 {
   "name": "AstroNative",
-  "displayName": "AstroNative"
+  "expo": {
+    "entryPoint": "./index.js",
+    "slug": "AstroNative",
+    "ios": {
+      "bundleIdentifier": "org.name.AstroNative"
+    }
+  }
 }

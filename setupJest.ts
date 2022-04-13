@@ -1,6 +1,6 @@
 import '@testing-library/jest-native/extend-expect';
 
-jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
+jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
 /**
  * Fix RN 0.63.2 issue related to 'ExceptionsManager.handleException...'
  * Related issue: https://github.com/facebook/react-native/issues/29849
@@ -28,6 +28,6 @@ global.requestAnimationFrame = (cb) => {
   // if the number gets too large.
   //
   // Setting the timeout simulates a frame every 1/100th of a second
-  setTimeout(cb, FRAME_TIME);
+  setTimeout(cb as unknown as (args: void) => void, FRAME_TIME);
   return 0;
 };
