@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import { boolean, select } from '@storybook/addon-knobs';
+import { boolean, number, select } from '@storybook/addon-knobs';
 
 import { IconButton } from '..';
 
@@ -8,11 +8,12 @@ import { buttonColorOptions, iconOptions, sizeOptions } from '@root/storybook/op
 
 storiesOf('Buttons', module).add('IconButton', () => (
   <IconButton
-    onPress={() => console.log('Pressed')}
-    disabled={boolean('disabled', false)}
-    loading={boolean('loading', false)}
     color={select('color', buttonColorOptions, 'uranus')}
+    disabled={boolean('disabled', false)}
     icon={select('icon', iconOptions, iconOptions[0])}
+    loading={boolean('loading', false)}
+    onPress={() => console.log('Pressed')}
+    opacity={number('opacity', 0.7)}
     size={select('size', sizeOptions, 'medium')}
   />
 ));

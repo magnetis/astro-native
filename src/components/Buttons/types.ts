@@ -8,25 +8,18 @@ export type ButtonSize = Size;
 export type ButtonColor = 'uranus' | 'earth' | 'venus' | 'mars' | 'moon' | 'space';
 
 export interface ButtonProps extends PressableProps {
-  accessibilityLabel?: string;
   /** Color to be used as background color of button. Defaults to `"uranus"`. */
   color?: ButtonColor;
-  /** Supress any user interaction with component. Defaults to `false`. */
-  disabled?: boolean;
   /** Button fills entire parent when set to true. Defaults to `false`. */
   fill?: boolean;
   /** Shows activity indicator inside button when true. Defaults to `false`.  */
   loading?: boolean;
-  /** Button press callback */
-  onPress: () => void;
   /** Feedback opacity for button. */
   opacity?: number;
   /** Specifies button size. Defaults to `"medium"`. */
   size?: ButtonSize;
   /** Text to be shown inside the button */
   text: string;
-  /** Used to locate this component in end-to-end tests */
-  testID?: string;
 }
 
 export interface IconLabelButtonProps extends ButtonProps {
