@@ -1,4 +1,4 @@
-import React, { ReactElement, useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { View, StyleSheet, ActivityIndicator, Pressable, PressableProps, LayoutChangeEvent } from 'react-native';
 
 import type { HitSlop } from '../types';
@@ -12,17 +12,13 @@ interface BaseButtonProps extends PressableProps {
   activityIndicatorColor: string;
   backgroundColor: string;
   borderColor: string;
-  children: ReactElement;
-  disabled?: boolean;
   fill?: boolean;
   hasIcon?: boolean;
-  testID?: string;
   loading?: boolean;
   noHorizontalPadding?: boolean;
   opacity?: number;
   size?: ButtonSize;
   textColor: string;
-  onPress: () => void;
 }
 
 const styles = StyleSheet.create({

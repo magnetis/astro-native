@@ -6,7 +6,7 @@ import type { IconID } from '@components/Icons';
 import { ButtonColor } from '@components/Buttons';
 
 export const colorOptions = Object.keys(colors).reduce((acc, key) => {
-  acc[key] = colors[(key as unknown) as keyof Colors];
+  acc[key] = colors[key as unknown as keyof Colors];
   return acc;
 }, {} as { [key: string]: Colors[keyof Colors] });
 
@@ -27,6 +27,6 @@ export const gradientOptions = Object.keys(gradients).reduce(
 
 export const iconOptions: Array<IconID> = Object.keys(icons).map((key) => key.replace('Icon', '') as IconID);
 
-export const buttonColorOptions: ButtonColor[] = ['uranus', 'venus', 'mars', 'earth'];
+export const buttonColorOptions: ButtonColor[] = ['uranus', 'venus', 'mars', 'earth', 'moon'];
 
 export const iconButtonPositionOptions: Array<'left' | 'right'> = ['left', 'right'];
