@@ -1,3 +1,9 @@
+# [2.0.0-next.6](https://github.com/magnetis/astro-native/compare/v2.0.0-next.4...v2.0.0-next.6) (2022-04-18)
+### Features
+
+* feat(button): add pressed feedback and opacity prop ([e8b22ad](https://github.com/magnetis/astro-native/commit/e8b22ad95bbf9af0cb0a0b046a3f28c4bc71982b))
+
+* refactor(utils): fixed token in getButtonProperties ([b5fa2e1](https://github.com/magnetis/astro-native/commit/b5fa2e1dc7fbfb690c152b00c261669fe91da6da))
 # [2.0.0-next.5](https://github.com/magnetis/astro-native/compare/v2.0.0-next.4...v2.0.0-next.5) (2022-02-21)
 
 ### Bug Fix
