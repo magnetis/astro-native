@@ -1,0 +1,47 @@
+name: Publish Version
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+      - astro-native@next
+
+jobs:
+  release:
+    if: startsWith(github.head_ref, 'release/') && github.event.pull_request.merged == true
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Checkout
+        uses: actions/checkout@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: 'https://registry.npmjs.org'
+      - name: Get release version
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const headRef = context.payload.pull_request.head.ref
+
+            const releaseVersion = headRef.split("release/").join("")
+
+            core.exportVariable("RELEASE_VERSION", releaseVersion)
+      - name: Configure git
+        run: |
+          # get the username and email of the user who made the last commit
+
+          git config user.name "$(git log -n 1 --pretty=format:%an)"
+          git config user.email "$(git log -n 1 --pretty=format:%ae)"
+      - name: Run npm version
+        run: npm version ${{ env.RELEASE_VERSION }}
+      - name: Push git tags
+        run: |
+          git tag ${{ env.RELEASE_VERSION }}
+          git push origin ${{ env.RELEASE_VERSION }}
+      - name: Publish version
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_Token }}
