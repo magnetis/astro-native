@@ -17,6 +17,7 @@ module.exports = {
   },
   collectCoverageFrom: [
     'src/components/**/*.{ts,tsx}',
+    '!src/components/**/{index,types}.{ts,tsx}',
     '!src/components/Icons/Dashboard/**/*.{ts,tsx}',
     '!src/components/Icons/Support/**/*.{ts,tsx}',
     '!src/components/**/stories/**/*',
@@ -24,10 +25,10 @@ module.exports = {
   coverageReporters: ['lcov', 'text', 'text-summary'],
   coverageThreshold: {
     global: {
-      branches: 95,
-      functions: 95,
-      lines: 95,
-      statements: 95,
+      branches: 85,
+      functions: 100,
+      lines: 100,
+      statements: 100,
     },
   },
 };
