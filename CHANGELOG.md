@@ -1,3 +1,15 @@
+# [1.9.0](https://github.com/magnetis/astro-native/compare/v1.8.9...v1.9.0) (2022-04-18)
+
+### Feature
+* refactor(stories): added opacity in stories of buttons and removed some props already defined ([28de5f3](https://github.com/magnetis/astro-native/commit/28de5f39c8dfefe80f4e6217a358240c0df840df))
+
+* refactor(podfile): added code to enables flipper ([b705997](https://github.com/magnetis/astro-native/commit/b7059973bdeb8af16ee439e4cc2cddced376e807))
+
+* refactor(button): add pressed feedback and opacity prop ([c9cda43](https://github.com/magnetis/astro-native/commit/c9cda43c3482b95dc66e40a2aa87c9f643278a74))
+### Chore
+
+* chore: fix changelog ([0b81132](https://github.com/magnetis/astro-native/commit/0b8113282ed89d183ebf8ac6e5f010f3e888ad1a))
+
 # [1.8.9](https://github.com/magnetis/astro-native/compare/v1.8.8...v1.8.9) (2021-11-17)
 
 ### Chore
