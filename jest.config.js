@@ -20,6 +20,7 @@ module.exports = {
     '!src/components/**/{index,types}.{ts,tsx}',
     '!src/components/Icons/Dashboard/**/*.{ts,tsx}',
     '!src/components/Icons/Support/**/*.{ts,tsx}',
+    '!src/components/Icons/Arrows/**/*.{ts,tsx}',
     '!src/components/**/stories/**/*',
   ],
   coverageReporters: ['lcov', 'text', 'text-summary'],
