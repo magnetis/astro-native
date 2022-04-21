@@ -3,7 +3,7 @@ import { render } from '@testing-library/react-native';
 import { colors as legacyColors } from '@magnetis/astro-galaxy-tokens';
 import { colors, sizes } from '@magnetis/astro-tokens';
 
-import { AlertIcon } from '@components/Icons';
+import { ArrowUpIcon } from '@components/Icons';
 
 import {
   getButtonHeight,
@@ -71,7 +71,7 @@ describe('Button/utils', () => {
     it('when iconName is valid, returns Icon', () => {
       const Icon = getIcon('Alert');
       const { getByTestId: getIconByTestId } = render(<Icon testID="Icon" />);
-      const { getByTestId } = render(<AlertIcon testID="Alert" />);
+      const { getByTestId } = render(<ArrowUpIcon testID="Alert" />);
 
       expect(getIconByTestId('Icon').props.id).toEqual(getByTestId('Alert').props.id);
     });
