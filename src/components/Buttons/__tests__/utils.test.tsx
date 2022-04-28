@@ -69,11 +69,11 @@ describe('Button/utils', () => {
 
   describe('getIcon', () => {
     it('when iconName is valid, returns Icon', () => {
-      const Icon = getIcon('Alert');
+      const Icon = getIcon('ArrowUp');
       const { getByTestId: getIconByTestId } = render(<Icon testID="Icon" />);
-      const { getByTestId } = render(<ArrowUpIcon testID="Alert" />);
+      const { getByTestId } = render(<ArrowUpIcon testID="ArrowUp" />);
 
-      expect(getIconByTestId('Icon').props.id).toEqual(getByTestId('Alert').props.id);
+      expect(getIconByTestId('Icon').props.id).toEqual(getByTestId('ArrowUp').props.id);
     });
 
     it('when iconName is not valid, returns null', () => {
