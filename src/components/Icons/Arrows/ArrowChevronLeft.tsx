@@ -1,16 +1,16 @@
 import React from 'react';
 import { Path } from 'react-native-svg';
 import { colors } from '@magnetis/astro-galaxy-tokens';
-import { IconProps } from '../types';
 import BaseIcon from '../BaseIcon';
-import { getFill } from '../utils';
+import { getFill, getSize, getViewBox } from '../utils';
+import type { IconProps } from '../types';
 
 function ArrowChevronLeft({
   id = 'ArrowChevronLeftIcon',
   color = colors.space100,
-  viewBox = '0 0 24 24',
-  width = 24,
-  height = 24,
+  viewBox = getViewBox(),
+  width = getSize(),
+  height = getSize(),
   ...props
 }: IconProps) {
   const fill = React.useMemo(() => getFill({ gradient: props.gradient, color, id }), [color, props.gradient, id]);
