@@ -1,5 +1,4 @@
 import { colors } from '@magnetis/astro-galaxy-tokens';
-import { sizes } from '@magnetis/astro-tokens';
 
 import { getFill, getSize, getViewBox } from '../utils';
 
@@ -14,20 +13,20 @@ describe('Icons/Utils', () => {
   });
 
   describe('getViewBox', () => {
-    it('when size is sizes.smaller', () => {
-      expect(getViewBox(sizes.smaller)).toEqual('0 0 24 24');
+    it('when size default', () => {
+      expect(getViewBox('smaller')).toEqual('0 0 24 24');
     });
-    it('when size is another number', () => {
-      expect(getViewBox(32)).toEqual('0 0 32 32');
+    it('when size is diferent', () => {
+      expect(getViewBox('small')).toEqual('0 0 32 32');
     });
   });
 
   describe('getSize', () => {
-    it('when size is sizes.smaller', () => {
-      expect(getSize(sizes.smaller)).toEqual(24);
+    it('when size default', () => {
+      expect(getSize('smaller')).toEqual(24);
     });
-    it('when size is another number', () => {
-      expect(getSize(32)).toEqual(32);
+    it('when size is diferent', () => {
+      expect(getSize('small')).toEqual(32);
     });
   });
 });
