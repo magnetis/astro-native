@@ -7,6 +7,8 @@ interface getFillParams {
   id: string;
 }
 
+type sizeTokens = keyof typeof sizes;
+
 export function getFill({ gradient, color, id }: getFillParams) {
   if (gradient) {
     return `url(#${id})`;
@@ -14,10 +16,10 @@ export function getFill({ gradient, color, id }: getFillParams) {
   return color;
 }
 
-export function getViewBox(size: number = sizes.smaller) {
-  return `0 0 ${size} ${size}`;
+export function getViewBox(token: sizeTokens = 'smaller') {
+  return `0 0 ${sizes[token]} ${sizes[token]}`;
 }
 
-export function getSize(size: number = sizes.smaller) {
-  return size;
+export function getSize(token: sizeTokens = 'smaller') {
+  return sizes[token];
 }
