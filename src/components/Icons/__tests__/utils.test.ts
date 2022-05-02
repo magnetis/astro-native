@@ -16,7 +16,7 @@ describe('Icons/Utils', () => {
     it('when size default', () => {
       expect(getViewBox('smaller')).toEqual('0 0 24 24');
     });
-    it('when size is diferent', () => {
+    it('when is a custom view box', () => {
       expect(getViewBox('small')).toEqual('0 0 32 32');
     });
   });
@@ -25,7 +25,7 @@ describe('Icons/Utils', () => {
     it('when size default', () => {
       expect(getSize('smaller')).toEqual(24);
     });
-    it('when size is diferent', () => {
+    it('when is a custom size', () => {
       expect(getSize('small')).toEqual(32);
     });
   });
