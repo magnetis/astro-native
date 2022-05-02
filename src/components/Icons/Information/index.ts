@@ -1,0 +1,9 @@
+export { default as InfoAddCircleIcon } from './InfoAddCircle';
+export { default as InfoBanCircleIcon } from './InfoBanCircle';
+export { default as InfoCheckCircleIcon } from './InfoCheckCircle';
+export { default as InfoErrorCircleIcon } from './InfoErrorCircle';
+export { default as InfoHelpCicleIcon } from './InfoHelpCicle';
+export { default as InfoInformationCicleIcon } from './InfoInformationCicle';
+export { default as InfoRemoveCircleIcon } from './InfoRemoveCircle';
+export { default as InfoWarningIcon } from './InfoWarning';
+export { default as InfoWarningCicleIcon } from './InfoWarningCicle';
