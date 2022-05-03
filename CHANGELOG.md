@@ -1,3 +1,20 @@
+# [2.0.0-next.7](https://github.com/magnetis/astro-native/compare/v2.0.0-next.6...v2.0.0-next.7) (2022-05-03)
+### Features
+
+* ci(gh-action): implement gh-action flow for tests and publish new version ([788c478](https://github.com/magnetis/astro-native/commit/788c47867664e91f54dd04f5c6c1a6327c3b5471))
+
+* test(jest-config): ignore index and types files on tests ([7700da3](https://github.com/magnetis/astro-native/commit/7700da36e26f35bf10a70a0383da10b2ecf89724))
+
+* refactor(icons): added arrows icon ([fc859d3](https://github.com/magnetis/astro-native/commit/fc859d374c87d63360c5e5bbb6012d65e51d03ed))
+
+* refactor(jest.config): /Arros in collectCoverageFrom ([35d312e](https://github.com/magnetis/astro-native/commit/35d312eeca6fd7d9f175f7814aacc3cfec606352))
+
+* refactor(icons): add getViewBox() and getSize() to viewBox and width/height ([a0f154d](https://github.com/magnetis/astro-native/commit/a0f154d14bacdf17f7d623d18a08d128527acb65))
+
+* refactor(icons): improve getViewBox() and getSize() functions and tests ([5f16dc4](https://github.com/magnetis/astro-native/commit/5f16dc4377ac4fba1dd0c58ec6cd258834f6e769))
+
+* refactor(utils test): rename test ([9a69cba](https://github.com/magnetis/astro-native/commit/9a69cba4c7bf9ae6a1a164a75c453cba797bb7fd))
+
 # [2.0.0-next.6](https://github.com/magnetis/astro-native/compare/v2.0.0-next.4...v2.0.0-next.6) (2022-04-18)
 ### Features
 
