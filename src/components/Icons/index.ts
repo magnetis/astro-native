@@ -4,5 +4,6 @@ export * from './Support';
 // export * from './Arrows';
 // export * from './Information';
 // export * from './Essentials';
+// export * from './Document';
 
 export type { IconProps, IconID } from './types';
