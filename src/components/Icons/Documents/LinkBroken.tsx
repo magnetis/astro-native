@@ -6,8 +6,8 @@ import BaseIcon from '../BaseIcon';
 import { getFill, getSize, getViewBox } from '../utils';
 import type { IconProps } from '../types';
 
-function LinkBroke({
-  id = 'LinkBrokeIcon',
+function LinkBroken({
+  id = 'LinkBrokenIcon',
   color = colors.space100,
   viewBox = getViewBox(),
   width = getSize(),
@@ -26,4 +26,4 @@ function LinkBroke({
   );
 }
 
-export default LinkBroke;
+export default LinkBroken;
