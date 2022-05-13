@@ -6,8 +6,8 @@ import BaseIcon from '../BaseIcon';
 import { getFill, getSize, getViewBox } from '../utils';
 import type { IconProps } from '../types';
 
-function DocDownload({
-  id = 'DocDownloadIcon',
+function Download({
+  id = 'DownloadIcon',
   color = colors.space100,
   viewBox = getViewBox(),
   width = getSize(),
@@ -26,4 +26,4 @@ function DocDownload({
   );
 }
 
-export default DocDownload;
+export default Download;

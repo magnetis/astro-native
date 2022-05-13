@@ -6,8 +6,8 @@ import BaseIcon from '../BaseIcon';
 import { getFill, getSize, getViewBox } from '../utils';
 import type { IconProps } from '../types';
 
-function DocExport({
-  id = 'DocExportIcon',
+function Export({
+  id = 'ExportIcon',
   color = colors.space100,
   viewBox = getViewBox(),
   width = getSize(),
@@ -26,4 +26,4 @@ function DocExport({
   );
 }
 
-export default DocExport;
+export default Export;
