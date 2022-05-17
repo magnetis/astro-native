@@ -6,8 +6,8 @@ import BaseIcon from '../BaseIcon';
 import { getFill, getSize, getViewBox } from '../utils';
 import type { IconProps } from '../types';
 
-function MessageFaq({
-  id = 'MessageFaqIcon',
+function MessageQuestion({
+  id = 'MessageQuestionIcon',
   color = colors.space100,
   viewBox = getViewBox(),
   width = getSize(),
@@ -34,4 +34,4 @@ function MessageFaq({
   );
 }
 
-export default MessageFaq;
+export default MessageQuestion;
