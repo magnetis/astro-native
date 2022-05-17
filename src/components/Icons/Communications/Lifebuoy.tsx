@@ -6,8 +6,8 @@ import BaseIcon from '../BaseIcon';
 import { getFill, getSize, getViewBox } from '../utils';
 import type { IconProps } from '../types';
 
-function Support({
-  id = 'SupportIcon',
+function Lifebuoy({
+  id = 'LifebuoyIcon',
   color = colors.space100,
   viewBox = getViewBox(),
   width = getSize(),
@@ -29,4 +29,4 @@ function Support({
   );
 }
 
-export default Support;
+export default Lifebuoy;

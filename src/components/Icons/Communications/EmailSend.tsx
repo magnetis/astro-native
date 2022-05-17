@@ -6,8 +6,8 @@ import BaseIcon from '../BaseIcon';
 import { getFill, getSize, getViewBox } from '../utils';
 import type { IconProps } from '../types';
 
-function EmailSpeed({
-  id = 'EmailSpeedIcon',
+function EmailSend({
+  id = 'EmailSendIcon',
   color = colors.space100,
   viewBox = getViewBox(),
   width = getSize(),
@@ -28,4 +28,4 @@ function EmailSpeed({
   );
 }
 
-export default EmailSpeed;
+export default EmailSend;
