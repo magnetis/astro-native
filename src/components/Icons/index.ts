@@ -6,5 +6,6 @@ export * from './Support';
 // export * from './Essentials';
 // export * from './Documents';
 // export * from './Communications';
+// export * from './Finances';
 
 export type { IconProps, IconID } from './types';
