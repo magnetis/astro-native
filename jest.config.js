@@ -25,6 +25,7 @@ module.exports = {
     '!src/components/Icons/Essencials/**/*.{ts,tsx}',
     '!src/components/Icons/Documents/**/*.{ts,tsx}',
     '!src/components/Icons/Communications/**/*.{ts,tsx}',
+    '!src/components/Icons/Finances/**/*.{ts,tsx}',
     '!src/components/**/stories/**/*',
   ],
   coverageReporters: ['lcov', 'text', 'text-summary'],
