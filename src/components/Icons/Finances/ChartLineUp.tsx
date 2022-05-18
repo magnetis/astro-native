@@ -6,8 +6,8 @@ import BaseIcon from '../BaseIcon';
 import { getFill, getSize, getViewBox } from '../utils';
 import type { IconProps } from '../types';
 
-function ChartBarWaterfall({
-  id = 'ChartBarWaterfallIcon',
+function ChartLineUp({
+  id = 'ChartLineUpIcon',
   color = colors.space100,
   viewBox = getViewBox(),
   width = getSize(),
@@ -29,4 +29,4 @@ function ChartBarWaterfall({
   );
 }
 
-export default ChartBarWaterfall;
+export default ChartLineUp;

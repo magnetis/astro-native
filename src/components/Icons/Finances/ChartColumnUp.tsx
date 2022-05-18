@@ -6,8 +6,8 @@ import BaseIcon from '../BaseIcon';
 import { getFill, getSize, getViewBox } from '../utils';
 import type { IconProps } from '../types';
 
-function ChartColumUp({
-  id = 'ChartColumUpIcon',
+function ChartColumnUp({
+  id = 'ChartColumnUpIcon',
   color = colors.space100,
   viewBox = getViewBox(),
   width = getSize(),
@@ -26,4 +26,4 @@ function ChartColumUp({
   );
 }
 
-export default ChartColumUp;
+export default ChartColumnUp;

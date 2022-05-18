@@ -3,7 +3,7 @@ export { default as ChartBarIcon } from './ChartBar';
 export { default as ChartBarAltIcon } from './ChartBarAlt';
 export { default as ChartBarWaterfallIcon } from './ChartBarWaterfall';
 export { default as ChartCandlestickIcon } from './ChartCandlestick';
-export { default as ChartColumUpIcon } from './ChartColumUp';
+export { default as ChartColumnUp } from './ChartColumnUp';
 export { default as ChartDoughnutIcon } from './ChartDoughnut';
 export { default as ChartDoughnutAltIcon } from './ChartDoughnutAlt';
 export { default as ChartLineIcon } from './ChartLine';
