@@ -8,5 +8,6 @@ export * from './Support';
 // export * from './Communications';
 // export * from './Finances';
 // export * from './Security';
+// export * from './Social';
 
 export type { IconProps, IconID } from './types';
