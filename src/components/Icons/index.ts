@@ -9,5 +9,6 @@ export * from './Support';
 // export * from './Finances';
 // export * from './Security';
 // export * from './Social';
+// export * from './Medias';
 
 export type { IconProps, IconID } from './types';
