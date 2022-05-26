@@ -18,7 +18,6 @@ export { default as MoneyIcon } from './Money';
 export { default as MoneyAltIcon } from './MoneyAlt';
 export { default as MoneyBagIcon } from './MoneyBag';
 export { default as MoneyCoinIcon } from './MoneyCoin';
-export { default as SearchIcon } from './Search';
 export { default as SearchChartBarIcon } from './SearchChartBar';
 export { default as SearchChartLineIcon } from './SearchChartLine';
 export { default as SignAddIcon } from './SignAdd';
