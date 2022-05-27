@@ -7,6 +7,7 @@ import GradientConfig from './GradientConfig';
 
 import type { HitSlop } from '../types';
 import { getFixedHitSlop } from '@components/utils';
+import { getSize, getViewBox } from './utils';
 
 interface BaseIconProps extends IconProps {
   children: ReactNode;
@@ -15,9 +16,9 @@ interface BaseIconProps extends IconProps {
 }
 
 function BaseIcon({
-  viewBox = '0 0 32 32',
-  height = 32,
-  width = 32,
+  viewBox = getViewBox(),
+  width = getSize(),
+  height = getSize(),
   children,
   gradient,
   id,
