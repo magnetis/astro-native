@@ -22,7 +22,7 @@ module.exports = {
     '!src/components/Icons/Support/**/*.{ts,tsx}',
     '!src/components/Icons/Arrows/**/*.{ts,tsx}',
     '!src/components/Icons/Informations/**/*.{ts,tsx}',
-    '!src/components/Icons/Essencials/**/*.{ts,tsx}',
+    '!src/components/Icons/Essentials/**/*.{ts,tsx}',
     '!src/components/Icons/Documents/**/*.{ts,tsx}',
     '!src/components/Icons/Communications/**/*.{ts,tsx}',
     '!src/components/Icons/Finances/**/*.{ts,tsx}',

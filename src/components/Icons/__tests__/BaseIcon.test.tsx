@@ -20,10 +20,10 @@ describe('BaseIcon', () => {
     expect(toJSON()).toMatchInlineSnapshot(`
       <RNSVGSvgView
         align="xMidYMid"
-        bbHeight={32}
-        bbWidth={32}
+        bbHeight={24}
+        bbWidth={24}
         focusable={false}
-        height={32}
+        height={24}
         meetOrSlice={0}
         minX={0}
         minY={0}
@@ -35,14 +35,14 @@ describe('BaseIcon', () => {
             },
             Object {
               "flex": 0,
-              "height": 32,
-              "width": 32,
+              "height": 24,
+              "width": 24,
             },
           ]
         }
-        vbHeight={32}
-        vbWidth={32}
-        width={32}
+        vbHeight={24}
+        vbWidth={24}
+        width={24}
       >
         <RNSVGGroup>
           <RNSVGDefs>
@@ -98,10 +98,10 @@ describe('BaseIcon', () => {
     expect(toJSON()).toMatchInlineSnapshot(`
       <RNSVGSvgView
         align="xMidYMid"
-        bbHeight={32}
-        bbWidth={32}
+        bbHeight={24}
+        bbWidth={24}
         focusable={false}
-        height={32}
+        height={24}
         meetOrSlice={0}
         minX={0}
         minY={0}
@@ -113,14 +113,14 @@ describe('BaseIcon', () => {
             },
             Object {
               "flex": 0,
-              "height": 32,
-              "width": 32,
+              "height": 24,
+              "width": 24,
             },
           ]
         }
-        vbHeight={32}
-        vbWidth={32}
-        width={32}
+        vbHeight={24}
+        vbWidth={24}
+        width={24}
       >
         <RNSVGGroup>
           <RNSVGPath
