@@ -10,16 +10,10 @@ updates:
       separator: '-'
     open-pull-requests-limit: 10
     reviewers:
-      - julianosbento
       - LopesAlysson
       - pedro-cerdera
       - lucianomlima
       - albertozaranza
       - Michele-Camargo
-    ignore:
-      - dependency-name: '@babel/runtime'
-      - dependency-name: '@babel/core'
-      - dependency-name: 'react'
-        update-types: ['version-update:semver-major', 'version-update:semver-minor']
-      - dependency-name: 'react-native'
-        update-types: ['version-update:semver-major', 'version-update:semver-minor']
+      - RaissaMagnetis
+      - devjonathansouzasi
