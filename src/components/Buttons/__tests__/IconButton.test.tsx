@@ -9,7 +9,7 @@ const initialProps: IconButtonProps = {
   disabled: false,
   loading: false,
   size: 'medium',
-  icon: 'Alert',
+  icon: 'InfoWarningCicle',
   type: 'solid',
   variant: 'primary',
   onPress: jest.fn(),
