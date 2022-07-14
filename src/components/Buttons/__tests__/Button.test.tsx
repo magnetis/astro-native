@@ -36,7 +36,7 @@ describe('Button', () => {
   });
 
   it('should renders correctly with icons', () => {
-    const { getByText, getByTestId } = render(<Button {...initialProps} iconLeft="DropLeft" iconRight="DropRight" />);
+    const { getByText, getByTestId } = render(<Button {...initialProps} iconLeft="ArrowLeft" iconRight="ArrowRight" />);
 
     const button = getByTestId('Button');
     const buttonLabel = getByText('text');
