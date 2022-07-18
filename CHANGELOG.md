@@ -1,3 +1,52 @@
+# [2.0.0-next.7](https://github.com/magnetis/astro-native/compare/v2.0.0-next.6...v2.0.0-next.7) (2022-07-18)
+### Features
+
+* refactor(icons): added informations icons ([a1fca4b](https://github.com/magnetis/astro-native/commit/a1fca4be2cf52929712579e9a2bba4d562a6a0dc))
+
+* refactor(jest.config): /Information in collectCoverageFrom ([3becc08](https://github.com/magnetis/astro-native/commit/3becc08e3de786b1cbd8fea8f3e18f2cc47f0bc0))
+
+* refactor(icons): separating the imports of modules from the relatives ([7ccc20d](https://github.com/magnetis/astro-native/commit/7ccc20d5a08dcdc331d1259ff766d92092156324))
+
+* refactor(icons): added essencials icons ([66c74cc](https://github.com/magnetis/astro-native/commit/66c74cc2469d0f746d6ecba75d6afe26b19ff69d))
+
+* refactor(icons): added documents icon ([834ac5b](https://github.com/magnetis/astro-native/commit/834ac5b8cc52bfff6f2ff3f23513677d9774293c))
+
+* refactor(icons): added communications icons ([3e8ff75](https://github.com/magnetis/astro-native/commit/3e8ff75eea2e95f749af4d4bf85ef517ea927cd4))
+
+* refactor(icons): added Finances icons ([2621480](https://github.com/magnetis/astro-native/commit/2621480b9b6b185c49753ea47fc1526535d80821))
+
+* feat(icons): add security icons ([cceb7e0](https://github.com/magnetis/astro-native/commit/cceb7e0b2a0582d2a818cdd2a248cc7a07c8fd27))
+
+* feat(icons): add social icons ([22fbd48](https://github.com/magnetis/astro-native/commit/22fbd48e47cf970eba84be85f13930414b94b0b3))
+
+* feat(icons): add medias icon ([b18b0f7](https://github.com/magnetis/astro-native/commit/b18b0f72fc33d905330329b6f185768a57ba6b38))
+
+* refactor(icons): remove icons of dashboard and support, remove duplic… ([0c5ddf0](https://github.com/magnetis/astro-native/commit/0c5ddf048755cf4388c8bfaf10471ff709eeb4da))
+
+* refactor(baseicon): add functions getViewBox and getSize, and fix bas… ([b642b6b](https://github.com/magnetis/astro-native/commit/b642b6b7d83d8a860cc818d371bbbdb7bb2b3ca6))
+
+* refactor(icons): improve iconID type ([060063d](https://github.com/magnetis/astro-native/commit/060063d159bce3c04d58a5bfdf18396e5f5521b2))
+
+* ci(gh-action): implement gh-action flow for tests and publish new version ([788c478](https://github.com/magnetis/astro-native/commit/788c47867664e91f54dd04f5c6c1a6327c3b5471))
+
+* test(jest-config): ignore index and types files on tests ([7700da3](https://github.com/magnetis/astro-native/commit/7700da36e26f35bf10a70a0383da10b2ecf89724))
+
+* refactor(icons): added arrows icon ([fc859d3](https://github.com/magnetis/astro-native/commit/fc859d374c87d63360c5e5bbb6012d65e51d03ed))
+
+* refactor(jest.config): /Arros in collectCoverageFrom ([35d312e](https://github.com/magnetis/astro-native/commit/35d312eeca6fd7d9f175f7814aacc3cfec606352))
+
+* refactor(icons): add getViewBox() and getSize() to viewBox and width/height ([a0f154d](https://github.com/magnetis/astro-native/commit/a0f154d14bacdf17f7d623d18a08d128527acb65))
+
+* refactor(icons): improve getViewBox() and getSize() functions and tests ([5f16dc4](https://github.com/magnetis/astro-native/commit/5f16dc4377ac4fba1dd0c58ec6cd258834f6e769))
+
+* refactor(utils test): rename test ([9a69cba](https://github.com/magnetis/astro-native/commit/9a69cba4c7bf9ae6a1a164a75c453cba797bb7fd))
+
+### Bug Fix
+
+* chore(dependencies): remove standard changelog dependency ([370b761](https://github.com/magnetis/astro-native/commit/370b7614ba1c142510c56075e5f7384b65e70410))
+
+* ci(script): fix release script ([23f4931](https://github.com/magnetis/astro-native/commit/23f49313aa7b9d8617e911f51fc57691b96d4e64))
+
 # [2.0.0-next.6](https://github.com/magnetis/astro-native/compare/v2.0.0-next.4...v2.0.0-next.6) (2022-04-18)
 ### Features
 
