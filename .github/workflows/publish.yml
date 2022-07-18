@@ -35,12 +35,12 @@ jobs:
 
           git config user.name "$(git log -n 1 --pretty=format:%an)"
           git config user.email "$(git log -n 1 --pretty=format:%ae)"
-      - name: Run npm version
-        run: npm version ${{ env.RELEASE_VERSION }}
       - name: Push git tags
         run: |
           git tag ${{ env.RELEASE_VERSION }}
           git push origin ${{ env.RELEASE_VERSION }}
+      - name: Install dependencies
+        run: yarn
       - name: Publish version
         run: npm publish --access public
         env:
