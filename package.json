@@ -50,7 +50,7 @@
     "@storybook/react-native": "^5.3.23",
     "@storybook/react-native-server": "^5.3.23",
     "@testing-library/jest-native": "^4.0.1",
-    "@testing-library/react-native": "^8.0.0",
+    "@testing-library/react-native": "^11.0.0",
     "@types/jest": "^27.0.2",
     "@types/node": "^17.0.1",
     "@types/react": "^17.0.11",
