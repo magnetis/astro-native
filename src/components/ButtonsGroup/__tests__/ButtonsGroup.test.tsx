@@ -106,17 +106,17 @@ describe('ButtonsGroup', () => {
     });
   });
 
-  it('should call onPress when the button is pressed', () => {
-    const { getAllByTestId } = render(<ButtonsGroup {...initialProps} />);
+  it.each(ITEMS)('should call onPress when the button "%s" is pressed', ({ value, onPress }) => {
+    const { getByText } = render(<ButtonsGroup {...initialProps} />);
 
-    fireEvent.press(getAllByTestId('Button')[0]);
+    fireEvent.press(getByText(value));
 
-    expect(initialProps.items[0].onPress).toHaveBeenCalledTimes(1);
+    expect(onPress).toHaveBeenCalledTimes(1);
   });
 
-  it('should get item by accessibility label', () => {
+  it.each(ITEMS)('should get "%s" item by accessibility label', ({ accessibilityLabel = '' }) => {
     const { getByA11yLabel } = render(<ButtonsGroup {...initialProps} />);
 
-    expect(getByA11yLabel('buttons group item 1')).toBeTruthy();
+    expect(getByA11yLabel(accessibilityLabel)).toBeTruthy();
   });
 });
