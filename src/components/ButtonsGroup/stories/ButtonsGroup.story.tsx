@@ -24,7 +24,6 @@ storiesOf('Buttons Group', module).add('Buttons Group', () => (
         items={ITEMS}
         legacy={boolean('legacy', true)}
         rounded={boolean('rounded', false)}
-        onPress={() => console.log('value')}
       />
     </View>
     <View style={{ marginTop: sizes.mini }}>
@@ -34,7 +33,6 @@ storiesOf('Buttons Group', module).add('Buttons Group', () => (
         items={ITEMS}
         legacy={boolean('legacy', false)}
         rounded={boolean('rounded', false)}
-        onPress={() => console.log('value')}
       />
     </View>
   </SafeAreaView>

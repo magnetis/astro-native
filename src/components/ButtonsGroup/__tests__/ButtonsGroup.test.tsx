@@ -8,7 +8,7 @@ import ButtonsGroup from '../ButtonsGroup';
 import type { ButtonsGroupProps } from '../ButtonsGroup';
 
 const ITEMS = [
-  { value: 'lorem', onPressItem: jest.fn() },
+  { value: 'lorem', onPressItem: jest.fn(), accessibilityLabel: 'buttons group item 1' },
   { value: 'ipsum', onPressItem: jest.fn() },
   { value: 'dolor', onPressItem: jest.fn() },
 ];
@@ -112,5 +112,11 @@ describe('ButtonsGroup', () => {
     fireEvent.press(getAllByTestId('Button')[0]);
 
     expect(initialProps.items[0].onPressItem).toHaveBeenCalledTimes(1);
+  });
+
+  it('should get item by accessibility label', () => {
+    const { getByA11yLabel } = render(<ButtonsGroup {...initialProps} />);
+
+    expect(getByA11yLabel('buttons group item 1')).toBeTruthy();
   });
 });
