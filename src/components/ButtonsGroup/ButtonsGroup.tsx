@@ -7,19 +7,20 @@ import Button from '@components/Buttons/Button';
 import type { ViewStyle, PressableProps } from 'react-native';
 import type { ButtonVariant } from '@components/Buttons/types';
 
-type Item = {
+type Item = PressableProps & {
   value: string;
   onPressItem: () => void;
 };
 
-export interface ButtonsGroupProps extends PressableProps {
+export type ButtonsGroupProps = {
+  testID?: string;
   contentContainerStyle?: ViewStyle;
   initialActiveItemIndex?: number;
   inversed?: boolean;
   items: Item[];
   legacy?: boolean;
   rounded?: boolean;
-}
+};
 
 function ButtonsGroup({
   contentContainerStyle = {},
@@ -29,7 +30,6 @@ function ButtonsGroup({
   legacy,
   rounded,
   testID,
-  ...props
 }: ButtonsGroupProps) {
   const [activeItem, setActiveItem] = useState(initialActiveItemIndex);
 
@@ -52,7 +52,7 @@ function ButtonsGroup({
       ItemSeparatorComponent={() => <View style={styles.itemContainer} />}
       renderItem={({ item, index }) => (
         <Button
-          {...props}
+          {...item}
           size="small"
           type={activeItem === index ? 'solid' : 'subtle'}
           variant={getButtonGroupVariant(index)}
