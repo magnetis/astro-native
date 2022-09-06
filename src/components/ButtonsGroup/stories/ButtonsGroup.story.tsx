@@ -6,10 +6,12 @@ import { colors, sizes } from '@magnetis/astro-tokens';
 
 import ButtonsGroup from '../ButtonsGroup';
 
-const ITEMS = [
-  { value: 'lorem', onPressItem: () => console.log('lorem') },
-  { value: 'ipsum', onPressItem: () => console.log('ipsum') },
-  { value: 'dolor', onPressItem: () => console.log('dolor') },
+import type { Item } from '../ButtonsGroup';
+
+const ITEMS: Item[] = [
+  { value: 'lorem', onPress: () => console.log('lorem') },
+  { value: 'ipsum', onPress: () => console.log('ipsum') },
+  { value: 'dolor', onPress: () => console.log('dolor') },
 ];
 
 const ITEMS_INDEX = ITEMS.map((_, index) => index);

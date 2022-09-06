@@ -7,9 +7,9 @@ import Button from '@components/Buttons/Button';
 import type { ViewStyle, PressableProps } from 'react-native';
 import type { ButtonVariant } from '@components/Buttons/types';
 
-type Item = PressableProps & {
+export type Item = PressableProps & {
   value: string;
-  onPressItem: () => void;
+  onPress: () => void;
 };
 
 export type ButtonsGroupProps = {
@@ -60,7 +60,7 @@ function ButtonsGroup({
           rounded={legacy || rounded}
           onPress={() => {
             setActiveItem(index);
-            item.onPressItem();
+            item.onPress();
           }}
         />
       )}
