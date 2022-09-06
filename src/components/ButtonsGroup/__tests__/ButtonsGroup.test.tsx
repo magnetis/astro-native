@@ -5,12 +5,12 @@ import { colors as legacyColors } from '@magnetis/astro-galaxy-tokens';
 
 import ButtonsGroup from '../ButtonsGroup';
 
-import type { ButtonsGroupProps } from '../ButtonsGroup';
+import type { ButtonsGroupProps, Item } from '../ButtonsGroup';
 
-const ITEMS = [
-  { value: 'lorem', onPressItem: jest.fn(), accessibilityLabel: 'buttons group item 1' },
-  { value: 'ipsum', onPressItem: jest.fn() },
-  { value: 'dolor', onPressItem: jest.fn() },
+const ITEMS: Item[] = [
+  { value: 'lorem', onPress: jest.fn(), accessibilityLabel: 'buttons group item 1' },
+  { value: 'ipsum', onPress: jest.fn(), accessibilityLabel: 'buttons group item 2' },
+  { value: 'dolor', onPress: jest.fn(), accessibilityLabel: 'buttons group item 3' },
 ];
 
 const initialProps: ButtonsGroupProps = {
@@ -111,7 +111,7 @@ describe('ButtonsGroup', () => {
 
     fireEvent.press(getAllByTestId('Button')[0]);
 
-    expect(initialProps.items[0].onPressItem).toHaveBeenCalledTimes(1);
+    expect(initialProps.items[0].onPress).toHaveBeenCalledTimes(1);
   });
 
   it('should get item by accessibility label', () => {
