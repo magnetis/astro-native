@@ -51,6 +51,7 @@ function Slider({
   label = '',
   unit = '',
   testID = 'Slider',
+  step = 1,
   ...props
 }: SliderProps) {
   const didMount = useDidMount();
@@ -100,7 +101,7 @@ function Slider({
         {...props}
         {...sliderProps}
         testID={testID}
-        step={1}
+        step={step}
         disabled={disabled}
         onSlidingComplete={handleSlindingComplete}
         onValueChange={handleValueChange}
