@@ -202,7 +202,7 @@ describe('Slider', () => {
     expect(queryByA11yLabel('tipo de valor')).toBeNull();
   });
 
-  it('validates if onSlidingComplete is called', () => {
+  it('calls function mockOnSlidingComplete when a slide/scroll is executed and prop onSlidingComplete is valid', () => {
     const mockOnSlidingComplete = jest.fn();
     const { getByTestId } = render(
       <Slider
@@ -216,25 +216,8 @@ describe('Slider', () => {
         unit={{ singular: 'day', plural: 'days' }}
       />
     );
+
     getByTestId('Slider').props.onRNCSliderSlidingComplete({ nativeEvent: { value: 5 } });
     expect(mockOnSlidingComplete).toHaveBeenCalled();
-  });
-
-  it('validates if onSlidingComplete is not called', () => {
-    const mockOnSlidingComplete = jest.fn();
-    const { getByTestId } = render(
-      <Slider
-        testID="Slider"
-        fullFill
-        onValueChange={mockOnValueChange}
-        label="Deadline"
-        minimumValue={1}
-        maximumValue={10}
-        unit={{ singular: 'day', plural: 'days' }}
-      />
-    );
-
-    getByTestId('Slider').props.onRNCSliderSlidingComplete({ nativeEvent: { value: 5 } });
-    expect(mockOnSlidingComplete).not.toHaveBeenCalled();
   });
 });
