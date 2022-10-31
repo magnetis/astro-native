@@ -3,9 +3,8 @@ import { render } from '@testing-library/react-native';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 
 import Slider from '../Slider';
-import { act } from 'react-test-renderer';
 
-const onValueChange = jest.fn();
+const mockOnValueChange = jest.fn();
 
 describe('Slider', () => {
   afterEach(() => {
@@ -14,7 +13,7 @@ describe('Slider', () => {
 
   it('renders correctly with default props', () => {
     const { getByTestId, getByText } = render(
-      <Slider onValueChange={onValueChange} label="Deadline" minimumValue={1} maximumValue={10} />
+      <Slider onValueChange={mockOnValueChange} label="Deadline" minimumValue={1} maximumValue={10} />
     );
 
     expect(getByTestId('Slider').props.minimumTrackTintColor).toEqual(colors.uranus500);
@@ -36,7 +35,7 @@ describe('Slider', () => {
 
   it('renders correctly with unit as string', () => {
     const { getByTestId, getByText } = render(
-      <Slider unit="days" onValueChange={onValueChange} label="Deadline" minimumValue={1} maximumValue={10} />
+      <Slider unit="days" onValueChange={mockOnValueChange} label="Deadline" minimumValue={1} maximumValue={10} />
     );
 
     expect(getByTestId('Slider').props.minimumTrackTintColor).toEqual(colors.uranus500);
@@ -60,7 +59,7 @@ describe('Slider', () => {
     const { getByTestId, getByText } = render(
       <Slider
         fullFill
-        onValueChange={onValueChange}
+        onValueChange={mockOnValueChange}
         label="Deadline"
         minimumValue={1}
         maximumValue={10}
@@ -103,7 +102,7 @@ describe('Slider', () => {
       <Slider
         disabled
         fullFill
-        onValueChange={onValueChange}
+        onValueChange={mockOnValueChange}
         label="Deadline"
         minimumValue={1}
         maximumValue={10}
@@ -130,11 +129,11 @@ describe('Slider', () => {
   });
 
   it('changes value label on value change', () => {
-    const { queryByText, getByTestId } = render(
+    const { queryByText, getByTestId, getByText } = render(
       <Slider
         testID="Slider"
         fullFill
-        onValueChange={onValueChange}
+        onValueChange={mockOnValueChange}
         label="Deadline"
         minimumValue={1}
         maximumValue={10}
@@ -142,21 +141,20 @@ describe('Slider', () => {
       />
     );
 
-    expect(queryByText('1 day')).not.toBeNull();
-    act(() => {
-      getByTestId('Slider').props.onChange({ nativeEvent: { value: 5 } });
-    });
+    expect(getByText('1 day')).toBeTruthy();
+
+    getByTestId('Slider').props.onChange({ nativeEvent: { value: 5 } });
 
     expect(queryByText('1 day')).toBeNull();
-    expect(queryByText('5 days')).not.toBeNull();
+    expect(getByText('5 days')).toBeTruthy();
   });
 
-  it('changes value label on sliding complete and calls onValueChange', () => {
-    const { queryByText, getByTestId } = render(
+  it('changes value label on sliding complete and calls mockOnValueChange', () => {
+    const { queryByText, getByTestId, getByText } = render(
       <Slider
         testID="Slider"
         fullFill
-        onValueChange={onValueChange}
+        onValueChange={mockOnValueChange}
         label="Deadline"
         minimumValue={1}
         maximumValue={10}
@@ -164,15 +162,14 @@ describe('Slider', () => {
       />
     );
 
-    expect(queryByText('1 day')).not.toBeNull();
+    expect(getByText('1 day')).toBeTruthy();
 
-    act(() => {
-      getByTestId('Slider').props.onRNCSliderSlidingComplete({ nativeEvent: { value: 6 } });
-    });
-    expect(onValueChange).toHaveBeenCalledWith(6);
+    getByTestId('Slider').props.onRNCSliderSlidingComplete({ nativeEvent: { value: 6 } });
+
+    expect(mockOnValueChange).toHaveBeenCalledWith(6);
 
     expect(queryByText('1 day')).toBeNull();
-    expect(queryByText('6 days')).not.toBeNull();
+    expect(getByText('6 days')).toBeTruthy();
   });
 
   it('renders correctly without header', () => {
@@ -180,7 +177,7 @@ describe('Slider', () => {
       <Slider
         unit={{ singular: 'day', plural: 'days' }}
         hideHeader
-        onValueChange={onValueChange}
+        onValueChange={mockOnValueChange}
         label="Deadline"
         minimumValue={1}
         maximumValue={10}
@@ -195,7 +192,7 @@ describe('Slider', () => {
     const { getByText, queryByA11yLabel } = render(
       <Slider
         unit={{ singular: 'day', plural: 'days' }}
-        onValueChange={onValueChange}
+        onValueChange={mockOnValueChange}
         minimumValue={1}
         maximumValue={10}
       />

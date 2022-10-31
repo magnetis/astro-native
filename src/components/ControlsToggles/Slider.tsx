@@ -66,7 +66,7 @@ function Slider({
   function handleSlindingComplete(newValue: number) {
     setValue(newValue);
     setSlidingValue(newValue);
-    props.onSlidingComplete;
+    props.onSlidingComplete?.(newValue);
   }
 
   function handleValueChange(currentValue: number) {
