@@ -2038,9 +2038,11 @@
     wcwidth "^1.0.1"
 
 "@react-native-community/slider@^4.1.12":
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/@react-native-community/slider/-/slider-4.2.2.tgz#06a0de89c26c6bd03d95798b777db1872b60c066"
-  integrity sha512-C1ldx1ypQo+uDWx78TUBG0evLVopKYHK2mQencl+vxi4ebMTL+ipJv5MF5mEvmZWLUOAMm5AsoQNHChYUdyWrQ==
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/@react-native-community/slider/-/slider-4.3.2.tgz#85d027bfa04e23e197d1642c154311264d29f610"
+  integrity sha512-pKIx+l3yFQAVMcqGsnRcJAqZbVeR69CRbW85nZHhLuR/mOT0NbKWJIAEy7MC+e84DMTw0RJnEflRQO2/j8wcxQ==
+  dependencies:
+    "@types/react-test-renderer" "^18.0.0"
 
 "@sinonjs/commons@^1.7.0":
   version "1.8.1"
