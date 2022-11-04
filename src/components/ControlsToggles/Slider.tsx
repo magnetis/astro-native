@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ImageURISource } from 'react-native';
 import RNSlider from '@react-native-community/slider';
+import { SliderProps as RNSliderProps } from '@react-native-community/slider';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 import { StyleSheet, View } from 'react-native';
 import { SecondaryTextMedium } from '@components/Text';
@@ -8,7 +9,7 @@ import useDidMount from '@hooks/useDidMount';
 
 type Unit = string | { singular: string; plural: string };
 
-interface SliderProps {
+interface SliderProps extends RNSliderProps {
   /** Mininum range value */
   minimumValue: number;
   /** Maximum range value */
@@ -50,6 +51,7 @@ function Slider({
   label = '',
   unit = '',
   testID = 'Slider',
+  step = 1,
   ...props
 }: SliderProps) {
   const didMount = useDidMount();
@@ -64,6 +66,7 @@ function Slider({
   function handleSlindingComplete(newValue: number) {
     setValue(newValue);
     setSlidingValue(newValue);
+    props.onSlidingComplete?.(newValue);
   }
 
   function handleValueChange(currentValue: number) {
@@ -98,7 +101,7 @@ function Slider({
         {...props}
         {...sliderProps}
         testID={testID}
-        step={1}
+        step={step}
         disabled={disabled}
         onSlidingComplete={handleSlindingComplete}
         onValueChange={handleValueChange}
