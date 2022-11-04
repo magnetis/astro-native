@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react-native';
+import { fireEvent, render } from '@testing-library/react-native';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 
 import Slider from '../Slider';
@@ -143,7 +143,7 @@ describe('Slider', () => {
 
     expect(getByText('1 day')).toBeTruthy();
 
-    getByTestId('Slider').props.onChange({ nativeEvent: { value: 5 } });
+    fireEvent(getByTestId('Slider'), 'onChange', { nativeEvent: { value: 5 } });
 
     expect(queryByText('1 day')).toBeNull();
     expect(getByText('5 days')).toBeTruthy();
@@ -164,7 +164,7 @@ describe('Slider', () => {
 
     expect(getByText('1 day')).toBeTruthy();
 
-    getByTestId('Slider').props.onRNCSliderSlidingComplete({ nativeEvent: { value: 6 } });
+    fireEvent(getByTestId('Slider'), 'onSlidingComplete', 6);
 
     expect(mockOnValueChange).toHaveBeenCalledWith(6);
 
@@ -202,22 +202,23 @@ describe('Slider', () => {
     expect(queryByA11yLabel('tipo de valor')).toBeNull();
   });
 
-  it('calls function mockOnSlidingComplete when a slide/scroll is executed and prop onSlidingComplete is valid', () => {
-    const mockOnSlidingComplete = jest.fn();
+  it('calls function mockHandleOnSlidingComplete when a slide/scroll is executed and prop onSlidingComplete is valid', () => {
+    const mockHandleOnSlidingComplete = jest.fn();
     const { getByTestId } = render(
       <Slider
         testID="Slider"
         fullFill
         onValueChange={mockOnValueChange}
-        onSlidingComplete={mockOnSlidingComplete}
+        onSlidingComplete={mockHandleOnSlidingComplete}
         label="Deadline"
         minimumValue={1}
         maximumValue={10}
         unit={{ singular: 'day', plural: 'days' }}
       />
     );
+    fireEvent(getByTestId('Slider'), 'onSlidingComplete', 9);
 
-    getByTestId('Slider').props.onRNCSliderSlidingComplete({ nativeEvent: { value: 5 } });
-    expect(mockOnSlidingComplete).toHaveBeenCalled();
+    expect(mockHandleOnSlidingComplete).toHaveBeenCalledTimes(1);
+    expect(mockHandleOnSlidingComplete).toHaveBeenCalledWith(9);
   });
 });
