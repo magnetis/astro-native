@@ -1,3 +1,12 @@
+# [1.10.0](https://github.com/magnetis/astro-native/compare/v1.9.0...v1.10.0) (2022-11-09)
+
+
+### Bug Fixes
+
+* **slider:** Slider component types [CONFIA-535] ([#650](https://github.com/magnetis/astro-native/issues/650)) ([69722d2](https://github.com/magnetis/astro-native/commit/69722d24d9708a95e3511be05a12424c454349c6))
+
+
+
 # [1.9.0](https://github.com/magnetis/astro-native/compare/v1.8.9...v1.9.0) (2022-04-18)
 
 ### Feature
