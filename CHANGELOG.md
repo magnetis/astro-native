@@ -1,48 +1,44 @@
+# [1.10.0](https://github.com/magnetis/astro-native/compare/v1.9.0...v1.10.0) (2022-11-09)
+
+### Features
+
+- **slider:** feat(slider): extends slider component props ([#650](https://github.com/magnetis/astro-native/commit/69722d24d9708a95e3511be05a12424c454349c6))
+
+### Chore
+
+- chore(dependabot): update dependabot.yml ([0124beb](https://github.com/magnetis/astro-native/commit/0124beb93760dd8938154cd4b93ac2a989aff5e4))
+
 # [1.9.0](https://github.com/magnetis/astro-native/compare/v1.8.9...v1.9.0) (2022-04-18)
 
 ### Feature
-* refactor(stories): added opacity in stories of buttons and removed some props already defined ([28de5f3](https://github.com/magnetis/astro-native/commit/28de5f39c8dfefe80f4e6217a358240c0df840df))
 
-* refactor(podfile): added code to enables flipper ([b705997](https://github.com/magnetis/astro-native/commit/b7059973bdeb8af16ee439e4cc2cddced376e807))
+- refactor(stories): added opacity in stories of buttons and removed some props already defined ([28de5f3](https://github.com/magnetis/astro-native/commit/28de5f39c8dfefe80f4e6217a358240c0df840df))
 
-* refactor(button): add pressed feedback and opacity prop ([c9cda43](https://github.com/magnetis/astro-native/commit/c9cda43c3482b95dc66e40a2aa87c9f643278a74))
-### Chore
+- refactor(podfile): added code to enables flipper ([b705997](https://github.com/magnetis/astro-native/commit/b7059973bdeb8af16ee439e4cc2cddced376e807))
 
-* chore: fix changelog ([0b81132](https://github.com/magnetis/astro-native/commit/0b8113282ed89d183ebf8ac6e5f010f3e888ad1a))
+- refactor(button): add pressed feedback and opacity prop ([c9cda43](https://github.com/magnetis/astro-native/commit/c9cda43c3482b95dc66e40a2aa87c9f643278a74))
 
 # [1.8.9](https://github.com/magnetis/astro-native/compare/v1.8.8...v1.8.9) (2021-11-17)
 
-### Chore
-
-* chore: fix package version ([3c83b8a](https://github.com/magnetis/astro-native/commit/9c12143b6bc1df7a12759522ea66a5a06af151c4))
-* chore: bump version from v1.8.8 to v1.8.9 ([9c12143](https://github.com/magnetis/astro-native/commit/9c12143b6bc1df7a12759522ea66a5a06af151c4))
 ### Bug Fixes
 
-* **icons:** fix(icons): fix star and star filled svg ([d3b206e](https://github.com/magnetis/astro-native/commit/d3b206e68bb2b78334c942c31481e0062080b784))
+- **icons:** fix(icons): fix star and star filled svg ([d3b206e](https://github.com/magnetis/astro-native/commit/d3b206e68bb2b78334c942c31481e0062080b784))
 
 # [1.8.8](https://github.com/magnetis/astro-native/compare/v1.8.7...v1.8.8) (2021-11-17)
 
 ### Features
 
-* **icons:** feat(icons): add icons ([9f3b7b9](https://github.com/magnetis/astro-native/commit/9f3b7b9567622f7b24732d31d9369e3911f716ef))
-
-### Chores
-
-* Update dependabot.yml ([a98fb270](https://github.com/magnetis/astro-native/commit/a98fb2707316bed39a266aa96d7a36027c9efb24))
+- **icons:** feat(icons): add icons ([9f3b7b9](https://github.com/magnetis/astro-native/commit/9f3b7b9567622f7b24732d31d9369e3911f716ef))
 
 # [1.8.7](https://github.com/magnetis/astro-native/compare/v1.8.6...v1.8.7) (2021-10-07)
 
-
 ### Bug Fixes
 
-* **basebutton:** disable onPress event when loading is true ([798d2c1](https://github.com/magnetis/astro-native/commit/798d2c1989d8ef58b8ff0cf9bac35cc50813322d))
-
+- **basebutton:** disable onPress event when loading is true ([798d2c1](https://github.com/magnetis/astro-native/commit/798d2c1989d8ef58b8ff0cf9bac35cc50813322d))
 
 ### Features
 
-* **icons:** add icons ([690d9fb](https://github.com/magnetis/astro-native/commit/690d9fbd4bea8200c1141a17d315994ee5c8cc90))
-
-
+- **icons:** add icons ([690d9fb](https://github.com/magnetis/astro-native/commit/690d9fbd4bea8200c1141a17d315994ee5c8cc90))
 
 # [1.8.6](https://github.com/magnetis/astro-native/compare/v1.8.5...v1.8.6) (2021-06-25)
 
