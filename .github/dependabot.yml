@@ -4,35 +4,24 @@ updates:
     directory: '/'
     schedule:
       interval: daily
-      time: '11:00'
+      time: '8:00'
       timezone: America/Sao_Paulo
     pull-request-branch-name:
       separator: '-'
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 6
     reviewers:
-      - julianosbento
-      - victorheringer
-      - murillo94
-      - pleaobraga
-      - an-mag
-      - LopesAlysson
-      - pedro-cerdera
-      - lucianomlima
-      - carlosberti
-    assignees:
-      - julianosbento
-      - victorheringer
-      - murillo94
-      - pleaobraga
-      - an-mag
-      - LopesAlysson
-      - pedro-cerdera
-      - lucianomlima
-      - carlosberti
-    ignore:
-      - dependency-name: '@babel/runtime'
-      - dependency-name: '@babel/core'
-      - dependency-name: 'react'
-        update-types: ['version-update:semver-minor']
-      - dependency-name: 'react-native'
-        update-types: ['version-update:semver-minor']
+      - 'magnetis/frontend'
+    target-branch: 'main'
+
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: daily
+      time: '8:00'
+      timezone: America/Sao_Paulo
+    pull-request-branch-name:
+      separator: '-'
+    open-pull-requests-limit: 6
+    reviewers:
+      - 'magnetis/frontend'
+    target-branch: 'astro-native@next'
