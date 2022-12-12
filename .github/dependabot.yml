@@ -4,10 +4,24 @@ updates:
     directory: '/'
     schedule:
       interval: daily
-      time: '11:00'
+      time: '8:00'
       timezone: America/Sao_Paulo
     pull-request-branch-name:
       separator: '-'
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 6
     reviewers:
       - 'magnetis/frontend'
+    target-branch: 'main'
+
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: daily
+      time: '8:00'
+      timezone: America/Sao_Paulo
+    pull-request-branch-name:
+      separator: '-'
+    open-pull-requests-limit: 6
+    reviewers:
+      - 'magnetis/frontend'
+    target-branch: 'astro-native@next'
