@@ -1,6 +1,6 @@
 import '@testing-library/jest-native/extend-expect';
 
-jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
+jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
 /**
  * Fix RN 0.63.2 issue related to 'ExceptionsManager.handleException...'
  * Related issue: https://github.com/facebook/react-native/issues/29849
