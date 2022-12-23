@@ -11,19 +11,18 @@
     "access": "public"
   },
   "scripts": {
-    "install:ios": "yarn && npx pod-install ios",
-    "install:android": "yarn",
+    "android": "react-native run-android && adb reverse tcp:7007 tcp:7007",
+    "ios": "react-native run-ios",
+    "start": "yarn react-native start",
     "test": "TZ=UTC jest --maxWorkers=50%",
     "test:watch": "TZ=UTC jest --watch --verbose --maxWorkers=25%",
     "test:coverage": "TZ=UTC jest --ci --coverage --runInBand",
     "clean": "rm -rf ./dist",
     "lint": "eslint ./src --ext .ts,.tsx",
-    "prepublishOnly": "yarn clean && tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist",
     "storybook": "start-storybook -p 7007",
-    "start": "yarn react-native start",
-    "build:ios": "react-native run-ios",
-    "build:android": "react-native run-android",
-    "prepare": "npx husky install"
+    "version": "standard-changelog && git add CHANGELOG.md package.json && git commit -m \"release: bump version to v${npm_package_version}\"",
+    "prepare": "npx husky install",
+    "prepublishOnly": "yarn clean && tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist"
   },
   "repository": {
     "type": "git",
@@ -40,10 +39,11 @@
   ],
   "license": "Apache-2.0",
   "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/runtime": "^7.8.4",
-    "@commitlint/cli": "^12.1.4",
-    "@commitlint/config-conventional": "^12.1.4",
+    "@babel/core": "7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@commitlint/cli": "^17.2.0",
+    "@commitlint/config-conventional": "^17.2.0",
+    "@react-native-community/eslint-config": "^2.0.0",
     "@storybook/addon-knobs": "^5.3",
     "@storybook/addon-ondevice-knobs": "^5.3.23",
     "@storybook/react-native": "^5.3.23",
@@ -66,7 +66,7 @@
     "commitizen": "^4.2.4",
     "concurrently": "^6.2.0",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^7.12.1",
+    "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^7.0.1",
@@ -74,24 +74,24 @@
     "lint-staged": "^11.0.0",
     "metro-react-native-babel-preset": "^0.59.0",
     "mockdate": "^3.0.2",
-    "prettier": "2.3.2",
-    "react": "^16.13.1",
-    "react-native": "^0.63.3",
-    "react-test-renderer": "^17.0.1",
+    "prettier": "2.6.2",
+    "react": "17.0.1",
+    "react-native": "0.64.4",
+    "react-test-renderer": "17.0.1",
+    "standard-changelog": "^2.0.27",
     "ts-jest": "^26.5.6",
     "tscpaths": "^0.0.9",
     "typescript": "^4.0.5"
   },
   "peerDependencies": {
-    "react": "^17.0.1",
-    "react-native": "^0.63.3"
+    "react": "17.0.1",
+    "react-native": "0.64.4"
   },
   "dependencies": {
     "@magnetis/astro-galaxy-tokens": "^1.2.3",
     "@magnetis/astro-tokens": "^0.0.8",
-    "@react-native-community/slider": "^3.0.3",
-    "react-native-svg": "^12.1.0",
-    "y18n": "5.0.8"
+    "@react-native-community/slider": "^4.1.12",
+    "react-native-svg": "^12.1.1"
   },
   "husky": {
     "hooks": {
