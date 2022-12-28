@@ -5,7 +5,7 @@ import { sizes } from '@magnetis/astro-tokens';
 import Button from '@components/Buttons/Button';
 
 import type { ViewStyle, PressableProps } from 'react-native';
-import type { ButtonVariant } from '@components/Buttons/types';
+import type { ButtonVariant, ButtonType } from '@components/Buttons/types';
 
 export type Item = PressableProps & {
   value: string;
@@ -16,29 +16,36 @@ export type ButtonsGroupProps = {
   testID?: string;
   contentContainerStyle?: ViewStyle;
   initialActiveItemIndex?: number;
-  inversed?: boolean;
   items: Item[];
   legacy?: boolean;
   rounded?: boolean;
+  active?: {
+    type: ButtonType;
+    variant: ButtonVariant;
+  };
+  inactive?: {
+    type: ButtonType;
+    variant: ButtonVariant;
+  };
 };
 
 function ButtonsGroup({
   contentContainerStyle = {},
   initialActiveItemIndex = 0,
-  inversed,
   items,
   legacy,
-  rounded,
+  rounded = true,
+  active = {
+    type: 'solid',
+    variant: 'primary',
+  },
+  inactive = {
+    type: 'subtle',
+    variant: 'inversed',
+  },
   testID,
 }: ButtonsGroupProps) {
   const [activeItem, setActiveItem] = useState(initialActiveItemIndex);
-
-  function getButtonGroupVariant(index: number): ButtonVariant {
-    if (activeItem === index && legacy) return 'legacy';
-    if (activeItem === index && !legacy) return 'primary';
-    if (inversed) return 'inversed';
-    return 'secondary';
-  }
 
   return (
     <FlatList
@@ -54,8 +61,8 @@ function ButtonsGroup({
         <Button
           {...item}
           size="small"
-          type={activeItem === index ? 'solid' : 'subtle'}
-          variant={getButtonGroupVariant(index)}
+          type={activeItem === index ? active.type : inactive.type}
+          variant={activeItem === index ? active.variant : inactive.variant}
           text={item.value}
           rounded={legacy || rounded}
           onPress={() => {
