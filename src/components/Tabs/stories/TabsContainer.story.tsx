@@ -1,10 +1,11 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import { colors, sizes } from '@magnetis/astro-tokens';
 
 import TabsContainer from '../TabsContainer';
+import { buttonTypeOptions, buttonVariantOptions } from '@components/Buttons/types';
 
 const TWO_ITEMS = [
   { value: 'lorem', onPressItem: () => console.log('lorem') },
@@ -37,13 +38,32 @@ storiesOf('Tabs', module).add('TabsContainer', () => (
     >
       <TabsContainer
         items={TWO_ITEMS}
-        inversed={boolean('inversed', true)}
-        rounded
+        rounded={boolean('rounded', false)}
+        active={{
+          type: select('ActiveType', buttonTypeOptions, buttonTypeOptions[0]),
+          variant: select('ActiveVariant', buttonVariantOptions, buttonVariantOptions[0]),
+        }}
+        inactive={{
+          type: select('InactiveType', buttonTypeOptions, buttonTypeOptions[1]),
+          variant: select('InactiveVariant', buttonVariantOptions, buttonVariantOptions[1]),
+        }}
         onPress={() => console.log('value')}
       />
     </View>
-    <View style={[styles.container, { marginTop: sizes.mini }]}>
-      <TabsContainer items={THREE_ITEMS} />
+    <View style={[styles.container, { marginTop: sizes.mini, backgroundColor: colors.solidBrightLightest }]}>
+      <TabsContainer
+        items={THREE_ITEMS}
+        rounded={boolean('rounded', false)}
+        active={{
+          type: select('ActiveType', buttonTypeOptions, buttonTypeOptions[0]),
+          variant: select('ActiveVariant', buttonVariantOptions, buttonVariantOptions[0]),
+        }}
+        inactive={{
+          type: select('InactiveType', buttonTypeOptions, buttonTypeOptions[1]),
+          variant: select('InactiveVariant', buttonVariantOptions, buttonVariantOptions[1]),
+        }}
+        onPress={() => console.log('value')}
+      />
     </View>
   </SafeAreaView>
 ));

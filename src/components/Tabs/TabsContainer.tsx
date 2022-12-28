@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { PressableProps, StyleSheet, View } from 'react-native';
-import { colors, radius, sizes } from '@magnetis/astro-tokens';
+import { radius, sizes } from '@magnetis/astro-tokens';
 
-import Tab from './Tab';
+import { Button, ButtonType, ButtonVariant } from '@components/Buttons';
+import { getButtonProperties } from '@components/Buttons/utils';
 
 type Item = {
   value: string;
@@ -11,11 +12,31 @@ type Item = {
 
 export interface TabsContainerProps extends PressableProps {
   items: Item[];
-  inversed?: boolean;
   rounded?: boolean;
+  active?: {
+    type: ButtonType;
+    variant: ButtonVariant;
+  };
+  inactive?: {
+    type: ButtonType;
+    variant: ButtonVariant;
+  };
 }
 
-function TabsContainer({ testID, items, inversed, rounded, ...props }: TabsContainerProps) {
+function TabsContainer({
+  testID,
+  items,
+  rounded,
+  active = {
+    type: 'solid',
+    variant: 'primary',
+  },
+  inactive = {
+    type: 'subtle',
+    variant: 'inversed',
+  },
+  ...props
+}: TabsContainerProps) {
   const [activeItem, setActiveItem] = useState(0);
 
   return (
@@ -24,25 +45,28 @@ function TabsContainer({ testID, items, inversed, rounded, ...props }: TabsConta
       style={[
         styles.tabsContainer,
         {
-          backgroundColor: inversed ? colors.transparentBrightSemitransparent : colors.transparentFaintSemitransparent,
+          backgroundColor: getButtonProperties(inactive.variant, inactive.type).backgroundColor,
           borderRadius: rounded ? radius.circular : radius.small,
         },
       ]}
     >
       {items.map((item, index) => (
-        <Tab
-          {...props}
-          rounded={rounded}
-          testID={`Tab.${item.value}`}
-          key={item.value}
-          value={item.value}
-          activeItem={activeItem === index}
-          inversed={inversed}
-          onPress={() => {
-            setActiveItem(index);
-            item.onPressItem();
-          }}
-        />
+        <View style={styles.tabContainer} key={item.value}>
+          <Button
+            {...props}
+            rounded={rounded}
+            size="medium"
+            fill
+            testID={`Tab.${item.value}`}
+            text={item.value}
+            variant={activeItem === index ? active.variant : inactive.variant}
+            type={activeItem === index ? active.type : inactive.type === 'solid' ? 'solid' : 'ghost'}
+            onPress={() => {
+              setActiveItem(index);
+              item.onPressItem();
+            }}
+          />
+        </View>
       ))}
     </View>
   );
@@ -53,6 +77,11 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     padding: sizes.quark,
+  },
+  tabContainer: {
+    flexDirection: 'row',
+    flexGrow: 1,
+    flexShrink: 1,
   },
 });
 
