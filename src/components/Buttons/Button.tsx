@@ -24,6 +24,7 @@ function Button({
   text,
   variant = 'primary',
   type = 'solid',
+  testID = 'Button',
   ...props
 }: ButtonProps) {
   const { backgroundColor, textColor } = getButtonProperties(disabled ? 'disabled' : variant, type);
@@ -45,10 +46,10 @@ function Button({
   const IconRight = getIcon(iconRight!);
 
   return (
-    <BaseButton {...props} {...baseProps} testID="Button">
+    <BaseButton {...props} {...baseProps} testID={testID}>
       <View style={{ alignItems: 'center', flexDirection: 'row' }}>
         {iconLeft && (
-          <View testID="Button.IconLeftContainer" style={{ marginRight: iconMargin }}>
+          <View testID={`${testID}.IconLeftContainer`} style={{ marginRight: iconMargin }}>
             <IconLeft size={iconSize} color={textColor} />
           </View>
         )}
@@ -56,7 +57,7 @@ function Button({
           {text}
         </BaseButtonText>
         {iconRight && (
-          <View testID="Button.IconRightContainer" style={{ marginLeft: iconMargin }}>
+          <View testID={`${testID}.IconRightContainer`} style={{ marginLeft: iconMargin }}>
             <IconRight size={iconSize} color={textColor} />
           </View>
         )}
