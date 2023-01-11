@@ -1,7 +1,6 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
 import { colors, radius } from '@magnetis/astro-tokens';
-import { colors as legacyColors } from '@magnetis/astro-galaxy-tokens';
 
 import ButtonsGroup from '../ButtonsGroup';
 
@@ -15,8 +14,9 @@ const ITEMS: Item[] = [
 
 const initialProps: ButtonsGroupProps = {
   items: ITEMS,
-  inversed: false,
   testID: 'ButtonsGroup',
+  active: { type: 'solid', variant: 'primary' },
+  inactive: { type: 'subtle', variant: 'inversed' },
 };
 
 describe('ButtonsGroup', () => {
@@ -27,66 +27,39 @@ describe('ButtonsGroup', () => {
   });
 
   it('should renders correctly with default props', () => {
-    const { getByTestId, getAllByTestId } = render(<ButtonsGroup {...initialProps} />);
+    const { getByTestId } = render(<ButtonsGroup {...initialProps} />);
 
     expect(getByTestId('ButtonsGroup')).toHaveProp('contentContainerStyle', { flexGrow: 1, justifyContent: 'center' });
 
-    expect(getAllByTestId('Button')[0]).toHaveStyle({
+    expect(getByTestId('ButtonsGroup.Button.0')).toHaveStyle({
       backgroundColor: colors.solidPrimaryMedium,
       borderRadius: radius.small,
     });
 
-    expect(getAllByTestId('Button')[1]).toHaveStyle({
-      backgroundColor: colors.transparentFaintSemitransparent,
-      borderRadius: radius.small,
-    });
-  });
-
-  it('should renders correctly with inversed prop', () => {
-    const { getByTestId, getAllByTestId } = render(<ButtonsGroup {...initialProps} inversed />);
-
-    expect(getByTestId('ButtonsGroup')).toHaveProp('contentContainerStyle', { flexGrow: 1, justifyContent: 'center' });
-
-    expect(getAllByTestId('Button')[1]).toHaveStyle({
+    expect(getByTestId('ButtonsGroup.Button.1')).toHaveStyle({
       backgroundColor: colors.transparentBrightSemitransparent,
       borderRadius: radius.small,
     });
   });
 
   it('should renders correctly with rounded prop', () => {
-    const { getByTestId, getAllByTestId } = render(<ButtonsGroup {...initialProps} rounded />);
+    const { getByTestId } = render(<ButtonsGroup {...initialProps} rounded />);
 
     expect(getByTestId('ButtonsGroup').props.contentContainerStyle).toEqual({ flexGrow: 1, justifyContent: 'center' });
 
-    expect(getAllByTestId('Button')[0]).toHaveStyle({
+    expect(getByTestId('ButtonsGroup.Button.0')).toHaveStyle({
       backgroundColor: colors.solidPrimaryMedium,
       borderRadius: radius.circular,
     });
 
-    expect(getAllByTestId('Button')[1]).toHaveStyle({
-      backgroundColor: colors.transparentFaintSemitransparent,
-      borderRadius: radius.circular,
-    });
-  });
-
-  it('should renders correctly with legacy prop', () => {
-    const { getByTestId, getAllByTestId } = render(<ButtonsGroup {...initialProps} legacy rounded />);
-
-    expect(getByTestId('ButtonsGroup')).toHaveProp('contentContainerStyle', { flexGrow: 1, justifyContent: 'center' });
-
-    expect(getAllByTestId('Button')[0]).toHaveStyle({
-      backgroundColor: legacyColors.uranus500,
-      borderRadius: radius.circular,
-    });
-
-    expect(getAllByTestId('Button')[1]).toHaveStyle({
-      backgroundColor: colors.transparentFaintSemitransparent,
+    expect(getByTestId('ButtonsGroup.Button.1')).toHaveStyle({
+      backgroundColor: colors.transparentBrightSemitransparent,
       borderRadius: radius.circular,
     });
   });
 
   it('should renders correctly with contentContainerStyle prop', () => {
-    const { getByTestId, getAllByTestId } = render(
+    const { getByTestId } = render(
       <ButtonsGroup {...initialProps} contentContainerStyle={{ justifyContent: 'space-between' }} />
     );
 
@@ -95,13 +68,13 @@ describe('ButtonsGroup', () => {
       justifyContent: 'space-between',
     });
 
-    expect(getAllByTestId('Button')[0]).toHaveStyle({
+    expect(getByTestId('ButtonsGroup.Button.0')).toHaveStyle({
       backgroundColor: colors.solidPrimaryMedium,
       borderRadius: radius.small,
     });
 
-    expect(getAllByTestId('Button')[1]).toHaveStyle({
-      backgroundColor: colors.transparentFaintSemitransparent,
+    expect(getByTestId('ButtonsGroup.Button.1')).toHaveStyle({
+      backgroundColor: colors.transparentBrightSemitransparent,
       borderRadius: radius.small,
     });
   });
@@ -118,5 +91,29 @@ describe('ButtonsGroup', () => {
     const { getByA11yLabel } = render(<ButtonsGroup {...initialProps} />);
 
     expect(getByA11yLabel(accessibilityLabel)).toBeTruthy();
+  });
+
+  it('renders correctly changing active and inactive default values', () => {
+    const { getByTestId } = render(
+      <ButtonsGroup
+        {...initialProps}
+        contentContainerStyle={{ justifyContent: 'space-between' }}
+        active={{ type: 'subtle', variant: 'inversed' }}
+        inactive={{ type: 'solid', variant: 'primary' }}
+      />
+    );
+
+    expect(getByTestId('ButtonsGroup')).toHaveProp('contentContainerStyle', {
+      flexGrow: 1,
+      justifyContent: 'space-between',
+    });
+
+    expect(getByTestId('ButtonsGroup.Button.0')).toHaveStyle({
+      backgroundColor: colors.transparentBrightSemitransparent,
+    });
+
+    expect(getByTestId('ButtonsGroup.Button.1')).toHaveStyle({
+      backgroundColor: colors.solidPrimaryMedium,
+    });
   });
 });
