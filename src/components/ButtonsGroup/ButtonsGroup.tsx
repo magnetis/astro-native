@@ -71,6 +71,7 @@ function ButtonsGroup({
 const styles = StyleSheet.create({
   container: {
     flexGrow: 0,
+    flexDirection: 'row',
   },
   contentContainerStyle: {
     flexGrow: 1,
