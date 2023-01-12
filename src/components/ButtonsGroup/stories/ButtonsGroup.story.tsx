@@ -7,6 +7,7 @@ import { colors, sizes } from '@magnetis/astro-tokens';
 import ButtonsGroup from '../ButtonsGroup';
 
 import type { Item } from '../ButtonsGroup';
+import { buttonTypeOptions, buttonVariantOptions } from '@components/Buttons/types';
 
 const ITEMS: Item[] = [
   { value: 'lorem', onPress: () => console.log('lorem') },
@@ -22,10 +23,16 @@ storiesOf('Buttons Group', module).add('Buttons Group', () => (
       <ButtonsGroup
         contentContainerStyle={object('contentContainerStyle', {})}
         initialActiveItemIndex={select('initialActiveItemIndex', ITEMS_INDEX, ITEMS_INDEX[0])}
-        inversed={boolean('inversed', true)}
         items={ITEMS}
-        legacy={boolean('legacy', true)}
         rounded={boolean('rounded', false)}
+        active={{
+          type: select('ActiveType', buttonTypeOptions, buttonTypeOptions[0]),
+          variant: select('ActiveVariant', buttonVariantOptions, buttonVariantOptions[0]),
+        }}
+        inactive={{
+          type: select('InactiveType', buttonTypeOptions, buttonTypeOptions[1]),
+          variant: select('InactiveVariant', buttonVariantOptions, buttonVariantOptions[4]),
+        }}
       />
     </View>
     <View style={{ marginTop: sizes.mini }}>
@@ -33,8 +40,15 @@ storiesOf('Buttons Group', module).add('Buttons Group', () => (
         contentContainerStyle={object('contentContainerStyle', {})}
         initialActiveItemIndex={select('initialActiveItemIndex', ITEMS_INDEX, ITEMS_INDEX[0])}
         items={ITEMS}
-        legacy={boolean('legacy', false)}
         rounded={boolean('rounded', false)}
+        active={{
+          type: select('ActiveType', buttonTypeOptions, buttonTypeOptions[0]),
+          variant: select('ActiveVariant', buttonVariantOptions, buttonVariantOptions[0]),
+        }}
+        inactive={{
+          type: select('InactiveType', buttonTypeOptions, buttonTypeOptions[1]),
+          variant: select('InactiveVariant', buttonVariantOptions, buttonVariantOptions[4]),
+        }}
       />
     </View>
   </SafeAreaView>
