@@ -3,7 +3,6 @@ import { fireEvent, render } from '@testing-library/react-native';
 import { colors } from '@magnetis/astro-tokens';
 
 import TabsContainer from '../TabsContainer';
-
 import type { TabsContainerProps } from '../TabsContainer';
 
 const ITEMS = [
@@ -17,6 +16,14 @@ const ITEMS_VALUE = ITEMS.map(({ value }) => value);
 const initialProps: TabsContainerProps = {
   items: ITEMS,
   inversed: false,
+  active: {
+    type: 'solid',
+    variant: 'primary',
+  },
+  inactive: {
+    type: 'subtle',
+    variant: 'inversed',
+  },
 };
 
 describe('TabsContainer', () => {
@@ -29,36 +36,18 @@ describe('TabsContainer', () => {
   it('should renders correctly with default props', () => {
     const { getByTestId, getByText } = render(<TabsContainer {...initialProps} />);
 
-    expect(getByTestId('Tab.lorem')).toHaveStyle({
-      backgroundColor: colors.solidBrightLightest,
+    expect(getByTestId('Tabs.Tab.0')).toHaveStyle({
+      backgroundColor: colors.solidPrimaryMedium,
     });
-    expect(getByTestId('Tab.ipsum')).toHaveStyle({
+    expect(getByTestId('Tabs.Tab.1')).toHaveStyle({
       backgroundColor: 'transparent',
     });
 
     expect(getByText('lorem')).toHaveStyle({
-      color: colors.transparentFaintDiffuse,
+      color: colors.solidBrightLightest,
     });
     expect(getByText('ipsum')).toHaveStyle({
-      color: colors.transparentFaintDiffuse,
-    });
-  });
-
-  it('should renders correctly with inversed prop', () => {
-    const { getByTestId, getByText } = render(<TabsContainer {...initialProps} inversed />);
-
-    expect(getByTestId('Tab.lorem')).toHaveStyle({
-      backgroundColor: colors.solidBrightLightest,
-    });
-    expect(getByTestId('Tab.ipsum')).toHaveStyle({
-      backgroundColor: 'transparent',
-    });
-
-    expect(getByText('lorem')).toHaveStyle({
-      color: colors.transparentFaintDiffuse,
-    });
-    expect(getByText('ipsum')).toHaveStyle({
-      color: colors.transparentBrightDiffuse,
+      color: colors.solidBrightLightest,
     });
   });
 
