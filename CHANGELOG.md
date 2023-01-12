@@ -1,3 +1,29 @@
+# [2.0.0-next.8](https://github.com/magnetis/astro-native/compare/v2.0.0-next.7...v2.0.0-next.8) (2023-01-12)
+
+
+### Bug Fixes
+
+* **buttons-group:** transfer buttons group props to items ([32832b4](https://github.com/magnetis/astro-native/commit/32832b4abe2011c940d76f2395c2f8ec8ccf1970))
+* **ButtonsGroup:** add flexDirection to container ([#674](https://github.com/magnetis/astro-native/issues/674)) ([95bfd23](https://github.com/magnetis/astro-native/commit/95bfd23a3fb9163ef00d96988f71f6ee029a1751))
+
+
+### Code Refactoring
+
+* **buttons-group:** rename onPressItem prop ([19f37ea](https://github.com/magnetis/astro-native/commit/19f37ea96f601a5e7e5a39178f43c042f1574dc5)), closes [#622](https://github.com/magnetis/astro-native/issues/622)
+
+
+### Features
+
+* **ButtonsGroup:** update ButtonsGroup to receive props active inactive as default props [CONFIA-678] ([#673](https://github.com/magnetis/astro-native/issues/673)) ([ebb36bf](https://github.com/magnetis/astro-native/commit/ebb36bf9dfd723781c49bda65f3a683f0fc4d08b))
+* **TabsContainer:** update TabsContainer to receive active and inactive as default props and change internal component [CONFIA-679] ([#672](https://github.com/magnetis/astro-native/issues/672)) ([4e3e380](https://github.com/magnetis/astro-native/commit/4e3e380b0383e98720eeed40568224486cde221a))
+
+
+### BREAKING CHANGES
+
+* **buttons-group:** rename onPressItem prop to onPress
+
+
+
 # [2.0.0-next.7](https://github.com/magnetis/astro-native/compare/v2.0.0-next.6...v2.0.0-next.7) (2022-07-18)
 ### Features
 
