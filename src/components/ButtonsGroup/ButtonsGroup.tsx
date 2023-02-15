@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
 import { sizes } from '@magnetis/astro-tokens';
 
 import Button from '@components/Buttons/Button';
@@ -26,6 +27,7 @@ export type ButtonsGroupProps = {
     type: ButtonType;
     variant: ButtonVariant;
   };
+  listKey?: string;
 };
 
 function ButtonsGroup({
@@ -36,6 +38,7 @@ function ButtonsGroup({
   testID = 'ButtonsGroup',
   active = { type: 'solid', variant: 'primary' },
   inactive = { type: 'subtle', variant: 'inversed' },
+  listKey,
 }: ButtonsGroupProps) {
   const [activeItem, setActiveItem] = useState(initialActiveItemIndex);
 
@@ -44,6 +47,7 @@ function ButtonsGroup({
       contentContainerStyle={{ ...styles.contentContainerStyle, ...contentContainerStyle }}
       testID={testID}
       data={items}
+      listKey={listKey}
       style={styles.container}
       horizontal
       showsHorizontalScrollIndicator={false}
