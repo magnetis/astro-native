@@ -9,6 +9,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
+import com.facebook.react.views.text.ReactFontManager;
 import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
@@ -43,6 +44,8 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
+    ReactFontManager.getInstance().addCustomFont(this, "Poppins", R.font.poppins);
+    ReactFontManager.getInstance().addCustomFont(this, "Lato", R.font.lato);
     SoLoader.init(this, /* native exopackage */ false);
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
   }
