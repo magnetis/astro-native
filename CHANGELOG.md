@@ -1,3 +1,18 @@
+# [2.0.0-next.9](https://github.com/magnetis/astro-native/compare/v2.0.0-next.8...v2.0.0-next.9) (2023-02-27)
+
+
+### Bug Fixes
+
+* **fonts:** make fontWeight and fontStyle style props work for fonts ([#691](https://github.com/magnetis/astro-native/issues/691)) ([d722b87](https://github.com/magnetis/astro-native/commit/d722b87b8feff95df6391f198a16a385e903b985))
+* **svg:** fix svg path in icon components ([#685](https://github.com/magnetis/astro-native/issues/685)) ([376ed56](https://github.com/magnetis/astro-native/commit/376ed565d95937343348b3509007b31c621a37ee))
+
+
+### Features
+
+* **ButtounsGroup:** update ButtonsGroup component [CONFIA-816] ([#687](https://github.com/magnetis/astro-native/issues/687)) ([6b577f8](https://github.com/magnetis/astro-native/commit/6b577f8da44b62b957c702cc28f3e33ba113eb7b))
+
+
+
 # [2.0.0-next.8](https://github.com/magnetis/astro-native/compare/v2.0.0-next.7...v2.0.0-next.8) (2023-01-12)
 
 
