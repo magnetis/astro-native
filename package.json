@@ -1,6 +1,6 @@
 {
   "name": "@magnetis/astro-native",
-  "version": "2.0.0-next.8",
+  "version": "2.0.0-next.9",
   "description": "Astro components for React Native",
   "homepage": "https://astro-galaxy.magnetis.com.br/",
   "files": [
@@ -18,11 +18,12 @@
     "test:watch": "TZ=UTC jest --watch --verbose --maxWorkers=25%",
     "test:coverage": "TZ=UTC jest --ci --coverage --runInBand",
     "clean": "rm -rf ./dist",
+    "build": "tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist",
     "lint": "eslint ./src --ext .ts,.tsx",
     "storybook": "start-storybook -p 7007",
-    "version": "standard-changelog && git add CHANGELOG.md package.json && git commit -m \"release: bump version to v${npm_package_version}\"",
+    "version": "standard-changelog && git add CHANGELOG.md package.json",
     "prepare": "npx husky install",
-    "prepublishOnly": "yarn clean && tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist"
+    "prepublishOnly": "yarn clean && yarn build"
   },
   "repository": {
     "type": "git",
@@ -73,13 +74,13 @@
     "jest": "^26.6.3",
     "lint-staged": "^11.0.0",
     "metro-react-native-babel-preset": "^0.66.0",
-    "react-native-codegen": "^0.0.7",
     "mockdate": "^3.0.2",
     "prettier": "2.6.2",
     "react": "17.0.2",
     "react-native": "0.65.3",
-    "react-test-renderer": "17.0.2",
+    "react-native-codegen": "^0.0.7",
     "react-native-gesture-handler": "^2.9.0",
+    "react-test-renderer": "17.0.2",
     "standard-changelog": "^2.0.27",
     "ts-jest": "^26.5.6",
     "tscpaths": "^0.0.9",
