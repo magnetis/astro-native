@@ -21,8 +21,9 @@
     "build": "tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist",
     "lint": "eslint ./src --ext .ts,.tsx",
     "storybook": "start-storybook -p 7007",
-    "version": "yarn clean && yarn build && standard-changelog && git add CHANGELOG.md package.json",
-    "prepare": "npx husky install"
+    "version": "standard-changelog && git add CHANGELOG.md package.json",
+    "prepare": "npx husky install",
+    "prepublishOnly": "yarn clean && yarn build"
   },
   "repository": {
     "type": "git",
