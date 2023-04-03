@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render, waitFor } from '@testing-library/react-native';
+import { fireEvent, render } from '@testing-library/react-native';
 import { colors } from '@magnetis/astro-galaxy-tokens';
 import { act, create } from 'react-test-renderer';
 
@@ -18,6 +18,8 @@ const props = {
 };
 
 describe('MaskedInput', () => {
+  beforeEach(() => jest.clearAllMocks());
+
   it('renders correctly on blur state', () => {
     const { getByTestId } = render(<MaskedInput {...props} />);
 
@@ -283,13 +285,27 @@ describe('MaskedInput', () => {
     );
   });
 
-  it('focus input when container is pressed', async () => {
+  it('focus input when container is pressed', () => {
     const wrapper = create(<MaskedInput blockCursor {...props} touched={false} />);
     const container = wrapper.root.findByProps({ testID: 'MaskedInput.Container' });
     const input = wrapper.root.findByProps({ testID: 'MaskedInput.Input' });
     const spy = jest.spyOn(input.instance, 'focus');
 
     fireEvent.press(container);
-    waitFor(() => expect(spy).toHaveBeenCalled());
+    expect(spy).toHaveBeenCalled();
   });
+
+  it('does not focus input when container is disabled and it is pressed', () => {
+    const { getByTestId } = render(<MaskedInput {...props} disabled />);
+    const button = getByTestId('MaskedInput.Container');
+
+    fireEvent.press(button);
+
+    expect(button).toBeDisabled();
+  });
+
+  /* For now, it's not possible to test if the function is called, because of the fireEvent keeps calling it
+      even when the property disabled is true bug:
+      https://github.com/callstack/react-native-testing-library/issues/28#issuecomment-1158259762
+  */
 });
