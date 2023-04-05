@@ -76,6 +76,7 @@ function MaskedInput({
     <View testID="MaskedInput" style={styles.wrapper}>
       <Pressable
         testID="MaskedInput.Container"
+        disabled={disabled}
         onPress={handleInputPress}
         style={[styles.container, computedContainerStyles]}
       >
