@@ -6,8 +6,8 @@ import BaseIcon from '../BaseIcon';
 import { getFill, getSize, getViewBox } from '../utils';
 import type { IconProps } from '../types';
 
-function EmailAdress({
-  id = 'EmailAdressIcon',
+function EmailAddress({
+  id = 'EmailAddressIcon',
   color = colors.space100,
   viewBox = getViewBox(),
   width = getSize(),
@@ -28,4 +28,4 @@ function EmailAdress({
   );
 }
 
-export default EmailAdress;
+export default EmailAddress;
