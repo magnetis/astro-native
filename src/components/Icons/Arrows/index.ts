@@ -1,4 +1,4 @@
-export { default as ArrowChevronDoubleDowntIcon } from './ArrowChevronDoubleDown';
+export { default as ArrowChevronDoubleDownIcon } from './ArrowChevronDoubleDown';
 export { default as ArrowChevronDoubleLeftIcon } from './ArrowChevronDoubleLeft';
 export { default as ArrowChevronDoubleRightIcon } from './ArrowChevronDoubleRight';
 export { default as ArrowChevronDoubleUpIcon } from './ArrowChevronDoubleUp';
