@@ -1,3 +1,16 @@
+# [2.0.0-next.10](https://github.com/magnetis/astro-native/compare/v2.0.0-next.9...v2.0.0-next.10) (2023-04-04)
+
+
+### Bug Fixes
+
+* **icons:** fix icons svg path ([#699](https://github.com/magnetis/astro-native/issues/699)) ([5f1d853](https://github.com/magnetis/astro-native/commit/5f1d853cc3b00f2ffdda0ca3d0f703dad4d718c9))
+
+### Features
+
+* **icons:** add journal icon ([#707](https://github.com/magnetis/astro-native/issues/707)) ([e80a9ee](https://github.com/magnetis/astro-native/commit/e80a9ee8862cb7299c7e2e2d900c79d89f042151))
+
+
+
 # [2.0.0-next.9](https://github.com/magnetis/astro-native/compare/v2.0.0-next.8...v2.0.0-next.9) (2023-02-27)
 
 
