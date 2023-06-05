@@ -1,12 +1,15 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
+import { select, text } from '@storybook/addon-knobs';
+
+import { PrimaryTextMedium } from '@components/Text';
+import { buttonColorOptions } from '@root/storybook/options';
 
 import { Link } from '..';
-import { PrimaryTextMedium } from '@components/Text';
 
 storiesOf('Buttons', module).add('Link', () => (
-  <Link onPress={() => console.log('Pressed')}>
-    <PrimaryTextMedium>Button</PrimaryTextMedium>
+  <Link color={select('color', buttonColorOptions, 'uranus')} onPress={() => console.log('Pressed')}>
+    <PrimaryTextMedium>{text('text', 'Button')}</PrimaryTextMedium>
   </Link>
 ));
 
