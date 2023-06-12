@@ -43,6 +43,36 @@ describe('Link', () => {
     );
   });
 
+  it('renders correctly with string color prop', () => {
+    const { getByText } = render(
+      <Link onPress={onPress} color="yellow">
+        <PrimaryTextMedium>this is a link</PrimaryTextMedium>
+      </Link>
+    );
+
+    expect(getByText('this is a link').props.style).toEqual(
+      expect.objectContaining({
+        textDecorationLine: 'underline',
+        color: 'yellow',
+      })
+    );
+  });
+
+  it('renders correctly with hexadecimal color prop', () => {
+    const { getByText } = render(
+      <Link onPress={onPress} color="#30458C">
+        <PrimaryTextMedium>this is a link</PrimaryTextMedium>
+      </Link>
+    );
+
+    expect(getByText('this is a link').props.style).toEqual(
+      expect.objectContaining({
+        textDecorationLine: 'underline',
+        color: '#30458C',
+      })
+    );
+  });
+
   it('renders nothing when child is not valid', () => {
     const { queryByText } = render(
       <Link onPress={onPress}>

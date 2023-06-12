@@ -113,8 +113,10 @@ export function getButtonMainColor(
       return colors.moon600;
     case 'space':
       return colors.moon100;
-    default:
+    case 'uranus':
       return colors.uranus500;
+    default:
+      return color;
   }
 }
 

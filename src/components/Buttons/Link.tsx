@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import { TextProps } from 'react-native';
+import type { ColorValue } from 'react-native';
 
 import type { ButtonColor } from './types';
 import { getButtonMainColor, isValidTextComponent } from './utils';
@@ -7,7 +8,7 @@ import { getButtonMainColor, isValidTextComponent } from './utils';
 interface LinkProps extends TextProps {
   children: ReactElement;
   /** Color to be used as background color of button. Defaults to `"uranus"`. */
-  color?: ButtonColor;
+  color?: ColorValue;
   /** Link press callback */
   onPress: () => void;
 }
@@ -19,7 +20,7 @@ function Link({ children, onPress, color = 'uranus', ...props }: LinkProps) {
   return isValidTextComponent(children)
     ? React.cloneElement(children, {
         ...props,
-        color: getButtonMainColor(color),
+        color: getButtonMainColor(color as ButtonColor),
         onPress,
         style: { textDecorationLine: 'underline' },
       })
