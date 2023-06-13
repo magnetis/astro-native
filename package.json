@@ -74,16 +74,16 @@
     "metro-react-native-babel-preset": "^0.66.2",
     "mockdate": "^3.0.2",
     "prettier": "2.6.2",
-    "react": "17.0.1",
-    "react-native": "0.64.4",
-    "react-test-renderer": "17.0.1",
+    "react": "17.0.2",
+    "react-native": "0.67.5",
+    "react-test-renderer": "17.0.2",
     "standard-changelog": "^2.0.27",
     "tscpaths": "^0.0.9",
     "typescript": "^4.0.5"
   },
   "peerDependencies": {
-    "react": "17.0.1",
-    "react-native": "0.64.4"
+    "react": "17.0.2",
+    "react-native": "0.67.5"
   },
   "dependencies": {
     "@magnetis/astro-galaxy-tokens": "^1.2.3",
