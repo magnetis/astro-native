@@ -1,11 +1,11 @@
-import type { StyleProp, TextProps, TextStyle } from 'react-native';
 import React, { ReactNode } from 'react';
 import { Text } from 'react-native';
+import type { ColorValue, StyleProp, TextProps, TextStyle } from 'react-native';
 
 interface BaseTextProps extends TextProps {
-  color: string;
   align: 'auto' | 'left' | 'right' | 'center' | 'justify';
   children: ReactNode;
+  color: ColorValue;
   fontFamily: string;
   fontSize: number;
 }

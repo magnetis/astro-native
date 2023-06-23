@@ -18,11 +18,12 @@
     "test:watch": "TZ=UTC jest --watch --verbose --maxWorkers=25%",
     "test:coverage": "TZ=UTC jest --ci --coverage --runInBand",
     "clean": "rm -rf ./dist",
+    "build": "tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist",
     "lint": "eslint ./src --ext .ts,.tsx",
     "storybook": "start-storybook -p 7007",
-    "version": "standard-changelog && git add CHANGELOG.md package.json && git commit -m \"release: bump version to v${npm_package_version}\"",
+    "version": "standard-changelog && git add CHANGELOG.md package.json",
     "prepare": "npx husky install",
-    "prepublishOnly": "yarn clean && tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist"
+    "prepublishOnly": "yarn clean && yarn build"
   },
   "repository": {
     "type": "git",
@@ -33,10 +34,6 @@
     "design-system"
   ],
   "author": "Magnetis (https://github.com/magnetis)",
-  "maintainers": [
-    "Alysson Lopes <alyssondlopes@gmail.com>",
-    "Tobias Ulrich <tobiasbulrich@gmail.com"
-  ],
   "license": "Apache-2.0",
   "devDependencies": {
     "@babel/core": "7.12.9",

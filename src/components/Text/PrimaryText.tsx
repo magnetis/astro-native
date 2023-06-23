@@ -10,7 +10,7 @@ export interface PrimaryTextProps extends BaseTextProps {
   bold?: boolean;
 }
 
-function BasePrimatyText({
+function BasePrimaryText({
   semiBold = false,
   bold = false,
   color = colors.moon900,
@@ -40,9 +40,9 @@ function BasePrimatyText({
  */
 export function PrimaryTextVerySmall({ children, ...props }: PrimaryTextProps) {
   return (
-    <BasePrimatyText {...props} fontSize={12}>
+    <BasePrimaryText {...props} fontSize={12}>
       {children}
-    </BasePrimatyText>
+    </BasePrimaryText>
   );
 }
 
@@ -54,9 +54,9 @@ export function PrimaryTextVerySmall({ children, ...props }: PrimaryTextProps) {
  */
 export function PrimaryTextSmall({ children, ...props }: PrimaryTextProps) {
   return (
-    <BasePrimatyText {...props} fontSize={14}>
+    <BasePrimaryText {...props} fontSize={14}>
       {children}
-    </BasePrimatyText>
+    </BasePrimaryText>
   );
 }
 
@@ -68,9 +68,9 @@ export function PrimaryTextSmall({ children, ...props }: PrimaryTextProps) {
  */
 export function PrimaryTextMedium({ children, ...props }: PrimaryTextProps) {
   return (
-    <BasePrimatyText {...props} fontSize={16}>
+    <BasePrimaryText {...props} fontSize={16}>
       {children}
-    </BasePrimatyText>
+    </BasePrimaryText>
   );
 }
 
@@ -82,8 +82,8 @@ export function PrimaryTextMedium({ children, ...props }: PrimaryTextProps) {
  */
 export function PrimaryTextLarge({ children, ...props }: PrimaryTextProps) {
   return (
-    <BasePrimatyText {...props} fontSize={24}>
+    <BasePrimaryText {...props} fontSize={24}>
       {children}
-    </BasePrimatyText>
+    </BasePrimaryText>
   );
 }
