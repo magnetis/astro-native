@@ -85,7 +85,7 @@
   "dependencies": {
     "@magnetis/astro-galaxy-tokens": "^1.2.3",
     "@react-native-community/slider": "^4.1.12",
-    "react-native-svg": "^12.1.1"
+    "react-native-svg": "^13.10.0"
   },
   "resolutions": {
     "refractor": "^3.6.0"
