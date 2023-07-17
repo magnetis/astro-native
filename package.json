@@ -64,7 +64,7 @@
     "babel-loader": "^8.1.0",
     "babel-plugin-module-resolver": "^4.0.0",
     "codecov": "^3.8.1",
-    "commitizen": "^4.2.4",
+    "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
