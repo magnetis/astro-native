@@ -3060,9 +3060,9 @@
     ws "^7.1.2"
 
 "@storybook/react-native@^5.3.23":
-  version "5.3.25"
-  resolved "https://registry.yarnpkg.com/@storybook/react-native/-/react-native-5.3.25.tgz#681c9cdcadba7eda88716f5d383ea47558367825"
-  integrity sha512-KPctJdk1++k4byblqTwULmxKDADsRAMat9BgMTx3Gewk4PjMbsbKCvRK7+AlJeNjz/kEsf9L6Y25y8lrw3rPXA==
+  version "5.3.27"
+  resolved "https://registry.yarnpkg.com/@storybook/react-native/-/react-native-5.3.27.tgz#b9c1ea7e1d740316d8cd5f0327b16f85db10d304"
+  integrity sha512-lKTbMTlJGeOrR13ZrYIezno3w4RfCYyquOCSLhs9Cx8w/hfzKXPrXjSK5Rm9l9krXPlmXiHyy0jLzLENXGeDiQ==
   dependencies:
     "@emotion/core" "^10.0.20"
     "@emotion/native" "^10.0.14"
