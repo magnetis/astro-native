@@ -50,7 +50,7 @@ storiesOf('Tabs', module).add('TabsContainer', () => (
         onPress={() => console.log('value')}
       />
     </View>
-    <View style={[styles.container, { marginTop: sizes.mini, backgroundColor: colors.solidBrightLightest }]}>
+    <View style={[styles.container, { marginTop: sizes.mini, backgroundColor: colors.solidBrightWhite }]}>
       <TabsContainer
         items={THREE_ITEMS}
         rounded={boolean('rounded', false)}
