@@ -25,7 +25,7 @@ describe('Button', () => {
     });
 
     expect(buttonLabel).toHaveStyle({
-      color: colors.solidBrightLightest,
+      color: colors.solidBrightWhite,
       fontFamily: typography.fontFamilyBase,
       fontSize: typography.fontSizeMini,
       lineHeight: typography.fontSizeMini * 1.5,
@@ -48,7 +48,7 @@ describe('Button', () => {
     });
 
     expect(buttonLabel).toHaveStyle({
-      color: colors.solidBrightLightest,
+      color: colors.solidBrightWhite,
       fontFamily: typography.fontFamilyBase,
       fontSize: typography.fontSizeMini,
       lineHeight: typography.fontSizeMini * 1.5,
@@ -72,7 +72,7 @@ describe('Button', () => {
     });
 
     expect(buttonLabel).toHaveStyle({
-      color: colors.solidBrightLightest,
+      color: colors.solidBrightWhite,
       fontFamily: typography.fontFamilyBase,
       fontSize: typography.fontSizeMini,
       lineHeight: typography.fontSizeMini * 1.5,

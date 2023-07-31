@@ -10,11 +10,11 @@ import type { BaseButtonProps } from '../BaseButton';
 const ButtonText = () => <Text testID="BaseButton.Text">MyBaseButton</Text>;
 
 const initialProps: BaseButtonProps = {
-  activityIndicatorColor: colors.solidBrightLightest,
+  activityIndicatorColor: colors.solidBrightWhite,
   backgroundColor: colors.solidPrimaryMedium,
   borderColor: colors.solidPrimaryMedium,
   borderRadius: radius.small,
-  textColor: colors.solidBrightLightest,
+  textColor: colors.solidBrightWhite,
   testID: 'BaseButton',
   style: {},
   onPress: jest.fn(),
@@ -68,7 +68,7 @@ describe('BaseButton', () => {
       paddingHorizontal: sizes.tiny,
     });
 
-    expect(getByTestId('BaseButton.ActivityIndicator')).toHaveProp('color', colors.solidBrightLightest);
+    expect(getByTestId('BaseButton.ActivityIndicator')).toHaveProp('color', colors.solidBrightWhite);
   });
 
   it('should renders with width of 100% when fill is true', () => {

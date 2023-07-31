@@ -26,7 +26,7 @@ describe('IconButton', () => {
       borderRadius: radius.small,
     });
 
-    expect(iconContainer.props.children.props.color).toEqual(colors.solidBrightLightest);
+    expect(iconContainer.props.children.props.color).toEqual(colors.solidBrightWhite);
     expect(iconContainer.props.children.props.size).toEqual(sizes.tiny);
   });
 
@@ -40,7 +40,7 @@ describe('IconButton', () => {
       borderRadius: radius.circular,
     });
 
-    expect(iconContainer.props.children.props.color).toEqual(colors.solidBrightLightest);
+    expect(iconContainer.props.children.props.color).toEqual(colors.solidBrightWhite);
     expect(iconContainer.props.children.props.size).toEqual(sizes.tiny);
   });
 
