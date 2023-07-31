@@ -44,10 +44,10 @@ describe('TabsContainer', () => {
     });
 
     expect(getByText('lorem')).toHaveStyle({
-      color: colors.solidBrightLightest,
+      color: colors.solidBrightWhite,
     });
     expect(getByText('ipsum')).toHaveStyle({
-      color: colors.solidBrightLightest,
+      color: colors.solidBrightWhite,
     });
   });
 

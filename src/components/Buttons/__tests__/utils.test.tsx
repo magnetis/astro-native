@@ -94,7 +94,7 @@ describe('Button/utils', () => {
   describe('getButtonProperties', () => {
     it('primary', () => {
       expect(getButtonProperties('primary', 'solid')).toEqual({
-        textColor: colors.solidBrightLightest,
+        textColor: colors.solidBrightWhite,
         backgroundColor: colors.solidPrimaryMedium,
       });
       expect(getButtonProperties('primary', 'subtle')).toEqual({
@@ -113,7 +113,7 @@ describe('Button/utils', () => {
 
     it('secondary', () => {
       expect(getButtonProperties('secondary', 'solid')).toEqual({
-        textColor: colors.solidBrightLightest,
+        textColor: colors.solidBrightWhite,
         backgroundColor: colors.solidFaintDark,
       });
       expect(getButtonProperties('secondary', 'subtle')).toEqual({
@@ -132,7 +132,7 @@ describe('Button/utils', () => {
 
     it('outline', () => {
       expect(getButtonProperties('alert', 'solid')).toEqual({
-        textColor: colors.solidBrightLightest,
+        textColor: colors.solidBrightWhite,
         backgroundColor: colors.solidAlertMedium,
       });
       expect(getButtonProperties('alert', 'subtle')).toEqual({
@@ -171,18 +171,18 @@ describe('Button/utils', () => {
     it('inversed', () => {
       expect(getButtonProperties('inversed', 'solid')).toEqual({
         textColor: colors.solidFaintDarkest,
-        backgroundColor: colors.solidBrightLightest,
+        backgroundColor: colors.solidBrightWhite,
       });
       expect(getButtonProperties('inversed', 'subtle')).toEqual({
-        textColor: colors.solidBrightLightest,
+        textColor: colors.solidBrightWhite,
         backgroundColor: colors.transparentBrightSemitransparent,
       });
       expect(getButtonProperties('inversed', 'outline')).toEqual({
-        textColor: colors.solidBrightLightest,
+        textColor: colors.solidBrightWhite,
         backgroundColor: 'transparent',
       });
       expect(getButtonProperties('inversed', 'ghost')).toEqual({
-        textColor: colors.solidBrightLightest,
+        textColor: colors.solidBrightWhite,
         backgroundColor: 'transparent',
       });
     });
@@ -208,11 +208,11 @@ describe('Button/utils', () => {
 
     it('legacy', () => {
       expect(getButtonProperties('legacy', 'solid')).toEqual({
-        textColor: colors.solidBrightLightest,
+        textColor: colors.solidBrightWhite,
         backgroundColor: legacyColors.uranus500,
       });
       expect(getButtonProperties('legacy', 'subtle')).toEqual({
-        textColor: colors.solidBrightLightest,
+        textColor: colors.solidBrightWhite,
         backgroundColor: legacyColors.uranus500,
       });
       expect(getButtonProperties('legacy', 'outline')).toEqual({

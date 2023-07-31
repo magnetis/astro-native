@@ -91,7 +91,7 @@
   },
   "dependencies": {
     "@magnetis/astro-galaxy-tokens": "^1.2.3",
-    "@magnetis/astro-tokens": "^0.0.8",
+    "@magnetis/astro-tokens": "^0.0.10",
     "@react-native-community/slider": "^4.1.12",
     "react-native-svg": "^12.1.1"
   },
