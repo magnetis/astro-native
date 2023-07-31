@@ -2241,10 +2241,10 @@
   resolved "https://registry.yarnpkg.com/@magnetis/astro-galaxy-tokens/-/astro-galaxy-tokens-1.2.3.tgz#73360ecdb812b8b2eeaf34dc37120eadcae8a4ad"
   integrity sha512-WocaFcJW5+o/JHVoh1sKkSIpBqa3bBZS36ItlcXrUSX89JaQpcwxR5rX7hEhrkShCL4NT4AH5gXxRKDuAVPIKg==
 
-"@magnetis/astro-tokens@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@magnetis/astro-tokens/-/astro-tokens-0.0.8.tgz#5430d6cd739311ce02ff62e9c5cefa985f3b785f"
-  integrity sha512-YqklQnHXlnfKW4wlU+Q/4MaRADeCcyQ8uiCghJTAlIcTQbiVdiMz8oq0CATqF4FL+/NmPbbE1Az7yG/MeSIXWg==
+"@magnetis/astro-tokens@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@magnetis/astro-tokens/-/astro-tokens-0.0.10.tgz#990c0a47ea4220b8a38b712b3a92b25c048d6f4a"
+  integrity sha512-53VtsQ2Uv4uFjBiWQBAeM7UujEthMYhqBTg91j9wEN1qRObRAHvtQKuQnkRrNg4NmHRvSnq42c6rt+LiIjnXNQ==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
