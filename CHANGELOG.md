@@ -1,3 +1,21 @@
+# [2.0.0-next.11](https://github.com/magnetis/astro-native/compare/v2.0.0-next.10...v2.0.0-next.11) (2023-07-31)
+
+### Chores
+
+* chore(deps): bump qs from 6.5.2 to 6.5.3 [CONFIA-1088] ([#708](https://github.com/magnetis/astro-native/issues/708))([67b60f1](https://github.com/magnetis/astro-native/commit/67b60f1))
+* chore(deps): remove unused library concurrently ([#713](https://github.com/magnetis/astro-native/issues/713))([47612ca](https://github.com/magnetis/astro-native/commit/47612ca))
+* chore(deps): bump @sideway/formula from 3.0.0 to 3.0.1 ([#718](https://github.com/magnetis/astro-native/issues/718))([3de72e2](https://github.com/magnetis/astro-native/commit/3de72e2))
+* chore(react-native): update react native to 0.67.5 [CONFIA-1214] of astro-native-next ([#721](https://github.com/magnetis/astro-native/issues/721))([ca983bb](https://github.com/magnetis/astro-native/commit/ca983bb))
+* chore(deps-dev): bump @commitlint/config-conventional ([#737](https://github.com/magnetis/astro-native/issues/737))([84f9775](https://github.com/magnetis/astro-native/commit/84f9775))
+* chore(deps-dev): bump @typescript-eslint/eslint-plugin ([#735](https://github.com/magnetis/astro-native/issues/735))([5ce9a6a](https://github.com/magnetis/astro-native/commit/5ce9a6a))
+* chore: upgrade jsdom from 16.4.0 to 16.7.0 ([#739](https://github.com/magnetis/astro-native/issues/739))([051b15f](https://github.com/magnetis/astro-native/commit/051b15f))
+* chore(deps-dev): bump @types/styled-components from 5.1.11 to 5.1.26 ([#727](https://github.com/magnetis/astro-native/issues/727))([4274237](https://github.com/magnetis/astro-native/commit/4274237))
+* chore: update commitizen package from 4.2.4 to 4.3.0 ([#749](https://github.com/magnetis/astro-native/issues/749))([ad00a04](https://github.com/magnetis/astro-native/commit/ad00a04))
+* chore(deps-dev): bump @storybook/react-native from 5.3.25 to 5.3.27 ([#731](https://github.com/magnetis/astro-native/issues/731))([c8cea48](https://github.com/magnetis/astro-native/commit/c8cea48))
+* chore(deps): bump @magnetis/astro-tokens from 0.0.8 to 0.0.10 ([#764](https://github.com/magnetis/astro-native/issues/764))([57dbaa3](https://github.com/magnetis/astro-native/commit/57dbaa3))
+
+
+
 # [2.0.0-next.10](https://github.com/magnetis/astro-native/compare/v2.0.0-next.9...v2.0.0-next.10) (2023-04-04)
 
 
