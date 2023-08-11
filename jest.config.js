@@ -30,6 +30,7 @@ module.exports = {
     '!src/components/Icons/Social/**/*.{ts,tsx}',
     '!src/components/Icons/Medias/**/*.{ts,tsx}',
     '!src/components/**/stories/**/*',
+    '!src/components/Divider/constants.ts',
   ],
   coverageReporters: ['lcov', 'text', 'text-summary'],
   coverageThreshold: {
