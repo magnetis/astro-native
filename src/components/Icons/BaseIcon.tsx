@@ -38,7 +38,7 @@ function BaseIcon({
 
     return (
       <Pressable accessibilityRole="button" onPress={onPress} hitSlop={newHitSlop} testID={testID}>
-        <Svg {...sizeProps} viewBox={viewBox} {...props}>
+        <Svg {...sizeProps} viewBox={viewBox} fill="none" {...props}>
           {gradient && (
             <Defs>
               <GradientConfig gradient={gradient} id={id} />
@@ -50,7 +50,7 @@ function BaseIcon({
     );
   }
   return (
-    <Svg {...sizeProps} viewBox={viewBox} {...props} testID={testID}>
+    <Svg {...sizeProps} viewBox={viewBox} fill="none" {...props} testID={testID}>
       {gradient && (
         <Defs>
           <GradientConfig gradient={gradient} id={id} />
