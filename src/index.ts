@@ -30,5 +30,8 @@ export * from '@components/Tabs';
 // Icons
 export * from '@components/Icons';
 
+// Tags
+export * from '@components/Tags';
+
 // Types
 export * from '@components/types';
