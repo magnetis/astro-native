@@ -1,3 +1,13 @@
+# [2.0.0-next.12](https://github.com/magnetis/astro-native/compare/v2.0.0-next.11...v2.0.0-next.12) (2023-08-22)
+
+
+### Features
+
+* **components:** add divider component in astro-native-next [CONFIA-1337] ([#782](https://github.com/magnetis/astro-native/issues/782)) ([6baef63](https://github.com/magnetis/astro-native/commit/6baef6384699ee0d96fcbaf33ffe2bd1542f9ff1))
+* **components:** create tag component on astro-native@next [CONFIA-1335] ([#791](https://github.com/magnetis/astro-native/issues/791)) ([0f13a14](https://github.com/magnetis/astro-native/commit/0f13a14caf608c97084747e8ff71f4da7bf4738d))
+
+
+
 # [2.0.0-next.11](https://github.com/magnetis/astro-native/compare/v2.0.0-next.10...v2.0.0-next.11) (2023-07-31)
 
 ### Chores
