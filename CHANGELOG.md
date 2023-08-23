@@ -1,32 +1,20 @@
-## [1.11.1](https://github.com/magnetis/astro-native/compare/v1.9.0...v1.11.1) (2023-08-23)
+## [1.11.1](https://github.com/magnetis/astro-native/compare/v1.11.0...v1.11.1) (2023-08-23)
 
+### Chore
 
-### Bug Fixes
-
-* **MaskedInput:** fix masked input component ([#705](https://github.com/magnetis/astro-native/issues/705)) ([f6ca3a1](https://github.com/magnetis/astro-native/commit/f6ca3a187bd7cfe998c30a5ca87d9b0bc555c56d))
-* **slider:** Slider component types [CONFIA-535] ([#650](https://github.com/magnetis/astro-native/issues/650)) ([69722d2](https://github.com/magnetis/astro-native/commit/69722d24d9708a95e3511be05a12424c454349c6))
-
-
-### Features
-
-* **link:** allow use any color ([#719](https://github.com/magnetis/astro-native/issues/719)) ([581f901](https://github.com/magnetis/astro-native/commit/581f901e3ad6b935f88e8c4d6b8e17a643f7cb5a))
-
-
+- chore(dev-deps): bump codecov version from 3.8.1 to 3.8.3 [96d115f](https://github.com/magnetis/astro-native/commit/96d115f3a251cf07c964ac8e09297f23e3ae9b67)
+- chore(deps): bump react-native-svg from 12.5.0 to 13.11.0 [e6ea5ba](https://github.com/magnetis/astro-native/commit/e6ea5baa8397ca55675e85161f9ad573dddb25d5)
 
 # [1.11.0](https://github.com/magnetis/astro-native/compare/v1.10.0...v1.11.0) (2023-06-23)
 
-
 ### Bug Fixes
 
-* **MaskedInput:** fix masked input component ([#705](https://github.com/magnetis/astro-native/issues/705)) ([f6ca3a1](https://github.com/magnetis/astro-native/commit/f6ca3a187bd7cfe998c30a5ca87d9b0bc555c56d))
-* **slider:** Slider component types [CONFIA-535] ([#650](https://github.com/magnetis/astro-native/issues/650)) ([69722d2](https://github.com/magnetis/astro-native/commit/69722d24d9708a95e3511be05a12424c454349c6))
-
+- **MaskedInput:** fix masked input component ([#705](https://github.com/magnetis/astro-native/issues/705)) ([f6ca3a1](https://github.com/magnetis/astro-native/commit/f6ca3a187bd7cfe998c30a5ca87d9b0bc555c56d))
+- **slider:** Slider component types [CONFIA-535] ([#650](https://github.com/magnetis/astro-native/issues/650)) ([69722d2](https://github.com/magnetis/astro-native/commit/69722d24d9708a95e3511be05a12424c454349c6))
 
 ### Features
 
-* **link:** allow use any color ([#719](https://github.com/magnetis/astro-native/issues/719)) ([581f901](https://github.com/magnetis/astro-native/commit/581f901e3ad6b935f88e8c4d6b8e17a643f7cb5a))
-
-
+- **link:** allow use any color ([#719](https://github.com/magnetis/astro-native/issues/719)) ([581f901](https://github.com/magnetis/astro-native/commit/581f901e3ad6b935f88e8c4d6b8e17a643f7cb5a))
 
 # [1.10.0](https://github.com/magnetis/astro-native/compare/v1.9.0...v1.10.0) (2022-11-09)
 
