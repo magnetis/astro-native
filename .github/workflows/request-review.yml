@@ -1,0 +1,18 @@
+name: Mention slack user or user group on request review in Github
+on:
+  pull_request:
+    types: [review_requested]
+
+jobs:
+  mention-to-slack:
+    name: Mention slack user or user group
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run
+        uses: abeyuya/actions-mention-to-slack@v2.10
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          icon-url: https://img.icons8.com/color/256/000000/github-2.png
+          bot-name: "Review Requester"
+          run-id: ${{ github.run_id }}
