@@ -88,9 +88,10 @@ buck-out/
 *.jsbundle
 *.bundle.map
 
-# CocoaPods
+# Ruby / CocoaPods
 project.xcworkspace
 /ios/Pods/
+/vendor/bundle/
 
 # Local variables
 .env
