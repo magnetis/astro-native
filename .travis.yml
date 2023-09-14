@@ -2,31 +2,31 @@ os: linux
 dist: xenial
 language: node_js
 node_js:
-- lts/*
+  - lts/*
 
 jobs:
   include:
-  - stage: Lint
-    if: type = pull_request
-    install:
-    - yarn install
-    script: yarn lint && yarn tsc --noEmit
+    - stage: Lint
+      if: type = pull_request
+      install:
+        - yarn install
+      script: yarn lint && yarn tsc --noEmit
 
-  - stage: Run Tests & Upload Coverage Report
-    if: type = pull_request OR branch = main
-    install:
-    - yarn install
-    script: yarn test:coverage && yarn codecov -t $CODECOV_TOKEN
+    - stage: Run Tests & Upload Coverage Report
+      if: type = pull_request OR branch = main
+      install:
+        - yarn install
+      script: yarn test:coverage && yarn codecov -t $CODECOV_TOKEN
 
-  - stage: Deploy to NPM
-    if: tag IS present
-    install:
-    - yarn install
-    deploy:
-      provider: npm
-      email: alyssondlopes@gmail.com
-      api_token:
-        secure: 3CK3e9HmyBd8wp7TVxIAXMfb/owHt8s+UG2NoPj/YYV2Y+6Dzxvym5gvE8ToMTuPou1KzeYgTGDm4/GzlnslSK68MVulOmXXQN7M1gFX+45YOslOOjfe2l7TBBryeLHg+7OMnlGS+stYHaeQ/wL81NJFFv96aMkyzahsbyZfJR6Y0EMFqMaf6zqATvHY10vIe2PsJhNB+agLecCT43+la7blCWWwlv1llT6hKY78sblCDjoQ70FjNQ9LUvObY1wpsiugRJjxHpTxF5j4cEE8LY0Cf1HQEXlU+35JXHEZsXAMcTkinsVKmq3bsuQWoEr7bHAisman2uzWQPlvYGktksR4d/m3zt0OItOkXTCVfNdQwKJzRYeUdBRPxKni0p8gyhXsRyr84QElK64El2kBCdjf4awkz+WM2gINU1YDxNyQzyMNVSesSA6m3vyCcCFOjzCSbccTvwKNnftoo2szsjgWcVug1AUnD39XpK3y5s9t3imH9uz9wlJIMqsRDkoapcn3OMdTXN2jHMV2CM6L7YGl7Ti25acHvap0RsfPanDhqX/i+TIbxaq9bXNZLED7CiON9FTg7PbpuOSd0TNuaH/vatrYEZdzcgHZ3DR1KMZ4gatdvrycGiY78oxXXMQQQT38ZdwBNRqeBRvmPfpahRqvamD42mzecOeNrjXmimM=
-      cleanup: false
-      on:
-        tags: true
+    - stage: Deploy to NPM
+      if: tag IS present
+      install:
+        - yarn install
+      deploy:
+        provider: npm
+        email: alyssondlopes@gmail.com
+        api_token:
+          secure: 3CK3e9HmyBd8wp7TVxIAXMfb/owHt8s+UG2NoPj/YYV2Y+6Dzxvym5gvE8ToMTuPou1KzeYgTGDm4/GzlnslSK68MVulOmXXQN7M1gFX+45YOslOOjfe2l7TBBryeLHg+7OMnlGS+stYHaeQ/wL81NJFFv96aMkyzahsbyZfJR6Y0EMFqMaf6zqATvHY10vIe2PsJhNB+agLecCT43+la7blCWWwlv1llT6hKY78sblCDjoQ70FjNQ9LUvObY1wpsiugRJjxHpTxF5j4cEE8LY0Cf1HQEXlU+35JXHEZsXAMcTkinsVKmq3bsuQWoEr7bHAisman2uzWQPlvYGktksR4d/m3zt0OItOkXTCVfNdQwKJzRYeUdBRPxKni0p8gyhXsRyr84QElK64El2kBCdjf4awkz+WM2gINU1YDxNyQzyMNVSesSA6m3vyCcCFOjzCSbccTvwKNnftoo2szsjgWcVug1AUnD39XpK3y5s9t3imH9uz9wlJIMqsRDkoapcn3OMdTXN2jHMV2CM6L7YGl7Ti25acHvap0RsfPanDhqX/i+TIbxaq9bXNZLED7CiON9FTg7PbpuOSd0TNuaH/vatrYEZdzcgHZ3DR1KMZ4gatdvrycGiY78oxXXMQQQT38ZdwBNRqeBRvmPfpahRqvamD42mzecOeNrjXmimM=
+        cleanup: false
+        on:
+          tags: true
