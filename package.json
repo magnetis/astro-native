@@ -13,14 +13,14 @@
   "scripts": {
     "android": "react-native run-android && adb reverse tcp:7007 tcp:7007",
     "ios": "react-native run-ios",
-    "start": "yarn react-native start",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider react-native start",
     "test": "TZ=UTC jest --maxWorkers=50%",
     "test:watch": "TZ=UTC jest --watch --verbose --maxWorkers=25%",
     "test:coverage": "TZ=UTC jest --ci --coverage --runInBand",
     "clean": "rm -rf ./dist",
     "build": "tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist",
     "lint": "eslint ./src --ext .ts,.tsx",
-    "storybook": "start-storybook -p 7007",
+    "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 7007",
     "version": "standard-changelog && git add CHANGELOG.md package.json",
     "prepare": "npx husky install",
     "prepublishOnly": "yarn clean && yarn build"
