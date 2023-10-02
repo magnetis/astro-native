@@ -1,3 +1,12 @@
+# [2.0.0-next.13](https://github.com/magnetis/astro-native/compare/2.0.0-next.12...2.0.0-next.13) (2023-09-29)
+
+
+### Bug Fixes
+
+* node 20 compatibility ([#830](https://github.com/magnetis/astro-native/issues/830)) ([de0acf8](https://github.com/magnetis/astro-native/commit/de0acf82f8f2e34b1412be9d884aa7f75135f6c6))
+
+
+
 # [2.0.0-next.12](https://github.com/magnetis/astro-native/compare/v2.0.0-next.11...v2.0.0-next.12) (2023-08-22)
 
 
