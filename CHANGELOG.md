@@ -9,141 +9,126 @@
 
 # [2.0.0-next.12](https://github.com/magnetis/astro-native/compare/v2.0.0-next.11...v2.0.0-next.12) (2023-08-22)
 
-
 ### Features
 
-* **components:** add divider component in astro-native-next [CONFIA-1337] ([#782](https://github.com/magnetis/astro-native/issues/782)) ([6baef63](https://github.com/magnetis/astro-native/commit/6baef6384699ee0d96fcbaf33ffe2bd1542f9ff1))
-* **components:** create tag component on astro-native@next [CONFIA-1335] ([#791](https://github.com/magnetis/astro-native/issues/791)) ([0f13a14](https://github.com/magnetis/astro-native/commit/0f13a14caf608c97084747e8ff71f4da7bf4738d))
-
-
+- **components:** add divider component in astro-native-next [CONFIA-1337] ([#782](https://github.com/magnetis/astro-native/issues/782)) ([6baef63](https://github.com/magnetis/astro-native/commit/6baef6384699ee0d96fcbaf33ffe2bd1542f9ff1))
+- **components:** create tag component on astro-native@next [CONFIA-1335] ([#791](https://github.com/magnetis/astro-native/issues/791)) ([0f13a14](https://github.com/magnetis/astro-native/commit/0f13a14caf608c97084747e8ff71f4da7bf4738d))
 
 # [2.0.0-next.11](https://github.com/magnetis/astro-native/compare/v2.0.0-next.10...v2.0.0-next.11) (2023-07-31)
 
 ### Chores
 
-* chore(deps): bump qs from 6.5.2 to 6.5.3 [CONFIA-1088] ([#708](https://github.com/magnetis/astro-native/issues/708))([67b60f1](https://github.com/magnetis/astro-native/commit/67b60f1))
-* chore(deps): remove unused library concurrently ([#713](https://github.com/magnetis/astro-native/issues/713))([47612ca](https://github.com/magnetis/astro-native/commit/47612ca))
-* chore(deps): bump @sideway/formula from 3.0.0 to 3.0.1 ([#718](https://github.com/magnetis/astro-native/issues/718))([3de72e2](https://github.com/magnetis/astro-native/commit/3de72e2))
-* chore(react-native): update react native to 0.67.5 [CONFIA-1214] of astro-native-next ([#721](https://github.com/magnetis/astro-native/issues/721))([ca983bb](https://github.com/magnetis/astro-native/commit/ca983bb))
-* chore(deps-dev): bump @commitlint/config-conventional ([#737](https://github.com/magnetis/astro-native/issues/737))([84f9775](https://github.com/magnetis/astro-native/commit/84f9775))
-* chore(deps-dev): bump @typescript-eslint/eslint-plugin ([#735](https://github.com/magnetis/astro-native/issues/735))([5ce9a6a](https://github.com/magnetis/astro-native/commit/5ce9a6a))
-* chore: upgrade jsdom from 16.4.0 to 16.7.0 ([#739](https://github.com/magnetis/astro-native/issues/739))([051b15f](https://github.com/magnetis/astro-native/commit/051b15f))
-* chore(deps-dev): bump @types/styled-components from 5.1.11 to 5.1.26 ([#727](https://github.com/magnetis/astro-native/issues/727))([4274237](https://github.com/magnetis/astro-native/commit/4274237))
-* chore: update commitizen package from 4.2.4 to 4.3.0 ([#749](https://github.com/magnetis/astro-native/issues/749))([ad00a04](https://github.com/magnetis/astro-native/commit/ad00a04))
-* chore(deps-dev): bump @storybook/react-native from 5.3.25 to 5.3.27 ([#731](https://github.com/magnetis/astro-native/issues/731))([c8cea48](https://github.com/magnetis/astro-native/commit/c8cea48))
-* chore(deps): bump @magnetis/astro-tokens from 0.0.8 to 0.0.10 ([#764](https://github.com/magnetis/astro-native/issues/764))([57dbaa3](https://github.com/magnetis/astro-native/commit/57dbaa3))
-
-
+- chore(deps): bump qs from 6.5.2 to 6.5.3 [CONFIA-1088] ([#708](https://github.com/magnetis/astro-native/issues/708))([67b60f1](https://github.com/magnetis/astro-native/commit/67b60f1))
+- chore(deps): remove unused library concurrently ([#713](https://github.com/magnetis/astro-native/issues/713))([47612ca](https://github.com/magnetis/astro-native/commit/47612ca))
+- chore(deps): bump @sideway/formula from 3.0.0 to 3.0.1 ([#718](https://github.com/magnetis/astro-native/issues/718))([3de72e2](https://github.com/magnetis/astro-native/commit/3de72e2))
+- chore(react-native): update react native to 0.67.5 [CONFIA-1214] of astro-native-next ([#721](https://github.com/magnetis/astro-native/issues/721))([ca983bb](https://github.com/magnetis/astro-native/commit/ca983bb))
+- chore(deps-dev): bump @commitlint/config-conventional ([#737](https://github.com/magnetis/astro-native/issues/737))([84f9775](https://github.com/magnetis/astro-native/commit/84f9775))
+- chore(deps-dev): bump @typescript-eslint/eslint-plugin ([#735](https://github.com/magnetis/astro-native/issues/735))([5ce9a6a](https://github.com/magnetis/astro-native/commit/5ce9a6a))
+- chore: upgrade jsdom from 16.4.0 to 16.7.0 ([#739](https://github.com/magnetis/astro-native/issues/739))([051b15f](https://github.com/magnetis/astro-native/commit/051b15f))
+- chore(deps-dev): bump @types/styled-components from 5.1.11 to 5.1.26 ([#727](https://github.com/magnetis/astro-native/issues/727))([4274237](https://github.com/magnetis/astro-native/commit/4274237))
+- chore: update commitizen package from 4.2.4 to 4.3.0 ([#749](https://github.com/magnetis/astro-native/issues/749))([ad00a04](https://github.com/magnetis/astro-native/commit/ad00a04))
+- chore(deps-dev): bump @storybook/react-native from 5.3.25 to 5.3.27 ([#731](https://github.com/magnetis/astro-native/issues/731))([c8cea48](https://github.com/magnetis/astro-native/commit/c8cea48))
+- chore(deps): bump @magnetis/astro-tokens from 0.0.8 to 0.0.10 ([#764](https://github.com/magnetis/astro-native/issues/764))([57dbaa3](https://github.com/magnetis/astro-native/commit/57dbaa3))
 
 # [2.0.0-next.10](https://github.com/magnetis/astro-native/compare/v2.0.0-next.9...v2.0.0-next.10) (2023-04-04)
 
-
 ### Bug Fixes
 
-* **icons:** fix icons svg path ([#699](https://github.com/magnetis/astro-native/issues/699)) ([5f1d853](https://github.com/magnetis/astro-native/commit/5f1d853cc3b00f2ffdda0ca3d0f703dad4d718c9))
+- **icons:** fix icons svg path ([#699](https://github.com/magnetis/astro-native/issues/699)) ([5f1d853](https://github.com/magnetis/astro-native/commit/5f1d853cc3b00f2ffdda0ca3d0f703dad4d718c9))
 
 ### Features
 
-* **icons:** add journal icon ([#707](https://github.com/magnetis/astro-native/issues/707)) ([e80a9ee](https://github.com/magnetis/astro-native/commit/e80a9ee8862cb7299c7e2e2d900c79d89f042151))
-
-
+- **icons:** add journal icon ([#707](https://github.com/magnetis/astro-native/issues/707)) ([e80a9ee](https://github.com/magnetis/astro-native/commit/e80a9ee8862cb7299c7e2e2d900c79d89f042151))
 
 # [2.0.0-next.9](https://github.com/magnetis/astro-native/compare/v2.0.0-next.8...v2.0.0-next.9) (2023-02-27)
 
-
 ### Bug Fixes
 
-* **fonts:** make fontWeight and fontStyle style props work for fonts ([#691](https://github.com/magnetis/astro-native/issues/691)) ([d722b87](https://github.com/magnetis/astro-native/commit/d722b87b8feff95df6391f198a16a385e903b985))
-* **svg:** fix svg path in icon components ([#685](https://github.com/magnetis/astro-native/issues/685)) ([376ed56](https://github.com/magnetis/astro-native/commit/376ed565d95937343348b3509007b31c621a37ee))
-
+- **fonts:** make fontWeight and fontStyle style props work for fonts ([#691](https://github.com/magnetis/astro-native/issues/691)) ([d722b87](https://github.com/magnetis/astro-native/commit/d722b87b8feff95df6391f198a16a385e903b985))
+- **svg:** fix svg path in icon components ([#685](https://github.com/magnetis/astro-native/issues/685)) ([376ed56](https://github.com/magnetis/astro-native/commit/376ed565d95937343348b3509007b31c621a37ee))
 
 ### Features
 
-* **ButtounsGroup:** update ButtonsGroup component [CONFIA-816] ([#687](https://github.com/magnetis/astro-native/issues/687)) ([6b577f8](https://github.com/magnetis/astro-native/commit/6b577f8da44b62b957c702cc28f3e33ba113eb7b))
-
-
+- **ButtounsGroup:** update ButtonsGroup component [CONFIA-816] ([#687](https://github.com/magnetis/astro-native/issues/687)) ([6b577f8](https://github.com/magnetis/astro-native/commit/6b577f8da44b62b957c702cc28f3e33ba113eb7b))
 
 # [2.0.0-next.8](https://github.com/magnetis/astro-native/compare/v2.0.0-next.7...v2.0.0-next.8) (2023-01-12)
 
-
 ### Bug Fixes
 
-* **buttons-group:** transfer buttons group props to items ([32832b4](https://github.com/magnetis/astro-native/commit/32832b4abe2011c940d76f2395c2f8ec8ccf1970))
-* **ButtonsGroup:** add flexDirection to container ([#674](https://github.com/magnetis/astro-native/issues/674)) ([95bfd23](https://github.com/magnetis/astro-native/commit/95bfd23a3fb9163ef00d96988f71f6ee029a1751))
-
+- **buttons-group:** transfer buttons group props to items ([32832b4](https://github.com/magnetis/astro-native/commit/32832b4abe2011c940d76f2395c2f8ec8ccf1970))
+- **ButtonsGroup:** add flexDirection to container ([#674](https://github.com/magnetis/astro-native/issues/674)) ([95bfd23](https://github.com/magnetis/astro-native/commit/95bfd23a3fb9163ef00d96988f71f6ee029a1751))
 
 ### Code Refactoring
 
-* **buttons-group:** rename onPressItem prop ([19f37ea](https://github.com/magnetis/astro-native/commit/19f37ea96f601a5e7e5a39178f43c042f1574dc5)), closes [#622](https://github.com/magnetis/astro-native/issues/622)
-
+- **buttons-group:** rename onPressItem prop ([19f37ea](https://github.com/magnetis/astro-native/commit/19f37ea96f601a5e7e5a39178f43c042f1574dc5)), closes [#622](https://github.com/magnetis/astro-native/issues/622)
 
 ### Features
 
-* **ButtonsGroup:** update ButtonsGroup to receive props active inactive as default props [CONFIA-678] ([#673](https://github.com/magnetis/astro-native/issues/673)) ([ebb36bf](https://github.com/magnetis/astro-native/commit/ebb36bf9dfd723781c49bda65f3a683f0fc4d08b))
-* **TabsContainer:** update TabsContainer to receive active and inactive as default props and change internal component [CONFIA-679] ([#672](https://github.com/magnetis/astro-native/issues/672)) ([4e3e380](https://github.com/magnetis/astro-native/commit/4e3e380b0383e98720eeed40568224486cde221a))
-
+- **ButtonsGroup:** update ButtonsGroup to receive props active inactive as default props [CONFIA-678] ([#673](https://github.com/magnetis/astro-native/issues/673)) ([ebb36bf](https://github.com/magnetis/astro-native/commit/ebb36bf9dfd723781c49bda65f3a683f0fc4d08b))
+- **TabsContainer:** update TabsContainer to receive active and inactive as default props and change internal component [CONFIA-679] ([#672](https://github.com/magnetis/astro-native/issues/672)) ([4e3e380](https://github.com/magnetis/astro-native/commit/4e3e380b0383e98720eeed40568224486cde221a))
 
 ### BREAKING CHANGES
 
-* **buttons-group:** rename onPressItem prop to onPress
-
-
+- **buttons-group:** rename onPressItem prop to onPress
 
 # [2.0.0-next.7](https://github.com/magnetis/astro-native/compare/v2.0.0-next.6...v2.0.0-next.7) (2022-07-18)
+
 ### Features
 
-* refactor(icons): added informations icons ([a1fca4b](https://github.com/magnetis/astro-native/commit/a1fca4be2cf52929712579e9a2bba4d562a6a0dc))
+- refactor(icons): added informations icons ([a1fca4b](https://github.com/magnetis/astro-native/commit/a1fca4be2cf52929712579e9a2bba4d562a6a0dc))
 
-* refactor(jest.config): /Information in collectCoverageFrom ([3becc08](https://github.com/magnetis/astro-native/commit/3becc08e3de786b1cbd8fea8f3e18f2cc47f0bc0))
+- refactor(jest.config): /Information in collectCoverageFrom ([3becc08](https://github.com/magnetis/astro-native/commit/3becc08e3de786b1cbd8fea8f3e18f2cc47f0bc0))
 
-* refactor(icons): separating the imports of modules from the relatives ([7ccc20d](https://github.com/magnetis/astro-native/commit/7ccc20d5a08dcdc331d1259ff766d92092156324))
+- refactor(icons): separating the imports of modules from the relatives ([7ccc20d](https://github.com/magnetis/astro-native/commit/7ccc20d5a08dcdc331d1259ff766d92092156324))
 
-* refactor(icons): added essencials icons ([66c74cc](https://github.com/magnetis/astro-native/commit/66c74cc2469d0f746d6ecba75d6afe26b19ff69d))
+- refactor(icons): added essencials icons ([66c74cc](https://github.com/magnetis/astro-native/commit/66c74cc2469d0f746d6ecba75d6afe26b19ff69d))
 
-* refactor(icons): added documents icon ([834ac5b](https://github.com/magnetis/astro-native/commit/834ac5b8cc52bfff6f2ff3f23513677d9774293c))
+- refactor(icons): added documents icon ([834ac5b](https://github.com/magnetis/astro-native/commit/834ac5b8cc52bfff6f2ff3f23513677d9774293c))
 
-* refactor(icons): added communications icons ([3e8ff75](https://github.com/magnetis/astro-native/commit/3e8ff75eea2e95f749af4d4bf85ef517ea927cd4))
+- refactor(icons): added communications icons ([3e8ff75](https://github.com/magnetis/astro-native/commit/3e8ff75eea2e95f749af4d4bf85ef517ea927cd4))
 
-* refactor(icons): added Finances icons ([2621480](https://github.com/magnetis/astro-native/commit/2621480b9b6b185c49753ea47fc1526535d80821))
+- refactor(icons): added Finances icons ([2621480](https://github.com/magnetis/astro-native/commit/2621480b9b6b185c49753ea47fc1526535d80821))
 
-* feat(icons): add security icons ([cceb7e0](https://github.com/magnetis/astro-native/commit/cceb7e0b2a0582d2a818cdd2a248cc7a07c8fd27))
+- feat(icons): add security icons ([cceb7e0](https://github.com/magnetis/astro-native/commit/cceb7e0b2a0582d2a818cdd2a248cc7a07c8fd27))
 
-* feat(icons): add social icons ([22fbd48](https://github.com/magnetis/astro-native/commit/22fbd48e47cf970eba84be85f13930414b94b0b3))
+- feat(icons): add social icons ([22fbd48](https://github.com/magnetis/astro-native/commit/22fbd48e47cf970eba84be85f13930414b94b0b3))
 
-* feat(icons): add medias icon ([b18b0f7](https://github.com/magnetis/astro-native/commit/b18b0f72fc33d905330329b6f185768a57ba6b38))
+- feat(icons): add medias icon ([b18b0f7](https://github.com/magnetis/astro-native/commit/b18b0f72fc33d905330329b6f185768a57ba6b38))
 
-* refactor(icons): remove icons of dashboard and support, remove duplic… ([0c5ddf0](https://github.com/magnetis/astro-native/commit/0c5ddf048755cf4388c8bfaf10471ff709eeb4da))
+- refactor(icons): remove icons of dashboard and support, remove duplic… ([0c5ddf0](https://github.com/magnetis/astro-native/commit/0c5ddf048755cf4388c8bfaf10471ff709eeb4da))
 
-* refactor(baseicon): add functions getViewBox and getSize, and fix bas… ([b642b6b](https://github.com/magnetis/astro-native/commit/b642b6b7d83d8a860cc818d371bbbdb7bb2b3ca6))
+- refactor(baseicon): add functions getViewBox and getSize, and fix bas… ([b642b6b](https://github.com/magnetis/astro-native/commit/b642b6b7d83d8a860cc818d371bbbdb7bb2b3ca6))
 
-* refactor(icons): improve iconID type ([060063d](https://github.com/magnetis/astro-native/commit/060063d159bce3c04d58a5bfdf18396e5f5521b2))
+- refactor(icons): improve iconID type ([060063d](https://github.com/magnetis/astro-native/commit/060063d159bce3c04d58a5bfdf18396e5f5521b2))
 
-* ci(gh-action): implement gh-action flow for tests and publish new version ([788c478](https://github.com/magnetis/astro-native/commit/788c47867664e91f54dd04f5c6c1a6327c3b5471))
+- ci(gh-action): implement gh-action flow for tests and publish new version ([788c478](https://github.com/magnetis/astro-native/commit/788c47867664e91f54dd04f5c6c1a6327c3b5471))
 
-* test(jest-config): ignore index and types files on tests ([7700da3](https://github.com/magnetis/astro-native/commit/7700da36e26f35bf10a70a0383da10b2ecf89724))
+- test(jest-config): ignore index and types files on tests ([7700da3](https://github.com/magnetis/astro-native/commit/7700da36e26f35bf10a70a0383da10b2ecf89724))
 
-* refactor(icons): added arrows icon ([fc859d3](https://github.com/magnetis/astro-native/commit/fc859d374c87d63360c5e5bbb6012d65e51d03ed))
+- refactor(icons): added arrows icon ([fc859d3](https://github.com/magnetis/astro-native/commit/fc859d374c87d63360c5e5bbb6012d65e51d03ed))
 
-* refactor(jest.config): /Arros in collectCoverageFrom ([35d312e](https://github.com/magnetis/astro-native/commit/35d312eeca6fd7d9f175f7814aacc3cfec606352))
+- refactor(jest.config): /Arros in collectCoverageFrom ([35d312e](https://github.com/magnetis/astro-native/commit/35d312eeca6fd7d9f175f7814aacc3cfec606352))
 
-* refactor(icons): add getViewBox() and getSize() to viewBox and width/height ([a0f154d](https://github.com/magnetis/astro-native/commit/a0f154d14bacdf17f7d623d18a08d128527acb65))
+- refactor(icons): add getViewBox() and getSize() to viewBox and width/height ([a0f154d](https://github.com/magnetis/astro-native/commit/a0f154d14bacdf17f7d623d18a08d128527acb65))
 
-* refactor(icons): improve getViewBox() and getSize() functions and tests ([5f16dc4](https://github.com/magnetis/astro-native/commit/5f16dc4377ac4fba1dd0c58ec6cd258834f6e769))
+- refactor(icons): improve getViewBox() and getSize() functions and tests ([5f16dc4](https://github.com/magnetis/astro-native/commit/5f16dc4377ac4fba1dd0c58ec6cd258834f6e769))
 
-* refactor(utils test): rename test ([9a69cba](https://github.com/magnetis/astro-native/commit/9a69cba4c7bf9ae6a1a164a75c453cba797bb7fd))
+- refactor(utils test): rename test ([9a69cba](https://github.com/magnetis/astro-native/commit/9a69cba4c7bf9ae6a1a164a75c453cba797bb7fd))
 
 ### Bug Fix
 
-* chore(dependencies): remove standard changelog dependency ([370b761](https://github.com/magnetis/astro-native/commit/370b7614ba1c142510c56075e5f7384b65e70410))
+- chore(dependencies): remove standard changelog dependency ([370b761](https://github.com/magnetis/astro-native/commit/370b7614ba1c142510c56075e5f7384b65e70410))
 
-* ci(script): fix release script ([23f4931](https://github.com/magnetis/astro-native/commit/23f49313aa7b9d8617e911f51fc57691b96d4e64))
+- ci(script): fix release script ([23f4931](https://github.com/magnetis/astro-native/commit/23f49313aa7b9d8617e911f51fc57691b96d4e64))
 
 # [2.0.0-next.6](https://github.com/magnetis/astro-native/compare/v2.0.0-next.4...v2.0.0-next.6) (2022-04-18)
+
 ### Features
 
-* feat(button): add pressed feedback and opacity prop ([e8b22ad](https://github.com/magnetis/astro-native/commit/e8b22ad95bbf9af0cb0a0b046a3f28c4bc71982b))
+- feat(button): add pressed feedback and opacity prop ([e8b22ad](https://github.com/magnetis/astro-native/commit/e8b22ad95bbf9af0cb0a0b046a3f28c4bc71982b))
 
-* refactor(utils): fixed token in getButtonProperties ([b5fa2e1](https://github.com/magnetis/astro-native/commit/b5fa2e1dc7fbfb690c152b00c261669fe91da6da))
+- refactor(utils): fixed token in getButtonProperties ([b5fa2e1](https://github.com/magnetis/astro-native/commit/b5fa2e1dc7fbfb690c152b00c261669fe91da6da))
+
 # [2.0.0-next.5](https://github.com/magnetis/astro-native/compare/v2.0.0-next.4...v2.0.0-next.5) (2022-02-21)
 
 ### Bug Fix
