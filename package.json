@@ -22,7 +22,7 @@
     "lint": "eslint ./src --ext .ts,.tsx",
     "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 7007",
     "version": "standard-changelog && git add CHANGELOG.md package.json",
-    "prepare": "npx husky install",
+    "prepare": "husky",
     "prepublishOnly": "yarn clean && yarn build"
   },
   "repository": {
@@ -65,7 +65,7 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "husky": "^7.0.1",
+    "husky": "^9.0.7",
     "jest": "^26.6.3",
     "lint-staged": "^12.1.2",
     "metro-react-native-babel-preset": "^0.67.0",
@@ -89,12 +89,6 @@
   },
   "resolutions": {
     "refractor": "^3.6.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "config": {
     "commitizen": {
